@@ -1,0 +1,32 @@
+.cart_wrapper {
+    width: 100px;
+    height: 100px;
+    /* background-color: red; */
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.cart_image {
+    width: 32px;
+    height: 32px;
+}
+
+.cart_title {
+    width: 32px;
+    height: 40px;
+
+    position: relative;
+    margin-left: 5px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}

@@ -1,0 +1,39 @@
+.search_wrapper {
+    width: 720px;
+    height: 100px;
+    /* background-color: blue; */
+
+    display: flex;
+    align-items: center;
+}
+
+.search_input {
+    width: 600px;
+    height: 40px;
+
+    border-color: transparent;
+    border-radius: 2px;
+
+    padding-left: 10px;
+}
+
+.search_input:focus {
+    outline: 0;
+}
+
+.search_button {
+    width: 120px;
+    height: 40px;
+    background-color: #0d5cb6;
+
+    border: 0;
+
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.search_icon {
+    width: 25px;
+    height: 25px;
+}

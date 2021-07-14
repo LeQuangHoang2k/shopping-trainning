@@ -1,0 +1,33 @@
+.account_facebook {
+    width: 235px;
+    height: 40px;
+    background-color: rgb(59, 89, 152);
+    border: none;
+    border-radius: 4px;
+
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    color: white;
+    font-weight: bold;
+
+    transform-origin: 0 0;
+
+    animation-name: account_facebook;
+    animation-duration: 0.3s;
+}
+
+@keyframes account_facebook {
+    0% {
+        width: 0;
+        height: 0;
+    }
+
+    100% {
+        width: 235px;
+        height: 40px;
+    }
+}

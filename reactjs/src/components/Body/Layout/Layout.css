@@ -1,0 +1,9 @@
+.layout_wrapper {
+    width: 1250px;
+    min-height: 700px;
+    background-color: white;
+
+    margin: auto;
+
+    position: relative;
+}

@@ -1,0 +1,32 @@
+.btn-account_logout {
+    width: 235px;
+    height: 40px;
+    background-color: #fdd835;
+    border: none;
+    border-radius: 4px;
+
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+    color: #4a4a4a;
+    font-weight: bold;
+
+    transform-origin: 0 0;
+
+    animation-name: account_logout;
+    animation-duration: 0.3s;
+}
+
+@keyframes account_logout {
+    0% {
+        width: 0;
+        height: 0;
+    }
+    100% {
+        width: 235px;
+        height: 40px;
+    }
+}
