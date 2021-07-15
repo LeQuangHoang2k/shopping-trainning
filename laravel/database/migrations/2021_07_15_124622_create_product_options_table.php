@@ -14,8 +14,14 @@ class CreateProductOptionsTable extends Migration
     public function up()
     {
         Schema::create('product_options', function (Blueprint $table) {
-            $table->id();
+            $table->integer("id")->autoIncrement();
+            $table->integer("product_id");
+            $table->string("name");
+            $table->string("value");
+            $table->decimal('price', $precision = 15, $scale = 3);
             $table->timestamps();
+            
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 
