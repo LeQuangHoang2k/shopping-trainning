@@ -30,7 +30,7 @@ function Account(props) {
             return setTimeout(() => {
                 Alert({
                     message:
-                        "Vui lòng đăng nhập để nhận ưu đãi khi săn sale Tiki 7/7 nhé !",
+                        "Vui lòng đăng nhập để nhận ưu đãi khi săn sale Tiki 8/8 nhé !",
                 });
             }, 2000);
 
