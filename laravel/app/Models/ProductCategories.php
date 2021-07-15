@@ -16,4 +16,14 @@ class ProductCategories extends Model
         "created_at",
         "updated_at",
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Products::class, 'product_id', "id");
+    }
+
+    public function categories()
+    {
+        return $this->hasOne(Categories::class, 'category_id', "id");
+    }
 }

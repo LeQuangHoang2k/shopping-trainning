@@ -23,6 +23,11 @@ class Users extends Model
         "updated_at",
     ];
 
+    public function orders()
+    {
+        return $this->hasMany(Orders::class, 'user_id', 'id');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

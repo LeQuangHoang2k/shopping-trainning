@@ -15,4 +15,14 @@ class Orders extends Model
         "created_at",
         "updated_at",
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(Users::class, 'user_id', "id");
+    }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetails::class, 'order_id', "id");
+    }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class productImages extends Model
+class ProductImages extends Model
 {
     use HasFactory;
 
@@ -16,4 +16,9 @@ class productImages extends Model
         "created_at",
         "updated_at",
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Products::class, 'product_id', "id");
+    }
 }

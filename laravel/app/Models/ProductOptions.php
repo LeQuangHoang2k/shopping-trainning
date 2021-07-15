@@ -18,4 +18,14 @@ class ProductOptions extends Model
         "created_at",
         "updated_at",
     ];
+
+    public function products()
+    {
+        return $this->belongsTo(Products::class, 'product_id', "id");
+    }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetails::class, 'product_id', "id");
+    }
 }
