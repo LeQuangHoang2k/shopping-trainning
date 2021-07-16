@@ -8,11 +8,25 @@ use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
-
     public function login(LoginRequest $request)
     {
-        # code...
-        print_r($request);
-        return view('welcome');
+        $validated = $request->validated();
+        if ($validated->fails()) {
+            return ;
+        }
+        
+        $credentials = $request(["email","password"]);
+        if (! $token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        // return response()->json([
+        //     'access_token' => 'accesstoken',
+        //     'expired_time' => 123970,
+        //     'fresh_token' => 'asd'
+        // ]);
+
+        return $this->respondWithToken($token);
+        
     }
 }
