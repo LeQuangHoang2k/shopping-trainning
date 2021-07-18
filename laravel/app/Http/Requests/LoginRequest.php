@@ -13,7 +13,8 @@ class LoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        // return false;
+        return true;
     }
 
     /**
@@ -25,7 +26,17 @@ class LoginRequest extends FormRequest
     {
         return [
             "email" => "required|email:rfc,dns",
+            // "email" => "required|email:rfc,dns|exists:users,email",
             "password" => "required|min:6",
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'email.required' => 'email errors',
+            'password.required' => 'A pwd is required',
+            'password.min' => 'A pwd must have more 6 token',
         ];
     }
 }
