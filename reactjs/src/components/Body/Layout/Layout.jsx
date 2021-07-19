@@ -7,23 +7,23 @@ import ProductDetail from "./ProductDetail/ProductDetail";
 import "./Layout.css";
 
 function Layout(props) {
-    const [mainComponent, setMainComponent] = useState(null);
+  const [mainComponent, setMainComponent] = useState(null);
 
-    const { name, product_id } = queryString.parse(window.location.search);
+  const { name, product_id } = queryString.parse(window.location.search);
 
-    useEffect(() => {
-        if (product_id && product_id !== "") {
-            setMainComponent(<ProductDetail />);
-        } else {
-            setMainComponent(<Product />);
-        }
+  useEffect(() => {
+    if (product_id && product_id !== "") {
+      setMainComponent(<ProductDetail />);
+    } else {
+      setMainComponent(<Product />);
+    }
 
-        return () => {
-            setMainComponent(null); // This worked for me
-        };
-    }, []);
+    return () => {
+      setMainComponent(null); // This worked for me
+    };
+  }, []);
 
-    return <div className="layout_wrapper">{mainComponent}</div>;
+  return <div className="layout_wrapper">{mainComponent}</div>;
 }
 
 export default Layout;

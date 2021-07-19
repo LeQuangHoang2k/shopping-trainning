@@ -10,7 +10,7 @@ function Home(props) {
         <div>
             <Navbar/>  
             {/* <Breadcrumb />  */}
-            {/* <Body /> */}
+            <Body />
         </div>
     );
 }

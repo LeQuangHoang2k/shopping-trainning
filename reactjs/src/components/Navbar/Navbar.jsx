@@ -9,14 +9,14 @@ import axios from "axios";
 import Alert from "../../features/Alert";
 
 function Navbar(props) {
-  useEffect(() => {
-    const testAPI = async () => {
-      const res = await axios.get("http://localhost:8000/api/test");
-      console.log(res);
-    };
+  // useEffect(() => {
+  //   const testAPI = async () => {
+  //     const res = await axios.get("http://localhost:8000/api/product");
+  //     console.log(res);
+  //   };
 
-    testAPI();
-  }, []);
+  //   testAPI();
+  // }, []);
 
   return (
     <nav className="navbar_wrapper">
