@@ -1,0 +1,92 @@
+CREATE TABLE `users` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `facebook_id` int,
+  `google_id` int,
+  `email` varchar(255),
+  `name` varchar(255),
+  `phone` varchar(255),
+  `picture` varchar(255),
+  `password` varchar(255),
+  `role` varchar(255),
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+CREATE TABLE `product_categories` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `product_id` int,
+  `category_id` int(255),
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+CREATE TABLE `categories` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `name` int,
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+CREATE TABLE `products` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `category` varchar(255),
+  `name` varchar(255),
+  `description` varchar(255),
+  `price` decimal,
+  `priority` int,
+  `picture` varchar(255),
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+CREATE TABLE `product_images` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `product_id` int,
+  `path` varchar(255),
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+CREATE TABLE `product_options` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `product_id` int,
+  `name` varchar(255),
+  `value` varchar(255),
+  `price` int,
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+CREATE TABLE `order_details` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `order_id` int,
+  `product_id` int,
+  `amount` int,
+  `option_id` int,
+  `price_per_unit` int,
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+CREATE TABLE `orders` (
+  `id` int PRIMARY KEY AUTO_INCREMENT,
+  `user_id` int,
+  `created_at` datetime,
+  `updated_at` datetime
+);
+
+ALTER TABLE `product_options` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+
+ALTER TABLE `order_details` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+
+ALTER TABLE `order_details` ADD FOREIGN KEY (`option_id`) REFERENCES `product_options` (`id`);
+
+ALTER TABLE `order_details` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+
+ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `orders` (`user_id`);
+
+ALTER TABLE `products` ADD FOREIGN KEY (`id`) REFERENCES `product_categories` (`product_id`);
+
+ALTER TABLE `categories` ADD FOREIGN KEY (`id`) REFERENCES `product_categories` (`category_id`);
+
+ALTER TABLE `products` ADD FOREIGN KEY (`id`) REFERENCES `product_images` (`product_id`);
