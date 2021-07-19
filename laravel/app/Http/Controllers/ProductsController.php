@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ProductsRepository;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public $productRepository;
+
+    public function __construct(ProductsRepository $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
+
     public function index()
     {
         //

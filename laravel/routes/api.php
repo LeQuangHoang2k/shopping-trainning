@@ -24,12 +24,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('/login',  [AuthController::class, 'login']);
 
 //products
-Route::get('/product',  [AuthController::class, 'index']);
-Route::get('/product/{:id}',  [AuthController::class, 'index']);
-Route::put('/product/{:id}',  [AuthController::class, 'index']);
-Route::patch('/product/{:id}',  [AuthController::class, 'index']);
+Route::get('/product',  [ProductsController::class, 'index']);
+Route::get('/product/{:id}',  [ProductsController::class, 'show']);
+Route::post('/product/{:id}',  [ProductsController::class, 'create']);
+Route::put('/product/{:id}',  [ProductsController::class, 'update']);
+Route::patch('/product/{:id}',  [ProductsController::class, 'edit']);
+Route::delete('/product/{:id}',  [ProductsController::class, 'destroy']);
 
 //test
 Route::get('/test',  [AuthController::class, 'test']);
-
-
