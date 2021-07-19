@@ -11,12 +11,13 @@ import Alert from "../../features/Alert";
 function Navbar(props) {
   useEffect(() => {
     const testAPI = async () => {
-      const res = await axios.post("http://localhost:8000/api/test");
-      if (!res) {
-        alert("abc");
-        Alert({ message: "test fail" });
-      }
-      const resJSON = JSON.parse(res);
+      const res = await axios.get("http://localhost:8000/api/test");
+      // if (!res) {
+      //   alert("abc");
+      //   Alert({ message: "test fail" });
+      // }
+      // const resJSON = JSON.parse(res);
+      console.log(res);
     };
 
     testAPI();

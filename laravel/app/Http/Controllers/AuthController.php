@@ -15,6 +15,11 @@ class AuthController extends Controller
         print_r($request->validated());
     }
 
+    public function test(Request $request)
+    {
+        print_r("test");
+    }
+
     // public function createNewToken($token)
     // {
     //     return response()->json([
