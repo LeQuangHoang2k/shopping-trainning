@@ -1,0 +1,2 @@
+insert into product_images (product_id,path) values(1,"https://salt.tikicdn.com/cache/w444/ts/product/86/dd/0c/8948ec0e37381d80d7daf5f8c24062ed.jpg");
+insert into product_images (product_id,path) values(1,"https://salt.tikicdn.com/cache/w444/ts/product/27/55/4e/de17f04656c5cbfd86eb49dbbfb3fe3a.jpg");

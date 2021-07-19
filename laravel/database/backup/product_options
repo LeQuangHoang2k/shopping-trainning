@@ -1,0 +1,6 @@
+insert into product_options (product_id,name,value,price) values(1,"ram","64gb",19000000);
+insert into product_options (product_id,name,value,price) values(1,"ram","128gb",22000000);
+insert into product_options (product_id,name,value,price) values(2,"ram","64gb",19000000);
+insert into product_options (product_id,name,value,price) values(2,"ram","128gb",22000000);
+insert into product_options (product_id,name,value,price) values(3,"ram","64gb",19000000);
+insert into product_options (product_id,name,value,price) values(3,"ram","128gb",22000000);
