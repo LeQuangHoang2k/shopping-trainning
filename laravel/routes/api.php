@@ -20,7 +20,16 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+//users 
 Route::post('/login',  [AuthController::class, 'login']);
+
+//products
+Route::get('/product',  [AuthController::class, 'index']);
+Route::get('/product/{:id}',  [AuthController::class, 'index']);
+Route::put('/product/{:id}',  [AuthController::class, 'index']);
+Route::patch('/product/{:id}',  [AuthController::class, 'index']);
+
+//test
 Route::get('/test',  [AuthController::class, 'test']);
 
 
