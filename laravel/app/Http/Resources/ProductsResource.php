@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductsResource extends JsonResource
@@ -12,14 +13,15 @@ class ProductsResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray($request)
+    public function toArray($data)
     {
         return [
-            "id" => "id",
-            "name" => "id",
-            "price" => "id",
+            "id" => $this->id,
+            "name" => $this->name,
+            "price" => $this->price,
             "options" => "id",
             "images" => "id",
+            'created_at' => Carbon::parse($this->created_at)->format('d/m/Y H:i:s'),
         ];
     }
 }

@@ -12,7 +12,7 @@ class ProductsRepository
 
         $query = Products::select("*");
 
-        return $query->get();
+        return $query->paginate(15);
     }
 
     public function find($id)
