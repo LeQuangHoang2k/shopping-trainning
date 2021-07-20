@@ -1,0 +1,7 @@
+insert into categories(name) values ("điện thoại")
+insert into categories(name) values ("laptop")
+insert into categories(name) values ("màn hình")
+insert into categories(name) values ("bàn phím")
+insert into categories(name) values ("ram")
+insert into categories(name) values ("CPU")
+insert into categories(name) values ("ổ cứng")
