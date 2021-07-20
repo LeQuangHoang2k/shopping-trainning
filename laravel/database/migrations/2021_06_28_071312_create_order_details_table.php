@@ -17,12 +17,13 @@ class CreateOrderDetailsTable extends Migration
             $table->integer("id")->autoIncrement();
             $table->integer("order_id");
             $table->integer("product_id");
+            $table->integer("product_option");
             $table->integer("amount");
-            $table->integer("option_id");
+            $table->integer("price_per_unit");
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
-            $table->foreign("option_id")->references('id')->on('product_options');
+            $table->foreign("product_option")->references('id')->on('product_options');
             $table->foreign("order_id")->references('id')->on('orders');
         });
     }

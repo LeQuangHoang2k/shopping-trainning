@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->integer("id")->autoIncrement();
-            $table->string("category");
+            $table->integer("category_id");
             $table->string("name");
             $table->text("description");   
             $table->decimal('price', $precision = 15, $scale = 3);
@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string("picture");
             $table->timestamps();
 
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
