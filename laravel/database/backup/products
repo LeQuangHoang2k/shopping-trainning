@@ -1,44 +1,44 @@
-insert into products (category,name,picture,description,price,priority) 
-values ("iphone","iphone 12 hàng chính hãng","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","Hàng chính hãng mã VN/A, Mới 100%, Nguyên Seal Bộ nhớ trong: 64 GB Loại SIM: Dual SIM (nano‑SIM and eSIM) Loại màn hình: Super Retina XDR OLED, HDR10, Dolby Vision, Wide color gamut, True-tone Kích thước màn hình: 6.1 inches Độ phân giải màn hình: 1170 x 2532 pixels Hệ điều hành: iOS14",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12 hàng chính hãng","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","Hàng chính hãng mã VN/A, Mới 100%, Nguyên Seal Bộ nhớ trong: 64 GB Loại SIM: Dual SIM (nano‑SIM and eSIM) Loại màn hình: Super Retina XDR OLED, HDR10, Dolby Vision, Wide color gamut, True-tone Kích thước màn hình: 6.1 inches Độ phân giải màn hình: 1170 x 2532 pixels Hệ điều hành: iOS14",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("iphone","iphone 12 pro","https://salt.tikicdn.com/cache/w444/ts/product/86/dd/0c/8948ec0e37381d80d7daf5f8c24062ed.jpg","Hãng sản xuất Apple, hàng chính hãng VN/A Kích thước 146.7 x 71.5 x 7.4 mm Trọng lượng 189 g Bộ nhớ trong 128 GB Loại SIM Dual SIM (nano‑SIM and eSIM) Loại màn hình Super Retina XDR OLED, HDR10, Dolby Vision, Wide color gamut, True-tone Kích thước màn hình 6.1 inches Độ phân giải màn hình 1170 x 2532 pixels Hệ điều hành iOS Phiên bản hệ điều hành iOS 14",27000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12 pro","https://salt.tikicdn.com/cache/w444/ts/product/86/dd/0c/8948ec0e37381d80d7daf5f8c24062ed.jpg","Hãng sản xuất Apple, hàng chính hãng VN/A Kích thước 146.7 x 71.5 x 7.4 mm Trọng lượng 189 g Bộ nhớ trong 128 GB Loại SIM Dual SIM (nano‑SIM and eSIM) Loại màn hình Super Retina XDR OLED, HDR10, Dolby Vision, Wide color gamut, True-tone Kích thước màn hình 6.1 inches Độ phân giải màn hình 1170 x 2532 pixels Hệ điều hành iOS Phiên bản hệ điều hành iOS 14",27000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("iphone","iphone 12 pro max","	https://salt.tikicdn.com/cache/w444/ts/product/86/dd/0c/867625c22f9e6ef1467409bcae2ac1a9.jpg","Hàng chính hãng VN/A Bộ nhớ trong 128 GB Loại SIM Dual SIM (nano‑SIM and eSIM) Loại màn hình Super Retina XDR OLED, HDR10, Dolby Vision, Wide color gamut, True-tone Kích thước màn hình 6.7 inches Độ phân giải màn hình 1284 x 2778 pixels Hệ điều hành iOS Phiên bản hệ điều hành iOS 14",28500000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12 pro max","	https://salt.tikicdn.com/cache/w444/ts/product/86/dd/0c/867625c22f9e6ef1467409bcae2ac1a9.jpg","Hàng chính hãng VN/A Bộ nhớ trong 128 GB Loại SIM Dual SIM (nano‑SIM and eSIM) Loại màn hình Super Retina XDR OLED, HDR10, Dolby Vision, Wide color gamut, True-tone Kích thước màn hình 6.7 inches Độ phân giải màn hình 1284 x 2778 pixels Hệ điều hành iOS Phiên bản hệ điều hành iOS 14",28500000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
 
-insert into products (category,name,picture,description,price,priority) 
-values ("1","iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
+insert into products (category_id,name,picture,description,price,priority) 
+values (1,"iphone 12","https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png","iphone xach tay",19000000.1,1);
