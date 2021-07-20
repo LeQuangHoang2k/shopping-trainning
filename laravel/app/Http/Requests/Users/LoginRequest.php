@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Users;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -25,7 +25,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            "email" => "required|email:rfc,dns",
+            "email" => "required|email",
             // "email" => "required|email:rfc,dns|exists:users,email",
             "password" => "required|min:6",
         ];

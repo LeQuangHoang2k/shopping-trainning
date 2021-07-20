@@ -2,17 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
-        $validated = $request->validated();
-        print_r($request->validated());
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
+        ]);
+       
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => [
+                    'message' => $validator->errors()->first()
+                ]
+            ], 400);
+        }
+
+        // print_r($request->validated());
     }
 
     public function test(Request $request)

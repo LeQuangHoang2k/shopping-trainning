@@ -7,15 +7,8 @@ CREATE TABLE `users` (
   `phone` varchar(255),
   `picture` varchar(255),
   `password` varchar(255),
+  `address` varchar(255),
   `role` varchar(255),
-  `created_at` datetime,
-  `updated_at` datetime
-);
-
-CREATE TABLE `product_categories` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `product_id` int,
-  `category_id` int(255),
   `created_at` datetime,
   `updated_at` datetime
 );
@@ -29,7 +22,7 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `products` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
-  `category` varchar(255),
+  `category_id` int,
   `name` varchar(255),
   `description` varchar(255),
   `price` decimal,
@@ -62,7 +55,7 @@ CREATE TABLE `order_details` (
   `order_id` int,
   `product_id` int,
   `amount` int,
-  `option_id` int,
+  `product_option` int,
   `price_per_unit` int,
   `created_at` datetime,
   `updated_at` datetime
@@ -71,6 +64,9 @@ CREATE TABLE `order_details` (
 CREATE TABLE `orders` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `user_id` int,
+  `address` varchar(255),
+  `phone` varchar(255),
+  `total_price` decimal,
   `created_at` datetime,
   `updated_at` datetime
 );
@@ -79,14 +75,12 @@ ALTER TABLE `product_options` ADD FOREIGN KEY (`product_id`) REFERENCES `product
 
 ALTER TABLE `order_details` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
 
-ALTER TABLE `order_details` ADD FOREIGN KEY (`option_id`) REFERENCES `product_options` (`id`);
+ALTER TABLE `order_details` ADD FOREIGN KEY (`product_option`) REFERENCES `product_options` (`id`);
 
 ALTER TABLE `order_details` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
 
 ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `orders` (`user_id`);
 
-ALTER TABLE `products` ADD FOREIGN KEY (`id`) REFERENCES `product_categories` (`product_id`);
-
-ALTER TABLE `categories` ADD FOREIGN KEY (`id`) REFERENCES `product_categories` (`category_id`);
-
 ALTER TABLE `products` ADD FOREIGN KEY (`id`) REFERENCES `product_images` (`product_id`);
+
+ALTER TABLE `categories` ADD FOREIGN KEY (`id`) REFERENCES `products` (`category_id`);
