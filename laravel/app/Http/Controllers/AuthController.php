@@ -11,19 +11,20 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
         ]);
-       
+
         if ($validator->fails()) {
             return response()->json([
                 'error' => [
-                    'message' => $validator->errors()->first()
+                    // 'message' => $validator->errors()->first()
+                    'message' => $validator->errors()->toArray()
                 ]
             ], 400);
         }
 
-        // print_r($request->validated());
+        dd("thành công");
     }
 
     public function test(Request $request)
