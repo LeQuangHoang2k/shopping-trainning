@@ -21,11 +21,10 @@ class CreateUsersTable extends Migration
             $table->string("name")->default('');
             $table->string("phone")->default('');
             $table->string("picture", 255)->default('');
-            $table->text("address")->default('');
+            $table->text("address");
             $table->string("password")->default('');
             $table->string("role")->default('');
             $table->timestamps();
-
         });
     }
 
