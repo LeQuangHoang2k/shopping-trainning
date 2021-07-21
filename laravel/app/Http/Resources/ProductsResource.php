@@ -23,8 +23,8 @@ class ProductsResource extends JsonResource
             "picture" => $this->picture,
             "priority" => $this->priority,
             "options" => ProductOptionsResource::collection($this->options),
-            // "options" => 1,
-            "images" => "id",
+            "images" => ProductImagesResource::collection($this->images),
+            // "images" => "id",
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y H:i:s'),
         ];
     }
