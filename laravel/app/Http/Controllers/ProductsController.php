@@ -17,7 +17,8 @@ class ProductsController extends Controller
 
     public function index()
     {
-        return ProductsResource::collection($this->productRepository->getAll());
+        $filters = request()->all();
+        return ProductsResource::collection($this->productRepository->getAll($filters));
     }
 
     /**
@@ -49,7 +50,10 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        // $filters = request()->all();
+        // dd($id);
+        // // $filters["id"] = $id;
+        // return ProductsResource::collection($this->productRepository->getAll($id));
     }
 
     /**
