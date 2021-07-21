@@ -121,11 +121,16 @@ function ProductDetail(props) {
   return (
     <div>
       <div className="productDetail_left">
-        <img
-          src="https://salt.tikicdn.com/cache/w444/ts/product/27/55/4e/de17f04656c5cbfd86eb49dbbfb3fe3a.jpg"
-          className="productDetail_left_image"
-          alt="Image"
-        />
+        <div className="productDetail_left_main">
+          <img
+            src="https://salt.tikicdn.com/cache/w444/ts/product/27/55/4e/de17f04656c5cbfd86eb49dbbfb3fe3a.jpg"
+            className="productDetail_left_image"
+            alt="Image"
+          />
+        </div>
+        <div className="productDetail_left_list">
+          
+        </div>
       </div>
       <div className="productDetail_right">
         <div className="productDetail_right_title">
