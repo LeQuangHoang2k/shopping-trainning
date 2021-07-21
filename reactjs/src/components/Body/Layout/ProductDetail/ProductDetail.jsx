@@ -21,27 +21,27 @@ function ProductDetail(props) {
   const [test, setTest] = useState([
     {
       image:
-        "https://salt.tikicdn.com/cache/w64/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg",
+        "https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg",
     },
     {
       image:
-        "https://salt.tikicdn.com/cache/w64/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg",
+        "https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg",
     },
     {
       image:
-        "https://salt.tikicdn.com/cache/w64/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg",
+        "https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg",
     },
     {
       image:
-        "https://salt.tikicdn.com/cache/w64/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg",
+        "https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg",
     },
     {
       image:
-        "https://salt.tikicdn.com/cache/w64/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg",
+        "https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg",
     },
     {
       image:
-        "https://salt.tikicdn.com/cache/w64/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg",
+        "https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg",
     },
   ]);
 
@@ -95,11 +95,9 @@ function ProductDetail(props) {
     setOptionId(productsReturn.options[0].id);
   };
 
-  const changePicture = (picture) => {
-    Alert({ message: "đã bấm" });
-    setPicture(
-      "https://salt.tikicdn.com/cache/w64/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg"
-    );
+  const changePicture = (image) => {
+    // Alert({ message: "đã bấm" });
+    setPicture(image);
   };
 
   const updateOption = (option) => {
@@ -173,7 +171,7 @@ function ProductDetail(props) {
                 className="productDetail_sub_image"
                 src={item.image}
                 alt={item.image}
-                onClick={changePicture}
+                onClick={() => changePicture(item.image)}
               />
             );
           })}

@@ -40,6 +40,10 @@
 }
 
 .productDetail_sub_image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+
   margin-left: 6px;
   margin-right: 6px;
 }
