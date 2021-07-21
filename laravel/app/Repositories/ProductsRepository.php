@@ -14,7 +14,7 @@ class ProductsRepository
 
         //find 1
         if (isset($filters['id'])) {
-            return $query->where('id', $filters['id']);
+            return $query->where('id', $filters['id'])->get();
         }
 
         //find name

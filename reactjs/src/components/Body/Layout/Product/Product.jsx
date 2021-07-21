@@ -21,10 +21,10 @@ function Product(props) {
     var res = null;
 
     if (name && name !== "") {
-      res = await axios.post("/api/search-product", { name });
+      res = await axios.get(`http://localhost:8000/api/products?name=${name}`);
       console.log("name là: ", name);
     } else {
-      res = await axios.get("http://localhost:8000/api/product");
+      res = await axios.get("http://localhost:8000/api/products");
     }
 
     const { data } = await res.data;
@@ -43,7 +43,7 @@ function Product(props) {
         return (
           <a
             key={item.id}
-            href={`/?product_id=${item.id}`}
+            href={`/products?id=${item.id}`}
             className="product_wrapper"
           >
             <div className="product_content">

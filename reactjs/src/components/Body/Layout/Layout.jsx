@@ -9,10 +9,10 @@ import "./Layout.css";
 function Layout(props) {
   const [mainComponent, setMainComponent] = useState(null);
 
-  const { name, product_id } = queryString.parse(window.location.search);
+  const { name, id } = queryString.parse(window.location.search);
 
   useEffect(() => {
-    if (product_id && product_id !== "") {
+    if (id && id !== "") {
       setMainComponent(<ProductDetail />);
     } else {
       setMainComponent(<Product />);
