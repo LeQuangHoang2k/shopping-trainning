@@ -71,7 +71,7 @@ function ProductDetail(props) {
 
     // console.log(data.data);
 
-    setProduct(data);
+    setProduct(data); 
     // setOptions(data.option);
     // setActiveID(data.option[0].OptionID);
 
