@@ -9,7 +9,7 @@ function ProductDetail(props) {
   const [active, setActive] = useState(0);
   const [product, setProduct] = useState([]);
   const [options, setOptions] = useState([]);
-  const [optionID, setOptionID] = useState(0);
+  const [optionId, setOptionId] = useState(0);
   const [price, setPrice] = useState(0);
   const [count, setCount] = useState(1);
   const [cart, setCart] = useState(
@@ -19,10 +19,10 @@ function ProductDetail(props) {
   const { id } = queryString.parse(window.location.search);
 
   var formData = {
-    productID: product.id,
+    product_id: product.id,
     price: price,
     count,
-    optionID,
+    option_id: optionId,
   };
 
   useEffect(() => {
@@ -35,7 +35,7 @@ function ProductDetail(props) {
 
       setPrice(0);
       setCount(1);
-      setOptionID(0);
+      setOptionId(0);
       setActive(0);
 
       formData = {};
@@ -63,20 +63,20 @@ function ProductDetail(props) {
     setActive(productsReturn.options[0].id);
 
     setPrice(productsReturn.price);
-    setOptionID(productsReturn.options[0].id);
+    setOptionId(productsReturn.options[0].id);
   };
 
   const updateOption = (option) => {
     setPrice(option.price);
-    setOptionID(option.id);
+    setOptionId(option.id);
     setActive(option.id);
   };
 
-  const countIncrease = () => {
+  const Increase = () => {
     setCount(count + 1);
   };
 
-  const countDecrease = () => {
+  const Decrease = () => {
     if (count === 1) return Alert({ warning: "Can't reduce any more" });
 
     setCount(count - 1);
@@ -98,7 +98,7 @@ function ProductDetail(props) {
         warning: "Can't add to cart because count isn't valid.",
       });
 
-    if (optionID <= 0)
+    if (optionId <= 0)
       return Alert({
         warning: "Can't add to cart because option name isn't valid.",
       });
@@ -110,7 +110,7 @@ function ProductDetail(props) {
     console.log("formData: ", formData);
     console.log("cart", cart);
 
-    cart.push({ product: formData });
+    cart.push({ order: formData });
     localStorage.setItem("cart", JSON.stringify(cart));
 
     console.log("cart", cart);
@@ -178,19 +178,11 @@ function ProductDetail(props) {
         <p className="option_amount_title">Amount:</p>
 
         <div className="option_amount">
-          <button
-            type="button"
-            className="option_decrease"
-            onClick={countDecrease}
-          >
+          <button type="button" className="option_decrease" onClick={Decrease}>
             -
           </button>
           <button className="option_count"> {count} </button>
-          <button
-            type="button"
-            className="option_increase"
-            onClick={countIncrease}
-          >
+          <button type="button" className="option_increase" onClick={Increase}>
             +
           </button>
         </div>
