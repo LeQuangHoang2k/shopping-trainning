@@ -30,9 +30,22 @@
 .productDetail_left_list {
   width: 444px;
   height: 80px;
-  box-shadow: 0 0 10px red;
+  /* box-shadow: 0 0 10px red; */
 
   margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productDetail_sub_image {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.productDetail_sub_image:hover {
+  cursor: pointer;
 }
 
 /* ///////////////////////////////// */
