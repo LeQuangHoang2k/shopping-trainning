@@ -15,11 +15,13 @@ class CreateProductImagesTable extends Migration
     {
         Schema::create('product_images', function (Blueprint $table) {
             $table->integer("id")->autoIncrement();
+            $table->integer("product_option");
             $table->integer("product_id");
-            $table->string("path");
+            $table->string("path")->default('');
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('product_id')->references('id')->on('product_options');
         });
     }
 

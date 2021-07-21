@@ -18,11 +18,11 @@ class CreateUsersTable extends Migration
             $table->integer("facebook_id");
             $table->integer("google_id");
             $table->string("email")->default('');
+            $table->string("password")->default('');
             $table->string("name")->default('');
             $table->string("phone")->default('');
             $table->string("picture", 255)->default('');
             $table->text("address");
-            $table->string("password")->default('');
             $table->string("role")->default('');
             $table->timestamps();
         });

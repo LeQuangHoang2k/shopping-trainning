@@ -16,9 +16,9 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->integer("id")->autoIncrement();
             $table->integer("user_id");
-            $table->string("address");
-            $table->string("phone");
-            $table->string("total_price");
+            $table->text("address");
+            $table->string("phone")->default('');
+            $table->string("total_price")->default('');
             $table->timestamps();
 
             $table->foreign("user_id")->references('id')->on('users');
