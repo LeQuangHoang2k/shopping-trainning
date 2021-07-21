@@ -17,10 +17,11 @@ class CreateProductsTable extends Migration
             $table->integer("id")->autoIncrement();
             $table->integer("category_id");
             $table->string("name")->default('');
-            $table->text("description");   
+            $table->string("slug")->default('');
+            $table->text("description");
             $table->decimal('price', $precision = 15, $scale = 3);
             $table->integer("priority");
-            $table->string("picture",255)->default('');
+            $table->string("picture")->default('');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');

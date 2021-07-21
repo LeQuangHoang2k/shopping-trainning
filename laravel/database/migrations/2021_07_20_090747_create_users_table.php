@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string("password")->default('');
             $table->string("name")->default('');
             $table->string("phone")->default('');
-            $table->string("picture", 255)->default('');
+            $table->string("picture")->default('');
             $table->text("address");
             $table->string("role")->default('');
             $table->timestamps();
