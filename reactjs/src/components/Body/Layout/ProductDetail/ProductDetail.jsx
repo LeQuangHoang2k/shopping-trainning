@@ -6,16 +6,15 @@ import "./ProductDetail.css";
 import Alert from "../../../../features/Alert";
 
 function ProductDetail(props) {
-  const [activeID, setActiveID] = useState(0);
+  const [active, setActive] = useState(0);
   const [product, setProduct] = useState([]);
   const [options, setOptions] = useState([]);
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
-
   const [optionID, setOptionID] = useState(0);
   const [price, setPrice] = useState(0);
   const [count, setCount] = useState(1);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   const { id } = queryString.parse(window.location.search);
 
@@ -26,17 +25,8 @@ function ProductDetail(props) {
     optionID,
   };
 
-//   useEffect(() => {
-//     const testAPI = async () => {
-//       const res = await axios.get("http://localhost:8000/api/products?id=6");
-//       console.log(res);
-//     };
-
-//     testAPI();
-//   }, []);
   useEffect(() => {
     fetchProduct();
-    console.log("cart first: ", cart);
 
     return () => {
       setProduct([]);
@@ -46,7 +36,7 @@ function ProductDetail(props) {
       setPrice(0);
       setCount(1);
       setOptionID(0);
-      setActiveID(0);
+      setActive(0);
 
       formData = {};
     };
@@ -63,39 +53,41 @@ function ProductDetail(props) {
       res = await axios.get("http://localhost:8000/api/products");
     }
 
-    // return console.log(res.data);
-    const { data } = await res.data;
-    // return;
+    console.log("res", res.data.data[0]);
+    const productsReturn = await res.data.data[0];
 
-    console.log("php: ", data);
+    console.log("php: ", productsReturn);
 
-    // console.log(data.data);
+    setProduct(productsReturn);
+    setOptions(productsReturn.options);
+    setActive(productsReturn.options[0].id);
 
-    setProduct(data); 
-    // setOptions(data.option);
-    // setActiveID(data.option[0].OptionID);
-
-    // setPrice(data.product.PriceDefault);
-    // setOptionID(data.option[0].OptionID);
+    setPrice(productsReturn.price);
+    setOptionID(productsReturn.options[0].id);
   };
 
-  const updateProduct = (item) => {
-    setPrice(item.OptionPrice);
-    setOptionID(item.OptionID);
-    setActiveID(item.OptionID);
+  const updateOption = (option) => {
+    setPrice(option.price);
+    setOptionID(option.id);
+    setActive(option.id);
   };
 
-  const countIncrease = (item) => {
+  const countIncrease = () => {
     setCount(count + 1);
   };
 
-  const countDecrease = (item) => {
+  const countDecrease = () => {
     if (count === 1) return Alert({ warning: "Can't reduce any more" });
 
     setCount(count - 1);
   };
 
   const addCart = () => {
+    validateCart();
+    saveCart();
+  };
+
+  const validateCart = () => {
     if (price <= 0)
       return Alert({
         warning: "Can't add to cart because price isn't valid.",
@@ -110,8 +102,6 @@ function ProductDetail(props) {
       return Alert({
         warning: "Can't add to cart because option name isn't valid.",
       });
-
-    saveCart();
   };
 
   const saveCart = () => {
@@ -140,7 +130,7 @@ function ProductDetail(props) {
       <div className="productDetail_right">
         <div className="productDetail_right_title">
           {/* Điện Thoại iPhone 12 Pro 128GB - Hàng Chính Hãng */}
-          {product.ProductName}
+          {product.name}
         </div>
         <div className="productDetail_right_price">
           {parseInt(price).toLocaleString("it-IT", {
@@ -169,19 +159,17 @@ function ProductDetail(props) {
         </div>
 
         <div className="productDetail_right_ram" id="option_wrapper ">
-          {options.map((item) => {
+          {options.map((option) => {
             return (
               <button
-                key={item.OptionID}
+                key={option.id}
                 type="button"
                 className={
-                  activeID === item.OptionID
-                    ? "option_ram active"
-                    : "option_ram"
+                  active === option.id ? "option_ram active" : "option_ram"
                 }
-                onClick={() => updateProduct(item)}
+                onClick={() => updateOption(option)}
               >
-                {item.OptionValue}
+                {option.value}
               </button>
             );
           })}
@@ -212,9 +200,7 @@ function ProductDetail(props) {
         </button>
 
         <div className="productDetail_description">
-          <span className="productDetail_text">
-            {product.ProductDescription}
-          </span>
+          <span className="productDetail_text">{product.description}</span>
         </div>
       </div>
     </div>
