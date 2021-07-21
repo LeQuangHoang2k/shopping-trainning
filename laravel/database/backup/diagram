@@ -1,86 +1,112 @@
-CREATE TABLE `users` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `facebook_id` int,
-  `google_id` int,
-  `email` varchar(255),
-  `name` varchar(255),
-  `phone` varchar(255),
-  `picture` varchar(255),
-  `password` varchar(255),
-  `address` varchar(255),
-  `role` varchar(255),
-  `created_at` datetime,
-  `updated_at` datetime
-);
+Table "users" {
+  "id" int [pk, increment]
+  "facebook_id" int
+  "google_id" int
+  "email" varchar(255)
+  "name" varchar(255)
+  "phone" varchar(255)
+  "picture" varchar(255)
+  "password" varchar(255)
+  "address" text
+  "role" varchar(255)
+  "created_at" datetime
+  "updated_at" datetime
+}
 
-CREATE TABLE `categories` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `name` int,
-  `created_at` datetime,
-  `updated_at` datetime
-);
+// Table "googles" {
+//   "id" int [pk, increment]
+//   "user_id" int 
+//   "google_id" varchar(255)
+//   "name" varchar(255)
+//   "picture" varchar(255)
+//   "created_at" datetime
+//   "updated_at" datetime
+// }
 
-CREATE TABLE `products` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `category_id` int,
-  `name` varchar(255),
-  `description` varchar(255),
-  `price` decimal,
-  `priority` int,
-  `picture` varchar(255),
-  `created_at` datetime,
-  `updated_at` datetime
-);
+// Table "facebooks" {
+//   "id" int [pk, increment]
+//   "user_id" int
+//   "fackebook_id" varchar(255)
+//   "picture" varchar(255)
+//   "name" varchar(255)
+//   "created_at" datetime
+//   "updated_at" datetime
+// }
 
-CREATE TABLE `product_images` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `product_id` int,
-  `path` varchar(255),
-  `created_at` datetime,
-  `updated_at` datetime
-);
+Table "categories" {
+  "id" int [pk, increment]
+  "name" int
+  "slug" varchar(255)
+  "created_at" datetime
+  "updated_at" datetime
+}
 
-CREATE TABLE `product_options` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `product_id` int,
-  `name` varchar(255),
-  `value` varchar(255),
-  `price` int,
-  `created_at` datetime,
-  `updated_at` datetime
-);
+Table "products" {
+  "id" int [pk, increment]
+  "category_id" int
+  "name" varchar(255)
+  "slug" varchar(255)
+  "description" varchar(255)
+  "price" decimal
+  "priority" int
+  "picture" varchar(255)
+  "created_at" datetime
+  "updated_at" datetime
+}
 
-CREATE TABLE `order_details` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `order_id` int,
-  `product_id` int,
-  `amount` int,
-  `product_option` int,
-  `price_per_unit` int,
-  `created_at` datetime,
-  `updated_at` datetime
-);
+Table "product_images" {
+  "id" int [pk, increment]
+  "product_option" int
+  "product_id" int
+  "path" varchar(255)
+  "created_at" datetime
+  "updated_at" datetime
+}
 
-CREATE TABLE `orders` (
-  `id` int PRIMARY KEY AUTO_INCREMENT,
-  `user_id` int,
-  `address` varchar(255),
-  `phone` varchar(255),
-  `total_price` decimal,
-  `created_at` datetime,
-  `updated_at` datetime
-);
+Table "product_options" {
+  "id" int [pk, increment]
+  "product_id" int
+  "name" varchar(255)
+  "value" varchar(255)
+  "price" int
+  "created_at" datetime
+  "updated_at" datetime
+}
 
-ALTER TABLE `product_options` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+Table "order_details" {
+  "id" int [pk, increment]
+  "order_id" int
+  "product_id" int
+  "amount" int
+  "product_option" int
+  "price_per_unit" int
+  "created_at" datetime
+  "updated_at" datetime
+}
 
-ALTER TABLE `order_details` ADD FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
+Table "orders" {
+  "id" int [pk, increment]
+  "user_id" int
+  "address" text
+  "phone" varchar
+  "total_price" decimal
+  "created_at" datetime
+  "updated_at" datetime
+}
 
-ALTER TABLE `order_details` ADD FOREIGN KEY (`product_option`) REFERENCES `product_options` (`id`);
 
-ALTER TABLE `order_details` ADD FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+Ref:"products"."id" < "product_options"."product_id"
 
-ALTER TABLE `users` ADD FOREIGN KEY (`id`) REFERENCES `orders` (`user_id`);
+Ref:"products"."id" < "order_details"."product_id"
 
-ALTER TABLE `products` ADD FOREIGN KEY (`id`) REFERENCES `product_images` (`product_id`);
+Ref:"product_options"."id" < "order_details"."product_option"
 
-ALTER TABLE `categories` ADD FOREIGN KEY (`id`) REFERENCES `products` (`category_id`);
+Ref:"orders"."id" < "order_details"."order_id"
+
+Ref: "orders"."user_id" < "users"."id"
+
+Ref: "product_images"."product_id" < "products"."id"
+
+Ref: "products"."category_id" < "categories"."id"
+
+Ref: "product_images"."product_option" < "product_options"."id"
