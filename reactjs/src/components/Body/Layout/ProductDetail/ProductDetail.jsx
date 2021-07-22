@@ -7,7 +7,7 @@ import Alert from "../../../../features/Alert";
 
 function ProductDetail(props) {
   const [active, setActive] = useState(0);
-  const [activePicture, setActivePicture] = useState(0);
+  // const [activePicture, setActivePicture] = useState(0);
   const [product, setProduct] = useState([]);
   const [options, setOptions] = useState([]);
   const [optionId, setOptionId] = useState(0);

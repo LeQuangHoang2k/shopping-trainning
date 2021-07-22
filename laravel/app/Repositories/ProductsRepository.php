@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Products;
+use Illuminate\Support\Facades\Validator;
 
 class ProductsRepository
 {
@@ -11,6 +12,15 @@ class ProductsRepository
         $query = Products::select('*');
         $sort = isset($filters['sort']) ? $filters['sort'] : 'priority';
         $order = isset($filters['order']) ? $filters['order'] : 'desc';
+
+        // dd($filters['page']);
+        if (isset($filters['page']) || $filters['page'] === null) {
+            $validator = Validator::make($filters, [
+                'page' => 'required|integer|min:1'
+            ]);
+
+            if ($validator->fails()) return [];
+        }
 
         //find 1
         if (isset($filters['id'])) {
@@ -32,3 +42,9 @@ class ProductsRepository
         return $query->orderBy($sort, $order)->paginate(15);
     }
 }
+
+//limit     la : count
+//offset    la : skip
+// $limit = 15;
+// $page = isset($filters['page']) ? $filters['page'] : 1; //(0,15]
+// $offset = ($page - 1) * $limit; // 0

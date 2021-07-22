@@ -7,7 +7,7 @@ import "./Product.css";
 function Product(props) {
   const [products, setProducts] = useState([]);
 
-  const { name } = queryString.parse(window.location.search);
+  var { name, page } = queryString.parse(window.location.search);
 
   useEffect(() => {
     fetchProduct();
@@ -20,24 +20,30 @@ function Product(props) {
   const fetchProduct = async () => {
     var res = null;
 
+    page = typeof page === "undefined" ? 1 : page;
+
     if (name && name !== "") {
-      res = await axios.get(`http://localhost:8000/api/products?name=${name}`);
-      console.log("name là: ", name);
+      res = await axios.get(
+        `http://localhost:8000/api/products?name=${name}&page=${page}`
+      );
     } else {
-      res = await axios.get("http://localhost:8000/api/products");
+      res = await axios.get(`http://localhost:8000/api/products?page=${page}`);
     }
 
     const { data } = await res.data;
-
-    console.log("php: ", data);
-
-    // console.log(data.data);
-
     setProducts(data);
+    console.log("php: ", data);
   };
 
+  if (products.length === 0) {
+    return (
+      <center>
+        <h1>{products.length === 0 ? "No matching results" : ""}</h1>
+      </center>
+    );
+  }
+
   return (
-    // <div></div>
     <div>
       {products.map((item) => {
         return (
@@ -49,7 +55,9 @@ function Product(props) {
             <div className="product_content">
               <img src={item.picture} className="product_image" alt="Image" />
 
-              <span className="product_title">{item.name}</span>
+              <span className="product_title">
+                {item.id} : {item.name}
+              </span>
 
               <div>
                 <span className="product_star">Đánh giá : 5 sao |</span>{" "}
