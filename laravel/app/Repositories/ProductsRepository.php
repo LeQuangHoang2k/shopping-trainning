@@ -13,10 +13,13 @@ class ProductsRepository
         $sort = isset($filters['sort']) ? $filters['sort'] : 'priority';
         $order = isset($filters['order']) ? $filters['order'] : 'desc';
 
-        // dd($filters['page']);
-        if (isset($filters['page']) || $filters['page'] === null) {
+        if ($filters == []) return [];
+
+        if (is_null($filters['page'])) return [];
+        
+        if (isset($filters['page'])) {
             $validator = Validator::make($filters, [
-                'page' => 'required|integer|min:1'
+                'page' => 'required|nullable|integer|min:1'
             ]);
 
             if ($validator->fails()) return [];
@@ -36,8 +39,6 @@ class ProductsRepository
         if (isset($filters['color'])) {
             $query->where('color', 'like', '%' . $filters['color'] . '%');
         }
-
-        // dd($filters);
 
         return $query->orderBy($sort, $order)->paginate(15);
     }
