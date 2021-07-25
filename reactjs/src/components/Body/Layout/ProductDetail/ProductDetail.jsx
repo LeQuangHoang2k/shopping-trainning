@@ -67,8 +67,11 @@ function ProductDetail(props) {
     console.log("images", productsReturn.images);
     setPictures(productsReturn.images);
     setOptions(productsReturn.options);
-    setOptionId(productsReturn.options[0].id);
-    setActive(productsReturn.options[0].id);
+
+    if (productsReturn.options[0] && productsReturn.options[0].id) {
+      setOptionId(productsReturn.options[0].id);
+      setActive(productsReturn.options[0].id);
+    }
   };
 
   const changePicture = (image) => {
