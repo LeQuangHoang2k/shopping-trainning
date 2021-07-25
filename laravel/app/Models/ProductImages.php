@@ -1,24 +1,24 @@
 <?php
 
-// namespace App\Models;
+namespace App\Models;
 
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-// class ProductImages extends Model
-// {
-//     use HasFactory;
+class ProductImages extends Model
+{
+    use HasFactory;
 
-//     protected $fillable = [
-//         "id",
-//         "product_id",
-//         "path",
-//         "created_at",
-//         "updated_at",
-//     ];
+    protected $fillable = [
+        "id",
+        "product_id",
+        "path",
+        "created_at",
+        "updated_at",
+    ];
 
-//     public function products()
-//     {
-//         return $this->belongsTo(Products::class, 'product_id', "id");
-//     }
-// }
+    public function products()
+    {
+        return $this->belongsTo(Products::class, 'product_id', "id");
+    }
+}
