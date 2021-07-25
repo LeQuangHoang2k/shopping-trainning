@@ -7,7 +7,6 @@ import Alert from "../../../../features/Alert";
 
 function ProductDetail(props) {
   const [active, setActive] = useState(0);
-  // const [activePicture, setActivePicture] = useState(0);
   const [product, setProduct] = useState([]);
   const [options, setOptions] = useState([]);
   const [optionId, setOptionId] = useState(0);
@@ -62,14 +61,14 @@ function ProductDetail(props) {
     console.log("php: ", productsReturn);
 
     setProduct(productsReturn);
-    setOptions(productsReturn.options);
-    setPictures(productsReturn.images);
     setPicture(productsReturn.picture);
-    console.log("images", productsReturn.images);
-    setActive(productsReturn.options[0].id);
-
     setPrice(productsReturn.price);
+
+    console.log("images", productsReturn.images);
+    setPictures(productsReturn.images);
+    setOptions(productsReturn.options);
     setOptionId(productsReturn.options[0].id);
+    setActive(productsReturn.options[0].id);
   };
 
   const changePicture = (image) => {
