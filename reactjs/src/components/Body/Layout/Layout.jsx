@@ -5,6 +5,7 @@ import Product from "./Product/Product";
 import ProductDetail from "./ProductDetail/ProductDetail";
 
 import "./Layout.css";
+import Paginate from "../Pagination/Paginate";
 
 function Layout(props) {
   const [mainComponent, setMainComponent] = useState(null);
@@ -15,7 +16,12 @@ function Layout(props) {
     if (id && id !== "") {
       setMainComponent(<ProductDetail />);
     } else {
-      setMainComponent(<Product />);
+      setMainComponent(
+        <>
+          <Product />
+          <Paginate />
+        </>
+      );
     }
 
     return () => {

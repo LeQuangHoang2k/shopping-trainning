@@ -56,7 +56,12 @@ function Product(props) {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        width: "100%",
+        minHeight: "700px",
+      }}
+    >
       {products.map((item) => {
         return (
           <a
