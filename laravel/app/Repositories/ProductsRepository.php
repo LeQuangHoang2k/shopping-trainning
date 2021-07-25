@@ -42,8 +42,8 @@ class ProductsRepository
     }
 }
 
-//limit     la : count
-//offset    la : skip
+// limit     la : count
+// offset    la : skip
 // $limit = 15;
 // $page = isset($filters['page']) ? $filters['page'] : 1; //(0,15]
 // $offset = ($page - 1) * $limit; // 0
