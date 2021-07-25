@@ -7,10 +7,11 @@ import "./Product.css";
 
 function Product(props) {
   const [products, setProducts] = useState([]);
-  const [activePage, setActivePage] = useState(6);
   const [params, setParams] = useState({
     name: queryString.parse(window.location.search).name,
-    page: queryString.parse(window.location.search).page ? undefined : 1,
+    page: queryString.parse(window.location.search).page
+      ? queryString.parse(window.location.search).page
+      : 1,
   });
 
   useEffect(() => {
@@ -23,7 +24,7 @@ function Product(props) {
 
   const fetchProduct = async () => {
     var res = null;
-
+    console.log(params.page);
     if (params.name && params.name !== "") {
       res = await axios.get(
         `http://localhost:8000/api/products?name=${params.name}&page=${params.page}`
@@ -37,6 +38,10 @@ function Product(props) {
     const { data } = await res.data;
     setProducts(data);
     console.log("php: ", data);
+  };
+
+  const handlePaginationChange = (e, { activePage }) => {
+    window.location.href = `?page=${activePage}`;
   };
 
   if (products.length === 0) {
@@ -84,7 +89,11 @@ function Product(props) {
       })}
 
       <center>
-        <Pagination defaultActivePage={activePage} totalPages={10} />
+        <Pagination
+          defaultActivePage={params.page}
+          onPageChange={handlePaginationChange}
+          totalPages={10}
+        />
         <div>&nbsp;</div>
       </center>
     </div>
