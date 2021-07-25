@@ -42,7 +42,9 @@ function Product(props) {
   };
 
   const handlePaginationChange = (e, { activePage }) => {
-    window.location.href = `?page=${activePage}`;
+    if (typeof params.name === "undefined")
+      return (window.location.href = `?page=${activePage}`);
+    return (window.location.href = `?name=${params.name}&page=${activePage}`);
   };
 
   if (products.length === 0) {
@@ -89,14 +91,14 @@ function Product(props) {
         );
       })}
 
-      <center>
+      {/* <center>
         <Pagination
           defaultActivePage={params.page}
           onPageChange={handlePaginationChange}
           totalPages={10}
         />
         <div>&nbsp;</div>
-      </center>
+      </center> */}
     </div>
   );
 }
