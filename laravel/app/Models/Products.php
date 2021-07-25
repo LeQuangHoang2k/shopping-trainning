@@ -40,4 +40,13 @@ class Products extends Model
     {
         return $this->hasMany(OrderDetails::class, 'product_id', "id");
     }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 }
