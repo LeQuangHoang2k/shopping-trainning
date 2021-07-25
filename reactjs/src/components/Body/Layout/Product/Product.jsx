@@ -9,9 +9,10 @@ function Product(props) {
   const [products, setProducts] = useState([]);
   const [params, setParams] = useState({
     name: queryString.parse(window.location.search).name,
-    page: queryString.parse(window.location.search).page
-      ? queryString.parse(window.location.search).page
-      : 1,
+    page:
+      typeof queryString.parse(window.location.search).page === "undefined"
+        ? 1
+        : queryString.parse(window.location.search).page,
   });
 
   useEffect(() => {
