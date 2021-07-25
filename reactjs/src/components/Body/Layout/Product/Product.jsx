@@ -50,7 +50,9 @@ function Product(props) {
   if (products.length === 0) {
     return (
       <center>
-        <h1>{products.length === 0 ? "No matching results" : ""}</h1>
+        <h1 style={{ marginBottom: "15px" }}>
+          {products.length === 0 ? "No matching results" : ""}
+        </h1>
       </center>
     );
   }
