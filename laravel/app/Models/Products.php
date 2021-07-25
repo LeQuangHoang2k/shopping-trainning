@@ -13,6 +13,7 @@ class Products extends Model
         "id",
         "category",
         "name",
+        "slug",
         'description',
         "price",
         "priority",
