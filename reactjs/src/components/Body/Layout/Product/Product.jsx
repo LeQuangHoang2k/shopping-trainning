@@ -1,3 +1,4 @@
+import { Pagination } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import queryString from "query-string";
 import axios from "axios";
@@ -6,8 +7,11 @@ import "./Product.css";
 
 function Product(props) {
   const [products, setProducts] = useState([]);
-
-  var { name, page } = queryString.parse(window.location.search);
+  const [activePage, setActivePage] = useState(6);
+  const [params, setParams] = useState({
+    name: queryString.parse(window.location.search).name,
+    page: queryString.parse(window.location.search).page ? undefined : 1,
+  });
 
   useEffect(() => {
     fetchProduct();
@@ -20,14 +24,14 @@ function Product(props) {
   const fetchProduct = async () => {
     var res = null;
 
-    page = typeof page === "undefined" ? 1 : page;
-
-    if (name && name !== "") {
+    if (params.name && params.name !== "") {
       res = await axios.get(
-        `http://localhost:8000/api/products?name=${name}&page=${page}`
+        `http://localhost:8000/api/products?name=${params.name}&page=${params.page}`
       );
     } else {
-      res = await axios.get(`http://localhost:8000/api/products?page=${page}`);
+      res = await axios.get(
+        `http://localhost:8000/api/products?page=${params.page}`
+      );
     }
 
     const { data } = await res.data;
@@ -78,6 +82,11 @@ function Product(props) {
           </a>
         );
       })}
+
+      <center>
+        <Pagination defaultActivePage={activePage} totalPages={10} />
+        <div>&nbsp;</div>
+      </center>
     </div>
   );
 }
