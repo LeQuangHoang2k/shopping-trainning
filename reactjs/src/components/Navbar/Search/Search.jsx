@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import Alert from "../../../features/Alert";
-// import SearchIcon from "/images/SearchIcon.png";
+import queryString from "query-string";
 
 import "./Search.css";
 
 function Search(props) {
   const [name, setName] = useState("");
+  const [params, setParams] = useState({
+    name: queryString.parse(window.location.search).name,
+    page:
+      typeof queryString.parse(window.location.search).page === "undefined"
+        ? 1
+        : queryString.parse(window.location.search).page,
+  });
 
   const search = async (e) => {
     await e.preventDefault();
@@ -35,7 +42,8 @@ function Search(props) {
     <form className="search_wrapper" onSubmit={search}>
       <input
         className="search_input"
-        placeholder="Search for the desired product"
+        placeholder={params.name}
+        // value={}
         onChange={(e) => setName(e.target.value)}
       />
       <button type="submit" className="search_button">

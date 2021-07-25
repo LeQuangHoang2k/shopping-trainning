@@ -5,7 +5,7 @@ import Product from "./Product/Product";
 import ProductDetail from "./ProductDetail/ProductDetail";
 
 import "./Layout.css";
-import Paginate from "../Pagination/Paginate";
+import Paginate from "./Product/Pagination/Paginate";
 
 function Layout(props) {
   const [mainComponent, setMainComponent] = useState(null);

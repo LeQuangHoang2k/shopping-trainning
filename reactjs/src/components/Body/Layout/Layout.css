@@ -1,9 +1,9 @@
 .layout_wrapper {
-    width: 1250px;
-    min-height: 700px;
-    background-color: white;
+  width: 1250px;
+  height: fit-content;
+  background-color: white;
 
-    margin: auto;
-
-    position: relative;
+  position: relative;
+  margin: auto;
+  padding-bottom: 15px;
 }

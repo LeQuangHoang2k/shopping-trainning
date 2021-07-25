@@ -1,0 +1,11 @@
+.paginate_wrapper {
+  width: 1250px;
+  height: 40px;
+
+  position: relative;
+  /* margin: auto; */
+  margin-bottom: 15px;
+
+  display: flex;
+  justify-content: center;
+}

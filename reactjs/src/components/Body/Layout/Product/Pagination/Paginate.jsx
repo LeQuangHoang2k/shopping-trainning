@@ -21,13 +21,11 @@ function Paginate(props) {
 
   return (
     <div className="paginate_wrapper">
-      <center>
-        <Pagination
-          defaultActivePage={params.page}
-          onPageChange={handlePaginationChange}
-          totalPages={10}
-        />
-      </center>
+      <Pagination
+        defaultActivePage={params.page}
+        onPageChange={handlePaginationChange}
+        totalPages={10}
+      />
     </div>
   );
 }
