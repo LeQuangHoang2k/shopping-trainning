@@ -2,15 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Products;
+use App\Models\Users;
 
 class UsersRepository
 {
-    public function getAll()
+    public function get($filter)
     {
-    }
+        $query = Users::select('*')->where('email', '=', $filter->email);
 
-    public function find($id)
-    {
+        return $query->get();
     }
 }

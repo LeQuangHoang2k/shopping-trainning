@@ -38,7 +38,9 @@ function RegisterModal(props) {
       formData
     );
 
-    const { data } = await res;
+    const { data, meta } = await res;
+
+    if (meta && meta.errors) return Alert({ error: meta.errors });
 
     Alert({ message: data.message });
 

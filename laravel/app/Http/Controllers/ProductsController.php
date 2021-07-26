@@ -8,17 +8,17 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public $productRepository;
+    public $productsRepository;
 
-    public function __construct(ProductsRepository $productRepository)
+    public function __construct(ProductsRepository $productsRepository)
     {
-        $this->productRepository = $productRepository;
+        $this->productsRepository = $productsRepository;
     }
 
     public function index()
     {
         $filters = request()->all();
-        return ProductsResource::collection($this->productRepository->getAll($filters));
+        return ProductsResource::collection($this->productsRepository->getAll($filters));
     }
 
     /**
