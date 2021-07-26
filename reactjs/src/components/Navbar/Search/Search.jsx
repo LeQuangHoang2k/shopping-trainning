@@ -42,7 +42,7 @@ function Search(props) {
     <form className="search_wrapper" onSubmit={search}>
       <input
         className="search_input"
-        placeholder={params.name}
+        placeholder={params.name ? params.name : "Search product"}
         // value={}
         onChange={(e) => setName(e.target.value)}
       />
