@@ -23,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 
 //users 
 Route::post('/login',  [AuthController::class, 'login']);
+Route::post('/register',  [AuthController::class, 'login']);
+// Route::post('/register',  [AuthController::class, 'login']);
 
 //products
 // Route::get('/product',  [ProductsController::class, 'index']);
