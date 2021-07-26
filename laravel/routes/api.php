@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +22,16 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+// Route::middleware(['cors'])->group(function () {
+//     Route::post('/hogehoge', 'Controller@hogehoge');
+// });
+
 //users 
 Route::post('/login',  [AuthController::class, 'login']);
-Route::post('/register',  [AuthController::class, 'login']);
-// Route::post('/register',  [AuthController::class, 'login']);
-
+Route::middleware(['cors'])->group(function () {
+    Route::resource('/register',  RegisterController::class);
+    // Route::post('/hogehoge', 'Controller@hogehoge');
+});
 //products
 // Route::get('/product',  [ProductsController::class, 'index']);
 //Route::get('/product/{id}',  [ProductsController::class, 'show']);

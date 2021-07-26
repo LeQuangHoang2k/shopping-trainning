@@ -2,4 +2,9 @@ product:
 -slug
 
 user:
+-cors
 -forget pwd
+
+db:
+
+
