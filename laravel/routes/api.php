@@ -28,10 +28,11 @@ use Illuminate\Support\Facades\Route;
 
 //users 
 Route::post('/login',  [AuthController::class, 'login']);
-Route::middleware(['cors'])->group(function () {
-    Route::resource('/register',  RegisterController::class);
-    // Route::post('/hogehoge', 'Controller@hogehoge');
-});
+Route::resource('/register',  RegisterController::class);
+// Route::middleware(['cors'])->group(function () {
+//     // Route::post('/hogehoge', 'Controller@hogehoge');
+// });
+
 //products
 // Route::get('/product',  [ProductsController::class, 'index']);
 //Route::get('/product/{id}',  [ProductsController::class, 'show']);

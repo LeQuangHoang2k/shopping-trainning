@@ -9,6 +9,7 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-        dd("register");
+        // dd("register");
+        print_r("register");
     }
 }
