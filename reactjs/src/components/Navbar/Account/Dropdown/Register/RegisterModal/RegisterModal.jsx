@@ -21,7 +21,7 @@ function RegisterModal(props) {
     email,
     phone,
     password,
-    confirmPassword,
+    confirm_password: confirmPassword,
   };
 
   const registerAccount = async () => {
