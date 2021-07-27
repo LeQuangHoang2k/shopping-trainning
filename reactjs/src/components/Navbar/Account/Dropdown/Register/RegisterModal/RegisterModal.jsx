@@ -42,6 +42,11 @@ function RegisterModal(props) {
       console.log("php: ", data);
 
       Alert({ success: "Try to login now" });
+
+      setEmail("");
+      setPhone("");
+      setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       Alert({ error: "Invalid input" });
     }
