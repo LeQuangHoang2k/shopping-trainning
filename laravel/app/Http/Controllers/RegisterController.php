@@ -22,12 +22,12 @@ class RegisterController extends Controller
     {
         // dd("register");
         $request->validated();
-
-        Users::insert([
-            "email" => $request->email,
-            "password" => bcrypt($request->password),
-        ]);
-
-        return UsersResource::collection($this->usersRepository->get($request));
+        return print_r("");
+        // Users::insert([
+        //     "email" => $request->email,
+        //     "password" => bcrypt($request->password),
+        // ]);
+        // $user = Users::create($input);
+        // return UsersResource::collection($this->usersRepository->get($request));
     }
 }

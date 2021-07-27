@@ -27,9 +27,9 @@ function RegisterModal(props) {
   const registerAccount = async () => {
     //input
 
-    if (!checkRequest()) return;
+    // if (!checkRequest()) return;
 
-    console.log(checkRequest());
+    // console.log(checkRequest());
 
     //db
 
@@ -40,7 +40,7 @@ function RegisterModal(props) {
 
     const { data, meta } = await res;
 
-    if (meta && meta.errors) return Alert({ error: meta.errors });
+    if (meta && meta.message) return Alert({ error: meta.message });
 
     Alert({ message: data.message });
 
