@@ -27,8 +27,10 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //users 
-Route::post('/login',  [AuthController::class, 'login']);
+// Route::post('/login',  [AuthController::class, 'login']);
 Route::resource('/register',  RegisterController::class);
+Route::post('/login',  [LoginController::class, 'login']);
+
 // Route::middleware(['cors'])->group(function () {
 //     // Route::post('/hogehoge', 'Controller@hogehoge');
 // });

@@ -24,29 +24,42 @@ function LoginModal(props) {
     console.log(checkRequest());
 
     //db
+    try {
+      const res = await axios.post("/login", formData);
 
-    const res = await axios.post("/api/login", formData);
+      const { data } = await res;
 
-    const { data } = await res;
+      Alert({ message: data.message });
 
-    Alert({ message: data.message });
+      console.log("php: ", data);
 
-    console.log("php: ", data);
+      //main
 
-    //main
+      //res
 
-    //res
+      if (!data || !data.account) return;
 
-    if (!data || !data.account) return;
+      localStorage.setItem("account", JSON.stringify(data.account));
+      let a = localStorage.getItem("account");
 
-    localStorage.setItem("account", JSON.stringify(data.account));
-    let a = localStorage.getItem("account");
+      a = JSON.parse(a);
 
-    a = JSON.parse(a);
+      console.log(a);
 
-    console.log(a);
+      window.location.reload();
+    } catch (error) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
 
-    window.location.reload();
+      const { data, meta } = await error.response.data;
+      console.log("meta", meta);
+      const { errors } = await meta;
+      console.log("errors", errors);
+      console.log("error is", errors[Object.keys(errors)[0]]);
+
+      Alert({ error: errors[Object.keys(errors)[0]] });
+    }
   };
 
   const checkRequest = () => {
