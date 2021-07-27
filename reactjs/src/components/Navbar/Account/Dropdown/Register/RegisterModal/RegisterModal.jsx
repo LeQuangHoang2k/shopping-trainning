@@ -27,9 +27,9 @@ function RegisterModal(props) {
   const registerAccount = async () => {
     //input
 
-    // if (!checkRequest()) return;
+    if (!checkRequest()) return;
 
-    // console.log(checkRequest());
+    console.log(checkRequest());
 
     //db
     try {
@@ -39,16 +39,11 @@ function RegisterModal(props) {
       );
 
       const { data, meta } = await res;
-
-      // if (res) return Alert({ error: "invalid input" });
-      // if (meta && meta.message) return Alert({ error: meta.message });
+      console.log("php: ", data);
 
       Alert({ success: "Try to login now" });
-      // Alert({ message: data.message });
-
-      console.log("php: ", data);
     } catch (error) {
-      Alert({ error: "invalid input" });
+      Alert({ error: "Invalid input" });
     }
 
     //res
