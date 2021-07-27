@@ -117,7 +117,7 @@ function ProductDetail(props) {
   };
 
   const saveCart = () => {
-    Alert({ message: "save thành công" });
+    Alert({ success: "save thành công" });
 
     console.log("formData: ", formData);
     console.log("cart", cart);
