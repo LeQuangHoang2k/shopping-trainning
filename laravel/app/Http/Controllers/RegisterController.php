@@ -30,10 +30,10 @@ class RegisterController extends Controller
             "password" => bcrypt($request->password),
         ])->save();
 
-        return response()->json([
-            "message" => "success",
-            "users" => $user,
-        ]);
+        // return response()->json([
+        //     "message" => "success",
+        //     "users" => $user,
+        // ]);
     }
 }
 
