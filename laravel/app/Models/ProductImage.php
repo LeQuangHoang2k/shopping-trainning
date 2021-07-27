@@ -12,17 +12,17 @@ class ProductImage extends Model
     protected $fillable = [
         "id",
         "product_id",
-        "product_option",
+        "product_option_id",
         "path",
     ];
 
-    public function products()
+    public function product()
     {
-        return $this->belongsTo(Products::class, 'product_id', "id");
+        return $this->belongsTo(Product::class, 'product_id', "id");
     }
 
-    public function options()
+    public function option()
     {
-        return $this->belongsTo(ProductOptions::class, 'product_option', "id");
+        return $this->belongsTo(ProductOption::class, 'product_option_id', "id");
     }
 }

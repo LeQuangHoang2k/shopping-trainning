@@ -14,22 +14,22 @@ class OrderDetail extends Model
         "order_id",
         "product_id",
         'amount',
-        "option_id",
+        "product_option_id",
         "price_per_unit"
     ];
 
-    public function products()
+    public function product()
     {
-        return $this->belongsTo(Products::class, 'product_id', "id");
+        return $this->belongsTo(Product::class, 'product_id', "id");
     }
 
-    public function productOptions()
+    public function productOption()
     {
-        return $this->belongsTo(ProductOptions::class, 'option_id', "id");
+        return $this->belongsTo(ProductOption::class, 'product_option_id', "id");
     }
 
-    public function orders()
+    public function order()
     {
-        return $this->belongsTo(Orders::class, 'order_id', "id");
+        return $this->belongsTo(Order::class, 'order_id', "id");
     }
 }

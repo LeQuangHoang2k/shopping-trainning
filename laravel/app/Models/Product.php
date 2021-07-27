@@ -19,24 +19,24 @@ class Product extends Model
         "priority",
     ];
 
-    public function options()
+    public function option()
     {
-        return $this->hasMany(ProductOptions::class, 'product_id', "id");
+        return $this->hasMany(ProductOption::class, 'product_id', "id");
     }
 
-    public function images()
+    public function image()
     {
-        return $this->hasMany(ProductImages::class, 'product_id', "id");
+        return $this->hasMany(ProductImage::class, 'product_id', "id");
     }
 
-    public function categories()
+    public function categorie()
     {
-        return $this->hasMany(ProductCategories::class, 'product_id', "id");
+        return $this->hasMany(ProductCategory::class, 'product_id', "id");
     }
 
-    public function orderDetails()
+    public function orderDetail()
     {
-        return $this->hasMany(OrderDetails::class, 'product_id', "id");
+        return $this->hasMany(OrderDetail::class, 'product_id', "id");
     }
 
     public function sluggable()
