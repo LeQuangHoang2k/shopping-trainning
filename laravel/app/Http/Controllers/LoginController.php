@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -19,7 +19,7 @@ class LoginController extends Controller
 
         if (isset($request->token) && !$this->verifyToken($request)) return;
 
-        $user = Users::select("*")->where("email", $request->email)->get();
+        $user = User::select("*")->where("email", $request->email)->get();
         print_r($user->email);
         // $credentials = $request($request->all());
         // if (!$token = auth()->attempt($credentials)) {

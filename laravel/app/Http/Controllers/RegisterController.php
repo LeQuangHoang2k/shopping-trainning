@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\auth\RegisterRequest;
 use App\Http\Resources\UsersResource;
-use App\Models\Users;
-use App\Repositories\UsersRepository;
+use App\Models\User;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
-    public $usersRepository;
+    public $userRepository;
 
-    public function __construct(UsersRepository $usersRepository)
+    public function __construct(UserRepository $userRepository)
     {
-        $this->usersRepository = $usersRepository;
+        $this->userRepository = $userRepository;
     }
 
     public function store(RegisterRequest $request)
@@ -24,7 +24,7 @@ class RegisterController extends Controller
         $request->validated();
 
         // $user = Users::create($request->all())->save();
-        $user = Users::create([
+        $user = User::create([
             "email" => $request->email,
             "phone" => $request->phone,
             "password" => bcrypt($request->password),

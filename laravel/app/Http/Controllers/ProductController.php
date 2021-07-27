@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\ProductsResource;
-use App\Repositories\ProductsRepository;
+use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
-    public $productsRepository;
+    public $productRepository;
 
-    public function __construct(ProductsRepository $productsRepository)
+    public function __construct(ProductRepository $productRepository)
     {
-        $this->productsRepository = $productsRepository;
+        $this->productRepository = $productRepository;
     }
 
     public function index()
     {
         $filters = request()->all();
-        return ProductsResource::collection($this->productsRepository->getAll($filters));
+        return ProductsResource::collection($this->productRepository->getAll($filters));
     }
 
     /**

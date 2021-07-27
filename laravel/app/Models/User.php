@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Users extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $fillable = [
         "id",
@@ -22,8 +22,6 @@ class Users extends Authenticatable implements JWTSubject
         'email',
         'password',
         "role",
-        "created_at",
-        "updated_at",
     ];
 
     public function orders()

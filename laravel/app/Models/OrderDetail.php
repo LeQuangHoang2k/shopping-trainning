@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderDetails extends Model
+class OrderDetail extends Model
 {
-    use HasFactory;
+    // use HasFactory;
 
     protected $fillable = [
         "id",
@@ -15,9 +15,7 @@ class OrderDetails extends Model
         "product_id",
         'amount',
         "option_id",
-        "price_per_unit",
-        "created_at",
-        "updated_at",
+        "price_per_unit"
     ];
 
     public function products()

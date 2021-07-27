@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Products;
+use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
 
-class ProductsRepository
+class ProductRepository
 {
     public function getAll($filters)
     {
-        $query = Products::select('*');
+        $query = Product::select('*');
         $sort = isset($filters['sort']) ? $filters['sort'] : 'priority';
         $order = isset($filters['order']) ? $filters['order'] : 'desc';
 

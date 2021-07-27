@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Models\Products;
+use App\Models\Product;
 
-class CategoriesRepository
+class CategoryRepository
 {
     public function getAll()
     {
