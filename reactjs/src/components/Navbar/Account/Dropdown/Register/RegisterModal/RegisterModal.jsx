@@ -32,19 +32,24 @@ function RegisterModal(props) {
     // console.log(checkRequest());
 
     //db
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/register",
+        formData
+      );
 
-    const res = await axios.post(
-      "http://localhost:8000/api/register",
-      formData
-    );
+      const { data, meta } = await res;
 
-    const { data, meta } = await res;
+      // if (res) return Alert({ error: "invalid input" });
+      // if (meta && meta.message) return Alert({ error: meta.message });
 
-    if (meta && meta.message) return Alert({ error: meta.message });
+      Alert({ success: "Try to login now" });
+      // Alert({ message: data.message });
 
-    Alert({ message: data.message });
-
-    console.log("php: ", data);
+      console.log("php: ", data);
+    } catch (error) {
+      Alert({ error: "invalid input" });
+    }
 
     //res
     // handleClose();

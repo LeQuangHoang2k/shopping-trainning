@@ -29,7 +29,7 @@ class RegisterRequest extends FormRequest
             "email" => 'required|email|unique:users,email',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:11',
             "password" => 'required|min:6|max:25',
-            "confirmPassword" => 'required|min:6|max:25|same:password',
+            "confirm_password" => 'required|min:6|max:25|same:password',
         ];
     }
 
