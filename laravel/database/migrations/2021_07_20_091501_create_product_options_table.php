@@ -16,9 +16,9 @@ class CreateProductOptionsTable extends Migration
         Schema::create('product_options', function (Blueprint $table) {
             $table->integer("id")->autoIncrement();
             $table->integer("product_id");
-            $table->string("name")->default('');
-            $table->string("value");
-            $table->decimal('price', $precision = 15, $scale = 3);
+            $table->string("name")->nullable();
+            $table->string("value")->nullable();
+            $table->decimal('price', $precision = 15, $scale = 3)->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');

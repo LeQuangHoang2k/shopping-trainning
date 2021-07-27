@@ -17,7 +17,7 @@ class CreateProductImagesTable extends Migration
             $table->integer("id")->autoIncrement();
             $table->integer("product_option");
             $table->integer("product_id");
-            $table->string("path")->default('');
+            $table->string("path")->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');

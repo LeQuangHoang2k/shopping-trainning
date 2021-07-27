@@ -18,8 +18,8 @@ class CreateOrderDetailsTable extends Migration
             $table->integer("order_id");
             $table->integer("product_id");
             $table->integer("product_option");
-            $table->integer("amount");
-            $table->integer("price_per_unit");
+            $table->integer("amount")->nullable();
+            $table->decimal('price_per_unit', $precision = 15, $scale = 3)->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
