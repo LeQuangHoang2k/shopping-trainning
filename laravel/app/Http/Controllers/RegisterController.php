@@ -29,9 +29,12 @@ class RegisterController extends Controller
         // ]);
         // $user = Users::create($input);
         // return UsersResource::collection($this->usersRepository->get($request));
-        
+        $users = Users::create($request->all())->save();
+
+        print_r($request->all());
         return response()->json([
-            "message" => "Try to login now"
+            "message" => "success",
+            "users" => $request,
         ]);
     }
 }

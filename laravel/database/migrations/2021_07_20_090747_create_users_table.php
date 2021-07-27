@@ -15,15 +15,15 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->integer("id")->autoIncrement();
-            $table->integer("facebook_id");
-            $table->integer("google_id");
-            $table->string("email")->default('');
-            $table->string("password")->default('');
-            $table->string("name")->default('');
-            $table->string("phone")->default('');
-            $table->string("picture")->default('');
-            $table->text("address");
-            $table->string("role")->default('');
+            $table->integer("facebook_id")->nullable();
+            $table->integer("google_id")->nullable();
+            $table->string("email")->nullable();
+            $table->string("password")->nullable();
+            $table->string("name")->nullable();
+            $table->string("phone")->nullable();
+            $table->string("picture")->nullable();
+            $table->text("address")->nullable();
+            $table->string("role")->nullable();
             $table->timestamps();
         });
     }
