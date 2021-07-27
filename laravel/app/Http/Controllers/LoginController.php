@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginRequest;
-
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -12,18 +12,27 @@ class LoginController extends Controller
     {
         // dd("login");
 
-        // $validated = $request->validated();
-        // if ($validated->fails()) {
-        //     return;
-        // }
-
         // $credentials = $request(["email", "password"]);
         // if (!$token = auth()->attempt($credentials)) {
         //     return response()->json(['error' => 'Unauthorized'], 401);
         // }
 
-        
+        if (isset($request->token) && !$this->verifyToken($request)) return;
+
+        $user = Users::select("*")->where("email", $request->email)->get();
+        print_r($user->email);
+        // $credentials = $request($request->all());
+        // if (!$token = auth()->attempt($credentials)) {
+        //     return response()->json(['error' => 'Unauthorized'], 401);
+        // }
+
+
         // return $this->respondWithToken($token);
+    }
+
+    public function verifyToken($request)
+    {
+        return true;
     }
 }
 
