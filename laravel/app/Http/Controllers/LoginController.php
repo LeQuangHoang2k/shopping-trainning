@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
-        print_r("abc");
+        // dd("login");
 
         // $validated = $request->validated();
         // if ($validated->fails()) {
