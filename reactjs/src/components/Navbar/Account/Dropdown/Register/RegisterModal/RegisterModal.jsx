@@ -43,12 +43,19 @@ function RegisterModal(props) {
 
       Alert({ success: "Try to login now" });
 
-      setEmail("");
-      setPhone("");
-      setPassword("");
-      setConfirmPassword("");
+      window.location.reload();
     } catch (error) {
-      Alert({ error: "Invalid input" });
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+
+      const { data, meta } = await error.response.data;
+      console.log("meta", meta);
+      const { errors } = await meta;
+      console.log("errors", errors);
+      console.log("error is", errors[Object.keys(errors)[0]]);
+
+      Alert({ error: errors[Object.keys(errors)[0]] });
     }
 
     //res
