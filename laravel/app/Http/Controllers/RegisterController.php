@@ -23,7 +23,12 @@ class RegisterController extends Controller
         // dd("register");
         $request->validated();
 
-        $user = Users::create($request->all())->save();
+        // $user = Users::create($request->all())->save();
+        $user = Users::create([
+            "email" => $request->email,
+            "phone" => $request->phone,
+            "password" => bcrypt($request->password),
+        ])->save();
 
         return response()->json([
             "message" => "success",
