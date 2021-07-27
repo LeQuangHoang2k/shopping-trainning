@@ -23,18 +23,18 @@ class RegisterController extends Controller
         // dd("register");
         $request->validated();
 
-        // Users::insert([
-        //     "email" => $request->email,
-        //     "password" => bcrypt($request->password),
-        // ]);
-        // $user = Users::create($input);
-        // return UsersResource::collection($this->usersRepository->get($request));
-        $users = Users::create($request->all())->save();
+        $user = Users::create($request->all())->save();
 
-        print_r($request->all());
         return response()->json([
             "message" => "success",
-            "users" => $request,
+            "users" => $user,
         ]);
     }
 }
+
+// Users::insert([
+//     "email" => $request->email,
+//     "password" => bcrypt($request->password),
+// ]);
+// $user = Users::create($input);
+// return UsersResource::collection($this->usersRepository->get($request));
