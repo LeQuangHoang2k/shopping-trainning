@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\auth;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
 
 class LoginRequest extends FormRequest
 {
@@ -27,5 +30,18 @@ class LoginRequest extends FormRequest
             "email" => 'required|email|unique:users,email',
             "password" => 'required|min:6|max:25',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        $response = new JsonResponse([
+            'data' => [],
+            'meta' => [
+                'message' => 'The given data is invalid',
+                'errors' => $validator->errors()
+            ]
+        ], 422);
+
+        throw new ValidationException($validator, $response);
     }
 }
