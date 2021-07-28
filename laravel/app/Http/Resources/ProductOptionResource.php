@@ -20,8 +20,6 @@ class ProductOptionResource extends JsonResource
             'name' => $this->name,
             'value' => $this->value,
             'price' => $this->price,
-
-            // ỏderDetail resource 
         ];
     }
 }
