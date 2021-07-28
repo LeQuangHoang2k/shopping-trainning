@@ -22,11 +22,7 @@ class RegisterController extends Controller
     {
         $request->validated();
 
-        $user = User::create([
-            "email" => $request->email,
-            "phone" => $request->phone,
-            "password" => bcrypt($request->password),
-        ]);
+        $user = User::create($request->validated());
 
         return response()->json([
             "message" => "success",
