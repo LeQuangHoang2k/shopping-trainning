@@ -74,7 +74,6 @@ function Product(props) {
         return (
           <a
             key={item.id}
-            // href={`/products?id=${item.id}`}
             href={`/products/${item.id}`}
             className="product_wrapper"
           >
