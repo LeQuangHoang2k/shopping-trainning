@@ -18,10 +18,10 @@ class CreateUsersTable extends Migration
             $table->integer("facebook_id")->nullable();
             $table->integer("google_id")->nullable();
             $table->string("email")->nullable();
-            $table->string("password")->nullable();
             $table->string("name")->nullable();
             $table->string("phone")->nullable();
             $table->string("picture")->nullable();
+            $table->string("password")->nullable();
             $table->text("address")->nullable();
             $table->string("role")->nullable()->default('user');
             $table->timestamps();
