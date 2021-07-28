@@ -7,6 +7,7 @@ import "./Product.css";
 
 function Product(props) {
   const [products, setProducts] = useState([]);
+  const [totalPage, setTotalPage] = useState(0);
   const [params, setParams] = useState({
     name: queryString.parse(window.location.search).name,
     page:
@@ -36,9 +37,14 @@ function Product(props) {
       );
     }
 
-    const { data } = await res.data;
+    console.log("res", res.data);
+    const { data, links, meta } = await res.data;
     setProducts(data);
-    console.log("php: ", data);
+
+    console.log("php: ", data, links, meta);
+
+    if (!meta) return;
+    setTotalPage(meta.last_page);
   };
 
   const handlePaginationChange = (e, { activePage }) => {
@@ -98,14 +104,14 @@ function Product(props) {
         );
       })}
 
-      {/* <center>
+      <center>
         <Pagination
           defaultActivePage={params.page}
           onPageChange={handlePaginationChange}
-          totalPages={10}
+          totalPages={totalPage}
         />
         <div>&nbsp;</div>
-      </center> */}
+      </center>
     </div>
   );
 }

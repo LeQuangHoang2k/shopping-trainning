@@ -19,7 +19,7 @@ function Layout(props) {
       setMainComponent(
         <>
           <Product />
-          <Paginate />
+          {/* <Paginate /> */}
         </>
       );
     }
