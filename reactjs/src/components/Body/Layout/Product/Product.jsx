@@ -65,6 +65,12 @@ function Product(props) {
 
   return (
     <div>
+      {params.name && products.length > 0 ? (
+        <p className="product_result">
+          Search results for <span className="product_result_name">{params.name}</span>: {products.length} results
+        </p>
+      ) : null}
+
       <div
         style={{
           width: "100%",
@@ -105,7 +111,6 @@ function Product(props) {
           );
         })}
       </div>
-
       <div className="paginate_wrapper">
         <Pagination
           defaultActivePage={params.page}
