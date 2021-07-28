@@ -28,7 +28,6 @@ class GetRequest extends FormRequest
     {
         return [
             'page' => 'required|integer|min:1|nullable'
-
         ];
     }
 

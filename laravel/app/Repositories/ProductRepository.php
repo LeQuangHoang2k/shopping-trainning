@@ -15,14 +15,6 @@ class ProductRepository
 
         if ($filters == []) return [];
 
-        // if (isset($filters['page']) || is_null($filters['page'])) {
-        //     $validator = Validator::make($filters, [
-        //         'page' => 'required|nullable|integer|min:1'
-        //     ]);
-
-        //     if ($validator->fails()) return [];
-        // }
-
         //find name
         if (isset($filters['name'])) {
             $query->where('name', 'like', '%' . $filters['name'] . '%');
