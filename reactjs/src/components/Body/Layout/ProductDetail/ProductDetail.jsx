@@ -52,13 +52,15 @@ function ProductDetail(props) {
     if (id && id !== "") {
       console.log("id là: ", id);
 
-      res = await axios.get(`http://localhost:8000/api/products?id=${id}`);
+      res = await axios.get(`http://localhost:8000/api/products/${id}`);
     } else {
       res = await axios.get("http://localhost:8000/api/products");
     }
 
-    console.log("res", res.data.data[0]);
-    const productsReturn = await res.data.data[0];
+    console.log("res", res.data.data);
+
+    // console.log("res", res.data.data[0]);
+    const productsReturn = await res.data.data;
 
     console.log("php: ", productsReturn);
 
