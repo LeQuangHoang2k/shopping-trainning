@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductsResource extends JsonResource
+class ProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -23,8 +23,8 @@ class ProductsResource extends JsonResource
             "price" => $this->price,
             "picture" => $this->picture,
             "priority" => $this->priority,
-            "options" => ProductOptionsResource::collection($this->options),
-            "images" => ProductImagesResource::collection($this->images),
+            "options" => ProductOptionResource::collection($this->options),
+            "images" => ProductImageResource::collection($this->images),
             // "images" => "id",
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y H:i:s'),
         ];

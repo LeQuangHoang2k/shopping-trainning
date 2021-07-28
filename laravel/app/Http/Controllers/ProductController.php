@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\ProductsResource;
+use App\Http\Resources\ProductResource;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
 
@@ -18,7 +18,7 @@ class ProductController extends Controller
     public function index()
     {
         $filters = request()->all();
-        return ProductsResource::collection($this->productRepository->getAll($filters));
+        return ProductResource::collection($this->productRepository->getAll($filters));
     }
 
     /**
