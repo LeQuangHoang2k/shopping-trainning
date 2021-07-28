@@ -4,6 +4,7 @@ import axios from "axios";
 
 import "./ProductDetail.css";
 import Alert from "../../../../features/Alert";
+import { useParams } from "react-router-dom";
 
 function ProductDetail(props) {
   const [active, setActive] = useState(0);
@@ -18,7 +19,8 @@ function ProductDetail(props) {
     JSON.parse(localStorage.getItem("cart")) || []
   );
 
-  const { id } = queryString.parse(window.location.search);
+  // const { id } = queryString.parse(window.location.search);
+  const { id } = useParams();
 
   var formData = {
     product_id: product.id,
