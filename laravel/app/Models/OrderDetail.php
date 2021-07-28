@@ -18,17 +18,17 @@ class OrderDetail extends Model
         "price_per_unit"
     ];
 
-    public function product()
+    public function products()
     {
         return $this->belongsTo(Product::class, 'product_id', "id");
     }
 
-    public function productOption()
+    public function productOptions()
     {
         return $this->belongsTo(ProductOption::class, 'product_option_id', "id");
     }
 
-    public function order()
+    public function orders()
     {
         return $this->belongsTo(Order::class, 'order_id', "id");
     }

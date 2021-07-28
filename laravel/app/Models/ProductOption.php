@@ -17,17 +17,17 @@ class ProductOption extends Model
         "price",
     ];
 
-    public function product()
+    public function products()
     {
         return $this->belongsTo(Product::class, 'product_id', "id");
     }
 
-    public function productImage()
+    public function productImages()
     {
         return $this->hasMany(ProductImage::class, 'product_option_id', "id");
     }
 
-    public function orderDetail()
+    public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class, 'product_option_id', "id");
     }

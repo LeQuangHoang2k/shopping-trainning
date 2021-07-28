@@ -17,12 +17,12 @@ class Order extends Model
         "total_price"
     ];
 
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class, 'user_id', "id");
     }
 
-    public function orderDetail()
+    public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class, 'order_id', "id");
     }

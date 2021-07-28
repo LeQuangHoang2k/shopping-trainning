@@ -16,12 +16,12 @@ class ProductImage extends Model
         "path",
     ];
 
-    public function product()
+    public function products()
     {
         return $this->belongsTo(Product::class, 'product_id', "id");
     }
 
-    public function option()
+    public function options()
     {
         return $this->belongsTo(ProductOption::class, 'product_option_id', "id");
     }

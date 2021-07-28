@@ -35,7 +35,7 @@ class Product extends Model
         return $this->hasMany(ProductCategory::class, 'product_id', "id");
     }
 
-    public function order_detail()
+    public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class, 'product_id', "id");
     }
