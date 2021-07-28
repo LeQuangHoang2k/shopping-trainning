@@ -12,8 +12,6 @@ class ProductRepository
         $sort = isset($filters['sort']) ? $filters['sort'] : 'priority';
         $order = isset($filters['order']) ? $filters['order'] : 'desc';
 
-        if ($filters == []) return [];
-
         //find name
         if (isset($filters['name'])) {
             $query->where('name', 'like', '%' . $filters['name'] . '%');
