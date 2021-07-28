@@ -24,7 +24,7 @@ class FindRequest extends FormRequest
     public function rules()
     {
         return [
-            "id"=>"number|min:0",
+            "id"=>"numeric|min:0",
         ];
     }
 }

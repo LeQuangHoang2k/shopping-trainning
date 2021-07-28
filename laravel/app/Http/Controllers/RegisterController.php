@@ -20,20 +20,18 @@ class RegisterController extends Controller
 
     public function store(RegisterRequest $request)
     {
-        // dd("register");
         $request->validated();
 
-        // $user = Users::create($request->all())->save();
         $user = User::create([
             "email" => $request->email,
             "phone" => $request->phone,
             "password" => bcrypt($request->password),
         ])->save();
 
-        // return response()->json([
-        //     "message" => "success",
-        //     "users" => $user,
-        // ]);
+        return response()->json([
+            "message" => "success",
+            "users" => $user,
+        ]);
     }
 }
 

@@ -43,10 +43,8 @@ class ProductRepository
 
     public function find($id)
     {
-        $query = Product::select('*');
-
-        //find 1
-        return $query->where('id', $id)->get();
+        // dd($id);
+        return Product::select('*')->where('id', $id)->get();
     }
 }
 

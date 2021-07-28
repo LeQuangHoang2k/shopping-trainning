@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Product\FindRequest;
 use App\Http\Resources\ProductResource;
 use App\Repositories\ProductRepository;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -50,9 +52,15 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        // $id->validate();
-        dd($id);
-        // return new ProductResource($this->productRepository->find($id));
+        $product = $this->productRepository->find($id);
+
+        if (!$product) {
+            return response()->json(['error' => [
+                'message' => 'Not found!'
+            ]], 404);
+        }
+
+        return new ProductResource($this->productRepository->find($id));
     }
 
     /**
