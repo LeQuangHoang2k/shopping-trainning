@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import queryString from "query-string";
 
 import Product from "./Product/Product";
@@ -10,7 +11,9 @@ import Paginate from "./Product/Pagination/Paginate";
 function Layout(props) {
   const [mainComponent, setMainComponent] = useState(null);
 
-  const { name, id } = queryString.parse(window.location.search);
+  // const { name, id } = queryString.parse(window.location.search);
+  const { name } = queryString.parse(window.location.search);
+  const { id } = useParams();
 
   useEffect(() => {
     if (id && id !== "") {
