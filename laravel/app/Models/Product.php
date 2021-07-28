@@ -41,11 +41,6 @@ class Product extends Model
         return $this->hasMany(OrderDetail::class, 'product_id', "id");
     }
 
-
-    protected $casts = [
-        'password' => Hash::class.':sha256',
-    ];
-
     public function sluggable()
     {
         return [
