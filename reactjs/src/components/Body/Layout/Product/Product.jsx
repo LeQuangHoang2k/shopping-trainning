@@ -65,9 +65,11 @@ function Product(props) {
 
   return (
     <div>
-      {params.name && products.length > 0 ? (
+      {params.name ? (
         <p className="product_result">
-          Search results for <span className="product_result_name">{params.name}</span>: {products.length} results
+          Search results for{" "}
+          <span className="product_result_name">{params.name}</span>:{" "}
+          {products.length} results
         </p>
       ) : null}
 
