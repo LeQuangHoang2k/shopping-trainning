@@ -20,22 +20,22 @@ class Product extends Model
         "picture",
     ];
 
-    public function option()
+    public function options()
     {
         return $this->hasMany(ProductOption::class, 'product_id', "id");
     }
 
-    public function image()
+    public function images()
     {
         return $this->hasMany(ProductImage::class, 'product_id', "id");
     }
 
-    public function categorie()
+    public function categories()
     {
         return $this->hasMany(ProductCategory::class, 'product_id', "id");
     }
 
-    public function orderDetail()
+    public function order_detail()
     {
         return $this->hasMany(OrderDetail::class, 'product_id', "id");
     }
