@@ -27,9 +27,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //users 
-// Route::post('/login',  [AuthController::class, 'login']);
 Route::resource('/register',  RegisterController::class);
 Route::post('/login',  [LoginController::class, 'login']);
+Route::resource('products', ProductController::class);
+
+Route::get('/test',  [AuthController::class, 'test']);
 
 // Route::middleware(['cors'])->group(function () {
 //     // Route::post('/hogehoge', 'Controller@hogehoge');
@@ -43,7 +45,3 @@ Route::post('/login',  [LoginController::class, 'login']);
 //Route::patch('/product/{id}',  [ProductsController::class, 'edit']);
 //Route::delete('/product/{id}',  [ProductsController::class, 'destroy']);
 
-Route::resource('products', ProductController::class);
-
-//test
-Route::get('/test',  [AuthController::class, 'test']);
