@@ -52,6 +52,12 @@ class ProductController extends Controller
      */
     public function show($id)
     {
+        if (!is_numeric($id) || $id < 1) {
+            return response()->json(['error' => [
+                'message' => 'Not found!'
+            ]], 404);
+        }
+
         $product = $this->productRepository->find($id);
 
         if (!$product) {
