@@ -13,26 +13,6 @@ Table "users" {
   "updated_at" datetime
 }
 
-// Table "googles" {
-//   "id" int [pk, increment]
-//   "user_id" int 
-//   "google_id" varchar(255)
-//   "name" varchar(255)
-//   "picture" varchar(255)
-//   "created_at" datetime
-//   "updated_at" datetime
-// }
-
-// Table "facebooks" {
-//   "id" int [pk, increment]
-//   "user_id" int
-//   "fackebook_id" varchar(255)
-//   "picture" varchar(255)
-//   "name" varchar(255)
-//   "created_at" datetime
-//   "updated_at" datetime
-// }
-
 Table "categories" {
   "id" int [pk, increment]
   "name" int
@@ -56,7 +36,7 @@ Table "products" {
 
 Table "product_images" {
   "id" int [pk, increment]
-  "product_option" int
+  "product_option_id" int
   "product_id" int
   "path" varchar(255)
   "created_at" datetime
@@ -78,7 +58,7 @@ Table "order_details" {
   "order_id" int
   "product_id" int
   "amount" int
-  "product_option" int
+  "product_option_id" int
   "price_per_unit" int
   "created_at" datetime
   "updated_at" datetime
@@ -99,7 +79,7 @@ Ref:"products"."id" < "product_options"."product_id"
 
 Ref:"products"."id" < "order_details"."product_id"
 
-Ref:"product_options"."id" < "order_details"."product_option"
+Ref:"product_options"."id" < "order_details"."product_option_id"
 
 Ref:"orders"."id" < "order_details"."order_id"
 
@@ -109,4 +89,4 @@ Ref: "product_images"."product_id" < "products"."id"
 
 Ref: "products"."category_id" < "categories"."id"
 
-Ref: "product_images"."product_option" < "product_options"."id"
+Ref: "product_images"."product_option_id" < "product_options"."id"
