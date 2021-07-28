@@ -5,45 +5,45 @@ https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da0
 https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg
 https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg
 
-insert into product_images (product_id,product_option,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
-insert into product_images (product_id,product_option,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
-insert into product_images (product_id,product_option,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
-insert into product_images (product_id,product_option,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
-insert into product_images (product_id,product_option,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
-insert into product_images (product_id,product_option,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
+insert into product_images (product_id,product_option_id,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
+insert into product_images (product_id,product_option_id,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
+insert into product_images (product_id,product_option_id,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
+insert into product_images (product_id,product_option_id,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
+insert into product_images (product_id,product_option_id,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
+insert into product_images (product_id,product_option_id,path) values(1,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
 
-insert into product_images (product_id,product_option,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
-insert into product_images (product_id,product_option,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
-insert into product_images (product_id,product_option,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
-insert into product_images (product_id,product_option,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
-insert into product_images (product_id,product_option,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
-insert into product_images (product_id,product_option,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
+insert into product_images (product_id,product_option_id,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
+insert into product_images (product_id,product_option_id,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
+insert into product_images (product_id,product_option_id,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
+insert into product_images (product_id,product_option_id,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
+insert into product_images (product_id,product_option_id,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
+insert into product_images (product_id,product_option_id,path) values(2,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
 
-insert into product_images (product_id,product_option,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
-insert into product_images (product_id,product_option,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
-insert into product_images (product_id,product_option,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
-insert into product_images (product_id,product_option,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
-insert into product_images (product_id,product_option,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
-insert into product_images (product_id,product_option,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
+insert into product_images (product_id,product_option_id,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
+insert into product_images (product_id,product_option_id,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
+insert into product_images (product_id,product_option_id,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
+insert into product_images (product_id,product_option_id,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
+insert into product_images (product_id,product_option_id,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
+insert into product_images (product_id,product_option_id,path) values(3,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
 
-insert into product_images (product_id,product_option,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
-insert into product_images (product_id,product_option,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
-insert into product_images (product_id,product_option,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
-insert into product_images (product_id,product_option,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
-insert into product_images (product_id,product_option,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
-insert into product_images (product_id,product_option,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
+insert into product_images (product_id,product_option_id,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
+insert into product_images (product_id,product_option_id,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
+insert into product_images (product_id,product_option_id,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
+insert into product_images (product_id,product_option_id,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
+insert into product_images (product_id,product_option_id,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
+insert into product_images (product_id,product_option_id,path) values(4,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
 
-insert into product_images (product_id,product_option,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
-insert into product_images (product_id,product_option,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
-insert into product_images (product_id,product_option,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
-insert into product_images (product_id,product_option,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
-insert into product_images (product_id,product_option,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
-insert into product_images (product_id,product_option,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
+insert into product_images (product_id,product_option_id,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
+insert into product_images (product_id,product_option_id,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
+insert into product_images (product_id,product_option_id,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
+insert into product_images (product_id,product_option_id,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
+insert into product_images (product_id,product_option_id,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
+insert into product_images (product_id,product_option_id,path) values(5,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
 
 
-insert into product_images (product_id,product_option,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
-insert into product_images (product_id,product_option,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
-insert into product_images (product_id,product_option,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
-insert into product_images (product_id,product_option,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
-insert into product_images (product_id,product_option,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
-insert into product_images (product_id,product_option,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
+insert into product_images (product_id,product_option_id,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/ea/2b/1a/213365920de2a1867909f9810d8465b0.jpg");
+insert into product_images (product_id,product_option_id,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/79/d8/5c/5eae9e43e50c88af8b0b61aaeea146fa.jpg");
+insert into product_images (product_id,product_option_id,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/0f/4a/19/e2c1e692c76e5aeb99baa2dcef13cdcb.jpg");
+insert into product_images (product_id,product_option_id,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/f8/72/39/6a8b87506acc84044ff40da00f1b9ec7.jpg");
+insert into product_images (product_id,product_option_id,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/e1/66/c2/47859ea06eb4b00ad41bbe81636e4373.jpg");
+insert into product_images (product_id,product_option_id,path) values(6,1,"https://salt.tikicdn.com/cache/w444/ts/product/81/73/6c/e3220a1f860b8611cfc0e7f78d515fbf.jpg");
