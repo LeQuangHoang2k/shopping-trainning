@@ -64,54 +64,55 @@ function Product(props) {
   }
 
   return (
-    <div
-      style={{
-        width: "100%",
-        minHeight: "700px",
-      }}
-    >
-      {products.map((item) => {
-        return (
-          <a
-            key={item.id}
-            href={`/products/${item.id}`}
-            className="product_wrapper"
-          >
-            <div className="product_content">
-              <img src={item.picture} className="product_image" alt="Image" />
+    <div>
+      <div
+        style={{
+          width: "100%",
+          minHeight: "700px",
+        }}
+      >
+        {products.map((item) => {
+          return (
+            <a
+              key={item.id}
+              href={`/products/${item.id}`}
+              className="product_wrapper"
+            >
+              <div className="product_content">
+                <img src={item.picture} className="product_image" alt="Image" />
 
-              <span className="product_title">
-                {item.id} : {item.name}
-              </span>
-
-              <div>
-                <span className="product_star">Đánh giá : 5 sao |</span>{" "}
-                <span className="product_sold">Đã bán : 50</span>
-              </div>
-
-              <div>
-                <span className="product_price">
-                  {parseInt(item.price).toLocaleString("it-IT", {
-                    style: "currency",
-                    currency: "VND",
-                  })}
+                <span className="product_title">
+                  {item.id} : {item.name}
                 </span>
-                &nbsp;
-                <span className="product_discount">-69%</span>
-              </div>
-            </div>
-          </a>
-        );
-      })}
 
-      <center>
+                <div>
+                  <span className="product_star">Đánh giá : 5 sao |</span>{" "}
+                  <span className="product_sold">Đã bán : 50</span>
+                </div>
+
+                <div>
+                  <span className="product_price">
+                    {parseInt(item.price).toLocaleString("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                    })}
+                  </span>
+                  &nbsp;
+                  <span className="product_discount">-69%</span>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+
+      <div className="paginate_wrapper">
         <Pagination
           defaultActivePage={params.page}
           onPageChange={handlePaginationChange}
           totalPages={totalPage}
         />
-        <div>&nbsp;</div>
-      </center>
+      </div>
     </div>
   );
 }
