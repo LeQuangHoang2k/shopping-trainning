@@ -15,11 +15,6 @@ class ProductRepository
 
         if ($filters == []) return [];
 
-        // //find 1
-        // if (isset($filters['id'])) {
-        //     return $query->where('id', $filters['id'])->get();
-        // }
-
         if (isset($filters['page']) || is_null($filters['page'])) {
             $validator = Validator::make($filters, [
                 'page' => 'required|nullable|integer|min:1'
