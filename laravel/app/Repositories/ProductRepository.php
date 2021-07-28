@@ -40,6 +40,14 @@ class ProductRepository
 
         return $query->orderBy($sort, $order)->paginate(15);
     }
+
+    public function find($id)
+    {
+        $query = Product::select('*');
+
+        //find 1
+        return $query->where('id', $id)->get();
+    }
 }
 
 // limit     la : count

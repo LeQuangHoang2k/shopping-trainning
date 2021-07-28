@@ -50,10 +50,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        // $filters = request()->all();
-        // dd($id);
-        // // $filters["id"] = $id;
-        // return ProductsResource::collection($this->productRepository->getAll($id));
+        // $id->validate();
+        dd($id);
+        // return new ProductResource($this->productRepository->find($id));
     }
 
     /**
