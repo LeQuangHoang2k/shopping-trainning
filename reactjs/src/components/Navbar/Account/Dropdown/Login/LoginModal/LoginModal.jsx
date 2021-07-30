@@ -66,8 +66,7 @@ function LoginModal(props) {
     const { access_token, token_type, expires_in, user } = data;
     console.log("avc", access_token, token_type, expires_in, user);
     setCookie("user", user, { path: "/" });
-    setCookie("access_token", access_token, { path: "/" });
-    setCookie("expires_in", expires_in, { path: "/" });
+    setCookie("access_token", access_token, { path: "/", expires_in });
     setCookie("token_type", expires_in, { path: "/" });
 
     // setCookie('Password', pwd, { path: '/' });
