@@ -52,9 +52,11 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' =>  Carbon::today()->toDateTimeString(),
-            // 'expires_in' => auth()->factory()->getTTL() * 60,
+            'expires_in' =>Carbon::now()->format('d-m-Y H:i:s'),
             'user' => new UserResource($this->userRepository->find($credentials)),
+            // 'expires_in' =>  Carbon::today()->toDateTimeString(),
+            // 'expires_in' =>Carbon::now()->second,
+            // 'expires_in' => auth()->factory()->getTTL() * 60,
         ]);
     }
 }
