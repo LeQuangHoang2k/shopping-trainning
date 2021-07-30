@@ -36,12 +36,13 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $now->addDays(7)->format('d-m-Y H:i:s'),
+            'expires_in' => 60 * 60 * 24 * 7,
             'user' => new UserResource($this->userRepository->find($credentials)),
         ]);
     }
 }
 
+// 'expires_in' => $now->addDays(7)->format('d-m-Y H:i:s'),
 // 'expires_in' => Carbon::now()->format('d-m-Y H:i:s'),
 // 'expires_in' =>  Carbon::today()->toDateTimeString(),
 // 'expires_in' =>Carbon::now()->second,

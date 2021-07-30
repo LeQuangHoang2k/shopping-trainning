@@ -68,27 +68,20 @@ function LoginModal(props) {
     const { access_token, token_type, expires_in, user } = data;
     console.log("avc", access_token, token_type, expires_in, user);
 
-    // let expires = new Date()
-    let expires = new Date(expires_in);
-    console.log("expires", expires);
-    expires.setTime(expires.getTime() + 10000);
-
     cookies.set("user", user, {
       path: "/",
-      maxAge: expires,
+      maxAge: expires_in,
     });
 
     cookies.set("access_token", access_token, {
       path: "/",
-      maxAge: expires,
+      maxAge: expires_in,
     });
 
     cookies.set("token_type", token_type, {
       path: "/",
-      maxAge: expires,
+      maxAge: expires_in,
     });
-
-    console.log("expires", expires);
   };
 
   return (
