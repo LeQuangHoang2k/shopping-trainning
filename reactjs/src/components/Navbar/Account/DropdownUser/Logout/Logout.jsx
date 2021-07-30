@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
+import Cookies from "universal-cookie";
 
 import "./Logout.css";
 
 function Logout(props) {
   const submit = () => {
-    localStorage.removeItem("account");
+    const cookies = new Cookies();
+    cookies.remove("user");
+    cookies.remove("access_token");
+    cookies.remove("token_type");
 
     window.location.href = "/";
   };

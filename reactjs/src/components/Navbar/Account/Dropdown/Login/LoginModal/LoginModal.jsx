@@ -37,6 +37,8 @@ function LoginModal(props) {
       console.log("php: ", res.data);
 
       saveCookie(res.data);
+
+      window.location.reload();
     } catch (error) {
       console.log(error);
 
