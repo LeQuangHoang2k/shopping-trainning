@@ -28,8 +28,13 @@ use Illuminate\Support\Facades\Route;
 
 //users 
 Route::resource('/register',  RegisterController::class);
-Route::post('/login',  [LoginController::class, 'login']);
+// Route::post('/login',  [LoginController::class, 'login']);
 Route::resource('products', ProductController::class);
+
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout', 'AuthController@logout');
+Route::post('refresh', 'AuthController@refresh');
+Route::post('me', 'AuthController@me');
 
 Route::get('/test',  [AuthController::class, 'test']);
 
@@ -44,4 +49,3 @@ Route::get('/test',  [AuthController::class, 'test']);
 //Route::put('/product/{id}',  [ProductsController::class, 'update']);
 //Route::patch('/product/{id}',  [ProductsController::class, 'edit']);
 //Route::delete('/product/{id}',  [ProductsController::class, 'destroy']);
-
