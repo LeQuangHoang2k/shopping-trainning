@@ -44,7 +44,7 @@ class AuthController extends Controller
 
     public function refresh()
     {
-        return $this->respondWithToken(auth()->refresh(),"abc");
+        return $this->respondWithToken(auth()->refresh(), "abc");
     }
 
     protected function respondWithToken($token, $credentials)
@@ -53,7 +53,7 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => Carbon::now()->format('d-m-Y H:i:s'),
-            'user' => new UserResource($this->userRepository->find($credentials)),
+            // 'user' => new UserResource($this->userRepository->find($credentials)),
             // 'expires_in' =>  Carbon::today()->toDateTimeString(),
             // 'expires_in' =>Carbon::now()->second,
             // 'expires_in' => auth()->factory()->getTTL() * 60,
