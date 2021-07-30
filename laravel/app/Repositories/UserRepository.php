@@ -6,7 +6,15 @@ use App\Models\User;
 
 class UserRepository
 {
-    public function get($filter)
+    public function find($filters)
+    {
+        // $user = User::find($email);
+        $user =  User::where('email', $filters)->first();
+
+        return $user;
+    }
+
+    public function test($filter)
     {
         $query = User::select('*')->where('email', '=', $filter->email);
 
