@@ -26,47 +26,38 @@ function LoginModal(props) {
     //db
     try {
       const res = await axios.post("http://localhost:8000/api/login", formData);
-      const { access_token, token_type, expires_in, user } = await res.data;
       console.log("php: ", res);
       console.log("php: ", res.data);
-      //   Alert({ message: data.message });
 
-      //   //main
-
-      //   //res
-
-      // if (!data || !data.account) return;
-
-      localStorage.setItem("user", JSON.stringify(user));
-      //   let a = localStorage.getItem("account");
-
-      //   a = JSON.parse(a);
-
-      //   console.log(a);
-
-      //   window.location.reload();
+      saveCookie(res.data);
     } catch (error) {
-      // console.log(error.response.data);
-      // console.log(error.response.status);
-      // console.log(error.response.headers);
-      // const { data, meta } = await error.response.data;
-      // console.log("meta", meta);
-      // const { errors } = await meta;
-      // console.log("errors", errors);
-      // console.log("error is", errors[Object.keys(errors)[0]]);
-      // Alert({ error: errors[Object.keys(errors)[0]] });
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+      const { data, meta } = await error.response.data;
+      console.log("meta", meta);
+      const { errors } = await meta;
+      console.log("errors", errors);
+      console.log("error is", errors[Object.keys(errors)[0]]);
+      Alert({ error: errors[Object.keys(errors)[0]] });
     }
   };
 
   const checkRequest = () => {
     console.log(formData);
 
-    if (!email || email.length < 5) return Alert({ waring: "Email not valid" });
+    if (!email || email.length < 5)
+      return Alert({ warning: "Email not valid" });
 
     if (!password || password.length < 5)
       return Alert({ warning: "Password not valid" });
 
     return true;
+  };
+
+  const saveCookie = (data) => {
+    const { access_token, token_type, expires_in, user } = data;
+    console.log("avc",access_token, token_type, expires_in, user);
   };
 
   return (
