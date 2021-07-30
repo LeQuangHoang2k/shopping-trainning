@@ -17,10 +17,11 @@ class LoginController extends Controller
         //     return response()->json(['error' => 'Unauthorized'], 401);
         // }
 
-        if (isset($request->token) && !$this->verifyToken($request)) return;
-
-        $user = User::select("*")->where("email", $request->email)->get();
-        print_r($user->email);
+        // if (isset($request->token) && !$this->verifyToken($request)) return;
+        $request->validated();
+        $users =  User::where('email', $request->validated())->first();
+        dd($users->email);
+        // print_r($user->email);
         // $credentials = $request($request->all());
         // if (!$token = auth()->attempt($credentials)) {
         //     return response()->json(['error' => 'Unauthorized'], 401);
