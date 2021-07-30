@@ -19,8 +19,10 @@ function LoginModal(props) {
   };
 
   useEffect(() => {
-    console.log("cookies", cookies["user"]);
-    console.log("cookies", cookies["token"]);
+    // removeCookie(["user"])
+
+    console.log("cookies user", cookies["user"]);
+    console.log("cookies token", cookies["token"]);
   }, []);
 
   const login = async () => {
@@ -67,16 +69,16 @@ function LoginModal(props) {
   const saveCookie = (data) => {
     const { access_token, token_type, expires_in, user } = data;
     console.log("avc", access_token, token_type, expires_in, user);
-    setCookie("user", user, { path: "/" });
-    let expires = new Date(expires_in)
-    console.log("expires",expires);
+    // let expires = new Date()
+    let expires = new Date(expires_in);
+    console.log("expires", expires);
+    expires.setTime(expires.getTime() + 10000);
 
-    expires.setTime(expires.getTime() + (1000))
-    console.log("expires",expires);
-    setCookie("access_token", access_token, { path: "/", expires});
-    setCookie("token_type", expires_in, { path: "/" });
+    setCookie("user", user, { path: "/", expires });
+    setCookie("access_token", access_token, { path: "/", expires });
+    setCookie("token_type", expires_in, { path: "/", expires });
 
-    // setCookie('Password', pwd, { path: '/' });
+    console.log("expires", expires);
   };
 
   return (
