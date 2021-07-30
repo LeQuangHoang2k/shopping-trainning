@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { axios } from "axios";
+import axios from "axios";
 
 import "./LoginModal.css";
 import Alert from "./../../../../../../features/Alert";
@@ -25,40 +25,38 @@ function LoginModal(props) {
 
     //db
     try {
-      const res = await axios.post("/login", formData);
+    const res = await axios.post("http://localhost:8000/api/login", formData);
+    const { access_token, token_type, expires_in, user } = await res.data;
+    console.log("php: ", res);
+    console.log("php: ", res.data);
+    //   Alert({ message: data.message });
 
-      const { data } = await res;
+    //   //main
 
-      Alert({ message: data.message });
+    //   //res
 
-      console.log("php: ", data);
+      // if (!data || !data.account) return;
 
-      //main
+      // localStorage.setItem("account", JSON.stringify(data.account));
+    //   let a = localStorage.getItem("account");
 
-      //res
+    //   a = JSON.parse(a);
 
-      if (!data || !data.account) return;
+    //   console.log(a);
 
-      localStorage.setItem("account", JSON.stringify(data.account));
-      let a = localStorage.getItem("account");
-
-      a = JSON.parse(a);
-
-      console.log(a);
-
-      window.location.reload();
+    //   window.location.reload();
     } catch (error) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
+      // console.log(error.response.data);
+      // console.log(error.response.status);
+      // console.log(error.response.headers);
 
-      const { data, meta } = await error.response.data;
-      console.log("meta", meta);
-      const { errors } = await meta;
-      console.log("errors", errors);
-      console.log("error is", errors[Object.keys(errors)[0]]);
+      // const { data, meta } = await error.response.data;
+      // console.log("meta", meta);
+      // const { errors } = await meta;
+      // console.log("errors", errors);
+      // console.log("error is", errors[Object.keys(errors)[0]]);
 
-      Alert({ error: errors[Object.keys(errors)[0]] });
+      // Alert({ error: errors[Object.keys(errors)[0]] });
     }
   };
 
