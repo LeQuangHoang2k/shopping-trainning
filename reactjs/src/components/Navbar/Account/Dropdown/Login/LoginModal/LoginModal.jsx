@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import axios from "axios";
-import { useCookies } from "react-cookie";
+import Cookies from "universal-cookie";
 
 import "./LoginModal.css";
 import Alert from "./../../../../../../features/Alert";
@@ -11,7 +11,7 @@ function LoginModal(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+  const cookies = new Cookies();
 
   var formData = {
     email,
@@ -19,8 +19,8 @@ function LoginModal(props) {
   };
 
   useEffect(() => {
-    console.log("cookies user", cookies["user"]);
-    console.log("cookies token", cookies["token"]);
+    console.log("cookies user", cookies.get("user"));
+    console.log("cookies token", cookies.get("access_token"));
   }, []);
 
   const login = async () => {
@@ -67,14 +67,26 @@ function LoginModal(props) {
   const saveCookie = (data) => {
     const { access_token, token_type, expires_in, user } = data;
     console.log("avc", access_token, token_type, expires_in, user);
+
     // let expires = new Date()
     let expires = new Date(expires_in);
     console.log("expires", expires);
     expires.setTime(expires.getTime() + 10000);
 
-    setCookie("user", user, { path: "/", expires });
-    setCookie("access_token", access_token, { path: "/", expires });
-    setCookie("token_type", expires_in, { path: "/", expires });
+    cookies.set("user", user, {
+      path: "/",
+      maxAge: expires,
+    });
+
+    cookies.set("access_token", access_token, {
+      path: "/",
+      maxAge: expires,
+    });
+
+    cookies.set("token_type", token_type, {
+      path: "/",
+      maxAge: expires,
+    });
 
     console.log("expires", expires);
   };
