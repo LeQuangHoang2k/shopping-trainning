@@ -49,11 +49,11 @@ class AuthController extends Controller
 
     protected function respondWithToken($token, $credentials)
     {
-        $dt = Carbon::now();
+        $now = Carbon::now();
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $dt->addDays(7)->format('d-m-Y H:i:s'),
+            'expires_in' => $now->addDays(7)->format('d-m-Y H:i:s'),
             'user' => new UserResource($this->userRepository->find($credentials)),
         ]);
     }
