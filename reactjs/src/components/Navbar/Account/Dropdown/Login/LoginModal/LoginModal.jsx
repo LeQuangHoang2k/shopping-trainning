@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import axios from "axios";
+import { useCookies } from 'react-cookie';
 
 import "./LoginModal.css";
 import Alert from "./../../../../../../features/Alert";
@@ -10,7 +11,8 @@ function LoginModal(props) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [cookies, setCookie] = useCookies(['user']);
+  
   var formData = {
     email,
     password,
@@ -58,6 +60,8 @@ function LoginModal(props) {
   const saveCookie = (data) => {
     const { access_token, token_type, expires_in, user } = data;
     console.log("avc",access_token, token_type, expires_in, user);
+    setCookie('user', user, { path: '/' });
+    // setCookie('Password', pwd, { path: '/' });
   };
 
   return (
