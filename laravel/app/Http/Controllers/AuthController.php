@@ -21,21 +21,24 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        if ($this->verifyToken()) {
-            # code...
-        }
+        if (isset($request["token"])) {
+            if (!$this->verifyToken($request)) return response()->json(['error' => 'Unauthorized'], 401);
+        } else {
 
-        $credentials = $request->validated();
+            $credentials = $request->validated();
 
-        if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            if (!$token = auth()->attempt($credentials)) {
+                return response()->json(['error' => 'Unauthorized'], 401);
+            }
         }
 
         return $this->respondWithToken($token, $credentials);
     }
 
-    public function verifyToken()
+    public function verifyToken($request)
     {
+        dd($request["token"]);
+
         return true;
     }
 
