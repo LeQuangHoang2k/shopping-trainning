@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useCookies } from "react-cookie";
+import Cookies from "universal-cookie";
 
 import Dropdown from "./Dropdown/Dropdown";
 import DropdownUser from "./DropdownUser/DropdownUser";
@@ -12,9 +12,9 @@ import "./Account.css";
 // import AccountArrow from "/images/AccountArrow.png";
 
 function Account(props) {
-  const [cookies, setCookie, removeCookie] = useCookies(["user"]);
+  const cookies = new Cookies();
   const [state, setState] = useState({});
-  const [user, setUser] = useState(cookies["user"]);
+  const [user, setUser] = useState(cookies.get("user"));
 
   const [accountImage, setAccountImage] = useState("/images/AccountIcon.png");
 
