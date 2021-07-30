@@ -32,7 +32,7 @@ class AuthController extends Controller
 
     protected function respondWithToken($token, $credentials)
     {
-        $now = Carbon::now();
+        $now = Carbon::now('Asia/Ho_Chi_Minh');
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',

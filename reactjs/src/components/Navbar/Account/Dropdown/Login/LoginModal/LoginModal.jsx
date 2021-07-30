@@ -38,15 +38,17 @@ function LoginModal(props) {
 
       saveCookie(res.data);
     } catch (error) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-      const { data, meta } = await error.response.data;
-      console.log("meta", meta);
-      const { errors } = await meta;
-      console.log("errors", errors);
-      console.log("error is", errors[Object.keys(errors)[0]]);
-      Alert({ error: errors[Object.keys(errors)[0]] });
+      console.log(error);
+
+      // console.log(error.response.data);
+      // console.log(error.response.status);
+      // console.log(error.response.headers);
+      // const { data, meta } = await error.response.data;
+      // console.log("meta", meta);
+      // const { errors } = await meta;
+      // console.log("errors", errors);
+      // console.log("error is", errors[Object.keys(errors)[0]]);
+      // Alert({ error: errors[Object.keys(errors)[0]] });
     }
   };
 
@@ -66,7 +68,12 @@ function LoginModal(props) {
     const { access_token, token_type, expires_in, user } = data;
     console.log("avc", access_token, token_type, expires_in, user);
     setCookie("user", user, { path: "/" });
-    setCookie("access_token", access_token, { path: "/", expires_in });
+    let expires = new Date(expires_in)
+    console.log("expires",expires);
+
+    expires.setTime(expires.getTime() + (1000))
+    console.log("expires",expires);
+    setCookie("access_token", access_token, { path: "/", expires});
     setCookie("token_type", expires_in, { path: "/" });
 
     // setCookie('Password', pwd, { path: '/' });
