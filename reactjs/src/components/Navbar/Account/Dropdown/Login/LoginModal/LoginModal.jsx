@@ -19,8 +19,6 @@ function LoginModal(props) {
   };
 
   useEffect(() => {
-    // removeCookie(["user"])
-
     console.log("cookies user", cookies["user"]);
     console.log("cookies token", cookies["token"]);
   }, []);
