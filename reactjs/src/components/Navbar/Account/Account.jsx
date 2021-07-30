@@ -22,7 +22,7 @@ function Account(props) {
 
   useEffect(() => {
     updateAccountUI();
-    console.log("user", user.email);
+    console.log("user", user);
 
     return () => {
       setState({}); // This worked for me
@@ -46,7 +46,7 @@ function Account(props) {
       <div className="account_content">
         <img
           src={
-            user.picture && user.picture !== ""
+            user && user.picture && user.picture !== ""
               ? user.picture
               : "/images/AccountIcon.png"
           }
@@ -55,7 +55,7 @@ function Account(props) {
         />
         <div className="account_name">
           <span className="account_title">
-            {user.name && user.name !== "" ? user.name : "My Account"}
+            {user && user.name && user.name !== "" ? user.name : "My Account"}
           </span>
         </div>
         <img
