@@ -21,6 +21,10 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
+        if ($this->verifyToken()) {
+            # code...
+        }
+
         $credentials = $request->validated();
 
         if (!$token = auth()->attempt($credentials)) {
@@ -28,6 +32,11 @@ class AuthController extends Controller
         }
 
         return $this->respondWithToken($token, $credentials);
+    }
+
+    public function verifyToken()
+    {
+        return true;
     }
 
     protected function respondWithToken($token, $credentials)
