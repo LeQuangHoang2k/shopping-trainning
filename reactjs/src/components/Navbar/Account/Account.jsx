@@ -15,38 +15,35 @@ function Account(props) {
   const cookies = new Cookies();
   const [user, setUser] = useState(cookies.get("user"));
 
-  // const [accountImage, setAccountImage] = useState("/images/AccountIcon.png");
+  const [name, setName] = useState("My Account");
+  const [image, setImage] = useState("/images/AccountIcon.png");
+
   useEffect(() => {
     updateAccountUI();
     console.log("user", user);
   }, []);
 
   const updateAccountUI = () => {
-    if (!user || user.length === 0)
+    if (user && user.length !== 0) {
+      setImage(user.picture);
+      if (user.name && user.name !== "") return setName(user.name);
+      if (user.email && user.email !== "") return setName(user.email);
+    } else {
       return setTimeout(() => {
         Alert({
           message:
             "Vui lòng đăng nhập để nhận ưu đãi khi săn sale Tiki 8/8 nhé !",
         });
       }, 2000);
+    }
   };
 
   return (
     <div className="account_wrapper">
       <div className="account_content">
-        <img
-          src={
-            user && user.picture && user.picture !== ""
-              ? user.picture
-              : "/images/AccountIcon.png"
-          }
-          className="account_image"
-          alt="Image"
-        />
+        <img src={image} className="account_image" alt="" />
         <div className="account_name">
-          <span className="account_title">
-            {user && user.name && user.name !== "" ? user.name : "My Account"}
-          </span>
+          <span className="account_title">{name}</span>
         </div>
         <img
           src="/images/AccountArrow.png"
