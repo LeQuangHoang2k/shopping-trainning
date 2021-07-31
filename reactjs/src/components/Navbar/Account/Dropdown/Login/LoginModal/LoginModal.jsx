@@ -32,7 +32,15 @@ function LoginModal(props) {
 
     //db
     try {
-      const res = await axios.post("http://localhost:8000/api/login", formData);
+      // const config = {
+      //   headers: { Authorization: `Bearer ${cookies.access_token}` },
+      // };
+
+      const res = await axios.post(
+        "http://localhost:8000/api/login",
+        formData
+        // config
+      );
       console.log("php: ", res);
       console.log("php: ", res.data);
 

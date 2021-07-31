@@ -8,6 +8,7 @@ use App\Http\Requests\auth\LoginRequest;
 use App\Http\Resources\UserResource;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Carbon;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
@@ -21,25 +22,18 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        if (isset($request["token"])) {
-            if (!$this->verifyToken($request)) return response()->json(['error' => 'Unauthorized'], 401);
-        } else {
+        // if (isset($request["token"])) {
+        //     if (!$this->verifyToken($request)) return response()->json(['error' => 'Unauthorized'], 401);
+        // } else {
 
-            $credentials = $request->validated();
+        $credentials = $request->validated();
 
-            if (!$token = auth()->attempt($credentials)) {
-                return response()->json(['error' => 'Unauthorized'], 401);
-            }
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
         }
+        // }
 
         return $this->respondWithToken($token, $credentials);
-    }
-
-    public function verifyToken($request)
-    {
-        dd($request["token"]);
-
-        return true;
     }
 
     protected function respondWithToken($token, $credentials)
@@ -52,6 +46,14 @@ class AuthController extends Controller
             'user' => new UserResource($this->userRepository->find($credentials)),
         ]);
     }
+
+    // public function verifyToken($request)
+    // {
+    //     $user = JWTAuth::parseToken()->authenticate();
+    //     // dd($user);
+
+    //     return true;
+    // }
 }
 
 // 'expires_in' => $now->addDays(7)->format('d-m-Y H:i:s'),
@@ -59,3 +61,9 @@ class AuthController extends Controller
 // 'expires_in' =>  Carbon::today()->toDateTimeString(),
 // 'expires_in' =>Carbon::now()->second,
 // 'expires_in' => auth()->factory()->getTTL() * 60,
+
+// dd($request["token"]);
+// dd(JWTAuth::invalidate($request["token"]));
+// dd(JWTAuth::parseToken()->authenticate($request["token"]));
+// $user = JWTAuth::invalidate($request["token"]);
+// dd($user);
