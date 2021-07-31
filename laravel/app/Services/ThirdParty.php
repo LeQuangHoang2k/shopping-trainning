@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ThirdParty;
+namespace App\Services;
 
 class ThirdParty
 {
