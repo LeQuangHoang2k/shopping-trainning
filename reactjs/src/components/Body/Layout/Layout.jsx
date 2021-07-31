@@ -8,7 +8,7 @@ import ProductDetail from "./ProductDetail/ProductDetail";
 
 import "./Layout.css";
 import Paginate from "./Product/Pagination/Paginate";
-import Order from "./Order/Order";
+import Cart from "./Cart/Cart";
 
 function Layout(props) {
   const [mainComponent, setMainComponent] = useState(null);
@@ -41,10 +41,10 @@ function Layout(props) {
       );
     }
 
-    if (firstPath === "orders") {
+    if (firstPath === "cart") {
       return setMainComponent(
         <>
-          <Order />
+          <Cart />
         </>
       );
     }

@@ -1,8 +1,12 @@
 import React from "react";
 
-import "./Order.css";
+import "./Cart.css";
 
-function Order(props) {
+function Cart(props) {
+  const continueShopping = () => {
+    window.location.href = "/";
+  };
+
   return (
     <div class="cart_section">
       <div class="container-fluid">
@@ -24,10 +28,11 @@ function Order(props) {
                         <div class="cart_item_text">Samsung C7 Pro</div>
                       </div>
                       <div class="cart_item_color cart_info_col">
-                        <div class="cart_item_title">Color</div>
+                        <div class="cart_item_title">Ram</div>
                         <div class="cart_item_text">
-                          <span style={{ backgroundColor: "#999999" }}></span>
-                          Silver
+                          {/* <span style={{ backgroundColor: "#999999" }}></span> */}
+                          {/* Silver */}
+                          64gb
                         </div>
                       </div>
                       <div class="cart_item_quantity cart_info_col">
@@ -54,7 +59,11 @@ function Order(props) {
               </div>
               <div class="cart_buttons">
                 {" "}
-                <button type="button" class="button cart_button_clear">
+                <button
+                  type="button"
+                  class="button cart_button_clear"
+                  onClick={continueShopping}
+                >
                   Continue Shopping
                 </button>{" "}
                 <button type="button" class="button cart_button_checkout">
@@ -69,4 +78,4 @@ function Order(props) {
   );
 }
 
-export default Order;
+export default Cart;
