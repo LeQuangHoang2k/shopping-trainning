@@ -14,7 +14,7 @@ function Cart(props) {
           <div class="col-lg-10 offset-lg-1">
             <div class="cart_container">
               <div class="cart_title">
-                Shopping Cart<small> (1 item in your cart) </small>
+                <small> (1 item in your cart) </small>
               </div>
               <div class="cart_items">
                 <ul class="cart_list">
