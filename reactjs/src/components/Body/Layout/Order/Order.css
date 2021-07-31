@@ -45,9 +45,9 @@ ul {
     opacity: 0.8
 }
 
-.cart_section {
+.cart_section { /* custom */
     width: 100%;
-    padding-top: 93px;
+    padding-top: 50px;
     padding-bottom: 111px
 }
 
@@ -56,8 +56,8 @@ ul {
     font-weight: 500
 }
 
-.cart_items {
-    margin-top: 8px
+.cart_items { /* custom */
+    margin-top: 18px
 }
 
 .cart_list {
