@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import queryString from "query-string";
+import { useRouteMatch } from "react-router-dom";
 
 import Product from "./Product/Product";
 import ProductDetail from "./ProductDetail/ProductDetail";
@@ -14,10 +15,13 @@ function Layout(props) {
   // const { name, id } = queryString.parse(window.location.search);
   const { name } = queryString.parse(window.location.search);
   const { id } = useParams();
+  let match = useRouteMatch();
+  let firstPath = match.path.split("/")[1];
 
   useEffect(() => {
-    if (id && id !== "") {
+    if (firstPath === "products" && id && id !== "") {
       setMainComponent(<ProductDetail />);
+      console.log("path", match.path.split("/")[1]);
     } else {
       setMainComponent(
         <>
