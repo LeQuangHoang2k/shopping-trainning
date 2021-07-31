@@ -17,34 +17,38 @@ function Product(props) {
   });
 
   useEffect(() => {
+    const abortCont = new AbortController();
+
     fetchProduct();
 
-    return () => {
-      setProducts([]);
-    };
+    return () => abortCont.abort();
   }, []);
 
   const fetchProduct = async () => {
-    var res = null;
-    console.log(params.page);
-    if (params.name && params.name !== "") {
-      res = await axios.get(
-        `http://localhost:8000/api/products?name=${params.name}&page=${params.page}`
-      );
-    } else {
-      res = await axios.get(
-        `http://localhost:8000/api/products?page=${params.page}`
-      );
+    try {
+      var res = null;
+      console.log(params.page);
+      if (params.name && params.name !== "") {
+        res = await axios.get(
+          `http://localhost:8000/api/products?name=${params.name}&page=${params.page}`
+        );
+      } else {
+        res = await axios.get(
+          `http://localhost:8000/api/products?page=${params.page}`
+        );
+      }
+
+      console.log("res", res.data);
+      const { data, links, meta } = await res.data;
+      setProducts(data);
+
+      console.log("php: ", data, links, meta);
+
+      if (!meta) return;
+      setTotalPage(meta.last_page);
+    } catch (error) {
+      if (error.name === "AbortError") console.log("fetch aborted");
     }
-
-    console.log("res", res.data);
-    const { data, links, meta } = await res.data;
-    setProducts(data);
-
-    console.log("php: ", data, links, meta);
-
-    if (!meta) return;
-    setTotalPage(meta.last_page);
   };
 
   const handlePaginationChange = (e, { activePage }) => {
