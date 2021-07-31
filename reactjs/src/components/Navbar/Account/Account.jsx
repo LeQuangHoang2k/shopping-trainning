@@ -13,20 +13,12 @@ import "./Account.css";
 
 function Account(props) {
   const cookies = new Cookies();
-  const [state, setState] = useState({});
   const [user, setUser] = useState(cookies.get("user"));
 
-  const [accountImage, setAccountImage] = useState("/images/AccountIcon.png");
-
-  const [dropdownComponent, setDropdownComponent] = useState(<Dropdown />);
-
+  // const [accountImage, setAccountImage] = useState("/images/AccountIcon.png");
   useEffect(() => {
     updateAccountUI();
     console.log("user", user);
-
-    return () => {
-      setState({}); // This worked for me
-    };
   }, []);
 
   const updateAccountUI = () => {
@@ -37,8 +29,6 @@ function Account(props) {
             "Vui lòng đăng nhập để nhận ưu đãi khi săn sale Tiki 8/8 nhé !",
         });
       }, 2000);
-
-    setDropdownComponent(<DropdownUser />);
   };
 
   return (
@@ -64,7 +54,7 @@ function Account(props) {
           alt="Image"
         />
 
-        {dropdownComponent}
+        {user ? <DropdownUser /> : <Dropdown />}
       </div>
     </div>
   );
