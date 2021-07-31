@@ -8,10 +8,10 @@ import ProductDetail from "./ProductDetail/ProductDetail";
 
 import "./Layout.css";
 import Paginate from "./Product/Pagination/Paginate";
+import Order from "./Order/Order";
 
 function Layout(props) {
   const [mainComponent, setMainComponent] = useState(null);
-
   // const { name, id } = queryString.parse(window.location.search);
   const { name } = queryString.parse(window.location.search);
   const { id } = useParams();
@@ -19,17 +19,41 @@ function Layout(props) {
   let firstPath = match.path.split("/")[1];
 
   useEffect(() => {
-    if (firstPath === "products" && id && id !== "") {
-      setMainComponent(<ProductDetail />);
-      console.log("path", match.path.split("/")[1]);
-    } else {
-      setMainComponent(
+    // if (firstPath === "products" && id && id !== "") {
+    //   setMainComponent(<ProductDetail />);
+    //   console.log("path", match.path.split("/")[1]);
+    // } else {
+    //   setMainComponent(
+    //     <>
+    //       <Product />
+    //       {/* <Paginate /> */}
+    //     </>
+    //   );
+    // }
+
+    if (firstPath === "products") {
+      if (id && id !== "") return setMainComponent(<ProductDetail />);
+
+      return setMainComponent(
         <>
           <Product />
-          {/* <Paginate /> */}
         </>
       );
     }
+
+    if (firstPath === "orders") {
+      return setMainComponent(
+        <>
+          <Order />
+        </>
+      );
+    }
+
+    return setMainComponent(
+      <>
+        <Product />
+      </>
+    );
 
     return () => {
       setMainComponent(null); // This worked for me
