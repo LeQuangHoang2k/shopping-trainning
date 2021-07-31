@@ -22,6 +22,11 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
+        //check type FB GG
+        // if ($request["type"]==="facebook") {
+        //        # code...
+        // }
+
         $credentials = $request->validated();
 
         if (!$token = JWTAuth::attempt($credentials)) {
@@ -29,11 +34,6 @@ class AuthController extends Controller
         }
 
         return $this->respondWithToken($token, $credentials);
-
-        // if (isset($request["token"])) {
-        //     if (!$this->verifyToken($request)) return response()->json(['error' => 'Unauthorized'], 401);
-        // } else {
-        // }
     }
 
     protected function respondWithToken($token, $credentials)
