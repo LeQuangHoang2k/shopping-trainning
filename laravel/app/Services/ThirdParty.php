@@ -10,6 +10,7 @@ class ThirdParty
     {
         // dd("syncAccountFacebook");
         $userDB =  User::where('email', $credentials['email'])->first();
+        $user = null;
         // dd($user);
 
         if (!$userDB) {
