@@ -7,43 +7,47 @@ import "./Facebook.css";
 
 function Facebook(props) {
   const responseFacebook = async (response) => {
-    const { id, email, name, picture } = response;
-    const pictureURL = picture.data.url;
-    console.log(response, pictureURL);
+    try {
+      const { id, email, name, picture } = response;
+      const pictureURL = picture.data.url;
+      console.log(response, pictureURL);
 
-    let formData = {
-      id,
-      email,
-      name,
-      pictureURL,
-    };
+      let formData = {
+        id,
+        email,
+        name,
+        pictureURL,
+      };
 
-    console.log(formData);
+      console.log(formData);
 
-    //input
+      //input
 
-    //db
+      //db
 
-    const res = await axios.post("/api/login-facebook", formData);
+      const res = await axios.post("http://localhost:8000/api/login-facebook", formData);
 
-    const { data } = await res;
+      const { data } = await res;
 
-    Alert({ message: data.message });
+      Alert({ message: data.message });
 
-    console.log("php: ", data);
+      console.log("php: ", data);
 
-    //main
+      //main
 
-    //res
+      //res
 
-    localStorage.setItem("account", JSON.stringify(data.account));
-    let a = localStorage.getItem("account");
+      localStorage.setItem("account", JSON.stringify(data.account));
+      let a = localStorage.getItem("account");
 
-    a = JSON.parse(a);
+      a = JSON.parse(a);
 
-    console.log(a);
+      console.log(a);
 
-    window.location.reload();
+      window.location.reload();
+    } catch (error) {
+      console.log(error.data);
+    }
   };
 
   const submit = () => {

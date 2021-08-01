@@ -23,7 +23,7 @@ function Google(props) {
 
     //db
 
-    const res = await axios.post("/api/login-google", formData);
+    const res = await axios.post("http://localhost:8000/api/login-google", formData);
 
     const { data } = await res;
 
