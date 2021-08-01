@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\auth\LoginRequest;
+use App\Http\Requests\LoginFacebookRequest;
+use App\Http\Requests\LoginGoogleRequest;
 use App\Http\Resources\UserResource;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Carbon;
@@ -22,11 +24,28 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        //check type FB GG
-        // if ($request["type"]==="facebook") {
-        //        # code...
-        // }
+        $credentials = $request->validated();
 
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return $this->respondWithToken($token, $credentials);
+    }
+
+    public function loginFacebook(LoginFacebookRequest $request)
+    {
+        $credentials = $request->validated();
+
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return $this->respondWithToken($token, $credentials);
+    }
+
+    public function loginGoogle(LoginGoogleRequest $request)
+    {
         $credentials = $request->validated();
 
         if (!$token = JWTAuth::attempt($credentials)) {
@@ -47,13 +66,11 @@ class AuthController extends Controller
         ]);
     }
 
-    // public function verifyToken($request)
-    // {
-    //     $user = JWTAuth::parseToken()->authenticate();
-    //     // dd($user);
-
-    //     return true;
-    // }
+    public function verifyToken()
+    {
+        $user = JWTAuth::parseToken()->authenticate();
+        dd($user);
+    }
 }
 
 // 'expires_in' => $now->addDays(7)->format('d-m-Y H:i:s'),
