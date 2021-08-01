@@ -12,34 +12,44 @@ class ThirdParty
     {
         // dd("syncAccountFacebook");
 
-        $userDB =  User::where('email', $credentials['email'])->first();
-        $newName = $userDB->name;
-        $newPicture = $userDB->picture;
-        $user = null;
+        //check email có tồn tại chưa và facebookID có tồn tại chưa 
 
-        if ($userDB) {
-            // dd($credentials);
-            if (!isset($credentials["is_duplicate"]))
-                return print_r(json_encode(["error" => "Unconfirmed duplicate !"]));
 
-            if ($credentials["is_duplicate"]) {
+        // $userDB =  User::where([
+        //     [
+        //         'email', $credentials['email']
+        //     ],
+        //     [
+        //         'email', $credentials['email']
+        //     ]
+        // ])->first();
+        // $newName = $userDB->name;
+        // $newPicture = $userDB->picture;
+        // $user = null;
 
-                if (!isNull($newName) && !isNull($newPicture)) return $user;
-                if (isNull($newName)) $newName = $credentials['name'];
-                if (isNull($newPicture)) $newPicture = $credentials['picture'];
+        // if ($userDB) {
+        //     // dd($credentials);
+        //     if (!isset($credentials["is_duplicate"]))
+        //         return print_r(json_encode(["error" => "Unconfirmed duplicate !"]));
 
-                $user = User::where('email', $credentials['email'])->update(['name' => $newName, 'picture' => $newPicture]);
-            } else {
-                // dd("create");
-                $user = User::create($credentials);
-            }
-        } else {
-            $user = User::create($credentials);
-        }
+        //     if ($credentials["is_duplicate"]) {
 
-        dd("pass");
+        //         if (!isNull($newName) && !isNull($newPicture)) return $user;
+        //         if (isNull($newName)) $newName = $credentials['name'];
+        //         if (isNull($newPicture)) $newPicture = $credentials['picture'];
 
-        return $user;
+        //         $user = User::where('email', $credentials['email'])->update(['name' => $newName, 'picture' => $newPicture]);
+        //     } else {
+        //         // dd("create");
+        //         $user = User::create($credentials);
+        //     }
+        // } else {
+        //     $user = User::create($credentials);
+        // }
+
+        // dd("pass");
+
+        // return $user;
     }
 
     public function syncAccountGoogle()
