@@ -31,7 +31,7 @@ class LoginFacebookRequest extends FormRequest
             "email" => "required|email",
             "name" => "required",
             "picture" => "required",
-            "is_duplicate" => "required",
+            "is_duplicate" => "boolean",
         ];
     }
 

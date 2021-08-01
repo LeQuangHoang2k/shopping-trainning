@@ -9,24 +9,23 @@ class ThirdParty
     public function syncAccountFacebook($credentials)
     {
         // dd("syncAccountFacebook");
+
         $userDB =  User::where('email', $credentials['email'])->first();
         $user = null;
-        // dd($user);
 
-        if (!$userDB) {
-            //!exist => create
-            // dd($user);
+        if ($userDB) {
+            // dd($credentials);
+            if (!isset($credentials["is_duplicate"]))
+                return print_r(json_encode(["error" => "Unconfirmed duplicate !"]));
+
+            if ($credentials["is_duplicate"]) {
+                dd("update");
+            } else {
+                dd("create");
+            }
+        } else {
             $user = User::create($credentials);
         }
-
-        if ($credentials["is_duplicate"]) {
-            //exist && different user => create 
-            dd($userDB);
-        } else {
-            //exist && same user => update 
-            dd($userDB);
-        }
-
 
         //get user
 
@@ -40,3 +39,8 @@ class ThirdParty
         dd("syncAccountGoogle");
     }
 }
+
+//!exist => create
+// dd($user);
+//exist && different user => create 
+//exist && same user => update 
