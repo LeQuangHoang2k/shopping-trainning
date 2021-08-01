@@ -27,7 +27,7 @@ class LoginFacebookRequest extends FormRequest
     public function rules()
     {
         return [
-            "google_id" => "required|numeric|min:9",
+            "facebook_id" => "required|numeric|min:9",
             "email" => "required|email",
             "name" => "required",
             "picture" => "required"
