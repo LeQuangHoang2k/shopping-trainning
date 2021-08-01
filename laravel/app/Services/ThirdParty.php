@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\User;
+
 class ThirdParty
 {
     public function syncAccountFacebook($credentials)
@@ -10,6 +12,8 @@ class ThirdParty
         
         //!exist => create
         
+        // $user = User::create($credentials);
+
         //exist && different user => create 
         
         //exist && same user => update 
