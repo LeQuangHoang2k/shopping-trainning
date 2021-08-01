@@ -9,19 +9,21 @@ class ThirdParty
     public function syncAccountFacebook($credentials)
     {
         // dd("syncAccountFacebook");
-        $user =  User::where('email', $credentials['email'])->first();
+        $userDB =  User::where('email', $credentials['email'])->first();
         // dd($user);
 
-        if (!$user) {
+        if (!$userDB) {
             //!exist => create
             // dd($user);
             $user = User::create($credentials);
-        } else if ($user) {
+        }
+
+        if ($credentials["is_duplicate"]) {
             //exist && different user => create 
-            dd($user);
+            dd($userDB);
         } else {
             //exist && same user => update 
-            dd($user);
+            dd($userDB);
         }
 
 
