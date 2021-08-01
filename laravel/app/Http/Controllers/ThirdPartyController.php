@@ -11,7 +11,8 @@ class ThirdPartyController extends Controller
     public function loginFacebook(LoginFacebookRequest $request)
     {
         // Sync account
-        $user = (new ThirdParty())->syncAccountFacebook();
+        dd(123);
+        // $user = (new ThirdParty())->syncAccountFacebook();
 
         // gen access token
         //   $token = auth()->login($user);

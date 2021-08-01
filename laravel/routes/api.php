@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ThirdPartyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
