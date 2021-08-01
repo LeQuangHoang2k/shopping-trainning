@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -27,10 +27,10 @@ class LoginFacebookRequest extends FormRequest
     public function rules()
     {
         return [
-            "facebook_id" => "required|numeric|min:9",
+            "google_id" => "required|numeric|min:9",
             "email" => "required|email",
             "name" => "required",
-            "picture"=>"required"
+            "picture" => "required"
         ];
     }
 

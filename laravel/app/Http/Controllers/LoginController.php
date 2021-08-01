@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\LoginFacebookRequest;
+use App\Http\Requests\Auth\LoginGoogleRequest;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Http\Requests\LoginFacebookRequest;
-use App\Http\Requests\LoginGoogleRequest;
 use App\Http\Resources\UserResource;
 use App\Repositories\UserRepository;
 use Carbon\Carbon;
@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     public function __construct(UserRepository $userRepository)
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login','loginFacebook','loginGoogle']]);
         $this->userRepository = $userRepository;
     }
 
@@ -30,7 +30,7 @@ class LoginController extends Controller
 
     public function loginFacebook(LoginFacebookRequest $request)
     {
-        dd(1233);
+        // dd(1233);
         $credentials = $request->validated();
         //sync fb
         $token = $this->generateToken($credentials);
