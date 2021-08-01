@@ -59,9 +59,10 @@ function Facebook(props) {
       console.log("errors", errors);
       console.log("error is", errors[Object.keys(errors)[0]]);
 
-      Alert({ error: errors[Object.keys(errors)[0]] });
+      //   Alert({ error: errors[Object.keys(errors)[0]] });
 
-      //   alert("")
+      confirm("Press a button!");
+      
     }
   };
 
