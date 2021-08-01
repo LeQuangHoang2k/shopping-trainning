@@ -30,11 +30,8 @@ use Illuminate\Support\Facades\Route;
 //users 
 Route::resource('/register',  RegisterController::class);
 Route::post('login', [LoginController::class, 'login']);
-// Route::post('login-facebook', [LoginController::class, 'loginFacebook']);
-Route::post('login-google', [LoginController::class, 'loginGoogle']);
-
 Route::post('login-facebook', [ThirdPartyController::class, 'loginFacebook']);
-
+Route::post('login-google', [ThirdPartyController::class, 'loginGoogle']);
 
 Route::resource('products', ProductController::class);
 
@@ -44,6 +41,9 @@ Route::post('refresh',  [AuthController::class, 'refresh']);
 Route::post('me',  [AuthController::class, 'me']);
 
 Route::get('/test',  [AuthController::class, 'test']);
+
+// Route::post('login-facebook', [LoginController::class, 'loginFacebook']);
+// Route::post('login-google', [LoginController::class, 'loginGoogle']);
 
 // Route::middleware(['cors'])->group(function () {
 //     // Route::post('/hogehoge', 'Controller@hogehoge');
