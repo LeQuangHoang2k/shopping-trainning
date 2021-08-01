@@ -4,7 +4,7 @@ namespace App\Services;
 
 class ThirdParty
 {
-    public function syncAccountFacebook()
+    public function syncAccountFacebook($credentials)
     {
         dd("syncAccountFacebook");
         
