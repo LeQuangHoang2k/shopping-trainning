@@ -8,15 +8,15 @@ import "./Facebook.css";
 function Facebook(props) {
   const responseFacebook = async (response) => {
     try {
-      const { id, email, name, picture } = response;
-      const pictureURL = picture.data.url;
+      var { id, email, name, picture } = response;
+      var picture = picture.data.url;
       console.log(response, pictureURL);
 
       let formData = {
-        id,
+        facebook_id: id,
         email,
         name,
-        pictureURL,
+        picture,
       };
 
       console.log(formData);
@@ -25,7 +25,10 @@ function Facebook(props) {
 
       //db
 
-      const res = await axios.post("http://localhost:8000/api/login-facebook", formData);
+      const res = await axios.post(
+        "http://localhost:8000/api/login-facebook",
+        formData
+      );
 
       const { data } = await res;
 
@@ -46,7 +49,19 @@ function Facebook(props) {
 
       window.location.reload();
     } catch (error) {
-      console.log(error.data);
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+
+      const { data, meta } = await error.response.data;
+      console.log("meta", meta);
+      const { errors } = await meta;
+      console.log("errors", errors);
+      console.log("error is", errors[Object.keys(errors)[0]]);
+
+      Alert({ error: errors[Object.keys(errors)[0]] });
+
+      //   alert("")
     }
   };
 
