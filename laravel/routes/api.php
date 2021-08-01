@@ -32,6 +32,9 @@ Route::resource('/register',  RegisterController::class);
 Route::resource('products', ProductController::class);
 
 Route::post('login', [AuthController::class, 'login']);
+Route::post('login-facebook', [AuthController::class, 'loginFacebook']);
+Route::post('login-google', [AuthController::class, 'loginGoogle']);
+
 Route::post('logout',  [AuthController::class, 'logout']);
 Route::post('refresh',  [AuthController::class, 'refresh']);
 Route::post('me',  [AuthController::class, 'me']);

@@ -25,34 +25,32 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
-
-        if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
+        $token = $this->generateToken($credentials);
         return $this->respondWithToken($token, $credentials);
     }
 
     public function loginFacebook(LoginFacebookRequest $request)
     {
         $credentials = $request->validated();
-
-        if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
+        //sync fb
+        $token = $this->generateToken($credentials);
         return $this->respondWithToken($token, $credentials);
     }
 
     public function loginGoogle(LoginGoogleRequest $request)
     {
         $credentials = $request->validated();
+        //sync fb
+        $token = $this->generateToken($credentials);
+        return $this->respondWithToken($token, $credentials);
+    }
 
+    public function generateToken($credentials)
+    {
         if (!$token = JWTAuth::attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
-
-        return $this->respondWithToken($token, $credentials);
+        return $token;
     }
 
     protected function respondWithToken($token, $credentials)
