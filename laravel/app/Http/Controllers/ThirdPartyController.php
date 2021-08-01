@@ -33,7 +33,6 @@ class ThirdPartyController extends Controller
 
             // client trả lời có
             if ($credentials['is_duplicate']) {
-                // update
                 // dd("update");
                 if (!isNull($newName) && !isNull($newPicture)) return $user;
                 if (isNull($newName)) $newName = $credentials['name'];
@@ -46,10 +45,10 @@ class ThirdPartyController extends Controller
             }
         }
 
-        // gen access token
-        //   $token = auth()->login($user);
-
-        // return $this->respondWithToken($token);
+        return response()->json([
+            "message" => "success",
+            "users" => $user,
+        ]);
     }
 
     public function loginFacebook(LoginFacebookRequest $request)
