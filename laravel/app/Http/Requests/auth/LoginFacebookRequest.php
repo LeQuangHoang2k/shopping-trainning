@@ -30,7 +30,8 @@ class LoginFacebookRequest extends FormRequest
             "facebook_id" => "required|numeric|min:9",
             "email" => "required|email",
             "name" => "required",
-            "picture" => "required"
+            "picture" => "required",
+            "is_duplicate" => "required",
         ];
     }
 
