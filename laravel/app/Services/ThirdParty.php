@@ -30,7 +30,8 @@ class ThirdParty
 
                 $user = User::where('email', $credentials['email'])->update(['name' => $newName, 'picture' => $newPicture]);
             } else {
-                dd("create");
+                // dd("create");
+                $user = User::create($credentials);
             }
         } else {
             $user = User::create($credentials);
