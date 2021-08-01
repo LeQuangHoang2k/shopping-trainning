@@ -29,8 +29,8 @@ class LoginGoogleRequest extends FormRequest
         return [
             "google_id" => "required|numeric|min:9",
             "email" => "required|email",
-            "name" => "required",
-            "picture" => "required"
+            // "name" => "required",
+            // "picture" => "required"
         ];
     }
 

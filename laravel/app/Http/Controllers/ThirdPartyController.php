@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginFacebookRequest;
 use App\Http\Requests\Auth\LoginGoogleRequest;
 use App\Http\Requests\Auth\RegisterFacebookRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Services\ThirdParty;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 use function PHPUnit\Framework\isNull;
 
@@ -59,15 +62,28 @@ class ThirdPartyController extends Controller
 
         // (new ThirdParty())->syncAccountFacebook($credentials);
 
-        // gen access token
-        //   $token = auth()->login($user);
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
 
-        // return $this->respondWithToken($token);
+        return $this->respondWithToken($token, $credentials);
     }
 
     public function loginGoogle(LoginGoogleRequest $request)
     {
         // Sync account
         dd(222);
+    }
+
+    protected function respondWithToken($token, $credentials)
+    {
+        $now = Carbon::now('Asia/Ho_Chi_Minh');
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => 60 * 60 * 24 * 7,
+            'user' => new UserResource($this->userRepository->find($credentials)),
+        ]);
     }
 }

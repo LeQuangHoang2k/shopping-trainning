@@ -29,9 +29,9 @@ class LoginFacebookRequest extends FormRequest
         return [
             "facebook_id" => "required|numeric|min:9|exists:users,facebook_id",
             "email" => "required|email",
-            "name" => "required",
-            "picture" => "required",
-            "is_duplicate" => "boolean",
+            // "name" => "required",
+            // "picture" => "required",
+            // "is_duplicate" => "boolean",
         ];
     }
 
