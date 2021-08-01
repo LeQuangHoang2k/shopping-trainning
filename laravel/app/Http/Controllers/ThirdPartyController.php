@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginFacebookRequest;
 use App\Http\Requests\Auth\LoginGoogleRequest;
 use App\Http\Requests\Auth\RegisterFacebookRequest;
+use App\Models\User;
 use App\Services\ThirdParty;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,14 @@ class ThirdPartyController extends Controller
     public function registerFacebook(RegisterFacebookRequest $request)
     {
         $credentials = $request->validated();
-        dd(122222225455);
+        $userDB =  User::where('facebook_id', $credentials['facebook_id'])->first();
+
+        if (!$userDB) {
+            //create
+        } else {
+            //create
+        }
+
         // gen access token
         //   $token = auth()->login($user);
 
@@ -38,6 +46,5 @@ class ThirdPartyController extends Controller
     {
         // Sync account
         dd(222);
-
     }
 }
