@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 
 //users 
 Route::resource('/register',  RegisterController::class);
+Route::post('register-facebook', [ThirdPartyController::class, 'registerFacebook']);
+Route::post('register-google', [ThirdPartyController::class, 'registerGoogle']);
 Route::post('login', [LoginController::class, 'login']);
 Route::post('login-facebook', [ThirdPartyController::class, 'loginFacebook']);
 Route::post('login-google', [ThirdPartyController::class, 'loginGoogle']);
