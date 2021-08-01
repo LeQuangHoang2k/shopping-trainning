@@ -61,7 +61,7 @@ function Facebook(props) {
 
       //   Alert({ error: errors[Object.keys(errors)[0]] });
 
-      confirm("Press a button!");
+      window.confirm("Press a button!");
       
     }
   };
