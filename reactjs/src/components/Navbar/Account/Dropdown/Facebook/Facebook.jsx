@@ -10,7 +10,7 @@ function Facebook(props) {
     try {
       var { id, email, name, picture } = response;
       var picture = picture.data.url;
-      console.log(response, pictureURL);
+      console.log(response, picture);
 
       let formData = {
         facebook_id: id,
