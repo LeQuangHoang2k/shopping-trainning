@@ -24,14 +24,17 @@ class LoginController extends Controller
     {
         $credentials = $request->validated();
         $token = $this->generateToken($credentials);
+
         return $this->respondWithToken($token, $credentials);
     }
 
     public function loginFacebook(LoginFacebookRequest $request)
     {
+        dd(1233);
         $credentials = $request->validated();
         //sync fb
         $token = $this->generateToken($credentials);
+
         return $this->respondWithToken($token, $credentials);
     }
 
@@ -40,6 +43,7 @@ class LoginController extends Controller
         $credentials = $request->validated();
         //sync fb
         $token = $this->generateToken($credentials);
+
         return $this->respondWithToken($token, $credentials);
     }
 
@@ -48,12 +52,14 @@ class LoginController extends Controller
         if (!$token = JWTAuth::attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+
         return $token;
     }
 
     protected function respondWithToken($token, $credentials)
     {
         $now = Carbon::now('Asia/Ho_Chi_Minh');
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',

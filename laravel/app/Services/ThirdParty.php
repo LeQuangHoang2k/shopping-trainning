@@ -4,13 +4,13 @@ namespace App\Services;
 
 class ThirdParty
 {
-    public function syncAccountFB()
+    public function syncAccountFacebook()
     {
-        # code...
+        dd("syncAccountFacebook");
     }
 
-    public function syncAccountGG()
+    public function syncAccountGoogle()
     {
-        # code...
+        dd("syncAccountGoogle");
     }
 }
