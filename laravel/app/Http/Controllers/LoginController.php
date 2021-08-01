@@ -28,24 +28,24 @@ class LoginController extends Controller
         return $this->respondWithToken($token, $credentials);
     }
 
-    public function loginFacebook(LoginFacebookRequest $request)
-    {
-        // dd(1233);
-        $credentials = $request->validated();
-        //sync fb
-        $token = $this->generateToken($credentials);
+    // public function loginFacebook(LoginFacebookRequest $request)
+    // {
+    //     // dd(1233);
+    //     $credentials = $request->validated();
+    //     //sync fb
+    //     $token = $this->generateToken($credentials);
 
-        return $this->respondWithToken($token, $credentials);
-    }
+    //     return $this->respondWithToken($token, $credentials);
+    // }
 
-    public function loginGoogle(LoginGoogleRequest $request)
-    {
-        $credentials = $request->validated();
-        //sync fb
-        $token = $this->generateToken($credentials);
+    // public function loginGoogle(LoginGoogleRequest $request)
+    // {
+    //     $credentials = $request->validated();
+    //     //sync fb
+    //     $token = $this->generateToken($credentials);
 
-        return $this->respondWithToken($token, $credentials);
-    }
+    //     return $this->respondWithToken($token, $credentials);
+    // }
 
     public function generateToken($credentials)
     {

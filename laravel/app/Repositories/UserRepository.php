@@ -8,7 +8,6 @@ class UserRepository
 {
     public function find($filters)
     {
-        // $user = User::find($email);
         $user =  User::where('email', $filters)->first();
 
         return $user;
