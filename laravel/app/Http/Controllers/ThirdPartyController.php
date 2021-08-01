@@ -57,7 +57,7 @@ class ThirdPartyController extends Controller
         $credentials = $request->validated();
         // dd(111);
 
-        (new ThirdParty())->syncAccountFacebook($credentials);
+        // (new ThirdParty())->syncAccountFacebook($credentials);
 
         // gen access token
         //   $token = auth()->login($user);
