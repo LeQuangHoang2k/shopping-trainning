@@ -62,11 +62,11 @@ class LoginController extends Controller
         ]);
     }
 
-    public function verifyToken()
-    {
-        $user = JWTAuth::parseToken()->authenticate();
-        dd($user);
-    }
+    // public function verifyToken()
+    // {
+    //     $user = JWTAuth::parseToken()->authenticate();
+    //     dd($user);
+    // }
 }
 
 // return response()->json([
