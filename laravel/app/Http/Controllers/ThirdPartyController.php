@@ -12,12 +12,8 @@ class ThirdPartyController extends Controller
 {
     public function registerFacebook(RegisterFacebookRequest $request)
     {
-        // Sync account
         $credentials = $request->validated();
-        // dd(111);
-
-        (new ThirdParty())->syncAccountFacebook($credentials);
-
+        dd(122222225455);
         // gen access token
         //   $token = auth()->login($user);
 

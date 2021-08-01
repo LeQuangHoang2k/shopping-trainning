@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests\Auth;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\ValidationException;
 
 class RegisterGoogleRequest extends FormRequest
 {
@@ -26,5 +29,18 @@ class RegisterGoogleRequest extends FormRequest
         return [
             //
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        $response = new JsonResponse([
+            'data' => [],
+            'meta' => [
+                'message' => 'The given data is invalid',
+                'errors' => $validator->errors()
+            ]
+        ], 422);
+
+        throw new ValidationException($validator, $response);
     }
 }
