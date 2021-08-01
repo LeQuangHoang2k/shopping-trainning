@@ -19,7 +19,8 @@ class ThirdParty
                 return print_r(json_encode(["error" => "Unconfirmed duplicate !"]));
 
             if ($credentials["is_duplicate"]) {
-                dd("update");
+                // dd("update");
+                User::where('email', $credentials['email']);
             } else {
                 dd("create");
             }
