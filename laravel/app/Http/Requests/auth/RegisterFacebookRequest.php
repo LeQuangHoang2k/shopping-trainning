@@ -13,7 +13,7 @@ class RegisterFacebookRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class RegisterFacebookRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "facebook_id" => "required|numeric|min:9|unique:users,facebook_id",
+            "email" => "required|email",
+            "name" => "required",
+            "picture" => "required",
+            "is_duplicate" => "boolean",
         ];
     }
 }
