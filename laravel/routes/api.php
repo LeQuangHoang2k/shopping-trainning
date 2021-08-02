@@ -31,10 +31,10 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/register',  RegisterController::class);
 Route::post('register-facebook', [ThirdPartyController::class, 'registerFacebook']);
 Route::post('register-google', [ThirdPartyController::class, 'registerGoogle']);
-Route::post('login', [LoginController::class, 'login']);
+Route::post('login', [AuthController::class, 'login']);
 Route::post('login-facebook', [ThirdPartyController::class, 'loginFacebook']);
 Route::post('login-google', [ThirdPartyController::class, 'loginGoogle']);
-Route::post('/logout',  [AuthController::class, 'logout']);
+Route::post('logout',  [AuthController::class, 'logout']);
 
 Route::resource('products', ProductController::class);
 
