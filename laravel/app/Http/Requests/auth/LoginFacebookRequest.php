@@ -38,7 +38,7 @@ class LoginFacebookRequest extends FormRequest
     public function messages()
     {
         return [
-            'facebook_id.exists' => 'facebook id not existed ',
+            'facebook_id.exists' => 'facebook id not existed',
         ];
     }
 

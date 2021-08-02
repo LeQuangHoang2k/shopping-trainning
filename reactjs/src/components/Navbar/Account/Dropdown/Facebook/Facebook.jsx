@@ -11,14 +11,14 @@ function Facebook(props) {
     var picture = picture.data.url;
     console.log(response, picture);
 
-    let formData = {
+    let bodyParams = {
       facebook_id: id,
       email,
       name,
       picture,
     };
 
-    console.log(formData);
+    console.log(bodyParams);
 
     try {
       //input
@@ -27,7 +27,7 @@ function Facebook(props) {
 
       const res = await axios.post(
         "http://localhost:8000/api/login-facebook",
-        formData
+        bodyParams
       );
 
       const { data } = await res;
@@ -59,10 +59,9 @@ function Facebook(props) {
       console.log("errors", errors);
       console.log("error is", errors[Object.keys(errors)[0]]);
 
-      // const res = await axios.post(
-      //   "http://localhost:8000/api/register-facebook",
-      //   formData
-      // );
+      if (errors[Object.keys(errors)[0]] == "facebook id not existed") {
+        registerFacebook(bodyParams);
+      }
 
       // if (res.data.message_duplicate) {
       //   Alert({ error: res.data.message_duplicate });
@@ -70,6 +69,23 @@ function Facebook(props) {
       // console.log("register: ", res);
       // window.confirm("Press a button!");
     }
+  };
+
+  const registerFacebook = async (bodyParams) => {
+    alert(1234);
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/register-facebook",
+        bodyParams
+      );
+      console.log("res", res);
+
+      if (res.data.message_duplicate) {
+        Alert({ error: res.data.message_duplicate });
+      }
+      console.log("register: ", res);
+      window.confirm("Press a button!");
+    } catch (error) {}
   };
 
   const submit = () => {
