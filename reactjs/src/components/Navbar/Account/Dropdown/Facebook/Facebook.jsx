@@ -77,7 +77,18 @@ function Facebook(props) {
       if (res.data.message_duplicate) {
         // Alert({ error: res.data.message_duplicate });
         var is_duplicate = window.confirm(res.data.message_duplicate);
-        alert(is_duplicate);
+        // alert(is_duplicate);
+        bodyParams["is_duplicate"] = is_duplicate;
+        console.log("body", bodyParams);
+
+        var res1 = await axios.post(
+          "http://localhost:8000/api/register-facebook",
+          bodyParams
+        );
+
+        console.log("res1", res1);
+
+        Alert({ success: res.data.message });
       }
       console.log("php: ", res);
     } catch (error) {}
