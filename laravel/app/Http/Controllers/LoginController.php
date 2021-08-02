@@ -30,34 +30,6 @@ class LoginController extends Controller
         return $this->respondWithToken($token, $credentials);
     }
 
-    // public function loginFacebook(LoginFacebookRequest $request)
-    // {
-    //     // dd(1233);
-    //     $credentials = $request->validated();
-    //     //sync fb
-    //     $token = $this->generateToken($credentials);
-
-    //     return $this->respondWithToken($token, $credentials);
-    // }
-
-    // public function loginGoogle(LoginGoogleRequest $request)
-    // {
-    //     $credentials = $request->validated();
-    //     //sync fb
-    //     $token = $this->generateToken($credentials);
-
-    //     return $this->respondWithToken($token, $credentials);
-    // }
-
-    public function generateToken($credentials)
-    {
-        if (!$token = JWTAuth::attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-
-        return $token;
-    }
-
     protected function respondWithToken($token, $credentials)
     {
         $now = Carbon::now('Asia/Ho_Chi_Minh');
@@ -72,7 +44,6 @@ class LoginController extends Controller
 
     // public function verifyToken()
     // {
-    //     $user = JWTAuth::parseToken()->authenticate();
     //     dd($user);
     // }
 }
@@ -82,3 +53,5 @@ class LoginController extends Controller
 //     'expired_time' => 123970,
 //     'fresh_token' => 'asd'
 // ]);
+
+// $user = JWTAuth::parseToken()->authenticate();
