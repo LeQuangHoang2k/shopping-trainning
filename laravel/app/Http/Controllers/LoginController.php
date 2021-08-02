@@ -16,14 +16,16 @@ class LoginController extends Controller
 
     public function __construct(UserRepository $userRepository)
     {
-        $this->middleware('auth:api', ['except' => ['login','loginFacebook','loginGoogle']]);
+        $this->middleware('auth:api', ['except' => ['login', 'loginFacebook', 'loginGoogle']]);
         $this->userRepository = $userRepository;
     }
 
     public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
-        $token = $this->generateToken($credentials);
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
 
         return $this->respondWithToken($token, $credentials);
     }
