@@ -24,7 +24,7 @@ class ThirdPartyController extends Controller
         // $this->middleware('auth:api', ['except' => ['login','loginFacebook','loginGoogle']]);
         $this->userRepository = $userRepository;
     }
-    
+
     public function registerFacebook(RegisterFacebookRequest $request)
     {
         $credentials = $request->validated();
@@ -74,7 +74,7 @@ class ThirdPartyController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
-        return $this->respondWithToken($token, $credentials);
+        return $this->respondWithToken($token, $user);
     }
 
     public function loginGoogle(LoginGoogleRequest $request)
@@ -83,7 +83,7 @@ class ThirdPartyController extends Controller
         dd(222);
     }
 
-    protected function respondWithToken($token, $credentials)
+    protected function respondWithToken($token, $user)
     {
         $now = Carbon::now('Asia/Ho_Chi_Minh');
 
@@ -91,7 +91,7 @@ class ThirdPartyController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => 60 * 60 * 24 * 7,
-            // 'user' => new UserResource($this->userRepository->find($credentials)),
+            'user' => $user,
         ]);
     }
 }
