@@ -62,12 +62,6 @@ function Facebook(props) {
       if (errors[Object.keys(errors)[0]] == "facebook id not existed") {
         registerFacebook(bodyParams);
       }
-
-      // if (res.data.message_duplicate) {
-      //   Alert({ error: res.data.message_duplicate });
-      // }
-      // console.log("register: ", res);
-      // window.confirm("Press a button!");
     }
   };
 
@@ -81,7 +75,9 @@ function Facebook(props) {
       console.log("res", res);
 
       if (res.data.message_duplicate) {
-        Alert({ error: res.data.message_duplicate });
+        // Alert({ error: res.data.message_duplicate });
+        var is_duplicate = window.confirm(res.data.message_duplicate);
+        alert(is_duplicate);
       }
       console.log("php: ", res);
     } catch (error) {}
