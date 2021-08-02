@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginGoogleRequest;
 use App\Http\Requests\Auth\RegisterFacebookRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Repositories\UserRepository;
 use App\Services\ThirdParty;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -16,6 +17,14 @@ use function PHPUnit\Framework\isNull;
 
 class ThirdPartyController extends Controller
 {
+    public $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        // $this->middleware('auth:api', ['except' => ['login','loginFacebook','loginGoogle']]);
+        $this->userRepository = $userRepository;
+    }
+    
     public function registerFacebook(RegisterFacebookRequest $request)
     {
         $credentials = $request->validated();
@@ -57,12 +66,11 @@ class ThirdPartyController extends Controller
     public function loginFacebook(LoginFacebookRequest $request)
     {
         // Sync account
-        $credentials = $request->validated();
-        // dd(111);
-        $credentials['password'] = null;
         // (new ThirdParty())->syncAccountFacebook($credentials);
-
-        if (!$token = JWTAuth::attempt($credentials)) {
+        $credentials = $request->validated();
+        $user = User::where('facebook_id', $credentials['facebook_id'])->first();
+        // dd($user->all());
+        if (!$token = JWTAuth::fromUser($user)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -83,7 +91,7 @@ class ThirdPartyController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => 60 * 60 * 24 * 7,
-            'user' => new UserResource($this->userRepository->find($credentials)),
+            // 'user' => new UserResource($this->userRepository->find($credentials)),
         ]);
     }
 }
