@@ -29,15 +29,16 @@ class ThirdPartyController extends Controller
         $credentials = $request->validated();
         $user = null;
         $userDB =  User::where('email', $credentials['email'])->first();
-        $newName = $userDB->name;
-        $newPicture = $userDB->picture;
-
+        
         //check xem email này có phải mình ko
         if (!$userDB) {
             //create
             $user = User::create($credentials);
         } else {
             // thông báo email này đã tồn tại
+            $newName = $userDB->name;
+            $newPicture = $userDB->picture;
+            
             if (!isset($credentials['is_duplicate'])) {
                 return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
             }
