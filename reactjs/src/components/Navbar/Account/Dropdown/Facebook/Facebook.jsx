@@ -72,7 +72,7 @@ function Facebook(props) {
   };
 
   const registerFacebook = async (bodyParams) => {
-    alert(1234);
+    // alert(1234);
     try {
       const res = await axios.post(
         "http://localhost:8000/api/register-facebook",
@@ -83,8 +83,7 @@ function Facebook(props) {
       if (res.data.message_duplicate) {
         Alert({ error: res.data.message_duplicate });
       }
-      console.log("register: ", res);
-      window.confirm("Press a button!");
+      console.log("php: ", res);
     } catch (error) {}
   };
 

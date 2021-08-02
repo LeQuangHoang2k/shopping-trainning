@@ -22,6 +22,7 @@ const Alert = ({ message, success, warning, error }) => {
       icon: "error",
       title: "Oops...",
       text: error,
+      // showConfirmButton: true,
     });
 };
 
