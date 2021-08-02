@@ -55,3 +55,4 @@ class LoginController extends Controller
 // ]);
 
 // $user = JWTAuth::parseToken()->authenticate();
+// JWTAuth::invalidate($request->token);
