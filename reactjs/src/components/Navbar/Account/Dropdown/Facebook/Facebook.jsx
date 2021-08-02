@@ -7,11 +7,11 @@ import "./Facebook.css";
 
 function Facebook(props) {
   const responseFacebook = async (response) => {
-    var { id, email, name, picture } = response;
-    var picture = picture.data.url;
+    var { id, email, name, picture } = await response;
+    var picture = await picture.data.url;
     console.log(response, picture);
 
-    let bodyParams = {
+    let bodyParams = await {
       facebook_id: id,
       email,
       name,
@@ -20,82 +20,73 @@ function Facebook(props) {
 
     console.log(bodyParams);
 
+    // const result = await loginFacebook(bodyParams);
+    // console.log(result);
+    if (!(await loginFacebook(bodyParams))) {
+      const { is_duplicate } = await checkExistEmail(bodyParams);
+      if (typeof is_duplicate === "boolean")
+        bodyParams["is_duplicate"] = await is_duplicate;
+      await registerFacebook(bodyParams);
+    }
+  };
+
+  const loginFacebook = async (bodyParams) => {
     try {
-      //input
-
-      //db
-
       const res = await axios.post(
         "http://localhost:8000/api/login-facebook",
         bodyParams
       );
 
-      const { data } = await res;
-
-      Alert({ message: data.message });
-
-      console.log("php: ", data);
-
-      //main
-
-      //res
-
-      localStorage.setItem("account", JSON.stringify(data.account));
-      let a = localStorage.getItem("account");
-
-      a = JSON.parse(a);
-
-      console.log(a);
-
-      window.location.reload();
+      console.log("res33", res);
+      // const { } = await res.data;
+      return true;
     } catch (error) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-
       const { data, meta } = await error.response.data;
       console.log("meta", meta);
       const { errors } = await meta;
       console.log("errors", errors);
       console.log("error is", errors[Object.keys(errors)[0]]);
 
-      if (errors[Object.keys(errors)[0]] == "facebook id not existed") {
-        registerFacebook(bodyParams);
-      }
+      if (errors[Object.keys(errors)[0]] == "facebook id not existed")
+        return false;
+      // console.log(
+      //   errors[Object.keys(errors)[0]] == "facebook id not existed"
+      // );
     }
   };
 
-  const registerFacebook = async (bodyParams) => {
-    // alert(1234);
+  const checkExistEmail = async (bodyParams) => {
     try {
       const res = await axios.post(
         "http://localhost:8000/api/register-facebook",
         bodyParams
       );
+
       console.log("res", res);
+      const { message_duplicate } = await res.data;
+      var is_duplicate = await window.confirm(message_duplicate);
 
-      if (res.data.message_duplicate) {
-        // Alert({ error: res.data.message_duplicate });
-        var is_duplicate = window.confirm(res.data.message_duplicate);
-        // alert(is_duplicate);
-        bodyParams["is_duplicate"] = is_duplicate;
-        console.log("body", bodyParams);
-
-        var res1 = await axios.post(
-          "http://localhost:8000/api/register-facebook",
-          bodyParams
-        );
-
-        console.log("res1", res1);
-
-        Alert({ success: res.data.message });
-      }
-      console.log("php: ", res);
-    } catch (error) {}
+      return { is_duplicate };
+    } catch (error) {
+      console.log("error exist email", error.data);
+      return null;
+    }
   };
 
-  const submit = () => {
-    console.log("đã bấm");
+  const registerFacebook = async (bodyParams) => {
+    try {
+      console.log("body", bodyParams);
+
+      var res = await axios.post(
+        "http://localhost:8000/api/register-facebook",
+        bodyParams
+      );
+
+      console.log("res", res);
+
+      Alert({ success: res.data.message });
+      console.log("php: ", res);
+    } catch (error) {}
   };
 
   return (
@@ -110,3 +101,17 @@ function Facebook(props) {
 }
 
 export default Facebook;
+
+// console.log(error.response.data);
+// console.log(error.response.status);
+// console.log(error.response.headers);
+
+// const { data, meta } = await error.response.data;
+// console.log("meta", meta);
+// const { errors } = await meta;
+// console.log("errors", errors);
+// console.log("error is", errors[Object.keys(errors)[0]]);
+
+// if (errors[Object.keys(errors)[0]] == "facebook id not existed") {
+//   registerFacebook(bodyParams);
+// }
