@@ -41,11 +41,6 @@ class LoginController extends Controller
             'user' => new UserResource($this->userRepository->find($credentials)),
         ]);
     }
-
-    // public function verifyToken()
-    // {
-    //     dd($user);
-    // }
 }
 
 // return response()->json([

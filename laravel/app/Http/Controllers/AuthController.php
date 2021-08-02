@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\auth\LoginRequest;
+use App\Http\Requests\Auth\LogoutRequest;
 use App\Http\Requests\LoginFacebookRequest;
 use App\Http\Requests\LoginGoogleRequest;
 use App\Http\Resources\UserResource;
@@ -13,61 +14,47 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-    // public $userRepository;
+    public $userRepository;
 
-    // public function __construct(UserRepository $userRepository)
-    // {
-    //     $this->middleware('auth:api', ['except' => ['login']]);
-    //     $this->userRepository = $userRepository;
-    // }
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->middleware('auth:api', ['except' => ['login', 'loginFacebook', 'loginGoogle']]);
+        $this->userRepository = $userRepository;
+    }
 
-    // public function login(LoginRequest $request)
-    // {
-    //     $credentials = $request->validated();
-    //     $token = $this->generateToken($credentials);
-    //     return $this->respondWithToken($token, $credentials);
-    // }
+    public function login(LoginRequest $request)
+    {
+        $credentials = $request->validated();
+        if (!$token = JWTAuth::attempt($credentials)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
 
-    // public function loginFacebook(LoginFacebookRequest $request)
-    // {
-    //     $credentials = $request->validated();
-    //     //sync fb
-    //     $token = $this->generateToken($credentials);
-    //     return $this->respondWithToken($token, $credentials);
-    // }
+        return $this->respondWithToken($token, $credentials);
+    }
 
-    // public function loginGoogle(LoginGoogleRequest $request)
-    // {
-    //     $credentials = $request->validated();
-    //     //sync fb
-    //     $token = $this->generateToken($credentials);
-    //     return $this->respondWithToken($token, $credentials);
-    // }
+    protected function respondWithToken($token, $credentials)
+    {
+        $now = Carbon::now('Asia/Ho_Chi_Minh');
 
-    // public function generateToken($credentials)
-    // {
-    //     if (!$token = JWTAuth::attempt($credentials)) {
-    //         return response()->json(['error' => 'Unauthorized'], 401);
-    //     }
-    //     return $token;
-    // }
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => 60 * 60 * 24 * 7,
+            'user' => new UserResource($this->userRepository->find($credentials)),
+        ]);
+    }
 
-    // protected function respondWithToken($token, $credentials)
-    // {
-    //     $now = Carbon::now('Asia/Ho_Chi_Minh');
-    //     return response()->json([
-    //         'access_token' => $token,
-    //         'token_type' => 'bearer',
-    //         'expires_in' => 60 * 60 * 24 * 7,
-    //         'user' => new UserResource($this->userRepository->find($credentials)),
-    //     ]);
-    // }
+    public function logout(LogoutRequest $request)
+    {
+        $credentials = $request->validated();
 
-    // public function verifyToken()
-    // {
-    //     $user = JWTAuth::parseToken()->authenticate();
-    //     dd($user);
-    // }
+        JWTAuth::invalidate($credentials['token']);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User logged out successfully'
+        ]);
+    }
 }
 
 // 'expires_in' => $now->addDays(7)->format('d-m-Y H:i:s'),
