@@ -21,7 +21,6 @@ class ThirdPartyController extends Controller
 
     public function __construct(UserRepository $userRepository)
     {
-        // $this->middleware('auth:api', ['except' => ['login','loginFacebook','loginGoogle']]);
         $this->userRepository = $userRepository;
     }
 
@@ -69,7 +68,7 @@ class ThirdPartyController extends Controller
         // (new ThirdParty())->syncAccountFacebook($credentials);
         $credentials = $request->validated();
         $user = User::where('facebook_id', $credentials['facebook_id'])->first();
-        // dd($user->all());
+
         if (!$token = JWTAuth::fromUser($user)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
