@@ -59,7 +59,7 @@ class ThirdPartyController extends Controller
         // Sync account
         $credentials = $request->validated();
         // dd(111);
-
+        $credentials['password'] = null;
         // (new ThirdParty())->syncAccountFacebook($credentials);
 
         if (!$token = JWTAuth::attempt($credentials)) {
