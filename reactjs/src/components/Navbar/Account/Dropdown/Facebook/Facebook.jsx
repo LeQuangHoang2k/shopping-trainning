@@ -12,7 +12,7 @@ function Facebook(props) {
     console.log(response, picture);
 
     let bodyParams = await {
-      facebook_id: id,
+      facebook_id: parseInt(id),
       email,
       name,
       picture,
