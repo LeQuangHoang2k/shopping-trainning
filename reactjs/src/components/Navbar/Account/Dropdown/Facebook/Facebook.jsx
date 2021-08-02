@@ -7,20 +7,20 @@ import "./Facebook.css";
 
 function Facebook(props) {
   const responseFacebook = async (response) => {
+    var { id, email, name, picture } = response;
+    var picture = picture.data.url;
+    console.log(response, picture);
+
+    let formData = {
+      facebook_id: id,
+      email,
+      name,
+      picture,
+    };
+
+    console.log(formData);
+
     try {
-      var { id, email, name, picture } = response;
-      var picture = picture.data.url;
-      console.log(response, picture);
-
-      let formData = {
-        facebook_id: id,
-        email,
-        name,
-        picture,
-      };
-
-      console.log(formData);
-
       //input
 
       //db
@@ -59,10 +59,16 @@ function Facebook(props) {
       console.log("errors", errors);
       console.log("error is", errors[Object.keys(errors)[0]]);
 
-      //   Alert({ error: errors[Object.keys(errors)[0]] });
+      // const res = await axios.post(
+      //   "http://localhost:8000/api/register-facebook",
+      //   formData
+      // );
 
-      window.confirm("Press a button!");
-      
+      // if (res.data.message_duplicate) {
+      //   Alert({ error: res.data.message_duplicate });
+      // }
+      // console.log("register: ", res);
+      // window.confirm("Press a button!");
     }
   };
 
