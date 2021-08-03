@@ -33,7 +33,7 @@ function Facebook(props) {
     console.log("is_exist", is_exist);
 
     if (!is_exist) {
-      //login da~ auto register r
+      //api login da~ auto register r
     } else {
       const answer = window.confirm(
         "tai khoan nay da duoc dang ki, do co phai ban ko ?."
@@ -67,7 +67,7 @@ function Facebook(props) {
 
       console.log("php loginFacebook: ", res.data);
 
-      saveCookie(res.data);
+      await saveCookie(res.data);
 
       return true;
     } catch (error) {
@@ -119,6 +119,8 @@ function Facebook(props) {
       if (user) {
         Alert({ success: res.data.message });
         console.log("đã tạo thành công");
+        await saveCookie(res.data);
+        window.location.reload();
         return;
       }
 

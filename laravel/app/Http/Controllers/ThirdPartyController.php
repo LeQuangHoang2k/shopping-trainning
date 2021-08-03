@@ -35,10 +35,9 @@ class ThirdPartyController extends Controller
             //create
             $user = User::create($credentials);
 
-            return response()->json([
-                "message" => "success",
-                "user" => $user,
-            ]);
+            $token = $this->generateToken($user);
+
+            return $this->respondWithToken($token, $user);
         }
 
         if (!isset($credentials['is_duplicate'])) {
@@ -78,10 +77,9 @@ class ThirdPartyController extends Controller
             $user = User::create($credentials);
         }
 
-        return response([
-            "answer" => $credentials['is_duplicate'],
-            "user" => $user,
-        ]);
+        $token = $this->generateToken($user);
+
+        return $this->respondWithToken($token, $user);
     }
 
     public function loginFacebook(LoginFacebookRequest $request)
@@ -102,6 +100,15 @@ class ThirdPartyController extends Controller
     {
         // Sync account
         dd(222);
+    }
+
+    public function generateToken($user)
+    {
+        if (!$token = JWTAuth::fromUser($user)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return $token;
     }
 
     protected function respondWithToken($token, $user)
