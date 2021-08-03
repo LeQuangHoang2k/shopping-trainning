@@ -29,9 +29,8 @@ function Facebook(props) {
     console.log("can_login", can_login);
 
     const is_exist = await checkExistEmail(bodyParams);
-    console.log("is_exist", is_exist);
-
     if (typeof is_exist === "undefined") return;
+    console.log("is_exist", is_exist);
 
     if (!is_exist) {
       //login da~ auto register r
@@ -119,6 +118,7 @@ function Facebook(props) {
 
       if (user) {
         Alert({ success: res.data.message });
+        console.log("đã tạo thành công");
         return;
       }
 
