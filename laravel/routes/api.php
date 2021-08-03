@@ -34,6 +34,8 @@ Route::post('register-google', [ThirdPartyController::class, 'registerGoogle']);
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout',  [AuthController::class, 'logout']);
+// Route::post('refresh',  [AuthController::class, 'refresh']);
+// Route::post('me',  [AuthController::class, 'me']);
 
 Route::post('login-facebook', [ThirdPartyController::class, 'loginFacebook']);
 Route::post('login-google', [ThirdPartyController::class, 'loginGoogle']);
@@ -42,8 +44,6 @@ Route::resource('products', ProductController::class);
 
 
 // Route::post('logout',  [AuthController::class, 'logout']);
-// Route::post('refresh',  [AuthController::class, 'refresh']);
-// Route::post('me',  [AuthController::class, 'me']);
 
 Route::get('/test',  [AuthController::class, 'test']);
 
