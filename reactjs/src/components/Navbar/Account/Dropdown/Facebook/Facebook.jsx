@@ -2,10 +2,13 @@ import React from "react";
 import FacebookLogin from "react-facebook-login";
 import axios from "axios";
 import Alert from "../../../../../features/Alert";
+import Cookies from "universal-cookie";
 
 import "./Facebook.css";
 
 function Facebook(props) {
+  const cookies = new Cookies();
+
   const responseFacebook = async (response) => {
     var { id, email, name, picture } = await response;
     var picture = await picture.data.url;
@@ -22,7 +25,7 @@ function Facebook(props) {
     console.log(bodyParams);
 
     const can_login = await loginFacebook(bodyParams);
-    if (can_login) return Alert({ success: "Login thanh cong" });
+    if (can_login) return window.location.reload();
     console.log("can_login", can_login);
 
     const is_exist = await checkExistEmail(bodyParams);
@@ -63,7 +66,9 @@ function Facebook(props) {
         bodyParams
       );
 
-      console.log("php loginFacebook: ", res);
+      console.log("php loginFacebook: ", res.data);
+
+      saveCookie(res.data);
 
       return true;
     } catch (error) {
@@ -79,6 +84,26 @@ function Facebook(props) {
       //   errors[Object.keys(errors)[0]] == "facebook id not existed"
       // );
     }
+  };
+
+  const saveCookie = (data) => {
+    const { access_token, token_type, expires_in, user } = data;
+    console.log("avc", access_token, token_type, expires_in, user);
+
+    cookies.set("user", user, {
+      path: "/",
+      maxAge: expires_in,
+    });
+
+    cookies.set("access_token", access_token, {
+      path: "/",
+      maxAge: expires_in,
+    });
+
+    cookies.set("token_type", token_type, {
+      path: "/",
+      maxAge: expires_in,
+    });
   };
 
   const checkExistEmail = async (bodyParams) => {
