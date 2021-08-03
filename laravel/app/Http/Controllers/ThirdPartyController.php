@@ -41,32 +41,47 @@ class ThirdPartyController extends Controller
             ]);
         }
 
-        return response()->json([
-            "message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."
+        if (!isset($credentials['is_duplicate'])) {
+            return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+        }
+
+        $newName = $userDB->name;
+        $newPicture = $userDB->picture;
+
+        //handle answer
+        if ($credentials['is_duplicate']) {
+            if (!isNull($newName) && !isNull($newPicture)) return $user;
+            if (isNull($newName)) $newName = $credentials['name'];
+            if (isNull($newPicture)) $newPicture = $credentials['picture'];
+
+            // return response([
+            //     "answer" => $credentials['is_duplicate']
+            // ]);
+
+            $user = User::where([
+                ['facebook_id', null],
+                [
+                    'email', $credentials['email'],
+                ]
+            ])->update(
+                [
+                    'facebook_id' => $credentials['facebook_id'],
+                    'name' => $newName,
+                    'picture' => $newPicture
+                ]
+            );
+        } else {
+            // return response([
+            //     "answer" => $credentials['is_duplicate']
+            // ]);
+
+            $user = User::create($credentials);
+        }
+
+        return response([
+            "answer" => $credentials['is_duplicate'],
+            "user" => $user,
         ]);
-        // else {
-        //     // thông báo email này đã tồn tại
-        //     $newName = $userDB->name;
-        //     $newPicture = $userDB->picture;
-
-        //     if (!isset($credentials['is_duplicate'])) {
-        //         return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
-        //     }
-
-        //     // client trả lời có
-        //     if ($credentials['is_duplicate']) {
-        //         // dd("update");
-        //         if (!isNull($newName) && !isNull($newPicture)) return $user;
-        //         if (isNull($newName)) $newName = $credentials['name'];
-        //         if (isNull($newPicture)) $newPicture = $credentials['picture'];
-
-        //         $user = User::where('email', $credentials['email'])->update(['name' => $newName, 'picture' => $newPicture]);
-        //     } else {
-        //         // dd("create");
-        //         $user = User::create($credentials);
-        //     }
-        // }
-
     }
 
     public function loginFacebook(LoginFacebookRequest $request)
