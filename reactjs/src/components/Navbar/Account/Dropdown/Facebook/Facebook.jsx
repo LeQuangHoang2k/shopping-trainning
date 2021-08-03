@@ -147,7 +147,7 @@ function Facebook(props) {
       Alert({ success: res.data.message });
 
       await saveCookie(res.data);
-      // window.location.reload();
+      window.location.reload();
     } catch (error) {
       console.log("error registerFackbook", error.response.data);
     }

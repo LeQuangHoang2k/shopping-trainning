@@ -57,38 +57,18 @@ class ThirdPartyController extends Controller
             if (isNull($newName)) $newName = $credentials['name'];
             if (isNull($newPicture)) $newPicture = $credentials['picture'];
 
-            // return response([
-            //     "answer" => $credentials['is_duplicate']
-            // ]);
-            //lỗi ở đây
-            // $user = User::where([
-            //     ['facebook_id', null],
-            //     [
-            //         'email', $credentials['email'],
-            //     ]
-            // ])->update(
-            //     [
-            //         'facebook_id' => $credentials['facebook_id'],
-            //         'name' => $newName,
-            //         'picture' => $newPicture
-            //     ]
-            // );
-            $updated = tap(DB::table('users')->where('id', $userDB->id))
+            $user = tap(User::where('id', $userDB->id))
                 ->update([
                     'facebook_id' => $credentials['facebook_id'],
                     'name' => $newName,
                     'picture' => $newPicture
                 ])
                 ->first();
-
             return  [
-                "usert_test" => $updated
+                "usert_test" => JWTAuth::fromUser($user),
+                "user" => $user,
             ];
         } else {
-            // return response([
-            //     "answer" => $credentials['is_duplicate']
-            // ]);
-
             $user = User::create($credentials);
         }
 
