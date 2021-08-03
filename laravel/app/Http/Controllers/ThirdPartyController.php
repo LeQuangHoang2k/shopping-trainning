@@ -29,38 +29,44 @@ class ThirdPartyController extends Controller
         $credentials = $request->validated();
         $user = null;
         $userDB =  User::where('email', $credentials['email'])->first();
-        
+
         //check xem email này có phải mình ko
         if (!$userDB) {
             //create
             $user = User::create($credentials);
-        } else {
-            // thông báo email này đã tồn tại
-            $newName = $userDB->name;
-            $newPicture = $userDB->picture;
-            
-            if (!isset($credentials['is_duplicate'])) {
-                return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
-            }
 
-            // client trả lời có
-            if ($credentials['is_duplicate']) {
-                // dd("update");
-                if (!isNull($newName) && !isNull($newPicture)) return $user;
-                if (isNull($newName)) $newName = $credentials['name'];
-                if (isNull($newPicture)) $newPicture = $credentials['picture'];
-
-                $user = User::where('email', $credentials['email'])->update(['name' => $newName, 'picture' => $newPicture]);
-            } else {
-                // dd("create");
-                $user = User::create($credentials);
-            }
+            return response()->json([
+                "message" => "success",
+                "user" => $user,
+            ]);
         }
 
         return response()->json([
-            "message" => "success",
-            "users" => $user,
+            "message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."
         ]);
+        // else {
+        //     // thông báo email này đã tồn tại
+        //     $newName = $userDB->name;
+        //     $newPicture = $userDB->picture;
+
+        //     if (!isset($credentials['is_duplicate'])) {
+        //         return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+        //     }
+
+        //     // client trả lời có
+        //     if ($credentials['is_duplicate']) {
+        //         // dd("update");
+        //         if (!isNull($newName) && !isNull($newPicture)) return $user;
+        //         if (isNull($newName)) $newName = $credentials['name'];
+        //         if (isNull($newPicture)) $newPicture = $credentials['picture'];
+
+        //         $user = User::where('email', $credentials['email'])->update(['name' => $newName, 'picture' => $newPicture]);
+        //     } else {
+        //         // dd("create");
+        //         $user = User::create($credentials);
+        //     }
+        // }
+
     }
 
     public function loginFacebook(LoginFacebookRequest $request)
