@@ -11,6 +11,7 @@ use App\Repositories\UserRepository;
 use App\Services\ThirdParty;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 use function PHPUnit\Framework\isNull;
@@ -28,7 +29,10 @@ class ThirdPartyController extends Controller
     {
         $credentials = $request->validated();
         $user = null;
-        $userDB =  User::where('email', $credentials['email'])->first();
+        $userDB =  User::where([
+            'email' => $credentials['email'],
+            // "google_id" => null
+        ])->first();
 
         //check xem email này có phải mình ko
         if (!$userDB) {
@@ -56,19 +60,26 @@ class ThirdPartyController extends Controller
             // return response([
             //     "answer" => $credentials['is_duplicate']
             // ]);
+            //lỗi ở đây
+            // $user = User::where([
+            //     ['facebook_id', null],
+            //     [
+            //         'email', $credentials['email'],
+            //     ]
+            // ])->update(
+            //     [
+            //         'facebook_id' => $credentials['facebook_id'],
+            //         'name' => $newName,
+            //         'picture' => $newPicture
+            //     ]
+            // );
+            $updated = tap(DB::table('users')->where('id', 38))
+                ->update(['facebook_id' => $credentials['facebook_id']])
+                ->first();
 
-            $user = User::where([
-                ['facebook_id', null],
-                [
-                    'email', $credentials['email'],
-                ]
-            ])->update(
-                [
-                    'facebook_id' => $credentials['facebook_id'],
-                    'name' => $newName,
-                    'picture' => $newPicture
-                ]
-            );
+            return  [
+                "usert_test" => $updated
+            ];
         } else {
             // return response([
             //     "answer" => $credentials['is_duplicate']

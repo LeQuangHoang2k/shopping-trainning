@@ -142,10 +142,12 @@ function Facebook(props) {
         bodyParams
       );
 
-      console.log("res", res);
+      console.log("res", res.data);
 
       Alert({ success: res.data.message });
-      console.log("php: ", res);
+
+      await saveCookie(res.data);
+      // window.location.reload();
     } catch (error) {
       console.log("error registerFackbook", error.response.data);
     }
