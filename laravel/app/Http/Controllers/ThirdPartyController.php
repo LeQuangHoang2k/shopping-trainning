@@ -31,7 +31,7 @@ class ThirdPartyController extends Controller
         $user = null;
         $userDB =  User::where([
             'email' => $credentials['email'],
-            // "google_id" => null
+            "google_id" => null
         ])->first();
 
         //check xem email này có phải mình ko
@@ -73,8 +73,12 @@ class ThirdPartyController extends Controller
             //         'picture' => $newPicture
             //     ]
             // );
-            $updated = tap(DB::table('users')->where('id', 38))
-                ->update(['facebook_id' => $credentials['facebook_id']])
+            $updated = tap(DB::table('users')->where('id', $userDB->id))
+                ->update([
+                    'facebook_id' => $credentials['facebook_id'],
+                    'name' => $newName,
+                    'picture' => $newPicture
+                ])
                 ->first();
 
             return  [
