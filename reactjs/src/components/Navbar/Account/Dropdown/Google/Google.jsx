@@ -68,6 +68,32 @@ function Google(props) {
     }
   };
 
+  const checkExistEmail = async (bodyParams) => {
+    console.log("checkExistEmail", bodyParams);
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/register-google",
+        bodyParams
+      );
+      console.log("res", res);
+
+      const { user, message_duplicate } = await res.data;
+
+      if (user) {
+        Alert({ success: res.data.message });
+        console.log("đã tạo thành công");
+        await saveCookie(res.data);
+        window.location.reload();
+        return;
+      }
+
+      return true;
+    } catch (error) {
+      console.log("error exist email", error.response.data);
+      return;
+    }
+  };
+
   const googleFailure = (res) => {};
 
   return (

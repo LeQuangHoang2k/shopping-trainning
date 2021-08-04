@@ -90,9 +90,6 @@ function Facebook(props) {
         return;
       }
 
-      // console.log("message_duplicate", message_duplicate);
-      // if (typeof message_duplicate === "undefined") return false;
-
       return true;
     } catch (error) {
       console.log("error exist email", error.response.data);
