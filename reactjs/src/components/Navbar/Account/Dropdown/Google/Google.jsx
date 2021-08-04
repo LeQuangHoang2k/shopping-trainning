@@ -7,7 +7,7 @@ import "./Google.css";
 
 function Google(props) {
   const google = async (res) => {
-    const { email, googleId, imageUrl, name } =await res.profileObj;
+    const { email, googleId, imageUrl, name } = await res.profileObj;
     console.log(res);
 
     //input
@@ -91,6 +91,25 @@ function Google(props) {
     } catch (error) {
       console.log("error exist email", error.response.data);
       return;
+    }
+  };
+
+  const registerGoogle = async (bodyParams) => {
+    console.log("register");
+    try {
+      var res = await axios.post(
+        "http://localhost:8000/api/register-google",
+        bodyParams
+      );
+
+      console.log("res", res.data);
+
+      Alert({ success: res.data.message });
+
+      await saveCookie(res.data);
+      window.location.reload();
+    } catch (error) {
+      console.log("error registerFackbook", error.response.data);
     }
   };
 
