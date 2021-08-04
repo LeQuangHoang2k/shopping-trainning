@@ -36,7 +36,7 @@ class ThirdPartyController extends Controller
         }
 
         $user = $this->handleAnswer($credentials, $userDB);
-        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, bạn có muốn tạo mới không ?."]);
 
         return $this->respondWithToken($this->generateToken($user), $user);
     }
@@ -68,7 +68,7 @@ class ThirdPartyController extends Controller
         }
 
         $user = $this->handleAnswer($credentials, $userDB);
-        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, bạn có muốn tạo mới không ?."]);
 
         return $this->respondWithToken($this->generateToken($user), $user);
     }
