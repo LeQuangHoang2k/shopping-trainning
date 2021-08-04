@@ -6,9 +6,9 @@ import axios from "axios";
 import "./Google.css";
 
 function Google(props) {
-  const google = async (resGG) => {
-    const { email, googleId, imageUrl, name } = resGG.profileObj;
-    console.log(resGG);
+  const google = async (res) => {
+    const { email, googleId, imageUrl, name } =await res.profileObj;
+    console.log(res);
 
     //input
 
@@ -40,6 +40,31 @@ function Google(props) {
       console.log("check body", bodyParams);
 
       await registerGoogle(bodyParams);
+    }
+  };
+
+  const loginGoogle = async (bodyParams) => {
+    console.log("loginFacebook");
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/login-facebook",
+        bodyParams
+      );
+
+      console.log("php loginFacebook: ", res.data);
+
+      await saveCookie(res.data);
+
+      return true;
+    } catch (error) {
+      const { data, meta } = await error.response.data;
+      console.log("meta", meta);
+      const { errors } = await meta;
+      console.log("errors", errors);
+      console.log("error is", errors[Object.keys(errors)[0]]);
+
+      if (errors[Object.keys(errors)[0]] == "facebook id not existed")
+        return false;
     }
   };
 
