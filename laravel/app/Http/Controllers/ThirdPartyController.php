@@ -29,18 +29,12 @@ class ThirdPartyController extends Controller
     {
         $credentials = $request->validated();
         $user = null;
-        $userDB =  User::where([
-            'email' => $credentials['email'],
-            "facebook_id" => null
-        ])->first();
+        $userDB =  $this->findFacebook($credentials);
 
         //check xem email này có phải mình ko
         if (!$userDB) {
-            //create
             $user = User::create($credentials);
-
             $token = $this->generateToken($user);
-
             return $this->respondWithToken($token, $user);
         }
 
@@ -48,11 +42,12 @@ class ThirdPartyController extends Controller
             return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
         }
 
-        $newName = $userDB->name;
-        $newPicture = $userDB->picture;
 
         //handle answer
         if ($credentials['is_duplicate']) {
+            $newName = $userDB->name;
+            $newPicture = $userDB->picture;
+            
             if (!isNull($newName) && !isNull($newPicture)) return $user;
             if (isNull($newName)) $newName = $credentials['name'];
             if (isNull($newPicture)) $newPicture = $credentials['picture'];
@@ -64,10 +59,6 @@ class ThirdPartyController extends Controller
                     'picture' => $newPicture
                 ])
                 ->first();
-            return  [
-                "usert_test" => JWTAuth::fromUser($user),
-                "user" => $user,
-            ];
         } else {
             $user = User::create($credentials);
         }
@@ -95,6 +86,16 @@ class ThirdPartyController extends Controller
     {
         // Sync account
         dd(222);
+    }
+
+    public function findFacebook($credentials)
+    {
+        $user = User::where([
+            'email' => $credentials['email'],
+            "facebook_id" => null
+        ])->first();
+
+        return $user;
     }
 
     public function generateToken($user)
