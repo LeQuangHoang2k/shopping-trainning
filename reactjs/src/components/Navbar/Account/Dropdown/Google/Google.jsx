@@ -44,14 +44,14 @@ function Google(props) {
   };
 
   const loginGoogle = async (bodyParams) => {
-    console.log("loginFacebook");
+    console.log("loginGoogle");
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/login-facebook",
+        "http://localhost:8000/api/login-google",
         bodyParams
       );
 
-      console.log("php loginFacebook: ", res.data);
+      console.log("php loginGoogle: ", res.data);
 
       await saveCookie(res.data);
 
@@ -63,7 +63,7 @@ function Google(props) {
       console.log("errors", errors);
       console.log("error is", errors[Object.keys(errors)[0]]);
 
-      if (errors[Object.keys(errors)[0]] == "facebook id not existed")
+      if (errors[Object.keys(errors)[0]] == "google id not existed")
         return false;
     }
   };
