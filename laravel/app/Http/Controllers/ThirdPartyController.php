@@ -31,7 +31,7 @@ class ThirdPartyController extends Controller
         $user = null;
         $userDB =  User::where([
             'email' => $credentials['email'],
-            "google_id" => null
+            "facebook_id" => null
         ])->first();
 
         //check xem email này có phải mình ko
