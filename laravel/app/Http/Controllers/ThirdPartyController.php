@@ -121,8 +121,6 @@ class ThirdPartyController extends Controller
 
     protected function respondWithToken($token, $user)
     {
-        $now = Carbon::now('Asia/Ho_Chi_Minh');
-
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
@@ -131,3 +129,5 @@ class ThirdPartyController extends Controller
         ]);
     }
 }
+
+// $now = Carbon::now('Asia/Ho_Chi_Minh');
