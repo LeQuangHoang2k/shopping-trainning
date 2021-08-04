@@ -16,7 +16,7 @@ class RegisterGoogleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,7 +27,11 @@ class RegisterGoogleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "google_id" => "required|numeric|min:9|unique:users,google_id",
+            "email" => "required|email",
+            "name" => "required",
+            "picture" => "required",
+            "is_duplicate" => "boolean",
         ];
     }
 

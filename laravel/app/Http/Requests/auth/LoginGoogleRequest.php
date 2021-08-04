@@ -27,7 +27,7 @@ class LoginGoogleRequest extends FormRequest
     public function rules()
     {
         return [
-            "google_id" => "required|numeric|min:9",
+            "google_id" => "required|numeric|exists:users,google_id",
             "email" => "required|email",
             // "name" => "required",
             // "picture" => "required"
