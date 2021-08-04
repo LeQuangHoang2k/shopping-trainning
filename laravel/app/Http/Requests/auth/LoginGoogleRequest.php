@@ -34,6 +34,13 @@ class LoginGoogleRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'facebook_id.exists' => 'google id not existed',
+        ];
+    }
+
     protected function failedValidation(Validator $validator)
     {
         $response = new JsonResponse([
