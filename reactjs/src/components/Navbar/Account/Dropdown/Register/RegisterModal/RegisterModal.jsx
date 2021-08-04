@@ -17,7 +17,7 @@ function RegisterModal(props) {
 
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  var formData = {
+  var bodyParams = {
     email,
     phone,
     password,
@@ -35,7 +35,7 @@ function RegisterModal(props) {
     try {
       const res = await axios.post(
         "http://localhost:8000/api/register",
-        formData
+        bodyParams
       );
 
       const { data, meta } = await res;
@@ -64,7 +64,7 @@ function RegisterModal(props) {
   };
 
   const checkRequest = () => {
-    console.log(formData);
+    console.log(bodyParams);
 
     if (!email || email.length < 5) {
       Alert({ warning: "Email not valid" });
