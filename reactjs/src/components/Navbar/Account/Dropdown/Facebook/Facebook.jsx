@@ -16,7 +16,7 @@ function Facebook(props) {
 
     let bodyParams = await {
       // facebook_id: parseInt(id),
-      facebook_id: parseInt(id),
+      facebook_id: id,
       email,
       name,
       picture,
