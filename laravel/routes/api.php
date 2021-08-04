@@ -23,36 +23,26 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-// Route::middleware(['cors'])->group(function () {
-//     Route::post('/hogehoge', 'Controller@hogehoge');
-// });
-
 //users 
 Route::resource('/register',  RegisterController::class);
-Route::post('register-facebook', [ThirdPartyController::class, 'registerFacebook']);
-Route::post('register-google', [ThirdPartyController::class, 'registerGoogle']);
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout',  [AuthController::class, 'logout']);
 // Route::post('refresh',  [AuthController::class, 'refresh']);
 // Route::post('me',  [AuthController::class, 'me']);
 
+Route::post('register-facebook', [ThirdPartyController::class, 'registerFacebook']);
+Route::post('register-google', [ThirdPartyController::class, 'registerGoogle']);
 Route::post('login-facebook', [ThirdPartyController::class, 'loginFacebook']);
 Route::post('login-google', [ThirdPartyController::class, 'loginGoogle']);
 
 Route::resource('products', ProductController::class);
 
 
-// Route::post('logout',  [AuthController::class, 'logout']);
-
 Route::get('/test',  [AuthController::class, 'test']);
 
 // Route::post('login-facebook', [LoginController::class, 'loginFacebook']);
 // Route::post('login-google', [LoginController::class, 'loginGoogle']);
-
-// Route::middleware(['cors'])->group(function () {
-//     // Route::post('/hogehoge', 'Controller@hogehoge');
-// });
 
 //products
 // Route::get('/product',  [ProductsController::class, 'index']);
