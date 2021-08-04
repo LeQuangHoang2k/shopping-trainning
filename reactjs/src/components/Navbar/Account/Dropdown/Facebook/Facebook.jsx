@@ -85,26 +85,6 @@ function Facebook(props) {
     }
   };
 
-  const saveCookie = (data) => {
-    const { access_token, token_type, expires_in, user } = data;
-    console.log("avc", access_token, token_type, expires_in, user);
-
-    cookies.set("user", user, {
-      path: "/",
-      maxAge: expires_in,
-    });
-
-    cookies.set("access_token", access_token, {
-      path: "/",
-      maxAge: expires_in,
-    });
-
-    cookies.set("token_type", token_type, {
-      path: "/",
-      maxAge: expires_in,
-    });
-  };
-
   const checkExistEmail = async (bodyParams) => {
     console.log("checkExistEmail", bodyParams);
     try {
@@ -151,6 +131,26 @@ function Facebook(props) {
     } catch (error) {
       console.log("error registerFackbook", error.response.data);
     }
+  };
+
+  const saveCookie = (data) => {
+    const { access_token, token_type, expires_in, user } = data;
+    console.log("avc", access_token, token_type, expires_in, user);
+
+    cookies.set("user", user, {
+      path: "/",
+      maxAge: expires_in,
+    });
+
+    cookies.set("access_token", access_token, {
+      path: "/",
+      maxAge: expires_in,
+    });
+
+    cookies.set("token_type", token_type, {
+      path: "/",
+      maxAge: expires_in,
+    });
   };
 
   return (
