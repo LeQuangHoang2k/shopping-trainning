@@ -24,39 +24,62 @@ function RegisterModal(props) {
     confirm_password: confirmPassword,
   };
 
-  const registerAccount = async () => {
+  const submit = async () => {
     //input
 
     if (!checkRequest()) return;
 
     console.log(checkRequest());
 
-    //db
-    try {
-      const res = await axios.post(
-        "http://localhost:8000/api/register",
-        bodyParams
+    console.log(bodyParams);
+
+    // const can_create = await createAccount(bodyParams);
+    // if (can_create) return window.location.reload();
+    // console.log("can_create", can_create);
+
+    const is_exist = await checkExistEmail(bodyParams);
+    if (typeof is_exist === "undefined") return;
+    console.log("is_exist", is_exist);
+
+    if (!is_exist) {
+      //api login da~ auto register r
+    } else {
+      const answer = window.confirm(
+        "tai khoan nay da duoc dang ki, do co phai ban ko ?."
       );
 
-      const { data, meta } = await res;
-      console.log("php: ", data);
+      bodyParams["is_duplicate"] = answer;
+      console.log("check body", bodyParams);
 
-      Alert({ success: "Try to login now" });
-
-      window.location.reload();
-    } catch (error) {
-      console.log(error.response.data);
-      console.log(error.response.status);
-      console.log(error.response.headers);
-
-      const { data, meta } = await error.response.data;
-      console.log("meta", meta);
-      const { errors } = await meta;
-      console.log("errors", errors);
-      console.log("error is", errors[Object.keys(errors)[0]]);
-
-      Alert({ error: errors[Object.keys(errors)[0]] });
+      await registerAccount(bodyParams);
     }
+
+    //db
+    // try {
+    //   const res = await axios.post(
+    //     "http://localhost:8000/api/register",
+    //     bodyParams
+    //   );
+
+    //   const { data, meta } = await res;
+    //   console.log("php: ", data);
+
+    //   Alert({ success: "Try to login now" });
+
+    //   window.location.reload();
+    // } catch (error) {
+    //   console.log(error.response.data);
+    //   console.log(error.response.status);
+    //   console.log(error.response.headers);
+
+    //   const { data, meta } = await error.response.data;
+    //   console.log("meta", meta);
+    //   const { errors } = await meta;
+    //   console.log("errors", errors);
+    //   console.log("error is", errors[Object.keys(errors)[0]]);
+
+    //   Alert({ error: errors[Object.keys(errors)[0]] });
+    // }
 
     //res
     // handleClose();
@@ -87,6 +110,51 @@ function RegisterModal(props) {
     }
 
     return true;
+  };
+
+  const checkExistEmail = async (bodyParams) => {
+    console.log("checkExistEmail", bodyParams);
+    try {
+      const res = await axios.post(
+        "http://localhost:8000/api/register",
+        bodyParams
+      );
+      console.log("res", res);
+
+      const { user, message_duplicate } = await res.data;
+
+      if (user) {
+        await Alert({ success: res.data.message });
+        console.log("đã tạo thành công");
+        // await saveCookie(res.data);
+        window.location.reload();
+        return;
+      }
+
+      return true;
+    } catch (error) {
+      console.log("error exist email", error.response.data);
+      return;
+    }
+  };
+
+  const registerAccount = async (bodyParams) => {
+    console.log("register");
+    try {
+      var res = await axios.post(
+        "http://localhost:8000/api/register",
+        bodyParams
+      );
+
+      console.log("res", res.data);
+
+      await Alert({ success: res.data.message });
+
+      // await saveCookie(res.data);
+      window.location.reload();
+    } catch (error) {
+      console.log("error register", error.response.data);
+    }
   };
 
   return (
@@ -140,7 +208,7 @@ function RegisterModal(props) {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={registerAccount}>
+          <Button variant="primary" onClick={submit}>
             <i className="fa fa-refresh fa-spin"></i>
             Save Changes
           </Button>

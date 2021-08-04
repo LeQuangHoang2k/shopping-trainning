@@ -7,6 +7,7 @@ use App\Http\Resources\UsersResource;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -20,14 +21,73 @@ class RegisterController extends Controller
 
     public function store(RegisterRequest $request)
     {
-        $request->validated();
+        $credentials = $request->validated();
+        $user = null;
 
-        $user = User::create($request->validated());
+        //check xem có ai trùng email với fb mình ko
+        $userDB =  $this->find($credentials);
+        if (!$userDB) {
+            $user = User::create($credentials);
+            return [
+                "message" => "Đã tạo thành công",
+                "user" => $user
+            ];
+        }
 
-        return response()->json([
-            "message" => "success",
-            "users" => $user,
-        ]);
+        $user = $this->handleAnswer($credentials, $userDB);
+        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+
+        return [
+            "message" => "thành công",
+            "user" => $user
+        ];
+    }
+
+    public function find($credentials)
+    {
+        $user = User::where([
+            'email' => $credentials['email'],
+            "password" => null
+        ])->first();
+
+        return $user;
+    }
+
+    public function handleAnswer($credentials, $userDB)
+    {
+        //not answer
+        if (!isset($credentials['is_duplicate'])) {
+            return null;
+        }
+
+        //handle answer
+        if ($credentials['is_duplicate']) {
+            $user = $this->updateUser($credentials, $userDB);
+        } else {
+            $user = User::create($credentials);
+        }
+
+        return $user;
+    }
+
+    public function updateUser($credentials, $userDB)
+    {
+        $newName = $userDB->name;
+        $newPicture = $userDB->picture;
+
+        if ($newName === null) $newName = $credentials['name'];
+        if ($newPicture === null) $newPicture = $credentials['picture'];
+
+        $user = tap(User::where('id', $userDB->id))
+            ->update([
+                'password' => Hash::make($credentials['password']),
+                'name' => $newName,
+                'picture' => $newPicture,
+                'phone' => $credentials['phone']
+            ])
+            ->first();
+
+        return $user;
     }
 }
 
