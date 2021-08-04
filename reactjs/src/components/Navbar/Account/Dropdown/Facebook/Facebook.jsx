@@ -44,17 +44,6 @@ function Facebook(props) {
 
       await registerFacebook(bodyParams);
     }
-
-    // if (!can_login) {
-
-    // if (is_exist) {
-    //   var is_duplicate = window.confirm("Tài khoản của bạn đã được đăng kí. Đó có phải là bạn ?.");
-    // }
-
-    //   if (is_duplicate && typeof is_duplicate === "boolean")
-    //     bodyParams["is_duplicate"] = await is_duplicate;
-    //   await registerFacebook(bodyParams);
-    // }
   };
 
   const loginFacebook = async (bodyParams) => {
