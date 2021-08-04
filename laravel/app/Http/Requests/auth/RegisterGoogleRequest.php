@@ -27,7 +27,7 @@ class RegisterGoogleRequest extends FormRequest
     public function rules()
     {
         return [
-            "google_id" => "required|numeric|min:9|unique:users,google_id",
+            "google_id" => "required|string|min:9|unique:users,google_id",
             "email" => "required|email",
             "name" => "required",
             "picture" => "required",
