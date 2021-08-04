@@ -29,24 +29,16 @@ class ThirdPartyController extends Controller
     {
         $credentials = $request->validated();
         $user = null;
-        $userDB =  $this->findFacebook($credentials);
 
-        //check xem email này có phải mình ko
+        //check xem có ai trùng email với fb mình ko
+        $userDB =  $this->findFacebook($credentials);
         if (!$userDB) {
             $user = User::create($credentials);
             return $this->respondWithToken($this->generateToken($user), $user);
         }
 
-        if (!isset($credentials['is_duplicate'])) {
-            return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
-        }
-
-        //handle answer
-        if ($credentials['is_duplicate']) {
-            $user = $this->updateFacebook($credentials, $userDB);
-        } else {
-            $user = User::create($credentials);
-        }
+        $user = $this->handleAnswer($credentials, $userDB);
+        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
 
         return $this->respondWithToken($this->generateToken($user), $user);
     }
@@ -69,6 +61,23 @@ class ThirdPartyController extends Controller
     {
         // Sync account
         dd(222);
+    }
+
+    public function handleAnswer($credentials, $userDB)
+    {
+        //not answer
+        if (!isset($credentials['is_duplicate'])) {
+            return null;
+        }
+
+        //handle answer
+        if ($credentials['is_duplicate']) {
+            $user = $this->updateFacebook($credentials, $userDB);
+        } else {
+            $user = User::create($credentials);
+        }
+
+        return $user;
     }
 
     public function findFacebook($credentials)
