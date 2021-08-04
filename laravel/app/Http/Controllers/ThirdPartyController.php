@@ -12,10 +12,7 @@ use App\Repositories\UserRepository;
 use App\Services\ThirdParty;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Tymon\JWTAuth\Facades\JWTAuth;
-
-use function PHPUnit\Framework\isNull;
 
 class ThirdPartyController extends Controller
 {
