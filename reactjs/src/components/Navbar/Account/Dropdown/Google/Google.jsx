@@ -21,31 +21,26 @@ function Google(props) {
 
     console.log(bodyParams);
 
-    //db
+    const can_login = await loginGoogle(bodyParams);
+    if (can_login) return window.location.reload();
+    console.log("can_login", can_login);
 
-    const res = await axios.post(
-      "http://localhost:8000/api/login-google",
-      bodyParams
-    );
+    const is_exist = await checkExistEmail(bodyParams);
+    if (typeof is_exist === "undefined") return;
+    console.log("is_exist", is_exist);
 
-    const { data } = await res;
+    if (!is_exist) {
+      //api login da~ auto register r
+    } else {
+      const answer = window.confirm(
+        "tai khoan nay da duoc dang ki, do co phai ban ko ?."
+      );
 
-    Alert({ message: data.message });
+      bodyParams["is_duplicate"] = answer;
+      console.log("check body", bodyParams);
 
-    console.log("php: ", data);
-
-    //main
-
-    //res
-
-    localStorage.setItem("account", JSON.stringify(data.account));
-    let a = localStorage.getItem("account");
-
-    a = JSON.parse(a);
-
-    console.log(a);
-
-    window.location.reload();
+      await registerGoogle(bodyParams);
+    }
   };
 
   const googleFailure = (res) => {};

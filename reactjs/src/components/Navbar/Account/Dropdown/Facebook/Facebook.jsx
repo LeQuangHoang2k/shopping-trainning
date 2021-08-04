@@ -68,9 +68,6 @@ function Facebook(props) {
 
       if (errors[Object.keys(errors)[0]] == "facebook id not existed")
         return false;
-      // console.log(
-      //   errors[Object.keys(errors)[0]] == "facebook id not existed"
-      // );
     }
   };
 
