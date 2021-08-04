@@ -42,23 +42,9 @@ class ThirdPartyController extends Controller
             return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
         }
 
-
         //handle answer
         if ($credentials['is_duplicate']) {
-            $newName = $userDB->name;
-            $newPicture = $userDB->picture;
-            
-            if (!isNull($newName) && !isNull($newPicture)) return $user;
-            if (isNull($newName)) $newName = $credentials['name'];
-            if (isNull($newPicture)) $newPicture = $credentials['picture'];
-
-            $user = tap(User::where('id', $userDB->id))
-                ->update([
-                    'facebook_id' => $credentials['facebook_id'],
-                    'name' => $newName,
-                    'picture' => $newPicture
-                ])
-                ->first();
+            $user = $this->updateFacebook($credentials, $userDB);
         } else {
             $user = User::create($credentials);
         }
@@ -94,6 +80,26 @@ class ThirdPartyController extends Controller
             'email' => $credentials['email'],
             "facebook_id" => null
         ])->first();
+
+        return $user;
+    }
+
+    public function updateFacebook($credentials, $userDB)
+    {
+        $newName = $userDB->name;
+        $newPicture = $userDB->picture;
+
+        if (!isNull($newName) && !isNull($newPicture)) return null;
+        if (isNull($newName)) $newName = $credentials['name'];
+        if (isNull($newPicture)) $newPicture = $credentials['picture'];
+
+        $user = tap(User::where('id', $userDB->id))
+            ->update([
+                'facebook_id' => $credentials['facebook_id'],
+                'name' => $newName,
+                'picture' => $newPicture
+            ])
+            ->first();
 
         return $user;
     }
