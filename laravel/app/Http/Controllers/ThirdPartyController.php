@@ -139,9 +139,8 @@ class ThirdPartyController extends Controller
         $newName = $userDB->name;
         $newPicture = $userDB->picture;
 
-        if (!isNull($newName) && !isNull($newPicture)) return null;
-        if (isNull($newName)) $newName = $credentials['name'];
-        if (isNull($newPicture)) $newPicture = $credentials['picture'];
+        if ($newName === null) $newName = $credentials['name'];
+        if ($newPicture === null) $newPicture = $credentials['picture'];
 
         $user = tap(User::where('id', $userDB->id))
             ->update([
