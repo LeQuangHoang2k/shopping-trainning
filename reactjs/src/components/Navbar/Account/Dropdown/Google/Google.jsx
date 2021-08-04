@@ -2,10 +2,13 @@ import React from "react";
 import { GoogleLogin } from "react-google-login";
 import Alert from "../../../../../features/Alert";
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 import "./Google.css";
 
 function Google(props) {
+  const cookies = new Cookies();
+
   const google = async (res) => {
     const { email, googleId, imageUrl, name } = await res.profileObj;
     console.log(res);
