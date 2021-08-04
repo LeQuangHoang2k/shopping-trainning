@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Auth\LoginFacebookRequest;
 use App\Http\Requests\Auth\LoginGoogleRequest;
 use App\Http\Requests\Auth\RegisterFacebookRequest;
+use App\Http\Requests\Auth\RegisterGoogleRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Repositories\UserRepository;
@@ -57,11 +58,38 @@ class ThirdPartyController extends Controller
         return $this->respondWithToken($token, $user);
     }
 
+    public function registerGoogle(RegisterGoogleRequest $request)
+    {
+        $credentials = $request->validated();
+        $user = null;
+
+        //check xem có ai trùng email với fb mình ko
+        $userDB =  $this->findGoogle($credentials);
+        if (!$userDB) {
+            $user = User::create($credentials);
+            return $this->respondWithToken($this->generateToken($user), $user);
+        }
+
+        $user = $this->handleAnswer($credentials, $userDB);
+        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+
+        return $this->respondWithToken($this->generateToken($user), $user);
+    }
+
     public function loginGoogle(LoginGoogleRequest $request)
     {
         // Sync account
-        dd(222);
+        $credentials = $request->validated();
+        $user = User::where('google_id', $credentials['google_id'])->first();
+
+        if (!$token = JWTAuth::fromUser($user)) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+        return $this->respondWithToken($token, $user);
     }
+
+
 
     public function handleAnswer($credentials, $userDB)
     {
@@ -72,7 +100,13 @@ class ThirdPartyController extends Controller
 
         //handle answer
         if ($credentials['is_duplicate']) {
-            $user = $this->updateFacebook($credentials, $userDB);
+            if (isset($credentials['facebook_id'])) {
+                $user = $this->updateFacebook($credentials, $userDB);
+            } elseif (isset($credentials['google_id'])) {
+                $user = $this->updateGoogle($credentials, $userDB);
+            } else {
+                $user = null;
+            }
         } else {
             $user = User::create($credentials);
         }
@@ -90,6 +124,16 @@ class ThirdPartyController extends Controller
         return $user;
     }
 
+    public function findGoogle($credentials)
+    {
+        $user = User::where([
+            'email' => $credentials['email'],
+            "google_id" => null
+        ])->first();
+
+        return $user;
+    }
+
     public function updateFacebook($credentials, $userDB)
     {
         $newName = $userDB->name;
@@ -102,6 +146,26 @@ class ThirdPartyController extends Controller
         $user = tap(User::where('id', $userDB->id))
             ->update([
                 'facebook_id' => $credentials['facebook_id'],
+                'name' => $newName,
+                'picture' => $newPicture
+            ])
+            ->first();
+
+        return $user;
+    }
+
+    public function updateGoogle($credentials, $userDB)
+    {
+        $newName = $userDB->name;
+        $newPicture = $userDB->picture;
+
+        if (!isNull($newName) && !isNull($newPicture)) return null;
+        if (isNull($newName)) $newName = $credentials['name'];
+        if (isNull($newPicture)) $newPicture = $credentials['picture'];
+
+        $user = tap(User::where('id', $userDB->id))
+            ->update([
+                'google_id' => $credentials['google_id'],
                 'name' => $newName,
                 'picture' => $newPicture
             ])
