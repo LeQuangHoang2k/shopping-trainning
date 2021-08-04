@@ -34,8 +34,7 @@ class ThirdPartyController extends Controller
         //check xem email này có phải mình ko
         if (!$userDB) {
             $user = User::create($credentials);
-            $token = $this->generateToken($user);
-            return $this->respondWithToken($token, $user);
+            return $this->respondWithToken($this->generateToken($user), $user);
         }
 
         if (!isset($credentials['is_duplicate'])) {
@@ -49,9 +48,7 @@ class ThirdPartyController extends Controller
             $user = User::create($credentials);
         }
 
-        $token = $this->generateToken($user);
-
-        return $this->respondWithToken($token, $user);
+        return $this->respondWithToken($this->generateToken($user), $user);
     }
 
     public function loginFacebook(LoginFacebookRequest $request)
