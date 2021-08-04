@@ -12,20 +12,20 @@ function Google(props) {
 
     //input
 
-    let formData = {
+    let bodyParams = {
       google_id: googleId,
       email,
       name,
       picture: imageUrl,
     };
 
-    console.log(formData);
+    console.log(bodyParams);
 
     //db
 
     const res = await axios.post(
       "http://localhost:8000/api/login-google",
-      formData
+      bodyParams
     );
 
     const { data } = await res;
