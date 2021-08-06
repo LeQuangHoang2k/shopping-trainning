@@ -17,6 +17,20 @@ class UserRepository
         return $user;
     }
 
+    public function findListEmail($filter)
+    {
+        // dd($filter['email']);
+        $query = User::select('*')->where('email', $filter['email']);
+
+        return $query->get();
+    }
+
+    public function create($filter)
+    {
+        // dd($filter['email']);
+        return User::create($filter);
+    }
+
     public function test($filter)
     {
         $query = User::select('*')->where('email', '=', $filter->email);

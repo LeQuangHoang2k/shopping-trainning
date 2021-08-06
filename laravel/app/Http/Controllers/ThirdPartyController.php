@@ -29,16 +29,39 @@ class ThirdPartyController extends Controller
         $user = null;
 
         //check xem có ai trùng email với fb mình ko
-        $userDB =  $this->findFacebook($credentials);
-        if (!$userDB) {
-            $user = User::create($credentials);
-            return $this->respondWithToken($this->generateToken($user), $user);
+        // dd($credentials['email']);
+        $listSameEmail = UserResource::collection($this->userRepository->findListEmail($credentials));
+        // dd($listSameEmail[0]->id);
+        if (count($listSameEmail) === 3) {
+            return ["message" => "Email này không thể đăng kí tài khoản nữa."];
         }
 
-        $user = $this->handleAnswer($credentials, $userDB);
-        if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+        if (count($listSameEmail) === 0) {
+            $user = User::create($credentials);
+            $token = $this->generateToken($user);
+            return $this->respondWithToken($token, $user);
+        }
 
-        return $this->respondWithToken($this->generateToken($user), $user);
+        // dd($listSameEmail);
+        return [
+            "message" => "email này đã được đăng kí, đây có phải bạn ko ?.",
+            "listSameEmail" => $listSameEmail,
+        ];
+
+        // $credentials = $request->validated();
+        // $user = null;
+
+        // //check xem có ai trùng email với fb mình ko
+        // $userDB =  $this->findFacebook($credentials);
+        // if (!$userDB) {
+        //     $user = User::create($credentials);
+        //     return $this->respondWithToken($this->generateToken($user), $user);
+        // }
+
+        // $user = $this->handleAnswer($credentials, $userDB);
+        // if (!$user) return response()->json(["message_duplicate" => "email này đã được đăng kí, đây có phải bạn ko ?."]);
+
+        // return $this->respondWithToken($this->generateToken($user), $user);
     }
 
     public function loginFacebook(LoginFacebookRequest $request)

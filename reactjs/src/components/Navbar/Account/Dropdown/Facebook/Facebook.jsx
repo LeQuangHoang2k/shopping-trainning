@@ -32,18 +32,18 @@ function Facebook(props) {
     if (typeof is_exist === "undefined") return;
     console.log("is_exist", is_exist);
 
-    if (!is_exist) {
-      //api login da~ auto register r
-    } else {
-      const answer = window.confirm(
-        "tai khoan nay da duoc dang ki, do co phai ban ko ?."
-      );
+    // if (!is_exist) {
+    //   //api login da~ auto register r
+    // } else {
+    //   const answer = window.confirm(
+    //     "tai khoan nay da duoc dang ki, do co phai ban ko ?."
+    //   );
 
-      bodyParams["is_duplicate"] = answer;
-      console.log("check body", bodyParams);
+    //   bodyParams["is_duplicate"] = answer;
+    //   console.log("check body", bodyParams);
 
-      await registerFacebook(bodyParams);
-    }
+    //   await registerFacebook(bodyParams);
+    // }
   };
 
   const loginFacebook = async (bodyParams) => {
@@ -80,17 +80,20 @@ function Facebook(props) {
       );
       console.log("res", res);
 
-      const { user, message_duplicate } = await res.data;
+      // const { user, message_duplicate } = await res.data;
 
-      if (user) {
-        Alert({ success: res.data.message });
-        console.log("đã tạo thành công");
-        await saveCookie(res.data);
-        window.location.reload();
-        return;
-      }
+      // if (user) {
+      //   Alert({ success: res.data.message });
+      //   console.log("đã tạo thành công");
+      //   await saveCookie(res.data);
+      //   window.location.reload();
+      //   return;
+      // }
 
-      return true;
+      // return true;
+
+      const { listSameEmail, message } = await res.data;
+      console.log("listSameEmail", listSameEmail);
     } catch (error) {
       console.log("error exist email", error.response.data);
       return;
