@@ -28,10 +28,7 @@ class ThirdPartyController extends Controller
         $credentials = $request->validated();
         $user = null;
 
-        //check xem có ai trùng email với fb mình ko
-        // dd($credentials['email']);
         $listSameEmail = UserResource::collection($this->userRepository->findListEmail($credentials));
-        // dd($listSameEmail[0]->id);
         if (count($listSameEmail) === 3) {
             return ["message" => "Email này không thể đăng kí tài khoản nữa."];
         }
@@ -42,7 +39,6 @@ class ThirdPartyController extends Controller
             return $this->respondWithToken($token, $user);
         }
 
-        // dd($listSameEmail);
         return [
             "message" => "email này đã được đăng kí, đây có phải bạn ko ?.",
             "listSameEmail" => $listSameEmail,
@@ -201,10 +197,16 @@ class ThirdPartyController extends Controller
         return $token;
     }
 
+    // public function refresh()
+    // {
+    //     return $this->createNewToken(auth()->refresh());
+    // }
+
     protected function respondWithToken($token, $user)
     {
         return response()->json([
             'access_token' => $token,
+            // 'refresh_token' => $this->refresh(),
             'token_type' => 'bearer',
             'expires_in' => 60 * 60 * 24 * 7,
             'user' => $user,
