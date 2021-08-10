@@ -22,7 +22,7 @@ function ProductDetail(props) {
   // const { id } = queryString.parse(window.location.search);
   const { id } = useParams();
 
-  var formData = {
+  var bodyParams = {
     product_id: product.id,
     price: price,
     count,
@@ -33,16 +33,16 @@ function ProductDetail(props) {
     fetchProduct();
 
     return () => {
-      setProduct([]);
-      setOptions([]);
-      setCart([]);
+      // setProduct([]);
+      // setOptions([]);
+      // setCart([]);
 
-      setPrice(0);
-      setCount(1);
-      setOptionId(0);
-      setActive(0);
+      // setPrice(0);
+      // setCount(1);
+      // setOptionId(0);
+      // setActive(0);
 
-      formData = {};
+      // bodyParams = {};
     };
   }, []);
 
@@ -99,8 +99,13 @@ function ProductDetail(props) {
   };
 
   const addCart = () => {
+    checkLogin();
     validateCart();
     saveCart();
+  };
+
+  const checkLogin = () => {
+
   };
 
   const validateCart = () => {
@@ -123,10 +128,10 @@ function ProductDetail(props) {
   const saveCart = () => {
     Alert({ success: "save thành công" });
 
-    console.log("formData: ", formData);
+    console.log("bodyParams: ", bodyParams);
     console.log("cart", cart);
 
-    cart.push({ order: formData });
+    cart.push({ order: bodyParams });
     localStorage.setItem("cart", JSON.stringify(cart));
 
     console.log("cart", cart);
