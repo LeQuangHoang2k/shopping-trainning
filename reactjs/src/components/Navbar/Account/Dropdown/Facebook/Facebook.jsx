@@ -81,20 +81,20 @@ function Facebook(props) {
       );
       console.log("res", res);
 
-      // const { user, message_duplicate } = await res.data;
+      const { user, message_duplicate } = await res.data;
 
-      // if (user) {
-      //   Alert({ success: res.data.message });
-      //   console.log("đã tạo thành công");
-      //   await saveCookie(res.data);
-      //   window.location.reload();
-      //   return;
-      // }
+      if (user) {
+        Alert({ success: res.data.message });
+        console.log("đã tạo thành công");
+        await saveCookie(res.data);
+        window.location.reload();
+        return;
+      }
 
-      // return true;
+      return true;
 
-      const { listSameEmail, message } = await res.data;
-      console.log("listSameEmail", listSameEmail);
+      // const { listSameEmail, message } = await res.data;
+      // console.log("listSameEmail", listSameEmail);
     } catch (error) {
       console.log("error exist email", error.response.data);
       return;

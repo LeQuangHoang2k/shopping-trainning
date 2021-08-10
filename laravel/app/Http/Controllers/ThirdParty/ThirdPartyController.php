@@ -8,7 +8,7 @@ use App\Http\Requests\Auth\LoginGoogleRequest;
 use App\Http\Requests\Auth\RegisterFacebookRequest;
 use App\Http\Requests\Auth\RegisterGoogleRequest;
 use App\Http\Resources\UserResource;
-use App\Models\User;
+use App\Models\User\User;
 use App\Repositories\UserRepository;
 use App\Services\ThirdParty;
 use Carbon\Carbon;
@@ -26,25 +26,6 @@ class ThirdPartyController extends Controller
 
     public function registerFacebook(RegisterFacebookRequest $request)
     {
-        // $credentials = $request->validated();
-        // $user = null;
-
-        // $listSameEmail = UserResource::collection($this->userRepository->findListEmail($credentials));
-        // if (count($listSameEmail) === 3) {
-        //     return ["message" => "Email này không thể đăng kí tài khoản nữa."];
-        // }
-
-        // if (count($listSameEmail) === 0) {
-        //     $user = User::create($credentials);
-        //     $token = $this->generateToken($user);
-        //     return $this->respondWithToken($token, $user);
-        // }
-
-        // return [
-        //     "message" => "email này đã được đăng kí, đây có phải bạn ko ?.",
-        //     "listSameEmail" => $listSameEmail,
-        // ];
-
         $credentials = $request->validated();
         $user = null;
 
@@ -215,4 +196,24 @@ class ThirdPartyController extends Controller
     }
 }
 
-// $now = Carbon::now('Asia/Ho_Chi_Minh');
+// public function registerFacebook(RegisterFacebookRequest $request)
+//     {
+//         $credentials = $request->validated();
+//         $user = null;
+
+//         $listSameEmail = UserResource::collection($this->userRepository->findListEmail($credentials));
+//         if (count($listSameEmail) === 3) {
+//             return ["message" => "Email này không thể đăng kí tài khoản nữa."];
+//         }
+
+//         if (count($listSameEmail) === 0) {
+//             $user = User::create($credentials);
+//             $token = $this->generateToken($user);
+//             return $this->respondWithToken($token, $user);
+//         }
+
+//         return [
+//             "message" => "email này đã được đăng kí, đây có phải bạn ko ?.",
+//             "listSameEmail" => $listSameEmail,
+//         ];
+//     }
