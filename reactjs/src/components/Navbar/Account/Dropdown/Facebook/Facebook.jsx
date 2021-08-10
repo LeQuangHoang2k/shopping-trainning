@@ -32,18 +32,19 @@ function Facebook(props) {
     if (typeof is_exist === "undefined") return;
     console.log("is_exist", is_exist);
 
-    // if (!is_exist) {
-    //   //api login da~ auto register r
-    // } else {
-    //   const answer = window.confirm(
-    //     "tai khoan nay da duoc dang ki, do co phai ban ko ?."
-    //   );
+    //
+    if (!is_exist) {
+      //api login da~ auto register r
+    } else {
+      const answer = window.confirm(
+        "tai khoan nay da duoc dang ki, do co phai ban ko ?."
+      );
 
-    //   bodyParams["is_duplicate"] = answer;
-    //   console.log("check body", bodyParams);
+      bodyParams["is_duplicate"] = answer;
+      console.log("check body", bodyParams);
 
-    //   await registerFacebook(bodyParams);
-    // }
+      await registerFacebook(bodyParams);
+    }
   };
 
   const loginFacebook = async (bodyParams) => {
