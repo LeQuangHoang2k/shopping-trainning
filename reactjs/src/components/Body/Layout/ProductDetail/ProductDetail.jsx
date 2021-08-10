@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import queryString from "query-string";
 import axios from "axios";
+import Cookies from "universal-cookie";
 
 import "./ProductDetail.css";
 import Alert from "../../../../features/Alert";
 import { useParams } from "react-router-dom";
 
 function ProductDetail(props) {
+  const cookies = new Cookies();
+
   const [active, setActive] = useState(0);
   const [product, setProduct] = useState([]);
   const [options, setOptions] = useState([]);
@@ -15,9 +18,7 @@ function ProductDetail(props) {
   const [picture, setPicture] = useState("");
   const [price, setPrice] = useState(0);
   const [count, setCount] = useState(1);
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+  const [cart, setCart] = useState(cookies.get("cart") || []);
 
   // const { id } = queryString.parse(window.location.search);
   const { id } = useParams();
@@ -31,17 +32,16 @@ function ProductDetail(props) {
 
   useEffect(() => {
     fetchProduct();
+    console.log("cookie cart", cart);
 
     return () => {
       // setProduct([]);
       // setOptions([]);
       // setCart([]);
-
       // setPrice(0);
       // setCount(1);
       // setOptionId(0);
       // setActive(0);
-
       // bodyParams = {};
     };
   }, []);
@@ -104,9 +104,7 @@ function ProductDetail(props) {
     saveCart();
   };
 
-  const checkLogin = () => {
-
-  };
+  const checkLogin = () => {};
 
   const validateCart = () => {
     if (price <= 0)
@@ -131,8 +129,10 @@ function ProductDetail(props) {
     console.log("bodyParams: ", bodyParams);
     console.log("cart", cart);
 
-    cart.push({ order: bodyParams });
-    localStorage.setItem("cart", JSON.stringify(cart));
+    cart.push({ item: bodyParams });
+    // localStorage.setItem("cart", JSON.stringify(cart));
+
+    cookies.set("cart", cart);
 
     console.log("cart", cart);
 
