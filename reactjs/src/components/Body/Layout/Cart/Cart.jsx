@@ -16,7 +16,7 @@ function Cart(props) {
               <div className="cart_title">
                 <small> (1 item in your cart) </small>
               </div>
-              <div className="cart_items">
+              {/* <div className="cart_items">
                 <ul className="cart_list">
                   <li className="cart_item clearfix">
                     <div className="cart_item_image">
@@ -30,8 +30,6 @@ function Cart(props) {
                       <div className="cart_item_color cart_info_col">
                         <div className="cart_item_title">Ram</div>
                         <div className="cart_item_text">
-                          {/* <span style={{ backgroundColor: "#999999" }}></span> */}
-                          {/* Silver */}
                           64gb
                         </div>
                       </div>
@@ -50,7 +48,7 @@ function Cart(props) {
                     </div>
                   </li>
                 </ul>
-              </div>
+              </div> */}
               <div className="order_total">
                 <div className="order_total_content text-md-right">
                   <div className="order_total_title">Order Total:</div>
