@@ -67,7 +67,7 @@ function Cart(props) {
                   Continue Shopping
                 </button>{" "}
                 <button type="button" class="button cart_button_checkout">
-                  Add to Cart
+                  Order
                 </button>{" "}
               </div>
             </div>
