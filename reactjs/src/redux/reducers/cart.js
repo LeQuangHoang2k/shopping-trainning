@@ -4,8 +4,10 @@ const initialState = {
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "STORE":
-      console.log("redux store");
+    case "INSERT":
+      console.log("redux store", action.data);
+      state.list.push({ item: action.data });
+
       return state;
 
     default:

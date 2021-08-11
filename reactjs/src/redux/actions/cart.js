@@ -1,3 +1,3 @@
-export const STORE = (data) => {
-  return { type: "STORE", data };
+export const insert = (data) => {
+  return { type: "INSERT", data };
 };

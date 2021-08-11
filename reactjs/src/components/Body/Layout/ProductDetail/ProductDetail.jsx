@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import queryString from "query-string";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import "./ProductDetail.css";
 import Alert from "../../../../features/Alert";
-import { useParams } from "react-router-dom";
+import { insert } from "../../../../redux/actions/cart";
 
 function ProductDetail(props) {
   const cookies = new Cookies();
+  const dispatch = useDispatch();
 
   const [active, setActive] = useState(0);
   const [product, setProduct] = useState([]);
@@ -134,6 +137,7 @@ function ProductDetail(props) {
 
     cart.push({ item: bodyParams });
     localStorage.setItem("cart", JSON.stringify(cart));
+    dispatch(insert({ bodyParams }));
 
     // cookies.set("cart", cart);
 
