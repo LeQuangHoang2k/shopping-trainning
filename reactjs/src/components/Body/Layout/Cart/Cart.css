@@ -1,8 +1,8 @@
-.cartside .title {
+.cart_side .title {
   margin-bottom: 5vh;
 }
 
-.cartside .card {
+.cart_side .card {
   margin: auto;
   max-width: 1250px;
   width: 100%;
@@ -14,12 +14,12 @@
 }
 
 @media (max-width: 767px) {
-  .cartside .card {
+  .cart_side .card {
     margin: 3vh auto;
   }
 }
 
-.cartside .cart {
+.cart_side .cart {
   background-color: #fff;
   padding: 4vh 5vh;
   border-bottom-left-radius: 1rem;
@@ -27,14 +27,14 @@
 }
 
 @media (max-width: 767px) {
-  .cartside .cart {
+  .cart_side .cart {
     padding: 4vh;
     border-bottom-left-radius: unset;
     border-top-right-radius: 1rem;
   }
 }
 
-.cartside .summary {
+.cart_side .summary {
   background-color: #ddd;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -43,69 +43,69 @@
 }
 
 @media (max-width: 767px) {
-  .cartside .summary {
+  .cart_side .summary {
     border-top-right-radius: unset;
     border-bottom-left-radius: 1rem;
   }
 }
 
-.cartside .summary .col-2 {
+.cart_side .summary .col-2 {
   padding: 0;
 }
 
-.cartside .summary .col-10 {
+.cart_side .summary .col-10 {
   padding: 0;
 }
 
-.cartside .row {
+.cart_side .row {
   margin: 0;
 }
 
-.cartside .title b {
+.cart_side .title b {
   font-size: 1.5rem;
 }
 
-.cartside .main {
+.cart_side .main {
   margin: 0;
   padding: 2vh 0;
   width: 100%;
 }
 
-.cartside .col-2,
-.cartside .col {
+.cart_side .col-2,
+.cart_side .col {
   padding: 0 1vh;
 }
 
-.cartside a {
+.cart_side a {
   padding: 0 1vh;
 }
 
-.cartside .close {
+.cart_side .close {
   margin-left: auto;
   font-size: 0.7rem;
 }
 
-.cartside img {
+.cart_side img {
   width: 3.5rem;
 }
 
-.cartside .back-to-shop {
+.cart_side .back-to-shop {
   margin-top: 4.5rem;
 }
 
-.cartside h5 {
+.cart_side h5 {
   margin-top: 4vh;
 }
 
-.cartside hr {
+.cart_side hr {
   margin-top: 1.25rem;
 }
 
-.cartside form {
+.cart_side form {
   padding: 2vh 0;
 }
 
-.cartside select {
+.cart_side select {
   border: 1px solid rgba(0, 0, 0, 0.137);
   padding: 1.5vh 1vh;
   margin-bottom: 4vh;
@@ -114,7 +114,7 @@
   background-color: rgb(247, 247, 247);
 }
 
-.cartside input {
+.cart_side input {
   border: 1px solid rgba(0, 0, 0, 0.137);
   padding: 1vh;
   margin-bottom: 4vh;
@@ -123,11 +123,11 @@
   background-color: rgb(247, 247, 247);
 }
 
-.cartside input:focus::-webkit-input-placeholder {
+.cart_side input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-.cartside .btn {
+.cart_side .btn {
   background-color: #000;
   border-color: #000;
   color: white;
@@ -138,7 +138,7 @@
   border-radius: 0;
 }
 
-.cartside .btn:focus {
+.cart_side .btn:focus {
   box-shadow: none;
   outline: none;
   box-shadow: none;
@@ -148,20 +148,20 @@
   transition: none;
 }
 
-.cartside .btn:hover {
+.cart_side .btn:hover {
   color: white;
 }
 
-.cartside a {
+.cart_side a {
   color: black;
 }
 
-.cartside a:hover {
+.cart_side a:hover {
   color: black;
   text-decoration: none;
 }
 
-.cartside #code {
+.cart_side #code {
   background-image: linear-gradient(
       to left,
       rgba(255, 255, 255, 0.253),

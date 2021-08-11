@@ -8,7 +8,7 @@ function Cart(props) {
   };
 
   return (
-    <div className="cartside">
+    <div className="cart_side">
       <div class="card">
         <div class="row">
           <div class="col-md-8 cart">
