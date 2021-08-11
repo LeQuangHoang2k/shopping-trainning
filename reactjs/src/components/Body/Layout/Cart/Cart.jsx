@@ -44,7 +44,7 @@ function Cart(props) {
                   <a href="#">+</a>
                 </div>
                 <div class="col">
-                  &euro; 44.00 <span class="close">&#10005;</span>
+                   44.00 &#8363;<span class="close">&#10005;</span>
                 </div>
               </div>
             </div>
@@ -68,7 +68,7 @@ function Cart(props) {
                   <a href="#">+</a>
                 </div>
                 <div class="col">
-                  &euro; 44.00 <span class="close">&#10005;</span>
+                   44.00 &#8363;<span class="close">&#10005;</span>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ function Cart(props) {
                   <a href="#">+</a>
                 </div>
                 <div class="col">
-                  &euro; 44.00 <span class="close">&#10005;</span>
+                   44.00 &#8363;<span class="close">&#10005;</span>
                 </div>
               </div>
             </div>
@@ -112,14 +112,14 @@ function Cart(props) {
               <div class="col" style={{ paddingLeft: 0 }}>
                 ITEMS 3
               </div>
-              <div class="col text-right">&euro; 132.00</div>
+              <div class="col text-right"> 132.00&#8363;</div>
             </div>
             <form>
               <p>SHIPPING</p>
               <select>
                 <option class="text-muted">
-                  Standard-Delivery- &euro;5.00
-                </option>
+                  Standard-Delivery- 5.00
+  &#8363;              </option>
               </select>
               <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" />
             </form>
@@ -131,7 +131,7 @@ function Cart(props) {
               }}
             >
               <div class="col">TOTAL PRICE</div>
-              <div class="col text-right">&euro; 137.00</div>
+              <div class="col text-right"> 137.00&#8363;</div>
             </div>
             <button class="btn">Purchase</button>
           </div>
