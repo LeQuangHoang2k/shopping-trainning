@@ -1,7 +1,7 @@
 .layout_wrapper {
   width: 1250px;
   height: fit-content;
-  background-color: white;
+  /* background-color: white; */
 
   position: relative;
   margin: auto;
