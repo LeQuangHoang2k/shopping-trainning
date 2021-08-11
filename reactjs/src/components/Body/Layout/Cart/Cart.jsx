@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Alert from "../../../../features/Alert";
 
 import "./Cart.css";
 
 function Cart(props) {
-  const [amount, setAmount] = useState(2);
+  const [count, setCount] = useState(2);
   const [cartStorage, setCartStorage] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
@@ -11,6 +12,16 @@ function Cart(props) {
   useEffect(() => {
     console.log("cartStorage", cartStorage);
   }, [cartStorage]);
+
+  const Increase = () => {
+    setCount(count + 1);
+  };
+
+  const Decrease = () => {
+    if (count === 1) return Alert({ warning: "Do you want to remove this item ?" });
+
+    // setCount(count - 1);
+  };
 
   const continueShopping = () => {
     window.location.href = "/";
@@ -29,7 +40,7 @@ function Cart(props) {
                   </h4>
                 </div>
                 <div className="col align-self-center text-right text-muted">
-                  3 items
+                  {cartStorage.length} items
                 </div>
               </div>
             </div>
@@ -49,11 +60,15 @@ function Cart(props) {
                   <div className="row">Cotton T-shirt</div>
                 </div>
                 <div className="col">
-                  <a href="#">-</a>
-                  <a href="#" className="border">
-                    {amount}
+                  <a href="javascript:void(0);" onClick={Decrease}>
+                    -
                   </a>
-                  <a href="#">+</a>
+                  <a href="javascript:void(0);" className="border">
+                    {count}
+                  </a>
+                  <a href="javascript:void(0);" onClick={Increase}>
+                    +
+                  </a>
                 </div>
                 <div className="col">
                   44.00 &#8363;<span className="close">&#10005;</span>
@@ -124,7 +139,7 @@ export default Cart;
                 <div className="col">
                   <a href="#">-</a>
                   <a href="#" className="border">
-                    {amount}
+                    {count}
                   </a>
                   <a href="#">+</a>
                 </div>
