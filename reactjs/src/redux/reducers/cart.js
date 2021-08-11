@@ -1,5 +1,5 @@
 const initialState = {
-  cart: [],
+  list: JSON.parse(localStorage.getItem("cart")),
 };
 
 export const cartReducer = (state = initialState, action) => {

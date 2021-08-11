@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import "./Cart.css";
 // import CartIcon from "/images/CartIcon.png";
 
 function Cart(props) {
-  const cartStorage = JSON.parse(localStorage.getItem("cart"));
+  // const cartStorage = JSON.parse(localStorage.getItem("cart"));
+  const cartStorage = useSelector((state) => state.cart);
 
-  const [cart, setCart] = useState(cartStorage);
-  const [amount, setAmount] = useState(cartStorage ? cartStorage.length : 0);
+  const [amount, setAmount] = useState(cartStorage.list.length);
 
   useEffect(() => {
-    setCart(cartStorage);
     console.log("cartStorage", cartStorage);
   }, [cartStorage]);
 
