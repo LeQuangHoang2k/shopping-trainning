@@ -1,14 +1,14 @@
-const state = {
+const initialState = {
   cart: [],
 };
 
-export const catReducer = (state, action) => {
+export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "STORE":
       console.log("redux store");
-      break;
+      return state;
 
     default:
-      break;
+      return state;
   }
 };

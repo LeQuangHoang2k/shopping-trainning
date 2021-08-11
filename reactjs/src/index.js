@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "semantic-ui-css/semantic.min.css";
-import store from "./redux/store";
+import { store } from "./redux/store";
 import { Provider } from "react-redux";
 
 ReactDOM.render(
