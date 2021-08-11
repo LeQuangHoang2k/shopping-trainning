@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./Cart.css";
 // import CartIcon from "/images/CartIcon.png";
 
 function Cart(props) {
-  const [amount, setAmount] = useState(1);
+  const cartStorage = JSON.parse(localStorage.getItem("cart"));
+
+  const [cart, setCart] = useState(cartStorage);
+  const [amount, setAmount] = useState(cartStorage ? cartStorage.length : 0);
+
+  useEffect(() => {
+    setCart(cartStorage);
+    console.log("cartStorage", cartStorage);
+  }, [cartStorage]);
+
   const showCart = () => {
     window.location.href = "/cart";
   };
@@ -19,7 +28,12 @@ function Cart(props) {
       <div className="cart_navbar_infor">
         {/* {amount > 0 ? amount : ""} */}
         <div className="cart_navbar_box">
-          <div className="cart_navbar_amount" style={{ display: amount > 0 ? "block" : "none" }}>{amount}</div>
+          <div
+            className="cart_navbar_amount"
+            style={{ display: amount > 0 ? "block" : "none" }}
+          >
+            {amount}
+          </div>
         </div>
         <div className="cart_navbar_title">Cart</div>
       </div>

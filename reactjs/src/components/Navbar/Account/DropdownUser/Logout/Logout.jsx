@@ -11,6 +11,8 @@ function Logout(props) {
     cookies.remove("access_token");
     cookies.remove("token_type");
 
+    localStorage.removeItem("cart");
+
     window.location.href = "/";
   };
 
