@@ -97,7 +97,7 @@ function Cart(props) {
               </div>
             </div>
             <div class="back-to-shop">
-              <a href="#">&#8592;</a>
+              <a href="/">&#8592;</a>
               <span class="text-muted">Back to shop</span>
             </div>
           </div>
@@ -133,7 +133,7 @@ function Cart(props) {
               <div class="col">TOTAL PRICE</div>
               <div class="col text-right">&euro; 137.00</div>
             </div>
-            <button class="btn">CHECKOUT</button>
+            <button class="btn">Purchase</button>
           </div>
         </div>
       </div>

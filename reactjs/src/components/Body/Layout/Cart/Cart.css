@@ -4,10 +4,10 @@
 
 .cartside .card {
   margin: auto;
-  max-width: 1150px;
-  width: 90%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  max-width: 1250px;
+  width: 100%;
+  margin-top: -15px;
+  /* margin-bottom: 10px; */
   box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 1rem;
   border: transparent;
