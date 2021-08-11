@@ -172,3 +172,18 @@
   background-position-x: 95%;
   background-position-y: center;
 }
+
+.cart_side .increase,
+.cart_side .decrease,
+.cart_side .count {
+  background-color: transparent;
+}
+
+.cart_side .increase,
+.cart_side .decrease {
+  border: none;
+}
+
+.cart_side .count {
+  border: 1px solid silver;
+}

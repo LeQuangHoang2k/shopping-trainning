@@ -18,9 +18,10 @@ function Cart(props) {
   };
 
   const Decrease = () => {
-    if (count === 1) return Alert({ warning: "Do you want to remove this item ?" });
+    if (count === 1)
+      return Alert({ warning: "Do you want to remove this item ?" });
 
-    // setCount(count - 1);
+    setCount(count - 1);
   };
 
   const continueShopping = () => {
@@ -60,17 +61,20 @@ function Cart(props) {
                   <div className="row">Cotton T-shirt</div>
                 </div>
                 <div className="col">
-                  <a href="javascript:void(0);" onClick={Decrease}>
+                  <button className="increase" type="button" onClick={Decrease}>
                     -
-                  </a>
-                  <a href="javascript:void(0);" className="border">
+                  </button>
+                  <button className="count" type="button">
                     {count}
-                  </a>
-                  <a href="javascript:void(0);" onClick={Increase}>
+                  </button>
+                  <button className="decrease" type="button" onClick={Increase}>
                     +
-                  </a>
+                  </button>
                 </div>
-                <div className="col">
+                <div
+                  className="col"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
                   44.00 &#8363;<span className="close">&#10005;</span>
                 </div>
               </div>
