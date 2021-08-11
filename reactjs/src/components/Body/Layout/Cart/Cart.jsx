@@ -97,7 +97,7 @@ function Cart(props) {
               </div>
             </div>
             <div class="back-to-shop">
-              <a href="#">&leftarrow;</a>
+              <a href="#">&#8592;</a>
               <span class="text-muted">Back to shop</span>
             </div>
           </div>
