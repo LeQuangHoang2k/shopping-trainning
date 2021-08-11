@@ -19,7 +19,9 @@ function ProductDetail(props) {
   const [price, setPrice] = useState(0);
   const [count, setCount] = useState(1);
   // const [cart, setCart] = useState(cookies.get("cart") || []);
-  const [cart, setCart] = useState(JSON.parse(localStorage.get("cart")) || []);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) || []
+  );
 
   // const { id } = queryString.parse(window.location.search);
   const { id } = useParams();
