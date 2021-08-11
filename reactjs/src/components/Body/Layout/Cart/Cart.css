@@ -8,11 +8,11 @@
     font-weight: bold
 } */
 
-.title {
+.cartside .title {
   margin-bottom: 5vh;
 }
 
-.card {
+.cartside .card {
   margin: auto;
   max-width: 1150px;
   width: 90%;
@@ -24,12 +24,12 @@
 }
 
 @media (max-width: 767px) {
-  .card {
+  .cartside .card {
     margin: 3vh auto;
   }
 }
 
-.cart {
+.cartside .cart {
   background-color: #fff;
   padding: 4vh 5vh;
   border-bottom-left-radius: 1rem;
@@ -37,14 +37,14 @@
 }
 
 @media (max-width: 767px) {
-  .cart {
+  .cartside .cart {
     padding: 4vh;
     border-bottom-left-radius: unset;
     border-top-right-radius: 1rem;
   }
 }
 
-.summary {
+.cartside .summary {
   background-color: #ddd;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -53,69 +53,69 @@
 }
 
 @media (max-width: 767px) {
-  .summary {
+  .cartside .summary {
     border-top-right-radius: unset;
     border-bottom-left-radius: 1rem;
   }
 }
 
-.summary .col-2 {
+.cartside .summary .col-2 {
   padding: 0;
 }
 
-.summary .col-10 {
+.cartside .summary .col-10 {
   padding: 0;
 }
 
-.row {
+.cartside .row {
   margin: 0;
 }
 
-.title b {
+.cartside .title b {
   font-size: 1.5rem;
 }
 
-.main {
+.cartside .main {
   margin: 0;
   padding: 2vh 0;
   width: 100%;
 }
 
-.col-2,
-.col {
+.cartside .col-2,
+.cartside .col {
   padding: 0 1vh;
 }
 
-a {
+.cartside a {
   padding: 0 1vh;
 }
 
-.close {
+.cartside .close {
   margin-left: auto;
   font-size: 0.7rem;
 }
 
-img {
+.cartside img {
   width: 3.5rem;
 }
 
-.back-to-shop {
+.cartside .back-to-shop {
   margin-top: 4.5rem;
 }
 
-h5 {
+.cartside h5 {
   margin-top: 4vh;
 }
 
-hr {
+.cartside hr {
   margin-top: 1.25rem;
 }
 
-form {
+.cartside form {
   padding: 2vh 0;
 }
 
-select {
+.cartside select {
   border: 1px solid rgba(0, 0, 0, 0.137);
   padding: 1.5vh 1vh;
   margin-bottom: 4vh;
@@ -124,7 +124,7 @@ select {
   background-color: rgb(247, 247, 247);
 }
 
-input {
+.cartside input {
   border: 1px solid rgba(0, 0, 0, 0.137);
   padding: 1vh;
   margin-bottom: 4vh;
@@ -133,11 +133,11 @@ input {
   background-color: rgb(247, 247, 247);
 }
 
-input:focus::-webkit-input-placeholder {
+.cartside input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-.btn {
+.cartside .btn {
   background-color: #000;
   border-color: #000;
   color: white;
@@ -148,7 +148,7 @@ input:focus::-webkit-input-placeholder {
   border-radius: 0;
 }
 
-.btn:focus {
+.cartside .btn:focus {
   box-shadow: none;
   outline: none;
   box-shadow: none;
@@ -158,20 +158,20 @@ input:focus::-webkit-input-placeholder {
   transition: none;
 }
 
-.btn:hover {
+.cartside .btn:hover {
   color: white;
 }
 
-a {
+.cartside a {
   color: black;
 }
 
-a:hover {
+.cartside a:hover {
   color: black;
   text-decoration: none;
 }
 
-#code {
+.cartside #code {
   background-image: linear-gradient(
       to left,
       rgba(255, 255, 255, 0.253),
