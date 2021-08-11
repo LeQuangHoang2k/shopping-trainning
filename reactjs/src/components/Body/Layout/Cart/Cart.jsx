@@ -24,6 +24,7 @@ function Cart(props) {
                 </div>
               </div>
             </div>
+            {/* map */}
             <div class="row border-top border-bottom">
               <div class="row main align-items-center">
                 <div class="col-2">
@@ -44,40 +45,17 @@ function Cart(props) {
                   <a href="#">+</a>
                 </div>
                 <div class="col">
-                   44.00 &#8363;<span class="close">&#10005;</span>
+                  44.00 &#8363;<span class="close">&#10005;</span>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="row main align-items-center">
-                <div class="col-2">
-                  <img
-                    class="img-fluid"
-                    src="https://i.imgur.com/ba3tvGm.jpg"
-                  />
-                </div>
-                <div class="col">
-                  <div class="row text-muted">Shirt</div>
-                  <div class="row">Cotton T-shirt</div>
-                </div>
-                <div class="col">
-                  <a href="#">-</a>
-                  <a href="#" class="border">
-                    1
-                  </a>
-                  <a href="#">+</a>
-                </div>
-                <div class="col">
-                   44.00 &#8363;<span class="close">&#10005;</span>
-                </div>
-              </div>
-            </div>
+
             <div class="row border-top border-bottom">
               <div class="row main align-items-center">
                 <div class="col-2">
                   <img
                     class="img-fluid"
-                    src="https://i.imgur.com/pHQ3xT3.jpg"
+                    src="https://i.imgur.com/1GrakTl.jpg"
                   />
                 </div>
                 <div class="col">
@@ -92,10 +70,186 @@ function Cart(props) {
                   <a href="#">+</a>
                 </div>
                 <div class="col">
-                   44.00 &#8363;<span class="close">&#10005;</span>
+                  44.00 &#8363;<span class="close">&#10005;</span>
                 </div>
               </div>
             </div>
+
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                  44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                  44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                  44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                  44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                  44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                  44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                  44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div>
+            {/*  */}
             <div class="back-to-shop">
               <a href="/">&#8592;</a>
               <span class="text-muted">Back to shop</span>
@@ -118,8 +272,8 @@ function Cart(props) {
               <p>SHIPPING</p>
               <select>
                 <option class="text-muted">
-                  Standard-Delivery- 5.00
-  &#8363;              </option>
+                  Standard-Delivery- 5.00 &#8363;{" "}
+                </option>
               </select>
               <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" />
             </form>
@@ -142,3 +296,30 @@ function Cart(props) {
 }
 
 export default Cart;
+
+{
+  /* <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                <div class="col-2">
+                  <img
+                    class="img-fluid"
+                    src="https://i.imgur.com/1GrakTl.jpg"
+                  />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">Shirt</div>
+                  <div class="row">Cotton T-shirt</div>
+                </div>
+                <div class="col">
+                  <a href="#">-</a>
+                  <a href="#" class="border">
+                    1
+                  </a>
+                  <a href="#">+</a>
+                </div>
+                <div class="col">
+                   44.00 &#8363;<span class="close">&#10005;</span>
+                </div>
+              </div>
+            </div> */
+}
