@@ -8,68 +8,117 @@ function Cart(props) {
   };
 
   return (
-    <div className="cart_section">
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-lg-10 offset-lg-1">
-            <div className="cart_container">
-              <div className="cart_title">
-                <small> (1 item in your cart) </small>
+    <div class="card">
+      <div class="row">
+        <div class="col-md-8 cart">
+          <div class="title">
+            <div class="row">
+              <div class="col">
+                <h4>
+                  <b>Shopping Cart</b>
+                </h4>
               </div>
-              {/* <div className="cart_items">
-                <ul className="cart_list">
-                  <li className="cart_item clearfix">
-                    <div className="cart_item_image">
-                      <img src="https://i.imgur.com/qqBRWD5.jpg" alt="" />
-                    </div>
-                    <div className="cart_item_info d-flex flex-md-row flex-column justify-content-between">
-                      <div className="cart_item_name cart_info_col">
-                        <div className="cart_item_title">Name</div>
-                        <div className="cart_item_text">Samsung C7 Pro</div>
-                      </div>
-                      <div className="cart_item_color cart_info_col">
-                        <div className="cart_item_title">Ram</div>
-                        <div className="cart_item_text">
-                          64gb
-                        </div>
-                      </div>
-                      <div className="cart_item_quantity cart_info_col">
-                        <div className="cart_item_title">Quantity</div>
-                        <div className="cart_item_text">1</div>
-                      </div>
-                      <div className="cart_item_price cart_info_col">
-                        <div className="cart_item_title">Price</div>
-                        <div className="cart_item_text">₹22000</div>
-                      </div>
-                      <div className="cart_item_total cart_info_col">
-                        <div className="cart_item_title">Total</div>
-                        <div className="cart_item_text">₹22000</div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div> */}
-              <div className="order_total">
-                <div className="order_total_content text-md-right">
-                  <div className="order_total_title">Order Total:</div>
-                  <div className="order_total_amount">₹22000</div>
-                </div>
-              </div>
-              <div className="cart_buttons">
-                {" "}
-                <button
-                  type="button"
-                  className="button cart_button_clear"
-                  onClick={continueShopping}
-                >
-                  Continue Shopping
-                </button>{" "}
-                <button type="button" className="button cart_button_checkout">
-                  Order
-                </button>{" "}
+              <div class="col align-self-center text-right text-muted">
+                3 items
               </div>
             </div>
           </div>
+          <div class="row border-top border-bottom">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+              <div class="col">
+                <a href="#">-</a>
+                <a href="#" class="border">
+                  1
+                </a>
+                <a href="#">+</a>
+              </div>
+              <div class="col">
+                &euro; 44.00 <span class="close">&#10005;</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+              <div class="col">
+                <a href="#">-</a>
+                <a href="#" class="border">
+                  1
+                </a>
+                <a href="#">+</a>
+              </div>
+              <div class="col">
+                &euro; 44.00 <span class="close">&#10005;</span>
+              </div>
+            </div>
+          </div>
+          <div class="row border-top border-bottom">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+              <div class="col">
+                <a href="#">-</a>
+                <a href="#" class="border">
+                  1
+                </a>
+                <a href="#">+</a>
+              </div>
+              <div class="col">
+                &euro; 44.00 <span class="close">&#10005;</span>
+              </div>
+            </div>
+          </div>
+          <div class="back-to-shop">
+            <a href="#">&leftarrow;</a>
+            <span class="text-muted">Back to shop</span>
+          </div>
+        </div>
+        <div class="col-md-4 summary">
+          <div>
+            <h5>
+              <b>Summary</b>
+            </h5>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col" style={{ paddingLeft: 0 }}>
+              ITEMS 3
+            </div>
+            <div class="col text-right">&euro; 132.00</div>
+          </div>
+          <form>
+            <p>SHIPPING</p>
+            <select>
+              <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+            </select>
+            <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" />
+          </form>
+          <div
+            class="row"
+            style={{ borderTop: "1px solid rgba(0,0,0,.1)", padding: "2vh 0" }}
+          >
+            <div class="col">TOTAL PRICE</div>
+            <div class="col text-right">&euro; 137.00</div>
+          </div>
+          <button class="btn">CHECKOUT</button>
         </div>
       </div>
     </div>
