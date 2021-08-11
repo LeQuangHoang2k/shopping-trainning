@@ -18,7 +18,8 @@ function ProductDetail(props) {
   const [picture, setPicture] = useState("");
   const [price, setPrice] = useState(0);
   const [count, setCount] = useState(1);
-  const [cart, setCart] = useState(cookies.get("cart") || []);
+  // const [cart, setCart] = useState(cookies.get("cart") || []);
+  const [cart, setCart] = useState(JSON.parse(localStorage.get("cart")) || []);
 
   // const { id } = queryString.parse(window.location.search);
   const { id } = useParams();
@@ -130,9 +131,9 @@ function ProductDetail(props) {
     console.log("cart", cart);
 
     cart.push({ item: bodyParams });
-    // localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
 
-    cookies.set("cart", cart);
+    // cookies.set("cart", cart);
 
     console.log("cart", cart);
 
