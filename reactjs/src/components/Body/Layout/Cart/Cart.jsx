@@ -59,7 +59,7 @@ function Cart(props) {
                         />
                       </div>
                       <div className="col">
-                        <div className="row text-muted">Shirt</div>
+                        <div className="row text-muted">iphone</div>
                         <div className="row">Cotton T-shirt</div>
                       </div>
                       <div className="col">
