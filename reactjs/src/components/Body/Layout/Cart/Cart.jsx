@@ -20,9 +20,7 @@ function Cart(props) {
 
   const dow = (item) => dispatch(dowCount({ item }));
 
-  const continueShopping = () => {
-    window.location.href = "/";
-  };
+  const back = () => (window.location.href = "/");
 
   return (
     <div className="cart_side">
@@ -116,7 +114,7 @@ function Cart(props) {
               );
             })}
 
-            <div className="back-to-shop">
+            <div className="back-to-shop" onClick={back}>
               <a href="/">&#8592;</a>
               <span className="text-muted">Back to shop</span>
             </div>
