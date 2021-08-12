@@ -1,3 +1,3 @@
-export const insert = (data) => {
-  return { type: "INSERT", data };
+export const update = (data) => {
+  return { type: "UPDATE", data };
 };

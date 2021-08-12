@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 import "./ProductDetail.css";
 import Alert from "../../../../features/Alert";
-import { insert } from "../../../../redux/actions/cart";
+import { update } from "../../../../redux/actions/cart";
 
 function ProductDetail(props) {
   const cookies = new Cookies();
@@ -137,7 +137,7 @@ function ProductDetail(props) {
 
     cart.push({ item: bodyParams });
     localStorage.setItem("cart", JSON.stringify(cart));
-    dispatch(insert({ cart }));
+    dispatch(update({ cart }));
 
     // cookies.set("cart", cart);
 

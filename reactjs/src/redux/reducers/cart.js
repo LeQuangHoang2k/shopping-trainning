@@ -4,11 +4,11 @@ const initialState = {
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "INSERT":
+    case "UPDATE":
       console.log("a", action.data.cart);
       return {
         ...state,
-        list: [],
+        list: action.data.cart,
       };
 
     default:
