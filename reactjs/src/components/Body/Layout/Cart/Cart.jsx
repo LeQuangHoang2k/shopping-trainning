@@ -11,13 +11,12 @@ function Cart(props) {
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
-    // setCount
   }, [cartStorage]);
 
   const up = (item) => dispatch(upCount({ item }));
 
   const dow = (item) => {
-    if (item.count > 0) return dispatch(dowCount({ item }));
+    if (item.count - 1 > 0) return dispatch(dowCount({ item }));
     dispatch(cancel({ item }));
     Alert({ success: "delete success" });
   };
