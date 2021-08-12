@@ -9,6 +9,8 @@ function Cart(props) {
   const cartStorage = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+  const [orderList, setOrderList] = useState([]);
+
   useEffect(() => {
     console.log("cartStorage", cartStorage);
   }, [cartStorage]);
@@ -27,6 +29,26 @@ function Cart(props) {
   };
 
   const back = () => window.history.back();
+
+  const getCheck = (e, item) => {
+    let isChecked = e.target.checked;
+    if (isChecked) {
+      //add
+      orderList.push({ item });
+      console.log("orderList", orderList);
+    } else {
+      var index = orderList.findIndex(
+        (elm) =>
+          elm.product_id === item.product_id &&
+          elm.optionValue === item.optionValue
+      );
+
+      orderList.splice(index, 1);
+    }
+
+    console.log("ischecked", isChecked, item);
+    console.log("listOrder", orderList);
+  };
 
   return (
     <div className="cart_side">
@@ -63,6 +85,7 @@ function Cart(props) {
                           type="checkbox"
                           name="check"
                           id=""
+                          onChange={(e) => getCheck(e, item)}
                         />
                       </div>
                       <div className="col-2">
