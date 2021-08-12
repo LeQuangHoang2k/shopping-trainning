@@ -111,12 +111,15 @@ function ProductDetail(props) {
   };
 
   const addCart = () => {
-    checkLogin();
+    if (!checkLogin()) return Alert({ error: "Please login to continue" });
+
     validateCart();
     saveCart();
   };
 
-  const checkLogin = () => {};
+  const checkLogin = () => {
+    return cookies.get("access_token");
+  };
 
   const validateCart = () => {
     if (price <= 0)
