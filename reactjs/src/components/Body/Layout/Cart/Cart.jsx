@@ -108,7 +108,10 @@ function Cart(props) {
                           color: "red",
                         }}
                       >
-                        {item.price} &#8363;
+                        {(
+                          parseFloat(item.price) * parseFloat(item.count)
+                        ).toFixed(3)}{" "}
+                        &#8363;
                         <span className="close">&#10005;</span>
                       </div>
                     </div>
