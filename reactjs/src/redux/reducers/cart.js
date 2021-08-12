@@ -35,7 +35,7 @@ export const cartReducer = (state = initialState, action) => {
         (element) => element.product_id === item.product_id
       );
 
-      list[index].count += 1;
+      list[index].count -= 1;
 
       localStorage.setItem("cart", JSON.stringify(list));
 

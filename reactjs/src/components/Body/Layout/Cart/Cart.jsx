@@ -9,8 +9,6 @@ function Cart(props) {
   const cartStorage = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const [count, setCount] = useState(1);
-
   useEffect(() => {
     console.log("cartStorage", cartStorage);
     // setCount
