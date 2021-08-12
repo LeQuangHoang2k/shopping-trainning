@@ -10,10 +10,11 @@ function Cart(props) {
   const dispatch = useDispatch();
 
   const [orderList, setOrderList] = useState([]);
+  const [total, setTotal] = useState(0.0);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
-  }, [cartStorage]);
+  }, [cartStorage, orderList]);
 
   const up = (item) => dispatch(upCount({ item }));
 
@@ -48,6 +49,22 @@ function Cart(props) {
 
     console.log("ischecked", isChecked, item);
     console.log("listOrder", orderList);
+    totalPrice(orderList);
+  };
+
+  const totalPrice = (orderList) => {
+    if (orderList.length <= 0) return;
+
+    var sum = 0.0;
+    var elmPrice = 0;
+    orderList.forEach((element) => {
+      sum =
+        parseFloat(sum) +
+        parseFloat(element.item.price) * parseFloat(element.item.count);
+    });
+
+    console.log("sum", parseFloat(sum));
+    setTotal(sum);
   };
 
   return (
@@ -163,12 +180,12 @@ function Cart(props) {
               </h5>
             </div>
             <hr />
-            <div className="row">
+            {/* <div className="row">
               <div className="col" style={{ paddingLeft: 0 }}>
                 ITEMS 3
               </div>
               <div className="col text-right"> 132.00&#8363;</div>
-            </div>
+            </div> */}
             <form>
               <p>SHIPPING</p>
               <select>
@@ -186,7 +203,7 @@ function Cart(props) {
               }}
             >
               <div className="col">TOTAL PRICE</div>
-              <div className="col text-right"> 137.00&#8363;</div>
+              <div className="col text-right"> {total}&#8363;</div>
             </div>
             <button className="btn">Purchase</button>
           </div>
