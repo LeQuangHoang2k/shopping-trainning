@@ -86,6 +86,13 @@ function Cart(props) {
                         className="col"
                         style={{ display: "flex", alignItems: "center" }}
                       >
+                        <div className="row text-muted">iphone</div>
+                        <div className="row">{item.ram}</div>
+                      </div>
+                      <div
+                        className="col"
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
                         {item.price} &#8363;
                         <span className="close">&#10005;</span>
                       </div>
