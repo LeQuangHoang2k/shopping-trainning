@@ -21,7 +21,9 @@ function ProductDetail(props) {
   const [picture, setPicture] = useState("");
   const [price, setPrice] = useState(0);
   const [count, setCount] = useState(1);
-  // const [cart, setCart] = useState(cookies.get("cart") || []);
+  const [optionName, setOptionName] = useState("");
+  const [optionValue, setOptionValue] = useState("");
+
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
@@ -81,6 +83,8 @@ function ProductDetail(props) {
     if (productsReturn.options[0] && productsReturn.options[0].id) {
       setOptionId(productsReturn.options[0].id);
       setActive(productsReturn.options[0].id);
+      setOptionName(productsReturn.options[0].name);
+      setOptionValue(productsReturn.options[0].value);
     }
   };
 
@@ -92,6 +96,9 @@ function ProductDetail(props) {
     setPrice(option.price);
     setOptionId(option.id);
     setActive(option.id);
+    setOptionName(option.name);
+    setOptionValue(option.value);
+    console.log("option", option);
   };
 
   const Increase = () => {
@@ -142,7 +149,8 @@ function ProductDetail(props) {
       option_id: bodyParams.option_id,
       name: product.name,
       picture,
-      ram:product.ram
+      optionName,
+      optionValue,
     });
 
     localStorage.setItem("cart", JSON.stringify(cart));

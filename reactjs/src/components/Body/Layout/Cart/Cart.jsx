@@ -82,12 +82,9 @@ function Cart(props) {
                           +
                         </button>
                       </div>
-                      <div
-                        className="col"
-                        style={{ display: "flex", alignItems: "center" }}
-                      >
-                        <div className="row text-muted">iphone</div>
-                        <div className="row">{item.ram}</div>
+                      <div className="col">
+                        <div className="row text-muted">{item.optionName}</div>
+                        <div className="row">{item.optionValue}</div>
                       </div>
                       <div
                         className="col"
