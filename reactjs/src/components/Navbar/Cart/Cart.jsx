@@ -11,6 +11,7 @@ function Cart(props) {
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
+    setAmount(cartStorage.list.length);
   }, [cartStorage]);
 
   const showCart = () => {

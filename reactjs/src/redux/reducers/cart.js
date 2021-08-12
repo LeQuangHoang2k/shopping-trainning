@@ -5,8 +5,11 @@ const initialState = {
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "INSERT":
-      state.list.push({ item: action.data });
-      return state;
+      console.log("a", action.data.cart);
+      return {
+        ...state,
+        list: [],
+      };
 
     default:
       return state;

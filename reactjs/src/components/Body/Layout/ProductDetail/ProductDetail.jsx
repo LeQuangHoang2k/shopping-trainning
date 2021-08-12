@@ -137,7 +137,7 @@ function ProductDetail(props) {
 
     cart.push({ item: bodyParams });
     localStorage.setItem("cart", JSON.stringify(cart));
-    dispatch(insert({ bodyParams }));
+    dispatch(insert({ cart }));
 
     // cookies.set("cart", cart);
 
