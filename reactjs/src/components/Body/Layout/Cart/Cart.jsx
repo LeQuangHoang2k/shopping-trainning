@@ -46,6 +46,7 @@ function Cart(props) {
                 </div>
               </div>
             </div>
+
             {cartStorage.list.map((item, key) => {
               return (
                 <div key={key}>
@@ -119,40 +120,7 @@ function Cart(props) {
                 </div>
               );
             })}
-            {}
-            {/* <div className="row border-top border-bottom">
-              <div className="row main align-items-center">
-                <div className="col-2">
-                  <img
-                    className="img-fluid"
-                    src="https://i.imgur.com/1GrakTl.jpg"
-                    alt="alt"
-                  />
-                </div>
-                <div className="col">
-                  <div className="row text-muted">Shirt</div>
-                  <div className="row">Cotton T-shirt</div>
-                </div>
-                <div className="col">
-                  <button className="increase" type="button" onClick={Decrease}>
-                    -
-                  </button>
-                  <button className="count" type="button">
-                    {count}
-                  </button>
-                  <button className="decrease" type="button" onClick={Increase}>
-                    +
-                  </button>
-                </div>
-                <div
-                  className="col"
-                  style={{ display: "flex", alignItems: "center" }}
-                >
-                  44.00 &#8363;<span className="close">&#10005;</span>
-                </div>
-              </div>
-            </div> */}
-            {/*  */}
+
             <div className="back-to-shop">
               <a href="/">&#8592;</a>
               <span className="text-muted">Back to shop</span>
