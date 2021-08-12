@@ -3,7 +3,7 @@ import queryString from "query-string";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./ProductDetail.css";
 import Alert from "../../../../features/Alert";
@@ -12,6 +12,7 @@ import { update } from "../../../../redux/actions/cart";
 function ProductDetail(props) {
   const cookies = new Cookies();
   const dispatch = useDispatch();
+  const cartStorage = useSelector((state) => state.cart);
 
   const [active, setActive] = useState(0);
   const [product, setProduct] = useState([]);
@@ -24,9 +25,7 @@ function ProductDetail(props) {
   const [optionName, setOptionName] = useState("");
   const [optionValue, setOptionValue] = useState("");
 
-  const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+  // const [cart, setCart] = useState(cartStorage.list);
 
   // const { id } = queryString.parse(window.location.search);
   const { id } = useParams();
@@ -40,7 +39,7 @@ function ProductDetail(props) {
 
   useEffect(() => {
     fetchProduct();
-    console.log("cookie cart", cart);
+    console.log("cookie cart", cartStorage.list);
 
     return () => {
       // setProduct([]);
@@ -140,9 +139,9 @@ function ProductDetail(props) {
     Alert({ success: "save thành công" });
 
     console.log("bodyParams: ", bodyParams);
-    console.log("cart", cart);
+    console.log("cart", cartStorage.list);
 
-    cart.push({
+    cartStorage.list.push({
       product_id: bodyParams.product_id,
       price: bodyParams.price,
       count: bodyParams.count,
@@ -153,12 +152,13 @@ function ProductDetail(props) {
       optionValue,
     });
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    dispatch(update({ cart }));
+    localStorage.setItem("cart", JSON.stringify(cartStorage.list));
+
+    dispatch(update({ cart: cartStorage.list }));
 
     // cookies.set("cart", cart);
 
-    console.log("cart", cart);
+    console.log("cart", cartStorage.list);
 
     setCount(1);
   };
