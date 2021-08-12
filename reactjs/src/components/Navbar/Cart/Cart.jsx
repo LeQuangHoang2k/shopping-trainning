@@ -5,7 +5,6 @@ import "./Cart.css";
 // import CartIcon from "/images/CartIcon.png";
 
 function Cart(props) {
-  // const cartStorage = JSON.parse(localStorage.getItem("cart"));
   const cartStorage = useSelector((state) => state.cart);
 
   const [amount, setAmount] = useState(cartStorage.list.length);
