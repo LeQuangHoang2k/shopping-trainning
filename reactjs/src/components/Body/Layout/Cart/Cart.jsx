@@ -54,13 +54,14 @@ function Cart(props) {
                       <div className="col-2">
                         <img
                           className="img-fluid"
-                          src="https://i.imgur.com/1GrakTl.jpg"
+                          // src="https://i.imgur.com/1GrakTl.jpg"
+                          src={item.picture}
                           alt="alt"
                         />
                       </div>
                       <div className="col">
                         <div className="row text-muted">iphone</div>
-                        <div className="row">Cotton T-shirt</div>
+                        <div className="row">{item.name}</div>
                       </div>
                       <div className="col">
                         <button
@@ -71,7 +72,7 @@ function Cart(props) {
                           -
                         </button>
                         <button className="count" type="button">
-                          {item.item.count}
+                          {item.count}
                         </button>
                         <button
                           className="decrease"
@@ -85,7 +86,7 @@ function Cart(props) {
                         className="col"
                         style={{ display: "flex", alignItems: "center" }}
                       >
-                        {item.item.price} &#8363;
+                        {item.price} &#8363;
                         <span className="close">&#10005;</span>
                       </div>
                     </div>
