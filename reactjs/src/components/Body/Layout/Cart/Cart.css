@@ -83,6 +83,8 @@
 .cart_side .close {
   margin-left: auto;
   font-size: 0.7rem;
+
+  cursor: pointer;
 }
 
 .cart_side img {
