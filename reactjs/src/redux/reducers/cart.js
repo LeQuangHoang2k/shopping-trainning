@@ -17,7 +17,9 @@ export const cartReducer = (state = initialState, action) => {
     case "UP_COUNT": {
       const { item } = action.data;
       var index = list.findIndex(
-        (element) => element.product_id === item.product_id
+        (element) =>
+          element.product_id === item.product_id &&
+          element.optionValue === item.optionValue
       );
 
       list[index].count += 1;
@@ -37,7 +39,9 @@ export const cartReducer = (state = initialState, action) => {
     case "DOW_COUNT": {
       const { item } = action.data;
       var index = list.findIndex(
-        (element) => element.product_id === item.product_id
+        (element) =>
+          element.product_id === item.product_id &&
+          element.optionValue === item.optionValue
       );
 
       list[index].count -= 1;
@@ -53,7 +57,9 @@ export const cartReducer = (state = initialState, action) => {
     case "CANCEL": {
       const { item } = action.data;
       var index = list.findIndex(
-        (element) => element.product_id === item.product_id
+        (element) =>
+          element.product_id === item.product_id &&
+          element.optionValue === item.optionValue
       );
 
       list.splice(index, 1);
