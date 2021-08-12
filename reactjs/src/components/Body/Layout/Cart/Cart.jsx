@@ -14,8 +14,14 @@ function Cart(props) {
     // setCount
   }, [cartStorage]);
 
-  const Increase = () => {
-    setCount(count + 1);
+  const up = (item) => {
+    // setCount(count + 1);
+    var index = cartStorage.list.findIndex(
+      (cart) => cart.product_id === item.product_id
+    );
+
+    cartStorage.list[index].count += 1;
+    alert(cartStorage.list[index].count);
   };
 
   const Decrease = () => {
@@ -92,7 +98,7 @@ function Cart(props) {
                         <button
                           className="decrease"
                           type="button"
-                          onClick={Increase}
+                          onClick={() => up(item)}
                         >
                           +
                         </button>
