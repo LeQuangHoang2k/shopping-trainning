@@ -142,7 +142,8 @@ function ProductDetail(props) {
     // Alert({ success: "save thành công" });
 
     var index = cartStorage.list.findIndex(
-      (item) => item.product_id === product.id
+      (item) =>
+        item.product_id === product.id && item.optionValue === optionValue
     );
     alert(index);
 
