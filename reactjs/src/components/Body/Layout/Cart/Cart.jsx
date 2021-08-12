@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Alert from "../../../../features/Alert";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./Cart.css";
+import { dowCount, upCount } from "../../../../redux/actions/cart";
 
 function Cart(props) {
   const cartStorage = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
   const [count, setCount] = useState(1);
 
@@ -14,22 +16,9 @@ function Cart(props) {
     // setCount
   }, [cartStorage]);
 
-  const up = (item) => {
-    // setCount(count + 1);
-    var index = cartStorage.list.findIndex(
-      (cart) => cart.product_id === item.product_id
-    );
+  const up = (item) => dispatch(upCount({ item }));
 
-    cartStorage.list[index].count += 1;
-    alert(cartStorage.list[index].count);
-  };
-
-  const Decrease = () => {
-    if (count === 1)
-      return Alert({ warning: "Do you want to remove this item ?" });
-
-    setCount(count - 1);
-  };
+  const dow = (item) => dispatch(dowCount({ item }));
 
   const continueShopping = () => {
     window.location.href = "/";
@@ -88,7 +77,7 @@ function Cart(props) {
                         <button
                           className="increase"
                           type="button"
-                          onClick={Decrease}
+                          onClick={() => dow(item)}
                         >
                           -
                         </button>
