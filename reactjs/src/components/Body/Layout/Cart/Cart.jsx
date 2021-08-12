@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Alert from "../../../../features/Alert";
+import { useSelector } from "react-redux";
 
 import "./Cart.css";
 
 function Cart(props) {
-  const [count, setCount] = useState(2);
-  const [cartStorage, setCartStorage] = useState(
-    JSON.parse(localStorage.getItem("cart")) || []
-  );
+  const cartStorage = useSelector((state) => state.cart);
+
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
+    // setCount
   }, [cartStorage]);
 
   const Increase = () => {
@@ -41,13 +42,59 @@ function Cart(props) {
                   </h4>
                 </div>
                 <div className="col align-self-center text-right text-muted">
-                  {cartStorage.length} items
+                  {cartStorage.list.length} items
                 </div>
               </div>
             </div>
-            {/* map */}
+            {cartStorage.list.map((item, key) => {
+              return (
+                <div key={key}>
+                  <div className="row border-top border-bottom">
+                    <div className="row main align-items-center">
+                      <div className="col-2">
+                        <img
+                          className="img-fluid"
+                          src="https://i.imgur.com/1GrakTl.jpg"
+                          alt="alt"
+                        />
+                      </div>
+                      <div className="col">
+                        <div className="row text-muted">Shirt</div>
+                        <div className="row">Cotton T-shirt</div>
+                      </div>
+                      <div className="col">
+                        <button
+                          className="increase"
+                          type="button"
+                          onClick={Decrease}
+                        >
+                          -
+                        </button>
+                        <button className="count" type="button">
+                          {item.item.count}
+                        </button>
+                        <button
+                          className="decrease"
+                          type="button"
+                          onClick={Increase}
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div
+                        className="col"
+                        style={{ display: "flex", alignItems: "center" }}
+                      >
+                        {item.item.price} &#8363;
+                        <span className="close">&#10005;</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
             {}
-            <div className="row border-top border-bottom">
+            {/* <div className="row border-top border-bottom">
               <div className="row main align-items-center">
                 <div className="col-2">
                   <img
@@ -78,7 +125,7 @@ function Cart(props) {
                   44.00 &#8363;<span className="close">&#10005;</span>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/*  */}
             <div className="back-to-shop">
               <a href="/">&#8592;</a>
