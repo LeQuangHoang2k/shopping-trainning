@@ -34,7 +34,7 @@ export const cartReducer = (state = initialState, action) => {
       };
     }
 
-    case "DOW_COUNT":
+    case "DOW_COUNT": {
       const { item } = action.data;
       var index = list.findIndex(
         (element) => element.product_id === item.product_id
@@ -48,6 +48,23 @@ export const cartReducer = (state = initialState, action) => {
         ...state,
         list: list,
       };
+    }
+
+    case "CANCEL": {
+      const { item } = action.data;
+      var index = list.findIndex(
+        (element) => element.product_id === item.product_id
+      );
+
+      list.splice(index, 1);
+
+      localStorage.setItem("cart", JSON.stringify(list));
+
+      return {
+        ...state,
+        list: list,
+      };
+    }
 
     default:
       return state;

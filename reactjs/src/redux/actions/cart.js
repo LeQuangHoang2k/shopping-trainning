@@ -9,3 +9,8 @@ export const upCount = (data) => {
 export const dowCount = (data) => {
   return { type: "DOW_COUNT", data };
 };
+
+export const cancel = (data) => {
+  return { type: "CANCEL", data };
+};
+

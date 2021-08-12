@@ -3,7 +3,7 @@ import Alert from "../../../../features/Alert";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./Cart.css";
-import { dowCount, upCount } from "../../../../redux/actions/cart";
+import { cancel, dowCount, upCount } from "../../../../redux/actions/cart";
 
 function Cart(props) {
   const cartStorage = useSelector((state) => state.cart);
@@ -16,9 +16,18 @@ function Cart(props) {
 
   const up = (item) => dispatch(upCount({ item }));
 
-  const dow = (item) => dispatch(dowCount({ item }));
+  const dow = (item) => {
+    if (item.count > 0) return dispatch(dowCount({ item }));
+    dispatch(cancel({ item }));
+    Alert({ success: "delete success" });
+  };
 
-  const back = () => (window.location.href = "/");
+  const remove = (item) => {
+    dispatch(cancel({ item }));
+    Alert({ success: "delete success" });
+  };
+
+  const back = () => window.history.back();
 
   return (
     <div className="cart_side">
@@ -104,7 +113,9 @@ function Cart(props) {
                           parseFloat(item.price) * parseFloat(item.count)
                         ).toFixed(3)}{" "}
                         &#8363;
-                        <span className="close">&#10005;</span>
+                        <span className="close" onClick={() => remove(item)}>
+                          &#10005;
+                        </span>
                       </div>
                     </div>
                   </div>
