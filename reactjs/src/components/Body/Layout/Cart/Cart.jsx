@@ -53,7 +53,7 @@ function Cart(props) {
   };
 
   const totalPrice = (orderList) => {
-    if (orderList.length <= 0) return;
+    if (orderList.length <= 0) return setTotal(0);
 
     var sum = 0.0;
     var elmPrice = 0;
