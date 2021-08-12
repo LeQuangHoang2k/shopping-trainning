@@ -149,7 +149,7 @@ function ProductDetail(props) {
     console.log("bodyParams: ", bodyParams);
     console.log("cart", cartStorage.list[index]);
 
-    if (index < 0) {
+    if (index < 0 || cartStorage.list[index].optionValue !== optionValue) {
       cartStorage.list.push({
         product_id: bodyParams.product_id,
         price: bodyParams.price,
