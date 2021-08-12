@@ -27,6 +27,11 @@ export const cartReducer = (state = initialState, action) => {
       // console.log("up", item);
       // console.log("index", index);
       console.log("redux :", list);
+
+      return {
+        ...state,
+        list: list,
+      };
     }
 
     case "DOW_COUNT":
