@@ -135,7 +135,15 @@ function ProductDetail(props) {
     console.log("bodyParams: ", bodyParams);
     console.log("cart", cart);
 
-    cart.push({ item: bodyParams });
+    cart.push({
+      product_id: bodyParams.product_id,
+      price: bodyParams.price,
+      count: bodyParams.count,
+      option_id: bodyParams.option_id,
+      name: product.name,
+      picture,
+    });
+
     localStorage.setItem("cart", JSON.stringify(cart));
     dispatch(update({ cart }));
 
