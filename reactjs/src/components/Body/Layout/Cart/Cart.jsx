@@ -74,7 +74,9 @@ function Cart(props) {
                         />
                       </div>
                       <div className="col">
-                        <div className="row text-muted">iphone</div>
+                        <div className="row text-muted">
+                          iphone {item.product_id}
+                        </div>
                         <div className="row">{item.name}</div>
                       </div>
                       <div className="col">

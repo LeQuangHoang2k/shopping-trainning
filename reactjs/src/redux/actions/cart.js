@@ -1,3 +1,7 @@
+export const create = (data) => {
+  return { type: "CREATE", data };
+};
+
 export const update = (data) => {
   return { type: "UPDATE", data };
 };

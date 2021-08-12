@@ -139,21 +139,30 @@ function ProductDetail(props) {
   };
 
   const saveCart = () => {
-    Alert({ success: "save thành công" });
+    // Alert({ success: "save thành công" });
+
+    var index = cartStorage.list.findIndex(
+      (item) => item.product_id === product.id
+    );
+    alert(index);
 
     console.log("bodyParams: ", bodyParams);
-    console.log("cart", cartStorage.list);
+    console.log("cart", cartStorage.list[index]);
 
-    cartStorage.list.push({
-      product_id: bodyParams.product_id,
-      price: bodyParams.price,
-      count: bodyParams.count,
-      option_id: bodyParams.option_id,
-      name: product.name,
-      picture,
-      optionName,
-      optionValue,
-    });
+    if (index < 0) {
+      cartStorage.list.push({
+        product_id: bodyParams.product_id,
+        price: bodyParams.price,
+        count: bodyParams.count,
+        option_id: bodyParams.option_id,
+        name: product.name,
+        picture,
+        optionName,
+        optionValue,
+      });
+    } else {
+      cartStorage.list[index].count += count;
+    }
 
     localStorage.setItem("cart", JSON.stringify(cartStorage.list));
 
