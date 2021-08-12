@@ -187,3 +187,8 @@
 .cart_side .count {
   border: 1px solid silver;
 }
+
+.cart_side .cart_back {
+  background-color: transparent;
+  border: none;
+}

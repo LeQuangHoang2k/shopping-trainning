@@ -30,16 +30,14 @@ export const cartReducer = (state = initialState, action) => {
     }
 
     case "DOW_COUNT":
-      {
-        const { item } = action.data;
-        var index = list.findIndex(
-          (element) => element.product_id === item.product_id
-        );
+      const { item } = action.data;
+      var index = list.findIndex(
+        (element) => element.product_id === item.product_id
+      );
 
-        list[index].count += 1;
+      list[index].count += 1;
 
-        localStorage.setItem("cart", JSON.stringify(list));
-      }
+      localStorage.setItem("cart", JSON.stringify(list));
 
       return {
         ...state,

@@ -115,8 +115,12 @@ function Cart(props) {
             })}
 
             <div className="back-to-shop" onClick={back}>
-              <a href="/">&#8592;</a>
-              <span className="text-muted">Back to shop</span>
+              <button className="cart_back" type="button">
+                &#8592;
+              </button>
+              <span className="text-muted" style={{ cursor: "pointer" }}>
+                Back to shop
+              </span>
             </div>
           </div>
           <div className="col-md-4 summary">
