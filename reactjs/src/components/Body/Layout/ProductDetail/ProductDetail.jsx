@@ -142,6 +142,7 @@ function ProductDetail(props) {
       option_id: bodyParams.option_id,
       name: product.name,
       picture,
+      ram: product.ram,
     });
 
     localStorage.setItem("cart", JSON.stringify(cart));
