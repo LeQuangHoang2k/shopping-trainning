@@ -1,13 +1,11 @@
 const initialState = {
-  list: JSON.parse(localStorage.getItem("cart")) || 0,
+  list: JSON.parse(localStorage.getItem("cart")) || [],
 };
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "INSERT":
-      console.log("redux store", action.data);
-      state.list.push({ item: action.data });
-
+      state.list.push({ item: action.data });      
       return state;
 
     default:
