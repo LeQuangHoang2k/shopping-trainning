@@ -203,7 +203,13 @@ function Cart(props) {
               }}
             >
               <div className="col">TOTAL PRICE</div>
-              <div className="col text-right"> {total}&#8363;</div>
+              <div
+                className="col text-right"
+                style={{ color: total > 0 ? "red" : "" }}
+              >
+                {" "}
+                {total}&#8363;
+              </div>
             </div>
             <button className="btn">Purchase</button>
           </div>
