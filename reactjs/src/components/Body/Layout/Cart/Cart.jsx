@@ -51,6 +51,20 @@ function Cart(props) {
                 <div key={key}>
                   <div className="row border-top border-bottom">
                     <div className="row main align-items-center">
+                      <div
+                        className="col"
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          name="check"
+                          id=""
+                        />
+                      </div>
                       <div className="col-2">
                         <img
                           className="img-fluid"
@@ -88,7 +102,11 @@ function Cart(props) {
                       </div>
                       <div
                         className="col"
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          color: "red",
+                        }}
                       >
                         {item.price} &#8363;
                         <span className="close">&#10005;</span>
