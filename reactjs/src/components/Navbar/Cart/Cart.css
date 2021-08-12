@@ -44,8 +44,12 @@
 .cart_navbar_amount {
   width: 30px;
   height: 20px;
-  background-color: blue;
+  background-color: lightgreen;
   border-radius: 5px;
+
+  color: red;
+  font-weight: bold;
+  font-size: 13px;
 }
 
 .cart_navbar_title {
