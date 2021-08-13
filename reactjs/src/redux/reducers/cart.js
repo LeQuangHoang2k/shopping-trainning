@@ -8,6 +8,8 @@ export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case "UPDATE": {
       console.log("redux :", action.data.cart);
+      localStorage.setItem("cart", JSON.stringify(action.data.cart));
+
       return {
         ...state,
         list: action.data.cart,

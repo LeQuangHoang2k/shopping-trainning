@@ -158,6 +158,7 @@ function Cart(props) {
                           type="checkbox"
                           name="check"
                           id=""
+                          defaultChecked={false}
                           onChange={(e) => getCheck(e, item)}
                         />
                       </div>
