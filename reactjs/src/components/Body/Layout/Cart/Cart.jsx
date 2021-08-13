@@ -78,9 +78,8 @@ function Cart(props) {
 
   const Purchase = async () => {
     const { order } = await updateOrderDB();
-    await updateOrderDetailDB(order);
-
-    // updateCart();
+    // await updateOrderDetailDB(order);
+    if (order) await updateCart();
 
     console.log("purchase order list", orderList);
   };
@@ -91,6 +90,7 @@ function Cart(props) {
       address: cookies.get("user").address,
       phone: cookies.get("user").phone,
       total_price: total,
+      orderList,
     };
 
     const config = {
@@ -115,33 +115,30 @@ function Cart(props) {
     }
   };
 
-  const updateOrderDetailDB = async (order) => {
-    console.log("hiệp 2", order);
+  // const updateOrderDetailDB = async (order) => {
+  //   console.log("hiệp 2", order, orderList);
 
-    const config = {
-      headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
-    };
+  //   const config = {
+  //     headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
+  //   };
 
-    const bodyParams = {
-      // user_id: cookies.get("user").id,
-      // address: cookies.get("user").address,
-      // phone: cookies.get("user").phone,
-      // total_price: total,
-    };
+  //   const bodyParams = {
+  //     order,
+  //   };
 
-    // try {
-    //   var res = await axios.post(
-    //     `http://localhost:8000/api/orders`,
-    //     bodyParams,
-    //     config
-    //   );
-    //   console.log("res cart", res);
-    //   console.log("body params", bodyParams);
-    //   console.log("access_token", cookies.get("access_token"));
-    // } catch (error) {
-    //   console.log(error.response.data);
-    // }
-  };
+  //   // try {
+  //   //   var res = await axios.post(
+  //   //     `http://localhost:8000/api/orders`,
+  //   //     bodyParams,
+  //   //     config
+  //   //   );
+  //   //   console.log("res cart", res);
+  //   //   console.log("body params", bodyParams);
+  //   //   console.log("access_token", cookies.get("access_token"));
+  //   // } catch (error) {
+  //   //   console.log(error.response.data);
+  //   // }
+  // };
 
   const updateCart = () => {
     orderList.forEach((item) => {

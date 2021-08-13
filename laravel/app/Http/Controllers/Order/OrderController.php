@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Order\CreateRequest;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Repositories\OrderRepository;
 use Illuminate\Http\Request;
 
@@ -49,13 +50,29 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
-        // print_r(Order::create($filters));
-        // // return OrderResource::collection($this->orderRepository->create($filters));
+        
+        $order = Order::create($filters);
 
+        $orderDetails = [];
+        foreach ($filters['orderList'] as $item) {
+            $orderDetail = OrderDetail::create([
+                "order_id" => $order->id,
+                "product_id" => $item['item']['product_id'],
+                "amount" => $item['item']['count'],
+                "product_option_id" => $item['item']['option_id'],
+                "price_per_unit " => $item['item']['price'],
+            ]);
+            
+            array_push($orderDetails, $orderDetail);
+        }
+        
         return [
             "message" => "success",
-            "order" => Order::create($filters)
+            "order" => $order,
+            "order_detail_list" => $orderDetails
         ];
+
+        // return OrderResource::collection($this->orderRepository->create($filters));
     }
 
     /**

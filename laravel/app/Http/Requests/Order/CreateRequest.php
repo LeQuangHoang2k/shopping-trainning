@@ -31,6 +31,7 @@ class CreateRequest extends FormRequest
             "address" => "nullable",
             "phone" => "nullable",
             "total_price" => "required",
+            "orderList" => ""
         ];
     }
 
