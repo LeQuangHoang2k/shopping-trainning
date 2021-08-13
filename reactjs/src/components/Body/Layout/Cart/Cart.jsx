@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import Cookies from "universal-cookie";
 
 import "./Cart.css";
-import { cancel, dowCount, upCount } from "../../../../redux/actions/cart";
+import {
+  cancel,
+  dowCount,
+  upCount,
+  update,
+} from "../../../../redux/actions/cart";
 
 function Cart(props) {
   const cookies = new Cookies();
@@ -71,6 +76,15 @@ function Cart(props) {
   };
 
   const Purchase = () => {
+    updateOrderDB();
+    updateOrderDetailDB();
+
+    updateCart();
+
+    console.log("purchase order list", orderList);
+  };
+
+  const updateOrderDB = () => {
     const bodyParams = {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
@@ -78,8 +92,35 @@ function Cart(props) {
       total_price: total,
     };
 
-    console.log("purchase order list", orderList);
+    const config = {
+      headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
+    };
+
     console.log("body params", bodyParams);
+    console.log("access_token", cookies.get("access_token"));
+  };
+
+  const updateOrderDetailDB = () => {
+    const config = {
+      headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
+    };
+  };
+
+  const updateCart = () => {
+    orderList.forEach((item) => {
+      var index = cartStorage.list.findIndex(
+        (elm) =>
+          elm.product_id === item.item.product_id &&
+          elm.optionValue === item.item.optionValue
+      );
+
+      console.log("index", index);
+      cartStorage.list.splice(index, 1);
+    });
+
+    dispatch(update({ cart: cartStorage.list }));
+
+    console.log("update cart", orderList, cartStorage.list);
   };
 
   return (
