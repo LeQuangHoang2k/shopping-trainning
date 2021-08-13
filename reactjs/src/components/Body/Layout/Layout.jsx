@@ -51,11 +51,7 @@ function Layout(props) {
     }
 
     if (firstPath === "orders") {
-      return setMainComponent(
-        <>
-          <Order />
-        </>
-      );
+      return setMainComponent(<Order />);
     }
 
     return setMainComponent(
