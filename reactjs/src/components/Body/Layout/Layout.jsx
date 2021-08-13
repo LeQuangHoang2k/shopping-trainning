@@ -9,6 +9,7 @@ import ProductDetail from "./ProductDetail/ProductDetail";
 import "./Layout.css";
 import Paginate from "./Product/Pagination/Paginate";
 import Cart from "./Cart/Cart";
+import Order from "./Order/Order";
 
 function Layout(props) {
   const [mainComponent, setMainComponent] = useState(null);
@@ -45,6 +46,14 @@ function Layout(props) {
       return setMainComponent(
         <>
           <Cart />
+        </>
+      );
+    }
+
+    if (firstPath === "orders") {
+      return setMainComponent(
+        <>
+          <Order />
         </>
       );
     }
