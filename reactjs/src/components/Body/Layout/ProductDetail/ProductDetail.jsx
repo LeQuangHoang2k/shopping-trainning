@@ -170,6 +170,7 @@ function ProductDetail(props) {
     dispatch(update({ cart: cartStorage.list }));
 
     // cookies.set("cart", cart);
+    Alert({ success: "Please check your cart" });
 
     console.log("cart", cartStorage.list);
 

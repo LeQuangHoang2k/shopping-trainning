@@ -77,10 +77,14 @@ function Cart(props) {
   };
 
   const Purchase = async () => {
+    if (orderList.length <= 0)
+      return Alert({ warning: "Please check your order" });
+
     const { order } = await updateOrderDB();
     // await updateOrderDetailDB(order);
     if (order) await updateCart();
 
+    Alert({ success: "Pay success!" });
     console.log("purchase order list", orderList);
   };
 
@@ -299,7 +303,7 @@ function Cart(props) {
                 style={{ color: total > 0 ? "red" : "" }}
               >
                 {" "}
-                {total}&#8363;
+                {total.toFixed(3)}&#8363;
               </div>
             </div>
             <button className="btn" onClick={Purchase}>
