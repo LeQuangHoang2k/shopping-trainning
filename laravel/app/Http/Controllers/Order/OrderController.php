@@ -49,8 +49,13 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
-        print_r(Order::create($filters));
-        // return OrderResource::collection($this->orderRepository->create($filters));
+        // print_r(Order::create($filters));
+        // // return OrderResource::collection($this->orderRepository->create($filters));
+
+        return [
+            "message" => "success",
+            "orders" => Order::create($filters)
+        ];
     }
 
     /**
