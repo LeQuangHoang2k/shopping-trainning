@@ -139,13 +139,11 @@ function ProductDetail(props) {
   };
 
   const saveCart = () => {
-    // Alert({ success: "save thành công" });
-
     var index = cartStorage.list.findIndex(
       (item) =>
         item.product_id === product.id && item.optionValue === optionValue
     );
-    alert(index);
+    // alert(index);
 
     console.log("bodyParams: ", bodyParams);
     console.log("cart", cartStorage.list[index]);
