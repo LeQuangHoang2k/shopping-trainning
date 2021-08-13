@@ -248,7 +248,7 @@ function Cart(props) {
                         {(
                           parseFloat(item.price) * parseFloat(item.count)
                         ).toFixed(3)}{" "}
-                        &#8363;
+                        VNĐ
                         <span className="close" onClick={() => remove(item)}>
                           &#10005;
                         </span>
@@ -285,7 +285,7 @@ function Cart(props) {
               <p>SHIPPING</p>
               <select>
                 <option className="text-muted">
-                  Standard-Delivery- 5.00 &#8363;{" "}
+                  Standard-Delivery- 5.00 VNĐ
                 </option>
               </select>
               <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" />
@@ -303,7 +303,7 @@ function Cart(props) {
                 style={{ color: total > 0 ? "red" : "" }}
               >
                 {" "}
-                {total.toFixed(3)}&#8363;
+                {total.toFixed(3)} VNĐ
               </div>
             </div>
             <button className="btn" onClick={Purchase}>
