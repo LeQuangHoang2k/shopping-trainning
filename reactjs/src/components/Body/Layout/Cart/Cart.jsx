@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Alert from "../../../../features/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "universal-cookie";
+import axios from "axios";
 
 import "./Cart.css";
 import {
@@ -84,7 +85,7 @@ function Cart(props) {
     console.log("purchase order list", orderList);
   };
 
-  const updateOrderDB = () => {
+  const updateOrderDB =async () => {
     const bodyParams = {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
@@ -95,6 +96,12 @@ function Cart(props) {
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
     };
+
+    var res = await axios.get(
+      `http://localhost:8000/api/orders`,
+      bodyParams,
+      config
+    );
 
     console.log("body params", bodyParams);
     console.log("access_token", cookies.get("access_token"));

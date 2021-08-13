@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\ThirdParty\ThirdPartyController;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ Route::post('login-facebook', [ThirdPartyController::class, 'loginFacebook']);
 Route::post('login-google', [ThirdPartyController::class, 'loginGoogle']);
 
 Route::resource('products', ProductController::class);
-
+Route::resource('orders', OrderController::class);
 
 Route::get('/test',  [AuthController::class, 'test']);
 
