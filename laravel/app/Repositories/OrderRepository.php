@@ -13,4 +13,9 @@ class OrderRepository
     public function find($id)
     {
     }
+
+    public function create()
+    {
+        # code...
+    }
 }
