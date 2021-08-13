@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Order;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Order\CreateRequest;
 use App\Http\Resources\OrderResource;
+use App\Models\Order;
 use App\Repositories\OrderRepository;
 use Illuminate\Http\Request;
 
@@ -47,7 +48,9 @@ class OrderController extends Controller
     {
         $request->validated();
         $filters = request()->all();
-        return OrderResource::collection($this->productRepository->create($filters));
+
+        print_r(Order::create($filters));
+        // return OrderResource::collection($this->orderRepository->create($filters));
     }
 
     /**

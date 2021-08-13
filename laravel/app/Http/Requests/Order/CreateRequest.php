@@ -28,9 +28,9 @@ class CreateRequest extends FormRequest
     {
         return [
             "user_id" => "required",
-            "address" => "required|nullable",
-            "phone" => "required|nullable",
-            "total_price" => "required|number:",
+            "address" => "nullable",
+            "phone" => "nullable",
+            "total_price" => "required",
         ];
     }
 

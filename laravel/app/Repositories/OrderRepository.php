@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Order;
 use App\Models\Product;
 
 class OrderRepository
@@ -14,8 +15,9 @@ class OrderRepository
     {
     }
 
-    public function create()
+    public function create($filters)
     {
-        # code...
+        print_r($filters['total_price']);
+        return Order::create($filters);
     }
 }

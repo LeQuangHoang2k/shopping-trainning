@@ -80,12 +80,12 @@ function Cart(props) {
     updateOrderDB();
     updateOrderDetailDB();
 
-    updateCart();
+    // updateCart();
 
     console.log("purchase order list", orderList);
   };
 
-  const updateOrderDB =async () => {
+  const updateOrderDB = async () => {
     const bodyParams = {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
@@ -96,15 +96,19 @@ function Cart(props) {
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
     };
+    try {
+      var res = await axios.post(
+        `http://localhost:8000/api/orders`,
+        bodyParams
+        // config
+      );
 
-    var res = await axios.get(
-      `http://localhost:8000/api/orders`,
-      bodyParams,
-      config
-    );
-
-    console.log("body params", bodyParams);
-    console.log("access_token", cookies.get("access_token"));
+      console.log("res cart", res);
+      console.log("body params", bodyParams);
+      console.log("access_token", cookies.get("access_token"));
+    } catch (error) {
+      console.log(error.response.data);
+    }
   };
 
   const updateOrderDetailDB = () => {
