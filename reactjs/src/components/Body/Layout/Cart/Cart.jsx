@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Alert from "../../../../features/Alert";
 import { useDispatch, useSelector } from "react-redux";
+import Cookies from "universal-cookie";
 
 import "./Cart.css";
 import { cancel, dowCount, upCount } from "../../../../redux/actions/cart";
 
 function Cart(props) {
+  const cookies = new Cookies();
+
   const cartStorage = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -68,7 +71,15 @@ function Cart(props) {
   };
 
   const Purchase = () => {
+    const bodyParams = {
+      user_id: cookies.get("user").id,
+      address: cookies.get("user").address,
+      phone: cookies.get("user").phone,
+      total_price: total,
+    };
+
     console.log("purchase order list", orderList);
+    console.log("body params", bodyParams);
   };
 
   return (
