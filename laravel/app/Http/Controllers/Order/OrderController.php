@@ -54,7 +54,7 @@ class OrderController extends Controller
 
         return [
             "message" => "success",
-            "orders" => Order::create($filters)
+            "order" => Order::create($filters)
         ];
     }
 

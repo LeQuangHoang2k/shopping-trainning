@@ -76,9 +76,9 @@ function Cart(props) {
     setTotal(sum);
   };
 
-  const Purchase = () => {
-    updateOrderDB();
-    updateOrderDetailDB();
+  const Purchase = async () => {
+    const { order } = await updateOrderDB();
+    await updateOrderDetailDB(order);
 
     // updateCart();
 
@@ -96,25 +96,51 @@ function Cart(props) {
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
     };
+
     try {
       var res = await axios.post(
         `http://localhost:8000/api/orders`,
-        bodyParams
-        // config
+        bodyParams,
+        config
       );
 
       console.log("res cart", res);
       console.log("body params", bodyParams);
       console.log("access_token", cookies.get("access_token"));
+      console.log("abc", res.data.order);
+      return { order: res.data.order };
     } catch (error) {
       console.log(error.response.data);
+      return false;
     }
   };
 
-  const updateOrderDetailDB = () => {
+  const updateOrderDetailDB = async (order) => {
+    console.log("hiệp 2", order);
+
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
     };
+
+    const bodyParams = {
+      // user_id: cookies.get("user").id,
+      // address: cookies.get("user").address,
+      // phone: cookies.get("user").phone,
+      // total_price: total,
+    };
+
+    // try {
+    //   var res = await axios.post(
+    //     `http://localhost:8000/api/orders`,
+    //     bodyParams,
+    //     config
+    //   );
+    //   console.log("res cart", res);
+    //   console.log("body params", bodyParams);
+    //   console.log("access_token", cookies.get("access_token"));
+    // } catch (error) {
+    //   console.log(error.response.data);
+    // }
   };
 
   const updateCart = () => {
