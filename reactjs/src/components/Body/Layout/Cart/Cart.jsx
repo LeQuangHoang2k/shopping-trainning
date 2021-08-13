@@ -67,6 +67,10 @@ function Cart(props) {
     setTotal(sum);
   };
 
+  const Purchase = () => {
+    console.log("purchase order list", orderList);
+  };
+
   return (
     <div className="cart_side">
       <div className="card">
@@ -211,7 +215,9 @@ function Cart(props) {
                 {total}&#8363;
               </div>
             </div>
-            <button className="btn">Purchase</button>
+            <button className="btn" onClick={Purchase}>
+              Purchase
+            </button>
           </div>
         </div>
       </div>
