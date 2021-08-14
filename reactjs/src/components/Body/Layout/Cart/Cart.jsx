@@ -214,7 +214,7 @@ function Cart(props) {
                           onChange={(e) => getCheck(e, item)}
                         />
                       </div>
-                      <div className="col-2">
+                      <div className="col">
                         <img
                           className="img-fluid"
                           // src="https://i.imgur.com/1GrakTl.jpg"
@@ -324,11 +324,13 @@ function Cart(props) {
                 className="col text-right"
                 style={{ color: total > 0 ? "red" : "" }}
               >
-                {parseFloat(total).toLocaleString("it-IT", {
-                  style: "currency",
-                  currency: "VND",
-                  minimumFractionDigits: 3,
-                })}
+                {total > 0
+                  ? parseFloat(total).toLocaleString("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                      minimumFractionDigits: 3,
+                    })
+                  : "0 VND"}
               </div>
             </div>
 
