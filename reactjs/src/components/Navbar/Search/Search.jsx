@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Alert from "../../../features/Alert";
 import queryString from "query-string";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import "./Search.css";
 
@@ -32,24 +34,34 @@ function Search(props) {
   };
 
   const checkRequest = () => {
-    if (!name || name.length < 1)
-      return Alert({ warning: "Your text is not valid" });
+    if (!name || name.length < 1) {
+      Alert({ warning: "Your text is not valid" });
+      return;
+    }
 
     return true;
   };
 
   return (
     <form className="search_wrapper" onSubmit={search}>
-      <input
-        className="search_input"
-        placeholder={params.name ? params.name : "Search product"}
-        // value={}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button type="submit" className="search_button">
-        {/* <img src="/images/SearchIcon.png" className="search_icon" alt="Image" /> */}
-        Search
-      </button>
+      <div style={{ backgroundColor: "lightgreen", borderRadius: "20px" }}>
+        <input
+          className="search_input"
+          placeholder={params.name ? params.name : "Search product"}
+          // value={}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button type="submit" className="search_button">
+          {/* <img src="/images/SearchIcon.png" className="search_icon" alt="Image" /> */}
+          <FontAwesomeIcon
+            icon={faSearch}
+            color="#009DFF"
+            style={{ cursor: "pointer" }}
+          />
+          &nbsp;
+          {/* Search */}
+        </button>
+      </div>
     </form>
   );
 }

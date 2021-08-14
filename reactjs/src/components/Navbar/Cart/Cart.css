@@ -44,12 +44,15 @@
 .cart_navbar_amount {
   width: 30px;
   height: 20px;
-  background-color: #90EE90;
+  background-color: white;
   border-radius: 5px;
+  /* border: 3px solid blue; */
 
-  color: red;
+  padding-top: 1px;
+
+  color: #009dff;
   font-size: 13px;
-  font-family: 'Helvetica';
+  font-family: "Helvetica";
   font-weight: bold;
 }
 

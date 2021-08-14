@@ -40,7 +40,12 @@ function Account(props) {
   return (
     <div className="account_wrapper">
       <div className="account_content">
-        <img src={image} className="account_image" alt="" />
+        <img
+          src={image}
+          className="account_image"
+          alt=""
+          style={{ borderRadius: user ? "50%" : "" }}
+        />
         <div className="account_name">
           <span className="account_title">{name}</span>
         </div>
