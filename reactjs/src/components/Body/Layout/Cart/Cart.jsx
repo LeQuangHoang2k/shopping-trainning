@@ -202,17 +202,27 @@ function Cart(props) {
                         className="col"
                         style={{
                           display: "flex",
+                          justifyContent: "center",
                           alignItems: "center",
+                          position: "relative",
                         }}
                       >
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          name="check"
-                          id=""
-                          defaultChecked={false}
-                          onChange={(e) => getCheck(e, item)}
-                        />
+                        <div
+                          style={{
+                            width: "25px",
+                            height: "25px",
+                          }}
+                        >
+                          <label className="container">
+                            &nbsp;
+                            <input
+                              type="checkbox"
+                              defaultChecked={false}
+                              onChange={(e) => getCheck(e, item)}
+                            />
+                            <span className="checkmark"></span>
+                          </label>
+                        </div>
                       </div>
                       <div className="col">
                         <img
