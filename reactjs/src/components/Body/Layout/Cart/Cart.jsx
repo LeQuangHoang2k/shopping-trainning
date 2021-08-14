@@ -11,6 +11,7 @@ import {
   upCount,
   update,
 } from "../../../../redux/actions/cart";
+import Swal from "sweetalert2";
 
 function Cart(props) {
   const cookies = new Cookies();
@@ -27,8 +28,18 @@ function Cart(props) {
 
   const up = (item) => dispatch(upCount({ item }));
 
-  const dow = (item) => {
+  const dow = async (item) => {
     if (item.count - 1 > 0) return dispatch(dowCount({ item }));
+
+    const answer = await Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      confirmButtonText: `Save`,
+      denyButtonText: `Don't save`,
+    });
+
+    if (!answer.value) return;
+
     dispatch(cancel({ item }));
     Alert({ success: "delete success" });
   };
