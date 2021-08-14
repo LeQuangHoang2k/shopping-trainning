@@ -50,6 +50,7 @@
     /* display: block; */
     /* align-self: flex-end; */
     margin-top: 4px;
+    margin-left: 20px;
 
     cursor: pointer;
 }
