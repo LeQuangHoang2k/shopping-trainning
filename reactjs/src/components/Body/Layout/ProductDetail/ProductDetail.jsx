@@ -201,7 +201,7 @@ function ProductDetail(props) {
           {product.name}
         </div>
         <div className="productDetail_right_price">
-          {parseInt(price).toLocaleString("it-IT", {
+          {parseFloat(price).toLocaleString("it-IT", {
             style: "currency",
             currency: "VND",
           })}
