@@ -266,7 +266,8 @@ function Cart(props) {
                           currency: "VND",
                           minimumFractionDigits: 3,
                         })}
-
+                      </div>
+                      <div className="col">
                         <span className="close" onClick={() => remove(item)}>
                           &#10005;
                         </span>
@@ -298,7 +299,7 @@ function Cart(props) {
               <p>SHIPPING</p>
               <select>
                 <option className="text-muted">
-                  Standard-Delivery- 5.00 VNĐ
+                  Standard-Delivery - 5.00 VND
                 </option>
               </select>
               <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" />
