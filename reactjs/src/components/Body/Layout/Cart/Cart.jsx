@@ -47,7 +47,16 @@ function Cart(props) {
     Alert({ success: "delete success" });
   };
 
-  const remove = (item) => {
+  const remove = async (item) => {
+    const answer = await Swal.fire({
+      title: "Do you want to remove ?",
+      showDenyButton: true,
+      confirmButtonText: `Remove`,
+      denyButtonText: `Cancel`,
+    });
+
+    if (!answer.value) return;
+
     dispatch(cancel({ item }));
     Alert({ success: "delete success" });
   };
