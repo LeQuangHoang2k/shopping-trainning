@@ -3,15 +3,18 @@ import Alert from "../../../../features/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-import "./Cart.css";
 import {
   cancel,
   dowCount,
   upCount,
   update,
 } from "../../../../redux/actions/cart";
-import Swal from "sweetalert2";
+
+import "./Cart.css";
 
 function Cart(props) {
   const cookies = new Cookies();
@@ -32,10 +35,10 @@ function Cart(props) {
     if (item.count - 1 > 0) return dispatch(dowCount({ item }));
 
     const answer = await Swal.fire({
-      title: "Do you want to save the changes?",
+      title: "Do you want to remove ?",
       showDenyButton: true,
-      confirmButtonText: `Save`,
-      denyButtonText: `Don't save`,
+      confirmButtonText: `Remove`,
+      denyButtonText: `Cancel`,
     });
 
     if (!answer.value) return;
@@ -268,9 +271,14 @@ function Cart(props) {
                         })}
                       </div>
                       <div className="col">
-                        <span className="close" onClick={() => remove(item)}>
-                          &#10005;
-                        </span>
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          onClick={() => remove(item)}
+                          pull="right"
+                          border
+                          color="DimGray"
+                          style={{ cursor: "pointer" }}
+                        />
                       </div>
                     </div>
                   </div>
