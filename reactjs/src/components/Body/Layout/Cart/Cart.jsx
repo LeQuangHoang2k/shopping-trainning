@@ -256,10 +256,17 @@ function Cart(props) {
                           color: "red",
                         }}
                       >
-                        {(
+                        {/* {(
                           parseFloat(item.price) * parseFloat(item.count)
-                        ).toFixed(3)}{" "}
-                        VNĐ
+                        ).toFixed(3)}{" "} */}
+                        {parseFloat(
+                          parseFloat(item.price) * parseFloat(item.count)
+                        ).toLocaleString("it-IT", {
+                          style: "currency",
+                          currency: "VND",
+                          minimumFractionDigits: 3,
+                        })}
+
                         <span className="close" onClick={() => remove(item)}>
                           &#10005;
                         </span>
@@ -308,8 +315,11 @@ function Cart(props) {
                 className="col text-right"
                 style={{ color: total > 0 ? "red" : "" }}
               >
-                {" "}
-                {total.toFixed(3)} VNĐ
+                {parseFloat(total).toLocaleString("it-IT", {
+                  style: "currency",
+                  currency: "VND",
+                  minimumFractionDigits: 3,
+                })}
               </div>
             </div>
             <button className="btn" onClick={purchase}>
