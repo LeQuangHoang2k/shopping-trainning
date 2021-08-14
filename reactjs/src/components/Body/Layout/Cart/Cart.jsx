@@ -286,12 +286,7 @@ function Cart(props) {
               </h5>
             </div>
             <hr />
-            {/* <div className="row">
-              <div className="col" style={{ paddingLeft: 0 }}>
-                ITEMS 3
-              </div>
-              <div className="col text-right"> 132.00&#8363;</div>
-            </div> */}
+
             <form>
               <p>SHIPPING</p>
               <select>
@@ -328,30 +323,3 @@ function Cart(props) {
 }
 
 export default Cart;
-
-{
-  /* <div className="row border-top border-bottom">
-              <div className="row main align-items-center">
-                <div className="col-2">
-                  <img
-                    className="img-fluid"
-                    src="https://i.imgur.com/1GrakTl.jpg"
-                  />
-                </div>
-                <div className="col">
-                  <div className="row text-muted">Shirt</div>
-                  <div className="row">Cotton T-shirt</div>
-                </div>
-                <div className="col">
-                  <a href="#">-</a>
-                  <a href="#" className="border">
-                    {count}
-                  </a>
-                  <a href="#">+</a>
-                </div>
-                <div className="col">
-                   44.00 &#8363;<span className="close">&#10005;</span>
-                </div>
-              </div>
-            </div> */
-}
