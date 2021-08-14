@@ -87,7 +87,7 @@ function Cart(props) {
     setTotal(sum);
   };
 
-  const Purchase = async () => {
+  const purchase = async () => {
     if (orderList.length <= 0)
       return Alert({ warning: "Please check your order" });
 
@@ -317,7 +317,7 @@ function Cart(props) {
                 {total.toFixed(3)} VNĐ
               </div>
             </div>
-            <button className="btn" onClick={Purchase}>
+            <button className="btn" onClick={purchase}>
               Purchase
             </button>
           </div>
