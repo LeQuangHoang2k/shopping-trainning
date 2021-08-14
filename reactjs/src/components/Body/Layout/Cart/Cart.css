@@ -40,7 +40,7 @@
 }
 
 .cart_side .summary {
-  background-color: #ddd;
+  background-color: #009dff;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   padding: 4vh;
@@ -137,13 +137,13 @@
 .cart_side .btn {
   width: 80px;
   height: 40px;
-  background-color: #1e00ff;
+  background-color: white;
   border-radius: 5px;
 
   margin-top: 4vh;
   padding: 1vh;
 
-  color: white;
+  color: #009dff;
   font-size: 0.8rem;
   font-weight: bold;
 }
@@ -230,9 +230,8 @@
 .checkmark {
   height: 25px;
   width: 25px;
-  /* background-color: silver; */
-  /* border: 2px solid gray; */
-  box-shadow: 0 0 2px 2px gray;
+  background-color: white;
+  box-shadow: 0 0 2px 2px white, 0 0 5px 5px silver;
   border: none;
 
   position: absolute;
