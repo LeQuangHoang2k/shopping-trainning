@@ -1,5 +1,5 @@
-.cart_side{
-  font-family: 'Helvetica';
+.cart_side {
+  font-family: "Helvetica";
   font-weight: bold;
 }
 
@@ -135,17 +135,17 @@
 }
 
 .cart_side .btn {
-  max-width: 80px;
+  width: 80px;
   height: 40px;
-  background-color: #1E00FF;
-  /* border-color: #000; */
+  background-color: #1e00ff;
   border-radius: 5px;
-  color: white;
-  width: 100%;
-  font-size: 0.7rem;
+
   margin-top: 4vh;
   padding: 1vh;
-  /* border-radius: 0; */
+
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 .cart_side .btn:focus {

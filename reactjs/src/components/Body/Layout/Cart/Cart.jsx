@@ -331,9 +331,12 @@ function Cart(props) {
                 })}
               </div>
             </div>
-            <button className="btn" onClick={purchase}>
-              Purchase
-            </button>
+
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <button className="btn" onClick={purchase}>
+                Purchase
+              </button>
+            </div>
           </div>
         </div>
       </div>
