@@ -204,7 +204,9 @@ function ProductDetail(props) {
           {parseFloat(price).toLocaleString("it-IT", {
             style: "currency",
             currency: "VND",
+            minimumFractionDigits: 3,
           })}
+
         </div>
 
         <div className="productDetail_right_color">
