@@ -181,7 +181,7 @@ function Cart(props) {
               <div className="row">
                 <div className="col">
                   <h4>
-                    <b>Shopping Cart</b>
+                    <b>My Cart</b>
                   </h4>
                 </div>
                 <div className="col align-self-center text-right text-muted">
