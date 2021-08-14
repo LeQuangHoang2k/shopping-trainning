@@ -222,7 +222,7 @@ function Cart(props) {
                           alt="alt"
                         />
                       </div>
-                      <div className="col">
+                      <div className="col-2">
                         <div className="row text-muted">
                           iphone {item.product_id}
                         </div>
