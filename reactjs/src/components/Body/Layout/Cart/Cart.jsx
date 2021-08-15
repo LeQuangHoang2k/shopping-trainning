@@ -193,11 +193,11 @@ function Cart(props) {
               <div className="row">
                 <div className="col">
                   <h4>
-                    <b>My Cart</b>
+                    <b className="cart_title">My Cart</b>
                   </h4>
                 </div>
                 <div className="col align-self-center text-right text-muted">
-                  {cartStorage.list.length} items
+                  <p className="item_number">{cartStorage.list.length} items</p>
                 </div>
               </div>
             </div>
@@ -205,7 +205,7 @@ function Cart(props) {
             {cartStorage.list.map((item, key) => {
               return (
                 <div key={key}>
-                  <div className="row border-top border-bottom">
+                  <div className="row ">
                     <div className="row main align-items-center">
                       <div
                         // className="col"
@@ -334,14 +334,15 @@ function Cart(props) {
               </select> */}
               <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" />
             </form>
+
             <div
               className="row"
               style={{
-                borderTop: "1px solid rgba(0,0,0,.1)",
+                // borderTop: "1px solid rgba(0,0,0,.1)",
                 padding: "2vh 0",
               }}
             >
-              <div className="col">TOTAL PRICE</div>
+              <div className="col">Original Price</div>
               <div className="col text-right">
                 {total > 0
                   ? parseFloat(total).toLocaleString("it-IT", {
@@ -356,7 +357,45 @@ function Cart(props) {
             <div
               className="row"
               style={{
-                borderTop: "1px solid rgba(0,0,0,.1)",
+                // borderTop: "1px solid rgba(0,0,0,.1)",
+                padding: "2vh 0",
+              }}
+            >
+              <div className="col">Discount Rate</div>
+              <div className="col text-right">
+                {total > 0
+                  ? parseFloat(total).toLocaleString("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                      minimumFractionDigits: 3,
+                    })
+                  : "0 VND"}
+              </div>
+            </div>
+
+            <div
+              className="row"
+              style={{
+                // borderTop: "1px solid rgba(0,0,0,.1)",
+                padding: "2vh 0",
+              }}
+            >
+              <div className="col">Tax</div>
+              <div className="col text-right">
+                {total > 0
+                  ? parseFloat(total).toLocaleString("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                      minimumFractionDigits: 3,
+                    })
+                  : "0 VND"}
+              </div>
+            </div>
+
+            <div
+              className="row"
+              style={{
+                // borderTop: "1px solid rgba(0,0,0,.1)",
                 padding: "2vh 0",
               }}
             >

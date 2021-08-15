@@ -210,6 +210,8 @@
 }
 
 .cart_side .count {
+  width: 30px;
+
   border: none;
   font-weight: bold;
 }
@@ -286,4 +288,12 @@
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.cart_side .cart_title {
+  color: #009dff;
+}
+
+.cart_side .item_number {
+  color: #009dff;
 }
