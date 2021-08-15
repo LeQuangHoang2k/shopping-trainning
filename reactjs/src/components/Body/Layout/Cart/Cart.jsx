@@ -197,7 +197,10 @@ function Cart(props) {
                   </h4>
                 </div>
                 <div className="col align-self-center text-right text-muted">
-                  <p className="item_number">{cartStorage.list.length} items</p>
+                  <p className="item_number">
+                    {cartStorage.list.length} item
+                    {cartStorage.list.length > 1 ? "s" : ""}
+                  </p>
                 </div>
               </div>
             </div>
