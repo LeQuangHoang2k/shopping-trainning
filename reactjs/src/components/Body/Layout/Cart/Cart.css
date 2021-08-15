@@ -181,6 +181,11 @@
   background-repeat: no-repeat;
   background-position-x: 95%;
   background-position-y: center;
+
+  border-radius: 15px;
+
+  text-align: center;
+  letter-spacing: 3px;
 }
 
 .cart_side .increase,
