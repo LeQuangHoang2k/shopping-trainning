@@ -218,8 +218,9 @@ function Cart(props) {
                       >
                         <div
                           style={{
-                            width: "25px",
-                            height: "25px",
+                            width: "15px",
+                            height: "15px",
+                            position: "relative",
                           }}
                         >
                           <label className="container">

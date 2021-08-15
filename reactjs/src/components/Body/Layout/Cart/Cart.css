@@ -204,8 +204,8 @@
 }
 
 .container {
-  width: 25px;
-  height: 25px;
+  width: 15px;
+  height: 15px;
 
   display: block;
   position: relative;
@@ -228,8 +228,8 @@
 }
 
 .checkmark {
-  height: 25px;
-  width: 25px;
+  height: 15px;
+  width: 15px;
   background-color: white;
   box-shadow: 0 0 2px 2px white, 0 0 5px 5px silver;
   border: none;
@@ -261,8 +261,8 @@
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 5px;
+  top: 2px;
   width: 5px;
   height: 10px;
   border: solid white;
