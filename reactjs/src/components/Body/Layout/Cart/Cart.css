@@ -301,6 +301,7 @@
 
 .cart_side .frame_list {
   border-top: 3px solid #009dff;
+  border-radius: 20px;
 }
 
 .cart_side .item_name {
