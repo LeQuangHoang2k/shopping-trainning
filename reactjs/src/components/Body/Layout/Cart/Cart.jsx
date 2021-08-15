@@ -291,13 +291,13 @@ function Cart(props) {
                           })}
                         </div>
 
-                        <div className="col">
+                        <div className="col item_remove">
                           <FontAwesomeIcon
                             icon={faTrash}
                             onClick={() => remove(item)}
                             pull="right"
                             border
-                            color="black"
+                            color="white"
                             style={{ cursor: "pointer" }}
                           />
                         </div>
@@ -310,8 +310,9 @@ function Cart(props) {
 
             <div className="back-to-shop" onClick={back}>
               <button className="cart_back" type="button">
-                &#8592;
+                &#8598;
               </button>
+              &nbsp;
               <span className="text-muted" style={{ cursor: "pointer" }}>
                 Back to shop
               </span>
