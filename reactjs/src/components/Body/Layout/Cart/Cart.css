@@ -211,8 +211,9 @@
 
 .cart_side .count {
   width: 30px;
-
   border: none;
+
+  color: #009dff;
   font-weight: bold;
 }
 
@@ -299,7 +300,7 @@
 }
 
 .cart_side .frame_list {
-  border-top: 3px dotted #009dff;
+  border-top: 3px solid #009dff;
 }
 
 .cart_side .item_name {
