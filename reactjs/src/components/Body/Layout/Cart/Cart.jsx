@@ -244,7 +244,7 @@ function Cart(props) {
                       </div>
                       <div className="col-2">
                         <div className="row text-muted">
-                          iphone {item.product_id}
+                          iphone ({item.product_id})
                         </div>
                         <div className="row">{item.name}</div>
                       </div>
