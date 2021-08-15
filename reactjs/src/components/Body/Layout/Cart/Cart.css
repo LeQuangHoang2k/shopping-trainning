@@ -191,11 +191,22 @@
 
 .cart_side .increase,
 .cart_side .decrease {
+  width: 20px;
+  height: 20px;
+
+  background-color: gray;
+  border-radius: 50%;
   border: none;
+
+  padding: 0;
+
+  color: white;
+  font-weight: bold;
 }
 
 .cart_side .count {
-  border: 1px solid silver;
+  border: none;
+  font-weight: bold;
 }
 
 .cart_side .cart_back {
