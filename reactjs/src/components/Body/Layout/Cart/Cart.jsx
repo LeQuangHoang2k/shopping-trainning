@@ -342,7 +342,7 @@ function Cart(props) {
               <div className="col">TOTAL PRICE</div>
               <div
                 className="col text-right"
-                style={{ color: total > 0 ? "red" : "" }}
+                // style={{ color: total > 0 ? "red" : "" }}
               >
                 {total > 0
                   ? parseFloat(total).toLocaleString("it-IT", {
