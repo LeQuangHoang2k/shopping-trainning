@@ -208,8 +208,9 @@ function Cart(props) {
                   <div className="row border-top border-bottom">
                     <div className="row main align-items-center">
                       <div
-                        className="col"
+                        // className="col"
                         style={{
+                          width: "80px",
                           display: "flex",
                           justifyContent: "center",
                           alignItems: "center",
@@ -272,8 +273,9 @@ function Cart(props) {
                         <div className="row">{item.optionValue}</div>
                       </div>
                       <div
-                        className="col"
+                        // className="col"
                         style={{
+                          width: "155px",
                           display: "flex",
                           alignItems: "center",
                           color: "red",
@@ -340,10 +342,26 @@ function Cart(props) {
               }}
             >
               <div className="col">TOTAL PRICE</div>
-              <div
-                className="col text-right"
-                // style={{ color: total > 0 ? "red" : "" }}
-              >
+              <div className="col text-right">
+                {total > 0
+                  ? parseFloat(total).toLocaleString("it-IT", {
+                      style: "currency",
+                      currency: "VND",
+                      minimumFractionDigits: 3,
+                    })
+                  : "0 VND"}
+              </div>
+            </div>
+
+            <div
+              className="row"
+              style={{
+                borderTop: "1px solid rgba(0,0,0,.1)",
+                padding: "2vh 0",
+              }}
+            >
+              <div className="col">TOTAL PRICE</div>
+              <div className="col text-right">
                 {total > 0
                   ? parseFloat(total).toLocaleString("it-IT", {
                       style: "currency",
