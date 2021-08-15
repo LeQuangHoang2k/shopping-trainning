@@ -199,7 +199,7 @@
   width: 20px;
   height: 20px;
 
-  background-color: gray;
+  background-color: #009dff;
   border-radius: 50%;
   border: none;
 
@@ -295,5 +295,13 @@
 }
 
 .cart_side .item_number {
+  color: #009dff;
+}
+
+.cart_side .frame_list {
+  border-top: 3px dotted #009dff;
+}
+
+.cart_side .item_name {
   color: #009dff;
 }

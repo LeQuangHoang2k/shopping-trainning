@@ -202,111 +202,115 @@ function Cart(props) {
               </div>
             </div>
 
-            {cartStorage.list.map((item, key) => {
-              return (
-                <div key={key}>
-                  <div className="row ">
-                    <div className="row main align-items-center">
-                      <div
-                        // className="col"
-                        style={{
-                          width: "80px",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          position: "relative",
-                        }}
-                      >
+            <div className="frame_list">
+              {cartStorage.list.map((item, key) => {
+                return (
+                  <div key={key}>
+                    <div className="row ">
+                      <div className="row main align-items-center">
                         <div
+                          // className="col"
                           style={{
-                            width: "15px",
-                            height: "15px",
+                            width: "80px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
                             position: "relative",
                           }}
                         >
-                          <label className="container">
-                            &nbsp;
-                            <input
-                              type="checkbox"
-                              defaultChecked={false}
-                              onChange={(e) => getCheck(e, item)}
-                            />
-                            <span className="checkmark"></span>
-                          </label>
+                          <div
+                            style={{
+                              width: "15px",
+                              height: "15px",
+                              position: "relative",
+                            }}
+                          >
+                            <label className="container">
+                              &nbsp;
+                              <input
+                                type="checkbox"
+                                defaultChecked={false}
+                                onChange={(e) => getCheck(e, item)}
+                              />
+                              <span className="checkmark"></span>
+                            </label>
+                          </div>
                         </div>
-                      </div>
-                      <div className="col">
-                        <img
-                          className="img-fluid"
-                          // src="https://i.imgur.com/1GrakTl.jpg"
-                          src={item.picture}
-                          alt="alt"
-                        />
-                      </div>
-                      <div className="col-2">
-                        <div className="row text-muted">
-                          iphone ({item.product_id})
+                        <div className="col">
+                          <img
+                            className="img-fluid"
+                            // src="https://i.imgur.com/1GrakTl.jpg"
+                            src={item.picture}
+                            alt="alt"
+                          />
                         </div>
-                        <div className="row">{item.name}</div>
-                      </div>
-                      <div className="col">
-                        <button
-                          className="increase"
-                          type="button"
-                          onClick={() => dow(item)}
+                        <div className="col-2">
+                          <div className="row text-muted">
+                            iphone ({item.product_id})
+                          </div>
+                          <div className="row item_name">{item.name}</div>
+                        </div>
+                        <div className="col">
+                          <button
+                            className="increase"
+                            type="button"
+                            onClick={() => dow(item)}
+                          >
+                            -
+                          </button>
+                          <button className="count" type="button">
+                            {item.count}
+                          </button>
+                          <button
+                            className="decrease"
+                            type="button"
+                            onClick={() => up(item)}
+                          >
+                            +
+                          </button>
+                        </div>
+                        <div className="col">
+                          <div className="row text-muted">
+                            {item.optionName}
+                          </div>
+                          <div className="row">{item.optionValue}</div>
+                        </div>
+                        <div
+                          // className="col"
+                          style={{
+                            width: "155px",
+                            display: "flex",
+                            alignItems: "center",
+                            color: "red",
+                          }}
                         >
-                          -
-                        </button>
-                        <button className="count" type="button">
-                          {item.count}
-                        </button>
-                        <button
-                          className="decrease"
-                          type="button"
-                          onClick={() => up(item)}
-                        >
-                          +
-                        </button>
-                      </div>
-                      <div className="col">
-                        <div className="row text-muted">{item.optionName}</div>
-                        <div className="row">{item.optionValue}</div>
-                      </div>
-                      <div
-                        // className="col"
-                        style={{
-                          width: "155px",
-                          display: "flex",
-                          alignItems: "center",
-                          color: "red",
-                        }}
-                      >
-                        {/* {(
+                          {/* {(
                           parseFloat(item.price) * parseFloat(item.count)
                         ).toFixed(3)}{" "} */}
-                        {parseFloat(
-                          parseFloat(item.price) * parseFloat(item.count)
-                        ).toLocaleString("it-IT", {
-                          style: "currency",
-                          currency: "VND",
-                          minimumFractionDigits: 3,
-                        })}
-                      </div>
-                      <div className="col">
-                        <FontAwesomeIcon
-                          icon={faTrash}
-                          onClick={() => remove(item)}
-                          pull="right"
-                          border
-                          color="DimGray"
-                          style={{ cursor: "pointer" }}
-                        />
+                          {parseFloat(
+                            parseFloat(item.price) * parseFloat(item.count)
+                          ).toLocaleString("it-IT", {
+                            style: "currency",
+                            currency: "VND",
+                            minimumFractionDigits: 3,
+                          })}
+                        </div>
+                        <div className="col">
+                          <FontAwesomeIcon
+                            icon={faTrash}
+                            onClick={() => remove(item)}
+                            pull="right"
+                            border
+                            color="DimGray"
+                            style={{ cursor: "pointer" }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
 
             <div className="back-to-shop" onClick={back}>
               <button className="cart_back" type="button">
