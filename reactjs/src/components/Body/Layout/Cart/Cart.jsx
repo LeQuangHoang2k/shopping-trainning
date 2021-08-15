@@ -239,6 +239,9 @@ function Cart(props) {
                             </label>
                           </div>
                         </div>
+
+                        <div className="product_id">#{item.product_id}</div>
+
                         <div className="col">
                           <img
                             className="img-fluid"
@@ -249,7 +252,7 @@ function Cart(props) {
                         </div>
                         <div className="col-2">
                           <div className="row text-muted">
-                            iphone ({item.product_id})
+                            {/* iphone ({item.product_id}) */}
                           </div>
                           <div className="row item_name">{item.name}</div>
                         </div>
@@ -273,23 +276,12 @@ function Cart(props) {
                           </button>
                         </div>
                         <div className="col">
-                          <div className="row text-muted">
-                            {item.optionName}
+                          <div className="row option_value">
+                            {item.optionValue}
                           </div>
-                          <div className="row">{item.optionValue}</div>
                         </div>
-                        <div
-                          // className="col"
-                          style={{
-                            width: "155px",
-                            display: "flex",
-                            alignItems: "center",
-                            color: "red",
-                          }}
-                        >
-                          {/* {(
-                          parseFloat(item.price) * parseFloat(item.count)
-                        ).toFixed(3)}{" "} */}
+
+                        <div className="item_price">
                           {parseFloat(
                             parseFloat(item.price) * parseFloat(item.count)
                           ).toLocaleString("it-IT", {
@@ -298,13 +290,14 @@ function Cart(props) {
                             minimumFractionDigits: 3,
                           })}
                         </div>
+
                         <div className="col">
                           <FontAwesomeIcon
                             icon={faTrash}
                             onClick={() => remove(item)}
                             pull="right"
                             border
-                            color="DimGray"
+                            color="black"
                             style={{ cursor: "pointer" }}
                           />
                         </div>
