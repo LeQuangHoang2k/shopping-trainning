@@ -2,18 +2,39 @@
 <html>
 
 <style>
+    .container {
+        width: 80px;
+        height: 70px;
+        background-color: red;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
+        width: 50px;
+    }
+
+    label {
+        position: absolute;
+        z-index: 10;
+        
+        letter-spacing: 2px;
+        color: black;
+    }
+
     input+label::after {
         content: '';
-        color: black;
+
         animation: a forwards;
         animation-duration: 1s;
-
-        letter-spacing: 2px;
     }
 
     input:focus+label::after {
-        display: none;
         content: '';
+
+        display: none;
     }
 
     @keyframes a {
@@ -73,21 +94,13 @@
             content: 'Select Product';
         }
     }
-
-    .abc {
-        /* position: relative; */
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 </style>
 
 
 <body>
-    <div class="abc" style="width: 80px;height: 70px;background-color: red;">
-        <input id="input" required style="width: 50px;" />
-        <label for="input" style="position: absolute;z-index: 10;"></label>
+    <div class="container">
+        <input id="input" required />
+        <label for="input"></label>
     </div>
 
 </body>

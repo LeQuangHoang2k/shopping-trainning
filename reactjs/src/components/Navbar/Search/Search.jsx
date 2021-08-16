@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Alert from "../../../features/Alert";
 import queryString from "query-string";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +15,10 @@ function Search(props) {
         ? 1
         : queryString.parse(window.location.search).page,
   });
+
+  useEffect(() => {
+    console.log("a", params.nane);
+  }, [params.name]);
 
   const search = async (e) => {
     await e.preventDefault();
@@ -45,14 +49,18 @@ function Search(props) {
   return (
     <div className="search_side">
       <form className="search_wrapper" onSubmit={search}>
-        <div style={{ backgroundColor: "lightgreen", borderRadius: "20px" }}>
-          <label htmlFor="search_label"></label>
+        <div className="search_frame">
           <input
             id="search_product"
             className="search_input"
-            placeholder={params.name ? params.name : "Search product"}
+            placeholder={params.name ? params.name : ""}
             onChange={(e) => setName(e.target.value)}
           />
+          <label
+            style={{ display: params.name ? "none" : "block" }}
+            className="search_label"
+            htmlFor="search_product"
+          ></label>
           <button type="submit" className="search_button">
             <FontAwesomeIcon
               icon={faSearch}

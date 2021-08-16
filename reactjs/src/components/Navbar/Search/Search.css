@@ -9,6 +9,90 @@
   align-items: center;
 }
 
+.search_side .search_frame {
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_side .search_label {
+  /* width: 25px;
+  height: 25px; */
+  /* background-color: red; */
+
+  position: absolute;
+  margin: auto;
+  z-index: 3;
+}
+
+.search_side .search_label::after {
+  content: "";
+
+  animation: search_product;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes search_product {
+  0% {
+    content: "S";
+  }
+
+  8% {
+    content: "Se";
+  }
+
+  16% {
+    content: "Sel";
+  }
+
+  24% {
+    content: "Sele";
+  }
+
+  32% {
+    content: "Selec";
+  }
+
+  40% {
+    content: "Select";
+  }
+
+  48% {
+    content: "Select ";
+  }
+
+  56% {
+    content: "Select P";
+  }
+
+  64% {
+    content: "Select Pr";
+  }
+
+  72% {
+    content: "Select Pro";
+  }
+
+  80% {
+    content: "Select Prod";
+  }
+
+  88% {
+    content: "Select Produ";
+  }
+
+  96% {
+    content: "Select Produc";
+  }
+
+  100% {
+    content: "Select Product";
+  }
+}
+
 .search_side .search_input {
   width: 720px;
   height: 40px;
@@ -27,13 +111,10 @@
 }
 
 .search_side .search_button {
-  /* display: none; */
   width: 50px;
   height: 40px;
   background-color: transparent;
   border-radius: 20px;
-  /* border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px; */
   border: none;
 
   position: absolute;
