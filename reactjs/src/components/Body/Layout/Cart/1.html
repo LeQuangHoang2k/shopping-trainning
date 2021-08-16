@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    input+label::after {
+        content: '';
+        color: black;
+        animation: a forwards;
+        animation-duration: 1s;
+
+        letter-spacing: 2px;
+    }
+
+    input:focus+label::after {
+        display: none;
+        content: '';
+    }
+
+    @keyframes a {
+        0% {
+            content: 'S';
+        }
+
+        8% {
+            content: 'Se';
+        }
+
+        16% {
+            content: 'Sel';
+        }
+
+        24% {
+            content: 'Sele';
+        }
+
+        32% {
+            content: 'Selec';
+        }
+
+        40% {
+            content: 'Select';
+        }
+
+        48% {
+            content: 'Select ';
+        }
+
+        56% {
+            content: 'Select P';
+        }
+
+        64% {
+            content: 'Select Pr';
+        }
+
+        72% {
+            content: 'Select Pro';
+        }
+
+        80% {
+            content: 'Select Prod';
+        }
+
+        88% {
+            content: 'Select Produ';
+        }
+
+        96% {
+            content: 'Select Produc';
+        }
+
+        100% {
+            content: 'Select Product';
+        }
+    }
+
+    .abc {
+        /* position: relative; */
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+<body>
+    <div class="abc" style="width: 80px;height: 70px;background-color: red;">
+        <input id="input" required style="width: 50px;" />
+        <label for="input" style="position: absolute;z-index: 10;"></label>
+    </div>
+
+</body>
+
+</html>
