@@ -5,3 +5,4 @@ php artisan make:migration create_products_table --create=products
 php artisan make:migration create_product_images_table --create=product_images
 php artisan make:migration create_product_options_table --create=product_options
 php artisan make:migration create_order_details_table --create=order_details
+php artisan make:migration create_discount_codes_table --create=discount_codes
