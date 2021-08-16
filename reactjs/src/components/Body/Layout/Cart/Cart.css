@@ -362,7 +362,7 @@ input + label::after {
   content: "";
   color: gray;
   animation: a forwards;
-  animation-duration: 2s;
+  animation-duration: 3s;
 
   letter-spacing: 2px;
 }
@@ -398,23 +398,23 @@ input:focus + label::after {
   }
 
   6% {
-    content: "Enter y";
-  }
-
-  7% {
     content: "Enter yo";
   }
 
-  8% {
+  7% {
     content: "Enter you";
   }
 
-  9% {
+  8% {
     content: "Enter your";
   }
 
-  10% {
+  9% {
     content: "Enter your c";
+  }
+
+  10% {
+    content: "Enter your co";
   }
 
   11% {
@@ -422,16 +422,12 @@ input:focus + label::after {
   }
 
   12% {
-    content: "Enter your co";
-  }
-
-  13% {
-    content: "En+ter your cod";
-  }
-
-  14% {
     content: "Enter your code";
   }
+
+  /* 13% {
+    content: "Enter your code";
+  } */
 
   100% {
     content: "Enter your code";
