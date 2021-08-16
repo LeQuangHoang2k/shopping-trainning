@@ -172,18 +172,6 @@
 }
 
 .cart_side #code {
-  /* background-image: linear-gradient(
-      to left,
-      rgba(255, 255, 255, 0.253),
-      rgba(255, 255, 255, 0.185)
-    ),
-    url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
-  background-repeat: no-repeat;
-  background-position-x: 95%;
-  background-position-y: center; */
-
-  /* width: 70px;
-  height: 31px; */
   border-radius: 15px;
 
   margin-top: 15px;
@@ -374,7 +362,7 @@ input + label::after {
   content: "";
   color: gray;
   animation: a forwards;
-  animation-duration: 1s;
+  animation-duration: 2s;
 
   letter-spacing: 2px;
 }
@@ -386,58 +374,70 @@ input:focus + label::after {
 
 @keyframes a {
   0% {
-    content: "S";
+    content: "E";
   }
 
-  8% {
-    content: "Se";
+  6% {
+    content: "En";
   }
 
-  16% {
-    content: "Sel";
+  12% {
+    content: "Ent";
+  }
+
+  18% {
+    content: "Ente";
   }
 
   24% {
-    content: "Sele";
+    content: "Enter";
   }
 
-  32% {
-    content: "Selec";
+  30% {
+    content: "Enter ";
   }
 
-  40% {
-    content: "Select";
+  36% {
+    content: "Enter y";
+  }
+
+  42% {
+    content: "Enter y";
   }
 
   48% {
-    content: "Select ";
+    content: "Enter yo";
   }
 
-  56% {
-    content: "Select P";
+  54% {
+    content: "Enter you";
   }
 
-  64% {
-    content: "Select Pr";
+  60% {
+    content: "Enter your";
   }
 
   72% {
-    content: "Select Pro";
+    content: "Enter your ";
   }
 
-  80% {
-    content: "Select Prod";
+  78% {
+    content: "Enter your c";
   }
 
-  88% {
-    content: "Select Produ";
+  84% {
+    content: "Enter your co";
+  }
+
+  90% {
+    content: "Enter your co";
   }
 
   96% {
-    content: "Select Produc";
+    content: "En+ter your cod";
   }
 
   100% {
-    content: "Select Product";
+    content: "Enter your code";
   }
 }
