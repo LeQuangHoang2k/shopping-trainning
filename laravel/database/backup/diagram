@@ -1,14 +1,16 @@
 Table "users" {
   "id" int [pk, increment]
-  "facebook_id" int
-  "google_id" int
   "email" varchar(255)
+  "password" varchar(255)
+  "facebook_id" varchar(255)
+  "google_id" varchar(255)
   "name" varchar(255)
   "phone" varchar(255)
   "picture" varchar(255)
-  "password" varchar(255)
   "address" text
   "role" varchar(255)
+  email_verified_at varchar(255)
+  remember_token varchar(255)
   "created_at" datetime
   "updated_at" datetime
 }
@@ -60,6 +62,7 @@ Table "order_details" {
   "amount" int
   "product_option_id" int
   "price_per_unit" int
+  "discount_code_id" int
   "created_at" datetime
   "updated_at" datetime
 }
@@ -70,6 +73,17 @@ Table "orders" {
   "address" text
   "phone" varchar
   "total_price" decimal
+  "created_at" datetime
+  "updated_at" datetime
+}
+
+Table "discount_codes" {
+  "id" int [pk, increment]
+  "product_id" int
+  "code" text
+  "rate" float
+  "active" boolean
+  "expired_at" datetime
   "created_at" datetime
   "updated_at" datetime
 }
@@ -90,3 +104,5 @@ Ref: "product_images"."product_id" < "products"."id"
 Ref: "products"."category_id" < "categories"."id"
 
 Ref: "product_images"."product_option_id" < "product_options"."id"
+
+Ref: "products"."id" < "discount_codes"."product_id"
