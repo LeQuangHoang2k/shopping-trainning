@@ -16,7 +16,7 @@ class DiscountController extends Controller
 
     public function index()
     {
-        // print_r("codes");
+        print_r("codes");
 
         return;
     }
