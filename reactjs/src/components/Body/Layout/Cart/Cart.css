@@ -182,10 +182,16 @@
   background-position-x: 95%;
   background-position-y: center; */
 
+  /* width: 70px;
+  height: 31px; */
   border-radius: 15px;
+
+  margin-top: 15px;
 
   text-align: center;
   letter-spacing: 3px;
+
+  color: gray;
 }
 
 .cart_side .increase,
@@ -349,4 +355,89 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.div_animation {
+  /* height: ; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  position: absolute;
+  z-index: 10;
+}
+
+input + label::after {
+  content: "";
+  color: gray;
+  animation: a forwards;
+  animation-duration: 1s;
+
+  letter-spacing: 2px;
+}
+
+input:focus + label::after {
+  display: none;
+  content: "";
+}
+
+@keyframes a {
+  0% {
+    content: "S";
+  }
+
+  8% {
+    content: "Se";
+  }
+
+  16% {
+    content: "Sel";
+  }
+
+  24% {
+    content: "Sele";
+  }
+
+  32% {
+    content: "Selec";
+  }
+
+  40% {
+    content: "Select";
+  }
+
+  48% {
+    content: "Select ";
+  }
+
+  56% {
+    content: "Select P";
+  }
+
+  64% {
+    content: "Select Pr";
+  }
+
+  72% {
+    content: "Select Pro";
+  }
+
+  80% {
+    content: "Select Prod";
+  }
+
+  88% {
+    content: "Select Produ";
+  }
+
+  96% {
+    content: "Select Produc";
+  }
+
+  100% {
+    content: "Select Product";
+  }
 }

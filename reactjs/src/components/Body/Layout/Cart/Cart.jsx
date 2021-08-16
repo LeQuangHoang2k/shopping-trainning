@@ -327,13 +327,12 @@ function Cart(props) {
             <hr />
 
             <form>
-              {/* <p>SHIPPING</p>
-              <select>
-                <option className="text-muted">
-                  Standard-Delivery - 5.00 VND
-                </option>
-              </select> */}
-              <p>GIVE CODE</p> <input id="code" placeholder="Enter your code" />
+              <p>GIVE CODE</p>
+
+              <div className="div_animation">
+                <input id="code" />
+                <label htmlFor="code"></label>
+              </div>
             </form>
 
             <div
