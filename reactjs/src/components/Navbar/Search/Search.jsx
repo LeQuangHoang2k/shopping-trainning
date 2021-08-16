@@ -43,26 +43,27 @@ function Search(props) {
   };
 
   return (
-    <form className="search_wrapper" onSubmit={search}>
-      <div style={{ backgroundColor: "lightgreen", borderRadius: "20px" }}>
-        <input
-          className="search_input"
-          placeholder={params.name ? params.name : "Search product"}
-          // value={}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <button type="submit" className="search_button">
-          {/* <img src="/images/SearchIcon.png" className="search_icon" alt="Image" /> */}
-          <FontAwesomeIcon
-            icon={faSearch}
-            color="#009DFF"
-            style={{ cursor: "pointer" }}
+    <div className="search_side">
+      <form className="search_wrapper" onSubmit={search}>
+        <div style={{ backgroundColor: "lightgreen", borderRadius: "20px" }}>
+          <label htmlFor="search_label"></label>
+          <input
+            id="search_product"
+            className="search_input"
+            placeholder={params.name ? params.name : "Search product"}
+            onChange={(e) => setName(e.target.value)}
           />
-          &nbsp;
-          {/* Search */}
-        </button>
-      </div>
-    </form>
+          <button type="submit" className="search_button">
+            <FontAwesomeIcon
+              icon={faSearch}
+              color="#009DFF"
+              style={{ cursor: "pointer" }}
+            />
+            &nbsp;
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 
