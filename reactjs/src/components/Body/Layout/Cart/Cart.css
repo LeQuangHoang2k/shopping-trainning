@@ -377,64 +377,60 @@ input:focus + label::after {
     content: "E";
   }
 
-  6% {
+  1% {
     content: "En";
   }
 
-  12% {
+  2% {
     content: "Ent";
   }
 
-  18% {
+  3% {
     content: "Ente";
   }
 
-  24% {
+  4% {
     content: "Enter";
   }
 
-  30% {
-    content: "Enter ";
-  }
-
-  36% {
+  5% {
     content: "Enter y";
   }
 
-  42% {
+  6% {
     content: "Enter y";
   }
 
-  48% {
+  7% {
     content: "Enter yo";
   }
 
-  54% {
+  8% {
     content: "Enter you";
   }
 
-  60% {
+  9% {
     content: "Enter your";
   }
 
-  72% {
-    content: "Enter your ";
-  }
-
-  78% {
+  10% {
     content: "Enter your c";
   }
 
-  84% {
+  11% {
     content: "Enter your co";
   }
 
-  90% {
+  12% {
     content: "Enter your co";
   }
 
-  96% {
+  13% {
     content: "En+ter your cod";
+  }
+
+  14% {
+    content: "Enter your code";
   }
 
   100% {

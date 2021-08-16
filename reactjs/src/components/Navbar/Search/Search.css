@@ -40,52 +40,52 @@
     content: "S";
   }
 
-  8% {
+  1% {
     content: "Se";
   }
 
-  16% {
+  2% {
     content: "Sel";
   }
 
-  24% {
+  3% {
     content: "Sele";
   }
 
-  32% {
+  4% {
     content: "Selec";
   }
 
-  40% {
+  5% {
     content: "Select";
   }
 
-  48% {
-    content: "Select ";
-  }
-
-  56% {
+  6% {
     content: "Select P";
   }
 
-  64% {
+  7% {
     content: "Select Pr";
   }
 
-  72% {
+  8% {
     content: "Select Pro";
   }
 
-  80% {
+  9% {
     content: "Select Prod";
   }
 
-  88% {
+  10% {
     content: "Select Produ";
   }
 
-  96% {
+  11% {
     content: "Select Produc";
+  }
+
+  12% {
+    content: "Select Product";
   }
 
   100% {
@@ -99,8 +99,6 @@
 
   border-color: transparent;
   border-radius: 20px;
-
-  padding-left: 10px;
 
   text-align: center;
   letter-spacing: 3px;
