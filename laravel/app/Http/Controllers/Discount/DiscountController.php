@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Discount;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DiscountResource;
 use App\Repositories\DiscountRepository as RepositoriesDiscountRepository;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class DiscountController extends Controller
 
     public function index()
     {
-        $this->discountRepository->test();
+        return new DiscountResource($this->discountRepository->test());
     }
 
     public function create()
