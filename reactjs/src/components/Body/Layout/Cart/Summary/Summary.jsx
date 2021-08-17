@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Alert from "../../../../../features/Alert";
 
 function Summary(props) {
-  const { total, purchase, setTotal } = props;
+  const { total, purchase, setTotal, orderList } = props;
 
   const [showLabel, setShowLabel] = useState(true);
   const [success, setSuccess] = useState(false);
@@ -16,6 +17,9 @@ function Summary(props) {
   }, [code]);
 
   const checkCode = async (e) => {
+    if (orderList.length === 0)
+      return Alert({ warning: "Please check your order" });
+
     var value = e.target.value.length;
 
     switch (value) {
