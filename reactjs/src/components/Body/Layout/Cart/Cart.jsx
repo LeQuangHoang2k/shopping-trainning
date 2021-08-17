@@ -17,6 +17,8 @@ function Cart(props) {
   const dispatch = useDispatch();
 
   const [orderList, setOrderList] = useState([]);
+  const [recordCode, setRecordCode] = useState({});
+
   const [total, setTotal] = useState(0.0);
 
   useEffect(() => {
@@ -42,14 +44,14 @@ function Cart(props) {
     if (orderList.length <= 0)
       return Alert({ warning: "Please check your order" });
 
-    const { order } = await pay();
+    const { order } = await onPurchaseHandle();
     if (order) await updateCart();
 
-    Alert({ success: "Pay success!" });
+    Alert({ success: "Purchase success!" });
     console.log("purchase order list", orderList);
   };
 
-  const pay = async () => {
+  const onPurchaseHandle = async () => {
     const bodyParams = {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
