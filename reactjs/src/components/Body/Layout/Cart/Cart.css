@@ -157,10 +157,6 @@
   transition: none;
 }
 
-.cart_side .btn:hover {
-  color: white;
-}
-
 .cart_side a {
   color: #fff;
 }
