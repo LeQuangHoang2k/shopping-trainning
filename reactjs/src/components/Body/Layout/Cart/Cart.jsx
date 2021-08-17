@@ -25,6 +25,8 @@ function Cart(props) {
   const [orderList, setOrderList] = useState([]);
   const [total, setTotal] = useState(0.0);
   const [showLabel, setShowLabel] = useState(true);
+  const [success, setSuccess] = useState(false);
+  const [fail, setFail] = useState(false);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
@@ -186,9 +188,29 @@ function Cart(props) {
   };
 
   const checkCode = (e) => {
-    // alert(e.target.value);
-    if (e.target.value.length > 0) setShowLabel(false);
-    else setShowLabel(true);
+    var value = e.target.value.length;
+
+    switch (value) {
+      case 0: {
+        setShowLabel(true);
+        setFail(false);
+        setSuccess(false);
+        break;
+      }
+
+      case 10: {
+        setShowLabel(false);
+        setFail(false);
+        setSuccess(true);
+        break;
+      }
+
+      default:
+        setShowLabel(false);
+        setFail(true);
+        setSuccess(false);
+        break;
+    }
   };
 
   return (
@@ -344,6 +366,32 @@ function Cart(props) {
                 ></label>
               </div>
             </form>
+
+            <div
+              // className="row"
+              style={{
+                padding: "2vh 0",
+              }}
+            >
+              <div
+                style={{
+                  display: success ? "block" : "none",
+                  color: "lightgreen",
+                }}
+                className="col"
+              >
+                Validated!
+              </div>
+              <div
+                className="col"
+                style={{
+                  display: fail ? "block" : "none",
+                  color: "red",
+                }}
+              >
+                Not Validated!
+              </div>
+            </div>
 
             <div
               className="row"
