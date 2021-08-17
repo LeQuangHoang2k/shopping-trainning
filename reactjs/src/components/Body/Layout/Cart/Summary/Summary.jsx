@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Summary(props) {
   const { total, purchase } = props;
@@ -6,12 +6,20 @@ function Summary(props) {
   const [showLabel, setShowLabel] = useState(true);
   const [success, setSuccess] = useState(false);
   const [fail, setFail] = useState(false);
+  const [code, setCode] = useState("");
+  const [recordCode, setRecordCode] = useState({});
+
+  useEffect(() => {
+    console.log("code", code);
+  }, [code]);
 
   const checkCode = (e) => {
     var value = e.target.value.length;
 
     switch (value) {
       case 0: {
+        setCode("");
+
         setShowLabel(true);
         setFail(false);
         setSuccess(false);
@@ -19,23 +27,26 @@ function Summary(props) {
       }
 
       case 10: {
+        setCode(e.target.value);
+
         setShowLabel(false);
         setFail(false);
         setSuccess(true);
         break;
       }
 
-      default:
+      default: {
+        setCode(e.target.value);
+
         setShowLabel(false);
         setFail(true);
         setSuccess(false);
         break;
+      }
     }
   };
 
-  const getCode=()=>{
-    
-  }
+  const getCode = () => {};
 
   return (
     <div className="col-md-4 summary">
