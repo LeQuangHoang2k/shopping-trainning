@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\Discount;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Discount\GetRequest;
 use App\Http\Resources\DiscountResource;
-use App\Repositories\DiscountRepository as RepositoriesDiscountRepository;
+use App\Repositories\DiscountRepository;
 use Illuminate\Http\Request;
 
 class DiscountController extends Controller
 {
     public $discountRepository;
 
-    public function __construct(RepositoriesDiscountRepository $discountRepository)
+    public function __construct(DiscountRepository $discountRepository)
     {
         $this->discountRepository = $discountRepository;
     }
 
-    public function index()
+    public function index(GetRequest $request)
     {
+        $request->validated();
+        dd($request->all());
         return new DiscountResource($this->discountRepository->test());
     }
 
