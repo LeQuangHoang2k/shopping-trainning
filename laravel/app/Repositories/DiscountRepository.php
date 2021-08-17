@@ -8,7 +8,11 @@ class DiscountRepository
 {
     public function get($filters)
     {
-        return Discount::select("*")->where('code', $filters['code'])->get();
+        $query  = Discount::select("*")->where('code', $filters['code'])->get();
+
+        // dd($query);
+
+        return $query;
     }
 
     public function test()
