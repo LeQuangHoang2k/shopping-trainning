@@ -42,15 +42,14 @@ function Cart(props) {
     if (orderList.length <= 0)
       return Alert({ warning: "Please check your order" });
 
-    const { order } = await updateOrderDB();
-    // await updateOrderDetailDB(order);
+    const { order } = await pay();
     if (order) await updateCart();
 
     Alert({ success: "Pay success!" });
     console.log("purchase order list", orderList);
   };
 
-  const updateOrderDB = async () => {
+  const pay = async () => {
     const bodyParams = {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
