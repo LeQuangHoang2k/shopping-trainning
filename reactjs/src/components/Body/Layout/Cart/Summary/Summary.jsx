@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function Summary(props) {
   const { total, purchase } = props;
@@ -52,8 +53,13 @@ function Summary(props) {
 
   const getCode = async (value) => {
     alert(value);
+    
+    const res = await axios.get(
+      `http://localhost:8000/api/discounts?code=${value}`
+    );
+    console.log("1", res.data);
 
-    // await axios.get("http://locahost:8000/api/discount");
+    // http://localhost:8000/api/discounts?code=rc4JWWzvrB
   };
 
   return (
