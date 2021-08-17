@@ -14,7 +14,7 @@ function Summary(props) {
     console.log("recordCode", recordCode);
   }, [code]);
 
-  const checkCode = (e) => {
+  const checkCode = async (e) => {
     var value = e.target.value.length;
 
     switch (value) {
@@ -33,6 +33,9 @@ function Summary(props) {
         setShowLabel(false);
         setFail(false);
         setSuccess(true);
+
+        await getCode(e.target.value);
+
         break;
       }
 
@@ -47,7 +50,11 @@ function Summary(props) {
     }
   };
 
-  const getCode = () => {};
+  const getCode = async (value) => {
+    alert(value);
+
+    // await axios.get("http://locahost:8000/api/discount");
+  };
 
   return (
     <div className="col-md-4 summary">
