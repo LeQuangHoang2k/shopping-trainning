@@ -109,7 +109,7 @@ function Cart(props) {
       <div className="card">
         <div className="row">
           <List orderList={orderList} totalPrice={totalPrice} />
-          <Summary total={total} purchase={purchase} />
+          <Summary total={total} purchase={purchase} setTotal={setTotal} />
         </div>
       </div>
     </div>

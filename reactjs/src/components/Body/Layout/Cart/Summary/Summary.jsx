@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 function Summary(props) {
-  const { total, purchase } = props;
+  const { total, purchase, setTotal } = props;
 
   const [showLabel, setShowLabel] = useState(true);
   const [success, setSuccess] = useState(false);
@@ -53,13 +53,26 @@ function Summary(props) {
 
   const getCode = async (value) => {
     alert(value);
-    
-    const res = await axios.get(
-      `http://localhost:8000/api/discounts?code=${value}`
-    );
-    console.log("1", res.data);
+
+    try {
+      const res = await axios.get(
+        `http://localhost:8000/api/discounts?code=${value}`
+      );
+      console.log("1", res.data);
+    } catch (error) {}
 
     // http://localhost:8000/api/discounts?code=rc4JWWzvrB
+  };
+
+  const pay = () => {
+    purchase();
+
+    setCode("");
+    setTotal(0.0);
+
+    setShowLabel(true);
+    setSuccess(false);
+    setFail(false);
   };
 
   return (
@@ -186,7 +199,7 @@ function Summary(props) {
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <button className="btn" onClick={purchase}>
+        <button className="btn" onClick={pay}>
           Purchase
         </button>
       </div>
