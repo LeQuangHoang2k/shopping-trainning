@@ -3,13 +3,14 @@ import axios from "axios";
 import Alert from "../../../../../features/Alert";
 
 function Summary(props) {
-  const { total, purchase, setTotal, orderList } = props;
+  const { total, purchase, setTotal, orderList, recordCode, setRecordCode } =
+    props;
 
   const [showLabel, setShowLabel] = useState(true);
   const [success, setSuccess] = useState(false);
   const [fail, setFail] = useState(false);
   const [code, setCode] = useState("");
-  const [recordCode, setRecordCode] = useState({});
+  // const [recordCode, setRecordCode] = useState({});
 
   useEffect(() => {
     console.log("code", code);

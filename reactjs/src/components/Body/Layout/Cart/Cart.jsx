@@ -17,12 +17,17 @@ function Cart(props) {
   const dispatch = useDispatch();
 
   const [orderList, setOrderList] = useState([]);
+  const [recordCode, setRecordCode] = useState({});
 
   const [total, setTotal] = useState(0.0);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
-  }, [cartStorage, orderList]);
+    console.log("recordCode", recordCode);
+    // if (recordCode == {}) {
+      // }
+        console.log(recordCode.length);
+  }, [cartStorage, recordCode]);
 
   const totalPrice = (orderList) => {
     if (orderList.length <= 0) return setTotal(0);
@@ -63,6 +68,7 @@ function Cart(props) {
       phone: cookies.get("user").phone,
       total_price: total,
       orderList,
+      //
     };
 
     const config = {
@@ -109,7 +115,14 @@ function Cart(props) {
       <div className="card">
         <div className="row">
           <List orderList={orderList} totalPrice={totalPrice} />
-          <Summary total={total} purchase={purchase} setTotal={setTotal} orderList={orderList} />
+          <Summary
+            total={total}
+            purchase={purchase}
+            setTotal={setTotal}
+            orderList={orderList}
+            recordCode={recordCode}
+            setRecordCode={setRecordCode}
+          />
         </div>
       </div>
     </div>
