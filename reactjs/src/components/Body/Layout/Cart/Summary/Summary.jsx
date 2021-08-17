@@ -58,8 +58,9 @@ function Summary(props) {
       const res = await axios.get(
         `http://localhost:8000/api/discounts?code=${value}`
       );
-      console.log("code record: ", res.data[0]);
-      setRecordCode(res.data[0]);
+      const { data } = res.data;
+      console.log("code record: ", data[0]);
+      setRecordCode(data[0]);
     } catch (error) {
       setSuccess(false);
       setFail(true);
@@ -91,7 +92,7 @@ function Summary(props) {
         <p>GIVE CODE</p>
 
         <div className="div_animation">
-          <input id="code" onChange={checkCode} />
+          <input id="code" onChange={checkCode} value={code} />
           <label
             style={{ display: showLabel ? "block" : "none" }}
             htmlFor="code"

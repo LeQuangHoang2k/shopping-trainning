@@ -17,7 +17,6 @@ function Cart(props) {
   const dispatch = useDispatch();
 
   const [orderList, setOrderList] = useState([]);
-  const [recordCode, setRecordCode] = useState({});
 
   const [total, setTotal] = useState(0.0);
 
@@ -48,6 +47,7 @@ function Cart(props) {
 
     const { order } = await onPurchaseHandle();
     if (!order) return false;
+    alert(order + 13);
     await updateCart();
 
     Alert({ success: "Purchase success!" });
