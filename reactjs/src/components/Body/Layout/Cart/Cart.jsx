@@ -25,8 +25,8 @@ function Cart(props) {
     console.log("cartStorage", cartStorage);
     console.log("recordCode", recordCode);
     // if (recordCode == {}) {
-      // }
-        console.log(recordCode.length);
+    // }
+    console.log(recordCode.length);
   }, [cartStorage, recordCode]);
 
   const totalPrice = (orderList) => {
