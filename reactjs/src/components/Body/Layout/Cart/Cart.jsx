@@ -187,11 +187,8 @@ function Cart(props) {
 
   const checkCode = (e) => {
     alert(e.target.value);
-    if (e.target.value.length > 0) {
-      setShowLabel(false);
-    } else {
-      setShowLabel(true);
-    }
+    if (e.target.value.length > 0) setShowLabel(false);
+    else setShowLabel(true);
   };
 
   return (
