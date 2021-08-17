@@ -20,8 +20,9 @@ class DiscountController extends Controller
     public function index(GetRequest $request)
     {
         $request->validated();
-        dd($request->all());
-        return new DiscountResource($this->discountRepository->test());
+        $filters = $request->all();
+
+        return new DiscountResource($this->discountRepository->get($filters));
     }
 
     public function create()
