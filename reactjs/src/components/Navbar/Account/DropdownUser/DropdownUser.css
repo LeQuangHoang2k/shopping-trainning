@@ -14,7 +14,7 @@
     margin-top: 50px;
     margin-left: 50%;
     transform: translateX(-50%);
-    z-index: 8;
+    z-index: 15;
 
     animation-name: account_dropdown;
     animation-duration: 0.3s;

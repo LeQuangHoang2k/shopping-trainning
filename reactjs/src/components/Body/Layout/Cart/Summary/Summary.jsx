@@ -33,6 +33,10 @@ function Summary(props) {
     }
   };
 
+  const getCode=()=>{
+    
+  }
+
   return (
     <div className="col-md-4 summary">
       <div>
