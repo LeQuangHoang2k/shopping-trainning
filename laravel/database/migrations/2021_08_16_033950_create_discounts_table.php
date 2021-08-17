@@ -18,7 +18,7 @@ class CreateDiscountsTable extends Migration
             $table->integer("product_id");
             $table->string("code")->nullable();
             $table->float("rate")->nullable();
-            $table->boolean("active")->nullable();
+            $table->boolean("is_used")->nullable();
             $table->dateTime("expired_at")->nullable();
 
             $table->foreign('product_id')->references('id')->on('products');

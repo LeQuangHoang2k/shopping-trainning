@@ -15,7 +15,7 @@ class Discount extends Model
         "product_id",
         "code",
         "rate",
-        "active",
+        "is_used",
         "expired_at"
     ];
 
