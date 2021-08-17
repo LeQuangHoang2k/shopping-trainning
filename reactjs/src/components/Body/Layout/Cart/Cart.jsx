@@ -24,6 +24,7 @@ function Cart(props) {
 
   const [orderList, setOrderList] = useState([]);
   const [total, setTotal] = useState(0.0);
+  const [showLabel, setShowLabel] = useState(true);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
@@ -184,6 +185,15 @@ function Cart(props) {
     console.log("update cart", orderList, cartStorage.list);
   };
 
+  const checkCode = (e) => {
+    alert(e.target.value);
+    if (e.target.value.length > 0) {
+      setShowLabel(false);
+    } else {
+      setShowLabel(true);
+    }
+  };
+
   return (
     <div className="cart_side">
       <div className="card">
@@ -330,8 +340,11 @@ function Cart(props) {
               <p>GIVE CODE</p>
 
               <div className="div_animation">
-                <input id="code" />
-                <label htmlFor="code"></label>
+                <input id="code" onChange={checkCode} />
+                <label
+                  style={{ display: showLabel ? "block" : "none" }}
+                  htmlFor="code"
+                ></label>
               </div>
             </form>
 
