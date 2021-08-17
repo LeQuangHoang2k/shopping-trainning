@@ -41,14 +41,19 @@ function Cart(props) {
   };
 
   const purchase = async () => {
-    if (orderList.length <= 0)
-      return Alert({ warning: "Please check your order" });
+    if (orderList.length <= 0) {
+      Alert({ warning: "Please check your order" });
+      return false;
+    }
 
     const { order } = await onPurchaseHandle();
-    if (order) await updateCart();
+    if (!order) return false;
+    await updateCart();
 
     Alert({ success: "Purchase success!" });
     console.log("purchase order list", orderList);
+
+    return true;
   };
 
   const onPurchaseHandle = async () => {

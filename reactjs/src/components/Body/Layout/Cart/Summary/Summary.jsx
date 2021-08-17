@@ -29,7 +29,7 @@ function Summary(props) {
       }
 
       case 10: {
-        setCode(e.target.value);
+        await setCode(e.target.value);
 
         setShowLabel(false);
         setFail(false);
@@ -58,18 +58,18 @@ function Summary(props) {
       const res = await axios.get(
         `http://localhost:8000/api/discounts?code=${value}`
       );
-      console.log("1", res.data);
+      console.log("code record: ", res.data[0]);
+      setRecordCode(res.data[0]);
     } catch (error) {
       setSuccess(false);
       setFail(true);
     }
-
-    // http://localhost:8000/api/discounts?code=rc4JWWzvrB
   };
 
-  const pay = () => {
-    purchase();
+  const pay = async () => {
+    var result = await purchase();
 
+    if (!result) return alert("tạch");
     setCode("");
     setTotal(0.0);
 
