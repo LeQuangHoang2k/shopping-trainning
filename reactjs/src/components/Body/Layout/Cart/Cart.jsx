@@ -3,7 +3,6 @@ import Alert from "../../../../features/Alert";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "universal-cookie";
 import axios from "axios";
-import Swal from "sweetalert2";
 
 import { update } from "../../../../redux/actions/cart";
 
