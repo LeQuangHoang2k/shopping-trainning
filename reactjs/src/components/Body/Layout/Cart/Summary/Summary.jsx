@@ -11,6 +11,7 @@ function Summary(props) {
 
   useEffect(() => {
     console.log("code", code);
+    console.log("recordCode", recordCode);
   }, [code]);
 
   const checkCode = (e) => {
