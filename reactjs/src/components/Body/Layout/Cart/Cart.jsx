@@ -145,31 +145,6 @@ function Cart(props) {
     }
   };
 
-  // const updateOrderDetailDB = async (order) => {
-  //   console.log("hiệp 2", order, orderList);
-
-  //   const config = {
-  //     headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
-  //   };
-
-  //   const bodyParams = {
-  //     order,
-  //   };
-
-  //   // try {
-  //   //   var res = await axios.post(
-  //   //     `http://localhost:8000/api/orders`,
-  //   //     bodyParams,
-  //   //     config
-  //   //   );
-  //   //   console.log("res cart", res);
-  //   //   console.log("body params", bodyParams);
-  //   //   console.log("access_token", cookies.get("access_token"));
-  //   // } catch (error) {
-  //   //   console.log(error.response.data);
-  //   // }
-  // };
-
   const updateCart = () => {
     orderList.forEach((item) => {
       var index = cartStorage.list.findIndex(
