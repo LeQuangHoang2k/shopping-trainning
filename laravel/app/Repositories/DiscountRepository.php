@@ -11,12 +11,9 @@ class DiscountRepository
         $query  = Discount::select("*")->where('code', $filters['code'])->get();
         // $query  = Discount::select("*")->where('code', 's')->get();
 
-
-        // dd(count($query));
         if (count($query) === 0) return ['error' => 'This code is not exist', 'data' => []];
         if ($query[0]->is_used) return ['error' => 'This code is already in use', 'data' => []];
-        // if ($query[0]->is_expired) return ['error' => 'This code is not exist', 'data' => $query];
-
+        if (strtotime("now") > strtotime($query[0]->expired_at)) return ['error' => 'This code has expired ', 'data' => []];
 
         return $query;
     }
