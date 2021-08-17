@@ -59,7 +59,10 @@ function Summary(props) {
         `http://localhost:8000/api/discounts?code=${value}`
       );
       console.log("1", res.data);
-    } catch (error) {}
+    } catch (error) {
+      setSuccess(false);
+      setFail(true);
+    }
 
     // http://localhost:8000/api/discounts?code=rc4JWWzvrB
   };
