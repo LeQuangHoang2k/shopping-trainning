@@ -3,11 +3,9 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Product\FindRequest;
 use App\Http\Requests\product\GetRequest;
 use App\Http\Resources\ProductResource;
 use App\Repositories\ProductRepository;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
