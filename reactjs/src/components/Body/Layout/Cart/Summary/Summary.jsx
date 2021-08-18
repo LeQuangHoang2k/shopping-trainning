@@ -19,7 +19,7 @@ function Summary(props) {
 
   const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(10);
-  // const [tax, setTax] = useState(10);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     console.log("code", code);
@@ -104,16 +104,6 @@ function Summary(props) {
     setSuccess(false);
     setFail(false);
   };
-
-  // const originalPrice = () => {
-  //   return totalOriginalPrice > 0
-  //     ? parseFloat(totalOriginalPrice).toLocaleString("it-IT", {
-  //         style: "currency",
-  //         currency: "VND",
-  //         minimumFractionDigits: 3,
-  //       })
-  //     : "0 VND";
-  // };
 
   const onFormatPriceHandle = (value) => {
     return parseFloat(value).toLocaleString("it-IT", {
@@ -213,7 +203,9 @@ function Summary(props) {
         }}
       >
         <div className="col">Total Price</div>
-        <div className="col text-right">{totalOriginalPrice}</div>
+        <div className="col text-right">
+          {totalPrice > 0 ? onFormatPriceHandle(totalPrice) : "0 VND"}
+        </div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
