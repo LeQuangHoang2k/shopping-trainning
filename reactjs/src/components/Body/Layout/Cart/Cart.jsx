@@ -24,9 +24,9 @@ function Cart(props) {
   useEffect(() => {
     console.log("cartStorage", cartStorage);
     console.log("recordCode", recordCode);
-    // if (recordCode == {}) {
-    // }
-    console.log(recordCode.length);
+    if (Object.keys(recordCode).length === 0) {
+      console.log(recordCode);
+    }
   }, [cartStorage, recordCode]);
 
   const totalPrice = (orderList) => {
@@ -52,7 +52,6 @@ function Cart(props) {
 
     const { order } = await onPurchaseHandle();
     if (!order) return false;
-    alert(order + 13);
     await updateCart();
 
     Alert({ success: "Purchase success!" });
