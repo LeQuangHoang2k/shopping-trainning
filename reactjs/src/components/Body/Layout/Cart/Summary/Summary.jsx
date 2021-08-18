@@ -98,17 +98,18 @@ function Summary(props) {
       </div>
       <hr />
 
-      <form>
+      <div>
         <p>GIVE CODE</p>
 
-        <div className="div_animation">
-          <input id="code" onChange={checkCode} value={code} />
+        <div className="div_code">
+          <input id="code" type="text" onChange={checkCode} value={code} />
           <label
             style={{ display: showLabel ? "block" : "none" }}
             htmlFor="code"
+            className="label_code"
           ></label>
         </div>
-      </form>
+      </div>
 
       <div
         style={{
