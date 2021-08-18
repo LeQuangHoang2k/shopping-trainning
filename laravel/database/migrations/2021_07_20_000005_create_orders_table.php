@@ -18,10 +18,13 @@ class CreateOrdersTable extends Migration
             $table->integer("user_id");
             $table->text("address")->nullable();
             $table->string("phone")->nullable();
+            $table->integer("discount_id");
+            $table->decimal('tax', $precision = 15, $scale = 3)->nullable();
             $table->string("total_price")->nullable();
             $table->timestamps();
 
             $table->foreign("user_id")->references('id')->on('users');
+            $table->foreign("discount_id")->references('id')->on('discounts');
         });
     }
 

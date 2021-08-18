@@ -14,7 +14,7 @@ class CreateDiscountsTable extends Migration
     public function up()
     {
         Schema::create('discounts', function (Blueprint $table) {
-            $table->id();
+            $table->integer("id")->autoIncrement();
             $table->integer("product_id");
             $table->string("code")->nullable();
             $table->decimal('price', $precision = 15, $scale = 3)->nullable();
