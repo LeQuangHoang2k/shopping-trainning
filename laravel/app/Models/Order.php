@@ -14,6 +14,8 @@ class Order extends Model
         "user_id",
         "address",
         "phone",
+        "discount_id",
+        "tax",
         "total_price"
     ];
 
