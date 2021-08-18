@@ -94,7 +94,7 @@ function Product(props) {
                 <img src={item.picture} className="product_image" alt="Image" />
 
                 <span className="product_title">
-                  {item.id} : {item.name}
+                  #{item.id} : {item.name}
                 </span>
 
                 <div>
