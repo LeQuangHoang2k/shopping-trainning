@@ -11,11 +11,10 @@ function Summary(props) {
   const [fail, setFail] = useState(false);
   const [code, setCode] = useState("");
 
+  const [originalPrice, setOriginalPrice] = useState(0.0);
+  const [discountPrice, setDiscountPrice] = useState(0.0);
   const [tax, setTax] = useState(10);
-  const [originalPrice, setOriginalPrice] = useState(0);
-  // const [originalPrice, setOriginalPrice] = useState(0);
-  // const [originalPrice, setOriginalPrice] = useState(0);
-  // const [originalPrice, setOriginalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(10);
 
   useEffect(() => {
     console.log("code", code);
@@ -192,7 +191,7 @@ function Summary(props) {
         }}
       >
         <div className="col">TOTAL PRICE</div>
-        <div className="col text-right">{total}</div>
+        <div className="col text-right">{formatPrice(parseFloat(totalPrice))}</div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
