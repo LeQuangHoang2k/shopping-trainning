@@ -22,7 +22,8 @@ function Summary(props) {
   useEffect(() => {
     console.log("code", code);
     console.log("recordCode", recordCode);
-  }, [code]);
+    console.log("totalOriginalPrice", totalOriginalPrice);
+  }, [code, totalOriginalPrice]);
 
   const checkCode = async (e) => {
     if (orderList.length === 0)
@@ -95,14 +96,22 @@ function Summary(props) {
     setFail(false);
   };
 
-  const originalPrice = () => {
-    return totalOriginalPrice > 0
-      ? parseFloat(totalOriginalPrice).toLocaleString("it-IT", {
-          style: "currency",
-          currency: "VND",
-          minimumFractionDigits: 3,
-        })
-      : "0 VND";
+  // const originalPrice = () => {
+  //   return totalOriginalPrice > 0
+  //     ? parseFloat(totalOriginalPrice).toLocaleString("it-IT", {
+  //         style: "currency",
+  //         currency: "VND",
+  //         minimumFractionDigits: 3,
+  //       })
+  //     : "0 VND";
+  // };
+
+  const onFormatPriceHandle = () => {
+    return parseFloat(totalOriginalPrice).toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND",
+      minimumFractionDigits: 3,
+    });
   };
 
   return (
@@ -159,7 +168,11 @@ function Summary(props) {
         }}
       >
         <div className="col">Total original price</div>
-        <div className="col text-right">{originalPrice()}</div>
+        <div className="col text-right">
+          {totalOriginalPrice > 0
+            ? onFormatPriceHandle(totalOriginalPrice)
+            : "0 VND"}
+        </div>
       </div>
 
       <div

@@ -19,7 +19,7 @@ function Cart(props) {
   const [orderList, setOrderList] = useState([]);
   const [recordCode, setRecordCode] = useState({});
 
-  const [totalOriginalPrice, setTotalOriginalPrice] = useState(0.0);
+  const [totalOriginalPrice, setTotalOriginalPrice] = useState(0);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
@@ -114,9 +114,9 @@ function Cart(props) {
         <div className="row">
           <List orderList={orderList} totalPriceHandle={totalPriceHandle} />
           <Summary
-            total={totalOriginalPrice}
+            totalOriginalPrice={totalOriginalPrice}
             purchase={purchase}
-            setTotal={setTotalOriginalPrice}
+            setTotalOriginalPrice={setTotalOriginalPrice}
             orderList={orderList}
             recordCode={recordCode}
             setRecordCode={setRecordCode}
