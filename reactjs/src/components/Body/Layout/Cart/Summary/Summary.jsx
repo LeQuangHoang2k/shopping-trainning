@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Alert from "../../../../../features/Alert";
+import { Log } from "../../../../../features/Log";
 
 function Summary(props) {
   const {
@@ -22,10 +23,10 @@ function Summary(props) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    console.log("code", code);
-    console.log("recordCode", recordCode);
-    console.log("totalOriginalPrice", totalOriginalPrice);
-  }, [code, totalOriginalPrice]);
+    Log({ code });
+    Log({ recordCode });
+    Log({ totalOriginalPrice });
+  }, [code, recordCode, totalOriginalPrice]);
 
   const checkCode = async (e) => {
     if (orderList.length === 0)
