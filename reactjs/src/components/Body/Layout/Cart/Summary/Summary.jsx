@@ -11,10 +11,7 @@ function Summary(props) {
   const [fail, setFail] = useState(false);
   const [code, setCode] = useState("");
 
-  const [originalPrice, setOriginalPrice] = useState(0.0);
-  const [discountPrice, setDiscountPrice] = useState(0.0);
   const [tax, setTax] = useState(10);
-  const [totalPrice, setTotalPrice] = useState(10);
 
   useEffect(() => {
     console.log("code", code);
@@ -92,16 +89,15 @@ function Summary(props) {
     setFail(false);
   };
 
-  const formatPrice = (value) => {
-    parseFloat(value).toLocaleString("it-IT", {
-      style: "currency",
-      currency: "VND",
-      minimumFractionDigits: 3,
-    });
+  const originalPrice = () => {
+    return total > 0
+      ? parseFloat(total).toLocaleString("it-IT", {
+          style: "currency",
+          currency: "VND",
+          minimumFractionDigits: 3,
+        })
+      : "0 VND";
   };
-
-  // const originalPriceHandle = () =>
-  //   total > 0 ? formatPrice(total) : formatPrice(0);
 
   return (
     <div className="col-md-4 summary">
@@ -156,8 +152,8 @@ function Summary(props) {
           padding: "2vh 0",
         }}
       >
-        <div className="col">Original Price</div>
-        <div className="col text-right">{}</div>
+        <div className="col">Total original Price</div>
+        <div className="col text-right">{originalPrice()}</div>
       </div>
 
       <div
@@ -166,12 +162,8 @@ function Summary(props) {
           padding: "2vh 0",
         }}
       >
-        <div className="col">Discount Price</div>
-        <div className="col text-right">
-          {Object.keys(recordCode).length > 0
-            ? `- ${formatPrice(recordCode.price)}`
-            : `- 0 VND`}
-        </div>
+        <div className="col">Discount price</div>
+        <div className="col text-right"></div>
       </div>
 
       <div
@@ -191,7 +183,7 @@ function Summary(props) {
         }}
       >
         <div className="col">TOTAL PRICE</div>
-        <div className="col text-right">{formatPrice(parseFloat(totalPrice))}</div>
+        <div className="col text-right">{total}</div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
