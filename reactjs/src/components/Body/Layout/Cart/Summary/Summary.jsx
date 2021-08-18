@@ -5,11 +5,11 @@ import Alert from "../../../../../features/Alert";
 function Summary(props) {
   const {
     totalOriginalPrice,
-    purchase,
     setTotalOriginalPrice,
-    orderList,
     recordCode,
     setRecordCode,
+    purchase,
+    orderList,
   } = props;
 
   const [showLabel, setShowLabel] = useState(true);
@@ -182,7 +182,12 @@ function Summary(props) {
         }}
       >
         <div className="col">Discount price</div>
-        <div className="col text-right"></div>
+        <div className="col text-right">
+          {" "}
+          {totalOriginalPrice > 0
+            ? onFormatPriceHandle(totalOriginalPrice)
+            : "0 VND"}
+        </div>
       </div>
 
       <div
