@@ -17,7 +17,7 @@ class CreateDiscountsTable extends Migration
             $table->id();
             $table->integer("product_id");
             $table->string("code")->nullable();
-            $table->float("rate")->nullable();
+            $table->decimal('price', $precision = 15, $scale = 3)->nullable();
             $table->boolean("is_used")->nullable();
             $table->dateTime("expired_at")->nullable();
 
