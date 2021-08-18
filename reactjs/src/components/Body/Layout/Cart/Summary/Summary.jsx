@@ -113,6 +113,13 @@ function Summary(props) {
     });
   };
 
+  const onTotalPriceHandle = () => {
+    var priceAfterDiscount = totalOriginalPrice - discountPrice;
+    var priceAfterTax = priceAfterDiscount * (1 - 0.1);
+    setTotalPrice(priceAfterTax);
+    return priceAfterTax;
+  };
+
   return (
     <div className="col-md-4 summary">
       <div>
@@ -204,7 +211,7 @@ function Summary(props) {
       >
         <div className="col">Total Price</div>
         <div className="col text-right">
-          {totalPrice > 0 ? onFormatPriceHandle(totalPrice) : "0 VND"}
+          {/* {totalPrice > 0 ? onFormatPriceHandle(onTotalPriceHandle()) : "0 VND"} */}
         </div>
       </div>
 

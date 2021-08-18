@@ -24,9 +24,6 @@ function Cart(props) {
   useEffect(() => {
     console.log("cartStorage", cartStorage);
     console.log("recordCode", recordCode);
-    if (Object.keys(recordCode).length === 0) {
-      console.log(recordCode);
-    }
   }, [cartStorage, recordCode]);
 
   const totalPriceHandle = (orderList) => {
