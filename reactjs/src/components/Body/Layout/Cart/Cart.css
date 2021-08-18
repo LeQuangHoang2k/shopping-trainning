@@ -109,10 +109,6 @@
   margin-top: 1.25rem;
 }
 
-/* .cart_side .form_code {
-  padding: 1vh 0;
-} */
-
 .cart_side select {
   border: 1px solid rgba(0, 0, 0, 0.137);
   padding: 1.5vh 1vh;
@@ -175,7 +171,8 @@
   text-align: center;
   letter-spacing: 3px;
 
-  color: gray;
+  color: silver;
+  font-weight: bold;
 }
 
 .cart_side .increase,
@@ -354,18 +351,18 @@
 
 .cart_side .label_code {
   position: absolute;
+  margin-top: 0.5px;
   z-index: 10;
 
-  margin-top: 0.5px;
+  color: silver;
+  font-weight: bold;
+  letter-spacing: 3px;
 }
 
 #code + .label_code::after {
   content: "";
-  color: gray;
   animation: code forwards;
   animation-duration: 3s;
-
-  letter-spacing: 2px;
 }
 
 #code:focus + .label_code::after {
@@ -426,11 +423,35 @@
     content: "Enter your code";
   }
 
-  /* 13% {
-    content: "Enter your code";
-  } */
+  13% {
+    content: "Enter your code h";
+  }
+
+  14% {
+    content: "Enter your code he";
+  }
+
+  15% {
+    content: "Enter your code her";
+  }
+
+  16% {
+    content: "Enter your code here";
+  }
+
+  17% {
+    content: "Enter your code here.";
+  }
+
+  18% {
+    content: "Enter your code here..";
+  }
+
+  19% {
+    content: "Enter your code here...";
+  }
 
   100% {
-    content: "Enter your code";
+    content: "Enter your code here...";
   }
 }

@@ -8,6 +8,7 @@ import "./Search.css";
 
 function Search(props) {
   const [name, setName] = useState("");
+  const [placeholder, setPlaceholder] = useState("");
   const [params, setParams] = useState({
     name: queryString.parse(window.location.search).name,
     page:
@@ -19,6 +20,8 @@ function Search(props) {
   useEffect(() => {
     console.log("a", params.nane);
   }, [params.name]);
+
+  useEffect(() => {}, []);
 
   const search = async (e) => {
     await e.preventDefault();
@@ -54,10 +57,11 @@ function Search(props) {
             id="search_product"
             className="search_input"
             placeholder={params.name ? params.name : ""}
+            // value={params.name ? params.name : ""}
             onChange={(e) => setName(e.target.value)}
           />
           <label
-            style={{ display: params.name ? "none" : "block" }}
+            style={{ display: params.name || name !== "" ? "none" : "block" }}
             className="search_label"
             htmlFor="search_product"
           ></label>

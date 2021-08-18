@@ -7,6 +7,8 @@
 
   display: flex;
   align-items: center;
+
+  font-family: 'Helvetica';
 }
 
 .search_side .search_frame {
@@ -18,13 +20,12 @@
 }
 
 .search_side .search_label {
-  /* width: 25px;
-  height: 25px; */
-  /* background-color: red; */
-
   position: absolute;
   margin: auto;
   z-index: 3;
+
+  color: silver;
+  font-weight: bold;
 }
 
 .search_side .search_label::after {
@@ -33,6 +34,9 @@
   animation: search_product;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+
+  letter-spacing: 3px;
+  font-weight: bold;
 }
 
 @keyframes search_product {
@@ -61,35 +65,75 @@
   }
 
   6% {
-    content: "Select P";
+    content: "Select p";
   }
 
   7% {
-    content: "Select Pr";
+    content: "Select pr";
   }
 
   8% {
-    content: "Select Pro";
+    content: "Select pro";
   }
 
   9% {
-    content: "Select Prod";
+    content: "Select prod";
   }
 
   10% {
-    content: "Select Produ";
+    content: "Select produ";
   }
 
   11% {
-    content: "Select Produc";
+    content: "Select produc";
   }
 
   12% {
-    content: "Select Product";
+    content: "Select product";
+  }
+
+  13% {
+    content: "Select product n";
+  }
+
+  14% {
+    content: "Select product na";
+  }
+
+  15% {
+    content: "Select product nam";
+  }
+
+  16% {
+    content: "Select product name";
+  }
+
+  17% {
+    content: "Select product name h";
+  }
+
+  18% {
+    content: "Select product name he";
+  }
+
+  19% {
+    content: "Select product name her";
+  }
+
+  20% {
+    content: "Select product name here.";
+  }
+
+  20% {
+    content: "Select product name here..";
+  }
+
+  20% {
+    content: "Select product name here...";
   }
 
   100% {
-    content: "Select Product";
+    content: "Select product name here...";
   }
 }
 
@@ -102,6 +146,9 @@
 
   text-align: center;
   letter-spacing: 3px;
+
+  color: silver;
+  font-weight: bold;
 }
 
 .search_side .search_input:focus {
