@@ -63,11 +63,13 @@ function Cart(props) {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
       phone: cookies.get("user").phone,
+      tax,
+      discount_id: recordCode.id,
       total_price: totalPrice,
       orderList,
       recordCode,
     };
-
+    Alert({ message: recordCode.id });
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
     };
