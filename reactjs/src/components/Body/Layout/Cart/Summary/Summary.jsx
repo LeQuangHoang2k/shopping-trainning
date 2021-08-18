@@ -111,7 +111,6 @@ function Summary(props) {
       </form>
 
       <div
-        // className="row"
         style={{
           padding: "2vh 0",
         }}
@@ -139,7 +138,6 @@ function Summary(props) {
       <div
         className="row"
         style={{
-          // borderTop: "1px solid rgba(0,0,0,.1)",
           padding: "2vh 0",
         }}
       >
@@ -158,59 +156,31 @@ function Summary(props) {
       <div
         className="row"
         style={{
-          // borderTop: "1px solid rgba(0,0,0,.1)",
           padding: "2vh 0",
         }}
       >
         <div className="col">Discount Rate</div>
-        <div className="col text-right">
-          {total > 0
-            ? parseFloat(total).toLocaleString("it-IT", {
-                style: "currency",
-                currency: "VND",
-                minimumFractionDigits: 3,
-              })
-            : "0 VND"}
-        </div>
+        <div className="col text-right"></div>
       </div>
 
       <div
         className="row"
         style={{
-          // borderTop: "1px solid rgba(0,0,0,.1)",
           padding: "2vh 0",
         }}
       >
         <div className="col">Tax</div>
-        <div className="col text-right">
-          {/* {total > 0
-            ? parseFloat(total).toLocaleString("it-IT", {
-                style: "currency",
-                currency: "VND",
-                minimumFractionDigits: 3,
-              })
-            : "0 VND"} */}
-          {tax} %
-        </div>
+        <div className="col text-right">{tax} %</div>
       </div>
 
       <div
         className="row"
         style={{
-          // borderTop: "1px solid rgba(0,0,0,.1)",
           padding: "2vh 0",
         }}
       >
         <div className="col">TOTAL PRICE</div>
-        <div className="col text-right">
-          {total > 0
-            ? parseFloat(total).toLocaleString("it-IT", {
-                style: "currency",
-                currency: "VND",
-                minimumFractionDigits: 3,
-              })
-            : "0 VND"}
-        </div>
+        <div className="col text-right"></div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
