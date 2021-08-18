@@ -33,14 +33,13 @@ function Cart(props) {
     if (orderList.length <= 0) return setTotal(0);
 
     var sum = 0.0;
-    var elmPrice = 0;
     orderList.forEach((element) => {
       sum =
         parseFloat(sum) +
         parseFloat(element.item.price) * parseFloat(element.item.count);
     });
 
-    console.log("sum", parseFloat(sum));
+    console.log("total", parseFloat(sum));
     setTotal(sum);
   };
 
