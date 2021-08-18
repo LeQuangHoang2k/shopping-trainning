@@ -16,7 +16,6 @@ class OrderDetail extends Model
         'amount',
         "product_option_id",
         "price_per_unit",
-        "tax"
     ];
 
     public function products()
