@@ -20,6 +20,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer("amount")->nullable();
             $table->integer("product_option_id");
             $table->decimal('price_per_unit', $precision = 15, $scale = 3)->nullable();
+            $table->decimal('tax', $precision = 15, $scale = 3)->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
