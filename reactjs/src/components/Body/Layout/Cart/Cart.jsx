@@ -87,7 +87,7 @@ function Cart(props) {
       console.log("abc", res.data.order);
       return { order: res.data.order };
     } catch (error) {
-      console.error(error.response.data);
+      console.log(error.response.data);
       return false;
     }
   };
