@@ -19,7 +19,7 @@ function Cart(props) {
   const [orderList, setOrderList] = useState([]);
   const [recordCode, setRecordCode] = useState({});
 
-  const [total, setTotal] = useState(0.0);
+  const [totalOriginalPrice, setTotalOriginalPrice] = useState(0.0);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
@@ -29,8 +29,8 @@ function Cart(props) {
     }
   }, [cartStorage, recordCode]);
 
-  const totalPrice = (orderList) => {
-    if (orderList.length <= 0) return setTotal(0);
+  const totalPriceHandle = (orderList) => {
+    if (orderList.length <= 0) return setTotalOriginalPrice(0);
 
     var sum = 0.0;
     orderList.forEach((element) => {
@@ -39,8 +39,8 @@ function Cart(props) {
         parseFloat(element.item.price) * parseFloat(element.item.count);
     });
 
-    console.log("total", parseFloat(sum));
-    setTotal(sum);
+    console.log("totalOriginalPrice", parseFloat(sum));
+    setTotalOriginalPrice(sum);
   };
 
   const purchase = async () => {
@@ -64,7 +64,7 @@ function Cart(props) {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
       phone: cookies.get("user").phone,
-      total_price: total,
+      total_price: totalOriginalPrice,
       orderList,
       recordCode,
     };
@@ -112,11 +112,11 @@ function Cart(props) {
     <div className="cart_side">
       <div className="card">
         <div className="row">
-          <List orderList={orderList} totalPrice={totalPrice} />
+          <List orderList={orderList} totalPriceHandle={totalPriceHandle} />
           <Summary
-            total={total}
+            total={totalOriginalPrice}
             purchase={purchase}
-            setTotal={setTotal}
+            setTotal={setTotalOriginalPrice}
             orderList={orderList}
             recordCode={recordCode}
             setRecordCode={setRecordCode}

@@ -3,8 +3,14 @@ import axios from "axios";
 import Alert from "../../../../../features/Alert";
 
 function Summary(props) {
-  const { total, purchase, setTotal, orderList, recordCode, setRecordCode } =
-    props;
+  const {
+    totalOriginalPrice,
+    purchase,
+    setTotalOriginalPrice,
+    orderList,
+    recordCode,
+    setRecordCode,
+  } = props;
 
   const [showLabel, setShowLabel] = useState(true);
   const [success, setSuccess] = useState(false);
@@ -82,7 +88,7 @@ function Summary(props) {
 
     if (!result) return alert("tạch");
     setCode("");
-    setTotal(0.0);
+    setTotalOriginalPrice(0.0);
 
     setShowLabel(true);
     setSuccess(false);
@@ -90,8 +96,8 @@ function Summary(props) {
   };
 
   const originalPrice = () => {
-    return total > 0
-      ? parseFloat(total).toLocaleString("it-IT", {
+    return totalOriginalPrice > 0
+      ? parseFloat(totalOriginalPrice).toLocaleString("it-IT", {
           style: "currency",
           currency: "VND",
           minimumFractionDigits: 3,
@@ -152,7 +158,7 @@ function Summary(props) {
           padding: "2vh 0",
         }}
       >
-        <div className="col">Total original Price</div>
+        <div className="col">Total original price</div>
         <div className="col text-right">{originalPrice()}</div>
       </div>
 
@@ -182,8 +188,8 @@ function Summary(props) {
           padding: "2vh 0",
         }}
       >
-        <div className="col">TOTAL PRICE</div>
-        <div className="col text-right">{total}</div>
+        <div className="col">Total Price</div>
+        <div className="col text-right">{totalOriginalPrice}</div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>

@@ -7,7 +7,7 @@ import Alert from "../../../../../features/Alert";
 import Swal from "sweetalert2";
 
 function List(props) {
-  const { orderList, totalPrice } = props;
+  const { orderList, totalPriceHandle } = props;
   const cartStorage = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
@@ -63,7 +63,7 @@ function List(props) {
 
     console.log("ischecked", isChecked, item);
     console.log("listOrder", orderList);
-    totalPrice(orderList);
+    totalPriceHandle(orderList);
   };
 
   return (
