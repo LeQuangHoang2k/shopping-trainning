@@ -11,6 +11,8 @@ function Summary(props) {
   const [fail, setFail] = useState(false);
   const [code, setCode] = useState("");
 
+  const [tax, setTax] = useState(10);
+
   useEffect(() => {
     console.log("code", code);
     console.log("recordCode", recordCode);
@@ -181,13 +183,14 @@ function Summary(props) {
       >
         <div className="col">Tax</div>
         <div className="col text-right">
-          {total > 0
+          {/* {total > 0
             ? parseFloat(total).toLocaleString("it-IT", {
                 style: "currency",
                 currency: "VND",
                 minimumFractionDigits: 3,
               })
-            : "0 VND"}
+            : "0 VND"} */}
+          {tax} %
         </div>
       </div>
 
