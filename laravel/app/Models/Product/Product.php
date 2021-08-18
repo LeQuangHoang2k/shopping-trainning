@@ -2,6 +2,9 @@
 
 namespace App\Models\Product;
 
+use App\Models\OrderDetail;
+use App\Models\ProductImage;
+use App\Models\ProductOption;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
