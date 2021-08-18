@@ -57,7 +57,6 @@ function Search(props) {
             id="search_product"
             className="search_input"
             placeholder={params.name ? params.name : ""}
-            // value={params.name ? params.name : ""}
             onChange={(e) => setName(e.target.value)}
           />
           <label
