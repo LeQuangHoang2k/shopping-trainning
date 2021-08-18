@@ -183,7 +183,7 @@ function Summary(props) {
         }}
       >
         <div className="col">TOTAL PRICE</div>
-        <div className="col text-right"></div>
+        <div className="col text-right">{total}</div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
