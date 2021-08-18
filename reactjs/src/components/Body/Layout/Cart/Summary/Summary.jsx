@@ -89,6 +89,16 @@ function Summary(props) {
     setFail(false);
   };
 
+  const originalPrice = () => {
+    return total > 0
+      ? parseFloat(total).toLocaleString("it-IT", {
+          style: "currency",
+          currency: "VND",
+          minimumFractionDigits: 3,
+        })
+      : "0 VND";
+  };
+
   return (
     <div className="col-md-4 summary">
       <div>
@@ -143,15 +153,7 @@ function Summary(props) {
         }}
       >
         <div className="col">Original Price</div>
-        <div className="col text-right">
-          {total > 0
-            ? parseFloat(total).toLocaleString("it-IT", {
-                style: "currency",
-                currency: "VND",
-                minimumFractionDigits: 3,
-              })
-            : "0 VND"}
-        </div>
+        <div className="col text-right">{originalPrice()}</div>
       </div>
 
       <div
