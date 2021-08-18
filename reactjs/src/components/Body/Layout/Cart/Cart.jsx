@@ -20,6 +20,8 @@ function Cart(props) {
   const [recordCode, setRecordCode] = useState({});
 
   const [totalOriginalPrice, setTotalOriginalPrice] = useState(0);
+  const [tax, setTax] = useState(10);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     console.log("cartStorage", cartStorage);
@@ -61,7 +63,7 @@ function Cart(props) {
       user_id: cookies.get("user").id,
       address: cookies.get("user").address,
       phone: cookies.get("user").phone,
-      total_price: totalOriginalPrice,
+      total_price: totalPrice,
       orderList,
       recordCode,
     };
@@ -117,6 +119,10 @@ function Cart(props) {
             orderList={orderList}
             recordCode={recordCode}
             setRecordCode={setRecordCode}
+            totalPrice={totalPrice}
+            setTotalPrice={setTotalPrice}
+            tax={tax}
+            setTax={setTax}
           />
         </div>
       </div>

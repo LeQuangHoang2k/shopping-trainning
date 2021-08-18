@@ -11,6 +11,8 @@ function Summary(props) {
     setRecordCode,
     purchase,
     orderList,
+    totalPrice,
+    setTotalPrice,tax, setTax
   } = props;
 
   const [showLabel, setShowLabel] = useState(true);
@@ -19,8 +21,6 @@ function Summary(props) {
   const [code, setCode] = useState("");
 
   const [discountPrice, setDiscountPrice] = useState(0);
-  const [tax, setTax] = useState(10);
-  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     Log({ code });
