@@ -45,6 +45,7 @@ function Summary(props) {
         setRecordCode({});
 
         setDiscountPrice(0);
+        setTotalPrice(onTotalPriceHandle);
 
         break;
       }
@@ -57,6 +58,7 @@ function Summary(props) {
         setSuccess(true);
 
         await getCode(e.target.value);
+        setTotalPrice(onTotalPriceHandle);
 
         break;
       }
@@ -70,6 +72,7 @@ function Summary(props) {
 
         setRecordCode({});
         setDiscountPrice(0);
+        setTotalPrice(onTotalPriceHandle);
 
         break;
       }
@@ -114,12 +117,12 @@ function Summary(props) {
     });
   };
 
-  const onTotalPriceHandle = () => {
+  function onTotalPriceHandle() {
     var priceAfterDiscount = totalOriginalPrice - discountPrice;
     var priceAfterTax = priceAfterDiscount * (1 - 0.1);
-    setTotalPrice(priceAfterTax);
     return priceAfterTax;
-  };
+    // return (totalOriginalPrice - discountPrice) * 0.9;
+  }
 
   return (
     <div className="col-md-4 summary">
@@ -213,6 +216,10 @@ function Summary(props) {
         <div className="col">Total Price</div>
         <div className="col text-right">
           {/* {totalPrice > 0 ? onFormatPriceHandle(onTotalPriceHandle()) : "0 VND"} */}
+          {/* {(totalOriginalPrice - discountPrice) * 0.9} */}
+          {onTotalPriceHandle() > 0
+            ? onFormatPriceHandle(onTotalPriceHandle())
+            : "0 VND"}
         </div>
       </div>
 
