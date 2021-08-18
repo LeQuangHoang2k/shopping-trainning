@@ -182,7 +182,7 @@ function Summary(props) {
       >
         <div className="col">Discount price</div>
         <div className="col text-right">
-          - {discountPrice > 0 ? onFormatPriceHandle(discountPrice) : "0 VND"}
+          {discountPrice > 0 ? onFormatPriceHandle(discountPrice) : "0 VND"}
         </div>
       </div>
 
