@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Product;
 
-use App\Casts\Hash;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    // use HasFactory;
-
     protected $fillable = [
         "id",
         "category_id",
