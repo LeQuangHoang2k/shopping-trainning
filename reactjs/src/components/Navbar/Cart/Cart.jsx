@@ -14,9 +14,7 @@ function Cart(props) {
     setAmount(cartStorage.list.length);
   }, [cartStorage]);
 
-  const showCart = () => {
-    window.location.href = "/cart";
-  };
+  const showCart = () => (window.location.href = "/cart");
 
   return (
     <div className="cart_navbar_wrapper" onClick={showCart}>
