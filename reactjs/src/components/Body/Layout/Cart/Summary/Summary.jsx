@@ -215,8 +215,6 @@ function Summary(props) {
       >
         <div className="col">Total Price</div>
         <div className="col text-right">
-          {/* {totalPrice > 0 ? onFormatPriceHandle(onTotalPriceHandle()) : "0 VND"} */}
-          {/* {(totalOriginalPrice - discountPrice) * 0.9} */}
           {onTotalPriceHandle() > 0
             ? onFormatPriceHandle(onTotalPriceHandle())
             : "0 VND"}
