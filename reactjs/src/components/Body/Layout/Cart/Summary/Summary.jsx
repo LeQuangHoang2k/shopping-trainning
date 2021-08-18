@@ -17,7 +17,9 @@ function Summary(props) {
   const [fail, setFail] = useState(false);
   const [code, setCode] = useState("");
 
+  const [discountPrice, setDiscountPrice] = useState(0);
   const [tax, setTax] = useState(10);
+  // const [tax, setTax] = useState(10);
 
   useEffect(() => {
     console.log("code", code);
@@ -40,6 +42,9 @@ function Summary(props) {
         setSuccess(false);
 
         setRecordCode({});
+
+        setDiscountPrice(0);
+
         break;
       }
 
@@ -63,6 +68,8 @@ function Summary(props) {
         setSuccess(false);
 
         setRecordCode({});
+        setDiscountPrice(0);
+
         break;
       }
     }
@@ -78,6 +85,8 @@ function Summary(props) {
       const { data } = res.data;
       console.log("code record: ", data[0]);
       setRecordCode(data[0]);
+      setDiscountPrice(parseFloat(data[0].price));
+      console.log(data[0].price, parseFloat(data[0].price));
     } catch (error) {
       setSuccess(false);
       setFail(true);
@@ -106,8 +115,8 @@ function Summary(props) {
   //     : "0 VND";
   // };
 
-  const onFormatPriceHandle = () => {
-    return parseFloat(totalOriginalPrice).toLocaleString("it-IT", {
+  const onFormatPriceHandle = (value) => {
+    return parseFloat(value).toLocaleString("it-IT", {
       style: "currency",
       currency: "VND",
       minimumFractionDigits: 3,
@@ -183,10 +192,7 @@ function Summary(props) {
       >
         <div className="col">Discount price</div>
         <div className="col text-right">
-          {" "}
-          {totalOriginalPrice > 0
-            ? onFormatPriceHandle(totalOriginalPrice)
-            : "0 VND"}
+          - {discountPrice > 0 ? onFormatPriceHandle(discountPrice) : "0 VND"}
         </div>
       </div>
 
