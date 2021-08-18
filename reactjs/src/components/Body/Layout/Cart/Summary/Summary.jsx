@@ -10,7 +10,6 @@ function Summary(props) {
   const [success, setSuccess] = useState(false);
   const [fail, setFail] = useState(false);
   const [code, setCode] = useState("");
-  // const [recordCode, setRecordCode] = useState({});
 
   useEffect(() => {
     console.log("code", code);
@@ -30,6 +29,8 @@ function Summary(props) {
         setShowLabel(true);
         setFail(false);
         setSuccess(false);
+
+        setRecordCode({});
         break;
       }
 
@@ -51,6 +52,8 @@ function Summary(props) {
         setShowLabel(false);
         setFail(true);
         setSuccess(false);
+
+        setRecordCode({});
         break;
       }
     }
