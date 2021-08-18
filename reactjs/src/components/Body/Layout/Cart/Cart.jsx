@@ -67,7 +67,7 @@ function Cart(props) {
       phone: cookies.get("user").phone,
       total_price: total,
       orderList,
-      //
+      recordCode,
     };
 
     const config = {
