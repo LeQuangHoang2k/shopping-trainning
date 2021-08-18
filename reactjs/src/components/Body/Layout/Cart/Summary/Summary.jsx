@@ -12,6 +12,10 @@ function Summary(props) {
   const [code, setCode] = useState("");
 
   const [tax, setTax] = useState(10);
+  const [originalPrice, setOriginalPrice] = useState(0);
+  // const [originalPrice, setOriginalPrice] = useState(0);
+  // const [originalPrice, setOriginalPrice] = useState(0);
+  // const [originalPrice, setOriginalPrice] = useState(0);
 
   useEffect(() => {
     console.log("code", code);
@@ -89,15 +93,16 @@ function Summary(props) {
     setFail(false);
   };
 
-  const originalPrice = () => {
-    return total > 0
-      ? parseFloat(total).toLocaleString("it-IT", {
-          style: "currency",
-          currency: "VND",
-          minimumFractionDigits: 3,
-        })
-      : "0 VND";
+  const formatPrice = (value) => {
+    parseFloat(value).toLocaleString("it-IT", {
+      style: "currency",
+      currency: "VND",
+      minimumFractionDigits: 3,
+    });
   };
+
+  // const originalPriceHandle = () =>
+  //   total > 0 ? formatPrice(total) : formatPrice(0);
 
   return (
     <div className="col-md-4 summary">
@@ -153,7 +158,7 @@ function Summary(props) {
         }}
       >
         <div className="col">Original Price</div>
-        <div className="col text-right">{originalPrice()}</div>
+        <div className="col text-right">{}</div>
       </div>
 
       <div
@@ -162,8 +167,12 @@ function Summary(props) {
           padding: "2vh 0",
         }}
       >
-        <div className="col">Discount Rate</div>
-        <div className="col text-right"></div>
+        <div className="col">Discount Price</div>
+        <div className="col text-right">
+          {Object.keys(recordCode).length > 0
+            ? `- ${formatPrice(recordCode.price)}`
+            : `- 0 VND`}
+        </div>
       </div>
 
       <div
