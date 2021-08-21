@@ -9,6 +9,7 @@ import { update } from "../../../../redux/actions/cart";
 import "./Cart.css";
 import Summary from "./Summary/Summary";
 import List from "./List/List";
+import { Log } from "../../../../features/Log";
 
 function Cart(props) {
   const cookies = new Cookies();
@@ -64,13 +65,14 @@ function Cart(props) {
       address: cookies.get("user").address,
       phone: cookies.get("user").phone,
       tax,
-      // discount_id: recordCode.id,
       discount_id: Object.keys(recordCode).length > 0 ? recordCode.id : null,
       total_price: totalPrice,
       orderList,
       recordCode,
     };
-    Alert({ message: recordCode.id });
+
+    Log({ bodyParams });
+
     const config = {
       headers: { Authorization: `Bearer ${cookies.get("access_token")}` },
     };
