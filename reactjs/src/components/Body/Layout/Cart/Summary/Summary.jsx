@@ -122,6 +122,7 @@ function Summary(props) {
   function onTotalPriceHandle() {
     var priceAfterDiscount = totalOriginalPrice - discountPrice;
     var priceAfterTax = priceAfterDiscount * (1 - 0.1);
+    setTotalPrice(priceAfterTax);
     return priceAfterTax;
     // return (totalOriginalPrice - discountPrice) * 0.9;
   }
