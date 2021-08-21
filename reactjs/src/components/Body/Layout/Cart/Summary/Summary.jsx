@@ -103,12 +103,14 @@ function Summary(props) {
     var result = await purchase();
 
     if (!result) return alert("tạch");
-    setCode("");
-    setTotalOriginalPrice(0.0);
-
     setShowLabel(true);
     setSuccess(false);
     setFail(false);
+
+    setCode("");
+    setDiscountPrice(0);
+    // tax
+    setTotalOriginalPrice(0.0);
   };
 
   const onFormatPriceHandle = (value) => {
