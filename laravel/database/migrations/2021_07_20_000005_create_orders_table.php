@@ -24,7 +24,7 @@ class CreateOrdersTable extends Migration
             $table->timestamps();
 
             $table->foreign("user_id")->references('id')->on('users');
-            $table->foreign("discount_id")->references('id')->on('discounts');
+            // $table->foreign("discount_id")->references('id')->on('discounts');
         });
     }
 
