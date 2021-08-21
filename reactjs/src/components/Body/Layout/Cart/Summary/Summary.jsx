@@ -12,7 +12,9 @@ function Summary(props) {
     purchase,
     orderList,
     totalPrice,
-    setTotalPrice,tax, setTax
+    setTotalPrice,
+    tax,
+    setTax,
   } = props;
 
   const [showLabel, setShowLabel] = useState(true);
