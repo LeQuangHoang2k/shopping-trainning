@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->integer("user_id");
             $table->text("address")->nullable();
             $table->string("phone")->nullable();
-            $table->integer("discount_id");
+            $table->integer("discount_id")->nullable();
             $table->decimal('tax', $precision = 15, $scale = 3)->nullable();
             $table->string("total_price")->nullable();
             $table->timestamps();
