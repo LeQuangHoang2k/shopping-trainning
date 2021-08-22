@@ -17,7 +17,13 @@ class OrderRepository
 
     public function create($filters)
     {
-        print_r($filters['total_price']);
-        return Order::create($filters);
+        $order = Order::create($filters);
+
+        $have_code = false;
+        if (count($filters['record_code']) === 0) {
+            $have_code = true;
+        }
+
+        return $order;
     }
 }
