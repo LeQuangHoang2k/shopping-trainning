@@ -68,7 +68,7 @@ function Cart(props) {
       discount_id: Object.keys(recordCode).length > 0 ? recordCode.id : null,
       total_price: totalPrice,
       orderList,
-      recordCode,
+      record_code: recordCode,
     };
 
     Log({ bodyParams });
