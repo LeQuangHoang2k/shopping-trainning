@@ -25,8 +25,8 @@ function Cart(props) {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    console.log("cartStorage", cartStorage);
-    console.log("recordCode", recordCode);
+    Log({ cartStorage });
+    Log({ recordCode });
   }, [cartStorage, recordCode]);
 
   const totalPriceHandle = (orderList) => {
@@ -54,7 +54,7 @@ function Cart(props) {
     await updateCart();
 
     Alert({ success: "Purchase success!" });
-    console.log("purchase order list", orderList);
+    Log({ orderList });
 
     return true;
   };
@@ -84,8 +84,10 @@ function Cart(props) {
         config
       );
 
-      console.log("res cart", res);
-      console.log("body params", bodyParams);
+      Log({ res });
+      Log({ bodyParams });
+      Log({ res });
+
       console.log("access_token", cookies.get("access_token"));
       console.log("abc", res.data.order);
       return { order: res.data.order };
@@ -103,13 +105,14 @@ function Cart(props) {
           elm.optionValue === item.item.optionValue
       );
 
-      console.log("index", index);
+      Log({ index });
       cartStorage.list.splice(index, 1);
     });
 
     dispatch(update({ cart: cartStorage.list }));
 
-    console.log("update cart", orderList, cartStorage.list);
+    console.log("update cart", cartStorage.list);
+    Log({ orderList });
   };
 
   return (
