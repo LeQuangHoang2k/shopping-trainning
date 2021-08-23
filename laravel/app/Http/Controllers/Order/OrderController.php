@@ -59,31 +59,8 @@ class OrderController extends Controller
             "message" => "success",
             "order" => $order = new OrderResource($this->orderRepository->create($filters)),
             "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters, $order)),
-            "record_code" => $filters['record_code'],
+            // "record_code" => $filters['record_code'],
         ];
-        //
-
-        // $orderDetails = [];
-        // foreach ($filters['orderList'] as $item) {
-        //     $orderDetail = OrderDetail::create([
-        //         "order_id" => $order->id,
-        //         "product_id" => $item['item']['product_id'],
-        //         "amount" => $item['item']['count'],
-        //         "product_option_id" => $item['item']['option_id'],
-        //         "price_per_unit " => $item['item']['price'],
-        //     ]);
-
-        //     array_push($orderDetails, $orderDetail);
-        // }
-
-        // return [
-        //     "message" => "success",
-        //     "order" => $order,
-        //     "order_detail_list" => $orderDetails
-        // ];
-
-        // return OrderResource::collection($this->orderRepository->create($filters));
-
     }
 
     /**
