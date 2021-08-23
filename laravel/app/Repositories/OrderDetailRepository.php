@@ -25,7 +25,7 @@ class OrderDetailRepository
                 "product_id" => $item['item']['product_id'],
                 "amount" => $item['item']['count'],
                 "product_option_id" => $item['item']['option_id'],
-                "price_per_unit " => $item['item']['price'],
+                "price_per_unit" => $item['item']['price'],
             ]);
 
             array_push($orderDetails, $orderDetail);
