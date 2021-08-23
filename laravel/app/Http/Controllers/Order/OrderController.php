@@ -64,9 +64,10 @@ class OrderController extends Controller
         //create
         return [
             "message" => "success",
-            "order" => new OrderResource($this->orderRepository->create($filters)),
-            // "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters)),
-            "order_detail" => $this->orderDetailRepository->create($filters),
+            "order" => $order = new OrderResource($this->orderRepository->create($filters)),
+            "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters, $order)),
+            // "order_detail" => $this->orderDetailRepository->create($filters),
+            // 'test' => $order,
         ];
         //
 
