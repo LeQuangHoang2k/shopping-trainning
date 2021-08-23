@@ -17,6 +17,17 @@ class DiscountRepository
         return $query;
     }
 
+    public function updateUsedCode($filters)
+    {
+        $code_used = tap(Discount::where('id', $filters['record_code']['id']))
+            ->update([
+                'is_used' => true,
+            ])
+            ->first();
+
+        return $code_used;
+    }
+
     public function test()
     {
         // dd(1243);

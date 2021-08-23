@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Resources\OrderDetailResource;
 use App\Http\Resources\OrderResource;
+use App\Repositories\DiscountRepository;
 use App\Repositories\OrderDetailRepository;
 use App\Repositories\OrderRepository;
 
@@ -17,11 +18,13 @@ class OrderController extends Controller
 {
     public $orderRepository;
     public $orderDetailRepository;
+    public $discountRepository;
 
-    public function __construct(OrderRepository $orderRepository, OrderDetailRepository $orderDetailRepository)
+    public function __construct(OrderRepository $orderRepository, OrderDetailRepository $orderDetailRepository, DiscountRepository $discountRepository)
     {
         $this->orderRepository = $orderRepository;
         $this->orderDetailRepository = $orderDetailRepository;
+        $this->discountRepository = $discountRepository;
     }
 
     /**
@@ -55,11 +58,13 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
+        $code_used = $this->discountRepository->updateUsedCode($filters);
+
         return [
             "message" => "success",
             "order" => $order = new OrderResource($this->orderRepository->create($filters)),
             "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters, $order)),
-            // "record_code" => $filters['record_code'],
+            // "code_used" => $code_used
         ];
     }
 
