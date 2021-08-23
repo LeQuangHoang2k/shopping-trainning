@@ -22,7 +22,7 @@ class DiscountController extends Controller
         $request->validated();
         $filters = $request->all();
 
-        return new DiscountResource($this->discountRepository->get($filters));
+        return new DiscountResource($this->discountRepository->getByCode($filters));
     }
 
     public function create()

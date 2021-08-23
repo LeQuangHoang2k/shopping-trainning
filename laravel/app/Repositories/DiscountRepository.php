@@ -6,7 +6,7 @@ use App\Models\Discount\Discount;
 
 class DiscountRepository
 {
-    public function get($filters)
+    public function getByCode($filters)
     {
         $query  = Discount::select("*")->where('code', $filters['code'])->get();
 
@@ -15,6 +15,12 @@ class DiscountRepository
         if (strtotime("now") > strtotime($query[0]->expired_at)) return ['error' => 'This code has expired ', 'data' => []];
 
         return $query;
+    }
+
+    public function checkIdInRecord($filters)
+    {
+        if ($filters['discount_id'] !== $filters['record_code']['id']) return false;
+        return true;
     }
 
     public function updateUsedCode($filters)

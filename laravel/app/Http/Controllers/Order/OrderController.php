@@ -58,7 +58,14 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
-        $code_used = $this->discountRepository->updateUsedCode($filters);
+        // $code_used = $this->discountRepository->updateUsedCode($filters);
+
+        if (!$check = $this->discountRepository->checkIdInRecord($filters)) {
+            return [
+                "error" => "Your code has not been verified"
+            ];
+        }
+
 
         return [
             "message" => "success",

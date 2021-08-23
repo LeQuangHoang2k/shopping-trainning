@@ -3,10 +3,16 @@
 namespace App\Repositories;
 
 use App\Models\Order\Order;
-use App\Models\Product;
 
 class OrderRepository
 {
+    public $discountRepository;
+
+    public function __construct(DiscountRepository $discountRepository = null)
+    {
+        $this->discountRepository = $discountRepository;
+    }
+
     public function getAll()
     {
     }
@@ -17,7 +23,6 @@ class OrderRepository
 
     public function create($filters)
     {
-        $order = Order::create($filters);
-        return $order;
+        return Order::create($filters);
     }
 }
