@@ -12,7 +12,7 @@ class DiscountRepository
 
         if (count($query) === 0) return ['error' => 'This code is not exist', 'data' => []];
         if ($query[0]->is_used) return ['error' => 'This code is already in use', 'data' => []];
-        if (strtotime("now") > strtotime($query[0]->expired_at)) return ['error' => 'This code has expired ', 'data' => []];
+        if (strtotime("now") > strtotime($query[0]->expired_at)) return ['error' => 'This code has expired', 'data' => []];
 
         return $query;
     }
@@ -21,6 +21,17 @@ class DiscountRepository
     {
         if ($filters['discount_id'] !== $filters['record_code']['id']) return false;
         return true;
+    }
+
+    public function checkUsedCode($filters)
+    {
+        $query  = Discount::select("*")->where('id', $filters['discount_id'])->get();
+
+        if (count($query) === 0) return 'This code is not exist';
+        if ($query[0]->is_used) return 'This code is already in use before';
+        if (strtotime("now") > strtotime($query[0]->expired_at)) return 'This code has expired';
+
+        return null;
     }
 
     public function updateUsedCode($filters)

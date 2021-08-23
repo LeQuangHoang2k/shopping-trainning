@@ -60,12 +60,17 @@ class OrderController extends Controller
 
         // $code_used = $this->discountRepository->updateUsedCode($filters);
 
-        if (!$check = $this->discountRepository->checkIdInRecord($filters)) {
+        if (!$checkIdInRecord = $this->discountRepository->checkIdInRecord($filters)) {
             return [
                 "error" => "Your code has not been verified"
             ];
         }
 
+        if ($checkUsedCode = $this->discountRepository->checkUsedCode($filters)) {
+            return [
+                "error" => $checkUsedCode
+            ];
+        }
 
         return [
             "message" => "success",
