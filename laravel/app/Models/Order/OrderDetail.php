@@ -1,7 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Order;
 
+use App\Models\Order;
+use App\Models\Product\Product;
+use App\Models\ProductOption;
 use Illuminate\Database\Eloquent\Model;
 
 class OrderDetail extends Model
