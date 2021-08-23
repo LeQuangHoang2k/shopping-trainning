@@ -30,7 +30,7 @@ class CreateRequest extends FormRequest
             "user_id" => "required",
             "address" => "nullable",
             "phone" => "nullable",
-            "tax" => "required|numeric|min:0",
+            "tax" => "required|numeric|gt:0",
             "discount_id" => "nullable|numeric|gt:0",
             "total_price" => "required",
             "orderList" => "",
