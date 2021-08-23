@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Order;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Order\CreateRequest;
 use App\Http\Resources\OrderResource;
-use App\Models\Order;
-use App\Models\OrderDetail;
 use App\Repositories\OrderRepository;
 use Illuminate\Http\Request;
 
