@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Order\OrderDetail;
 
-class CategoryRepository
+class OrderDetailRepository
 {
     public function getAll()
     {
@@ -18,6 +18,7 @@ class CategoryRepository
 
     public function create($filters)
     {
-        print_r("filters");
+        // print_r("filters");
+        return  "1234";
     }
 }

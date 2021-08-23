@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers\Order;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Order\CreateRequest;
-use App\Http\Resources\OrderResource;
-use App\Repositories\OrderRepository;
 use Illuminate\Http\Request;
+use App\Http\Requests\Order\CreateRequest;
+
+use App\Http\Controllers\Controller;
+
+use App\Http\Resources\OrderDetailResource;
+use App\Http\Resources\OrderResource;
+use App\Repositories\OrderDetailRepository;
+use App\Repositories\OrderRepository;
+
 
 class OrderController extends Controller
 {
     public $orderRepository;
+    public $orderDetailRepository;
 
-    public function __construct(OrderRepository $orderRepository)
+    public function __construct(OrderRepository $orderRepository, OrderDetailRepository $orderDetailRepository)
     {
         $this->orderRepository = $orderRepository;
+        $this->orderDetailRepository = $orderDetailRepository;
     }
 
     /**
@@ -58,7 +65,8 @@ class OrderController extends Controller
         return [
             "message" => "success",
             "order" => new OrderResource($this->orderRepository->create($filters)),
-            // "order_detail" => OrderResource::collection($this->orderDetailRepository->create($filters)),
+            // "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters)),
+            "order_detail" => $this->orderDetailRepository->create($filters),
         ];
         //
 
