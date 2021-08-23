@@ -55,19 +55,11 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
-        // $have_code = false;
-        // if (count($filters['record_code']) === 0) {
-        //     $have_code = true;
-        //     check valid code
-        //      sai thì return
-        // }
-        //create
         return [
             "message" => "success",
             "order" => $order = new OrderResource($this->orderRepository->create($filters)),
             "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters, $order)),
-            // "order_detail" => $this->orderDetailRepository->create($filters),
-            // 'test' => $order,
+            "record_code" => $filters['record_code'],
         ];
         //
 

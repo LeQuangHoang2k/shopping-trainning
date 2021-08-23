@@ -39,8 +39,5 @@ class OrderDetailRepository
         }
 
         return $orderDetails;
-
-        // print_r("filters");
-        // return  "1234";
     }
 }
