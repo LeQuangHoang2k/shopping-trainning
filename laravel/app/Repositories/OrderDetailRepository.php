@@ -18,13 +18,6 @@ class OrderDetailRepository
 
     public function create($filters, $order)
     {
-        // $have_code = false;
-        // if (count($filters['record_code']) === 0) {
-        //     $have_code = true;
-        //     check valid code
-        //      sai thì return
-        // }
-
         $orderDetails = [];
         foreach ($filters['orderList'] as $item) {
             $orderDetail = OrderDetail::create([
