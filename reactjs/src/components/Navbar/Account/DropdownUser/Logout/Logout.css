@@ -1,7 +1,7 @@
 .btn-account_logout {
   width: 235px;
   height: 40px;
-  background-color: #fdd835;
+  background-color: rgb(245, 244, 245);
   border: none;
   border-radius: 4px;
 
@@ -29,4 +29,8 @@
     width: 235px;
     height: 40px;
   }
+}
+
+.btn-account_logout:hover {
+  background-color: silver;
 }
