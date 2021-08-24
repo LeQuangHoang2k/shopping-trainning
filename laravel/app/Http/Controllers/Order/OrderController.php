@@ -58,23 +58,35 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
-        if (!$checkIdInRecord = $this->discountRepository->checkIdInRecord($filters)) {
-            return [
-                "error" => "Your code has not been verified"
-            ];
-        }
+        $updateUsedCode = null;
 
-        if ($checkUsedCode = $this->discountRepository->checkUsedCode($filters)) {
-            return [
-                "error" => $checkUsedCode
-            ];
+        if ($haveRecord = $this->discountRepository->haveRecord($filters)) {
+            if ($checkIdInRecord = !$this->discountRepository->checkIdInRecord($filters)) {
+                return [
+                    "error" => "Your code not in record"
+                ];
+            }
+
+            if ($checkUsedCode = $this->discountRepository->checkUsedCode($filters)) {
+                return [
+                    "error" => $checkUsedCode
+                ];
+            }
+
+            $updateUsedCode = $this->discountRepository->updateUsedCode($filters);
+        } else {
+            if ($checkEmptyRecord = !$this->discountRepository->checkEmptyRecord($filters)) {
+                return [
+                    "error" => "Your code null and record not empty",
+                ];
+            }
         }
 
         return [
             "message" => "success",
             "order" => $order = new OrderResource($this->orderRepository->create($filters)),
             "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters, $order)),
-            "code_used" => $this->discountRepository->updateUsedCode($filters),
+            "code_used" => $updateUsedCode,
         ];
     }
 

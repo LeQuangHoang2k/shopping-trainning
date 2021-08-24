@@ -17,15 +17,30 @@ class DiscountRepository
         return $query;
     }
 
+    public function haveRecord($filters)
+    {
+        // dd(count($filters['record_code']));
+        // dd($filters);
+        if (count($filters['record_code']) === 0) return false;
+        return true;
+    }
+
     public function checkIdInRecord($filters)
     {
         if ($filters['discount_id'] !== $filters['record_code']['id']) return false;
         return true;
     }
 
+    public function checkEmptyRecord($filters)
+    {
+        // dd(count($filters['record_code']));
+        if (count($filters['record_code']) !== 0) return false;
+        return true;
+    }
+
     public function checkUsedCode($filters)
     {
-        $query  = Discount::select("*")->where('id', $filters['discount_id'])->get();
+        $query  = Discount::select("*")->where('id', $filters['record_code']['id'])->get();
 
         if (count($query) === 0) return 'This code is not exist';
         if ($query[0]->is_used) return 'This code is already in use before';
