@@ -58,8 +58,6 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
-        // $code_used = $this->discountRepository->updateUsedCode($filters);
-
         if (!$checkIdInRecord = $this->discountRepository->checkIdInRecord($filters)) {
             return [
                 "error" => "Your code has not been verified"
@@ -76,7 +74,7 @@ class OrderController extends Controller
             "message" => "success",
             "order" => $order = new OrderResource($this->orderRepository->create($filters)),
             "order_detail" => OrderDetailResource::collection($this->orderDetailRepository->create($filters, $order)),
-            // "code_used" => $code_used
+            "code_used" => $this->discountRepository->updateUsedCode($filters),
         ];
     }
 
