@@ -1,13 +1,20 @@
 import React from "react";
-import "./AccountSideBar.css";
+import "./AccountSidebar.css";
 import AccountSvg from "./svg/AccountSvg";
 
-function AccountSideBar(props) {
+function AccountSidebar(props) {
   return (
     <div>
       <div className="account_sidebar">
         {/* {} */}
         <div className="wrapper">
+          <div className="sidebar_header">
+            <img src="" alt="123" />
+            <div className="title">
+              <div>1</div>
+              <div>2</div>
+            </div>
+          </div>
           <a href="abc" className="sidebar_item">
             <AccountSvg />
             <span>Thông tin tài khoản</span>
@@ -26,4 +33,4 @@ function AccountSideBar(props) {
   );
 }
 
-export default AccountSideBar;
+export default AccountSidebar;

@@ -8,6 +8,10 @@
   font-family: "Helvetica";
 }
 
+.account_sidebar .sidebar_header {
+  
+}
+
 .account_sidebar .sidebar_item {
   width: 250px;
   height: 38px;
