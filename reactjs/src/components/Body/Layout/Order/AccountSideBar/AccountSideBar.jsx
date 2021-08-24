@@ -9,10 +9,16 @@ function AccountSidebar(props) {
         {/* {} */}
         <div className="wrapper">
           <div className="sidebar_header">
-            <img src="" alt="123" />
+            <img
+              className="sidebar_image"
+              src="https://salt.tikicdn.com/desktop/img/avatar.png"
+              alt="123"
+            />
             <div className="title">
-              <div>1</div>
-              <div>2</div>
+              <div>Account of</div>
+              <div>
+                <strong>Hoàng</strong>
+              </div>
             </div>
           </div>
           <a href="abc" className="sidebar_item">

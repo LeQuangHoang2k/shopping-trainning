@@ -9,7 +9,16 @@
 }
 
 .account_sidebar .sidebar_header {
-  
+  display: flex;
+  align-items: center;
+}
+
+.account_sidebar .sidebar_image {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+
+  margin: 0 12px 0 7px;
 }
 
 .account_sidebar .sidebar_item {
