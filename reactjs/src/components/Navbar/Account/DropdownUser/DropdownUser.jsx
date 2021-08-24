@@ -8,9 +8,11 @@ import "./DropdownUser.css";
 function DropdownUser(props) {
   return (
     <div className="account_dropdown">
-      <Logout />
-
+      
       <Order />
+
+      <Logout />
+      
     </div>
   );
 }
