@@ -11,6 +11,8 @@
 .account_sidebar .sidebar_header {
   display: flex;
   align-items: center;
+
+  margin-bottom: 12px;
 }
 
 .account_sidebar .sidebar_image {
