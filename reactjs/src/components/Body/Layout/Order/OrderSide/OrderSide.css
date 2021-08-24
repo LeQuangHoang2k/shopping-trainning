@@ -1,0 +1,10 @@
+.order_side > .wrapper {
+    width: 1000px;
+    height: 1200px;
+    /* background-color: red; */
+    box-shadow: 0 0 5px 5px blue;
+  
+    position: relative;
+    margin-left: 15px;
+  }
+  

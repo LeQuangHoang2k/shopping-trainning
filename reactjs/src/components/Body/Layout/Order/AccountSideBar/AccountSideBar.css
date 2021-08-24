@@ -1,0 +1,7 @@
+.account_sidebar > .wrapper {
+  width: 250px;
+  height: 1200px;
+  /* background-color: black; */
+
+  box-shadow: 0 0 5px 5px blue;
+}

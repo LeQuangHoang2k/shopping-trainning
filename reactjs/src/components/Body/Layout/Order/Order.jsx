@@ -1,15 +1,14 @@
 import React from "react";
+import AccountSideBar from "./AccountSideBar/AccountSideBar";
 import "./Order.css";
+import OrderSide from "./OrderSide/OrderSide";
 
 function Order(props) {
   return (
     <div style={{ display: "flex" }}>
-      <div className="account_sidebar">
-        <div className="wrapper">account SideBAr</div>
-      </div>
-      <div className="order_sidebar">
-        <div className="wrapper">List Ordered</div>
-      </div>
+      <AccountSideBar />
+
+      <OrderSide />
     </div>
   );
 }
