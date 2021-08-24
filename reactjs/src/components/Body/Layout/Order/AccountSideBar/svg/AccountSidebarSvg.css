@@ -1,0 +1,18 @@
+.account_sidebar_svg {
+  width: 24px;
+  height: 24px;
+  margin: 0px 22px 0px 18px;
+
+  color: rgb(155, 155, 155);
+}
+
+.account_sidebar_svg:hover {
+  /* color: black; */
+}
+
+.account_sidebar .sidebar_item:hover .account_sidebar_svg {
+  background-color: rgb(236, 236, 236);
+
+  color: black;
+  font-weight: bold;
+}
