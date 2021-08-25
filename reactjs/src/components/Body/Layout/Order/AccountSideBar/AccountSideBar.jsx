@@ -21,63 +21,63 @@ function AccountSidebar(props) {
               </div>
             </div>
           </div>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Thông tin tài khoản</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Thông báo của tôi</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Quản lý đơn hàng</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Số địa chỉ</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Thông tin thanh toán</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Nhận xét sản phẩm đã mua</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Sản phẩm bạn đã xem</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Sản phẩm yêu thích</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Sản phẩm mua sau</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Nhận xét của tôi</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Hỏi đáp</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Thông tin TikiNOW</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Mã giảm giá</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>Quản lý Tiki Xu của tôi</span>
           </a>
-          <a href="abc" className="sidebar_item">
+          <a href="/orders" className="sidebar_item">
             <AccountSvg />
             <span>BookCare của tôi</span>
           </a>
