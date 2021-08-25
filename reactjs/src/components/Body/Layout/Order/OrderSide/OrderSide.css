@@ -1,13 +1,16 @@
 .order_side {
-  box-shadow: 0 0 5px 5px red;
+  /* min-height: 500px;
+  height: auto; */
+  /* box-shadow: 0 0 5px 5px red; */
 
   margin-left: 15px;
-  padding-top: 20px;
+  padding-top: 5px;
 }
 
 .order_side > .wrapper {
   width: 985px;
-  height: 1200px;
+  min-height: 500px;
+  height: auto;
   /* background-color: blue; */
 
   /* position: relative; */
@@ -25,10 +28,15 @@
 
 .order_side .side_inner {
   width: 985px;
-  height: 663px;
+  /* height: 663px; */
   background-color: white;
 }
 
 .order_side .side_title {
   padding: 20px 15px;
+}
+
+.order_side .col-2,
+.order_side .col-4 {
+  word-wrap: break-word;
 }

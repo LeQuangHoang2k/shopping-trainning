@@ -8,12 +8,27 @@ function OrderSide(props) {
         <div className="side_header">My order</div>
         <table className="side_inner">
           <tr className="" style={{ display: "flex" }}>
-            <th className="col side_title">Mã đơn hàng</th>
-            <th className="col side_title">Ngày mua</th>
-            <th className="col side_title">Sản phẩm</th>
-            <th className="col side_title">Tổng tiền</th>
-            <th className="col side_title">Trạng thái đơn hàng</th>
+            <th className="col-2 side_title">Mã đơn hàng</th>
+            <th className="col-2 side_title">Ngày mua</th>
+            <th className="col-4 side_title">Sản phẩm</th>
+            <th className="col-2 side_title">Tổng tiền</th>
+            <th className="col-2 side_title">Trạng thái đơn hàng</th>
           </tr>
+
+          {[1, 2, 3, 4, 5, 6].map((key) => {
+            return (
+              <tr key={key} className="" style={{ display: "flex" }}>
+                <td className="col-2 side_title">414100606</td>
+                <td className="col-2 side_title">19/08/2021</td>
+                <td className="col-4 side_title">
+                  Sữa Rửa Mặt Cetaphil Gentle Skin Cleaner (500ml) -
+                  8394107341305,9318637069637
+                </td>
+                <td className="col-2 side_title">306.850 ₫</td>
+                <td className="col-2 side_title">Bàn giao vận chuyển</td>
+              </tr>
+            );
+          })}
         </table>
       </div>
     </div>
