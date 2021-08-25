@@ -6,7 +6,6 @@ function AccountSidebar(props) {
   return (
     <div>
       <div className="account_sidebar">
-        {/* {} */}
         <div className="wrapper">
           <div className="sidebar_header">
             <img
