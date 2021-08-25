@@ -1,6 +1,13 @@
 import React from "react";
 import "./AccountSidebar.css";
-import AccountSvg from "./svg/AccountSvg";
+// import Information from "./svg/Information";
+import {
+  Address,
+  BillingInformation,
+  Information,
+  Notification,
+  OrderManagement,
+} from "./svg/AccountSvg";
 
 function AccountSidebar(props) {
   return (
@@ -21,63 +28,63 @@ function AccountSidebar(props) {
             </div>
           </div>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Thông tin tài khoản</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Notification />
             <span>Thông báo của tôi</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <OrderManagement />
             <span>Quản lý đơn hàng</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Address />
             <span>Số địa chỉ</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <BillingInformation />
             <span>Thông tin thanh toán</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Nhận xét sản phẩm đã mua</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Sản phẩm bạn đã xem</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Sản phẩm yêu thích</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Sản phẩm mua sau</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Nhận xét của tôi</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Hỏi đáp</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Thông tin TikiNOW</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Mã giảm giá</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>Quản lý Tiki Xu của tôi</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <AccountSvg />
+            <Information />
             <span>BookCare của tôi</span>
           </a>
         </div>
