@@ -32,7 +32,7 @@
   width: 985px;
   min-height: 500px;
   background-color: white;
-  border-radius: 30px;
+  /* border-radius: 30px; */
 }
 
 .order_side .side_title {
@@ -45,13 +45,10 @@
   font-size: 15px;
 }
 
-.order_side .row:hover th,
-.order_side .row:hover td,
+.order_side .row:hover .side_content,
 .order_side .row:hover .side_id {
   background-color: #009dff;
   color: white;
-
-  border-radius: 30px;
 }
 
 .order_side .side_id {
