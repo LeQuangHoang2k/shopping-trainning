@@ -44,3 +44,11 @@
   color: dimgray;
   /* font-weight: bold; */
 }
+
+.account_sidebar .sidebar_icon {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+
+  margin: 0 22px 0 18px;
+}

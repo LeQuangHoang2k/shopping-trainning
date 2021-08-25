@@ -1,12 +1,17 @@
 import React from "react";
 import "./AccountSidebar.css";
-// import Information from "./svg/Information";
 import {
   Address,
   BillingInformation,
+  BuyLater,
+  FavoriteProducts,
   Information,
+  MyComment,
   Notification,
   OrderManagement,
+  Question,
+  ReviewOrders,
+  ViewedProducts,
 } from "./svg/AccountSvg";
 
 function AccountSidebar(props) {
@@ -29,63 +34,78 @@ function AccountSidebar(props) {
           </div>
           <a href="/orders" className="sidebar_item">
             <Information />
-            <span>Thông tin tài khoản</span>
+            <span>Account information</span>
           </a>
           <a href="/orders" className="sidebar_item">
             <Notification />
-            <span>Thông báo của tôi</span>
+            <span>Notification</span>
           </a>
           <a href="/orders" className="sidebar_item">
             <OrderManagement />
-            <span>Quản lý đơn hàng</span>
+            <span>Order Management</span>
           </a>
           <a href="/orders" className="sidebar_item">
             <Address />
-            <span>Số địa chỉ</span>
+            <span>Address</span>
           </a>
           <a href="/orders" className="sidebar_item">
             <BillingInformation />
-            <span>Thông tin thanh toán</span>
+            <span>Billing information</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>Nhận xét sản phẩm đã mua</span>
+            <img
+              class="sidebar_icon"
+              src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/review-2.svg"
+            />
+            <span>Review orders</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>Sản phẩm bạn đã xem</span>
+            <ViewedProducts />
+            <span>Viewed Products</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>Sản phẩm yêu thích</span>
+            <FavoriteProducts />
+            <span>Favorite products</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>Sản phẩm mua sau</span>
+            <BuyLater />
+            <span>Buy later</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>Nhận xét của tôi</span>
+            <MyComment />
+            <span>My comnent</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>Hỏi đáp</span>
+            <Question />
+            <span>Q & A</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
+            <img
+              class="sidebar_icon"
+              src="https://salt.tikicdn.com/ts/upload/5b/70/af/ac0eacaa8ec6738ac474f7bbe767bd75.png"
+            />
             <span>Thông tin TikiNOW</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
+            <img
+              class="sidebar_icon"
+              src="https://frontend.tikicdn.com/_desktop-next/static/img/mycoupon/coupon_code.svg"
+            />
             <span>Mã giảm giá</span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>Quản lý Tiki Xu của tôi</span>
+            <img
+              class="sidebar_icon"
+              srcset="https://salt.tikicdn.com/ts/upload/b5/33/14/09096979a40d25a2ad3976e3809ceb78.png 2x, https://salt.tikicdn.com/ts/upload/4a/d4/da/77fe4fd0c771088f7794ba3ce66782eb.png 1x"
+            />
+            <span>Coin managent </span>
           </a>
           <a href="/orders" className="sidebar_item">
-            <Information />
-            <span>BookCare của tôi</span>
+            <img
+              class="sidebar_icon"
+              src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/bookcare.svg"
+            />
+            <span>My BookCare</span>
           </a>
         </div>
       </div>
