@@ -1,0 +1,182 @@
+.search_side .search_wrapper {
+  width: 720px;
+  height: 100px;
+  /* background-color: blue; */
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  font-family: "Helvetica";
+}
+
+.search_side .search_frame {
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search_side .search_label {
+  position: absolute;
+  margin: auto;
+  z-index: 3;
+
+  color: silver;
+  font-weight: bold;
+}
+
+.search_input:focus + .search_label::after {
+  content: "";
+  display: none;
+}
+
+.search_side .search_label::after {
+  content: "";
+
+  animation: search_product;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+@keyframes search_product {
+  0% {
+    content: "S";
+  }
+
+  1% {
+    content: "Se";
+  }
+
+  2% {
+    content: "Sel";
+  }
+
+  3% {
+    content: "Sele";
+  }
+
+  4% {
+    content: "Selec";
+  }
+
+  5% {
+    content: "Select";
+  }
+
+  6% {
+    content: "Select p";
+  }
+
+  7% {
+    content: "Select pr";
+  }
+
+  8% {
+    content: "Select pro";
+  }
+
+  9% {
+    content: "Select prod";
+  }
+
+  10% {
+    content: "Select produ";
+  }
+
+  11% {
+    content: "Select produc";
+  }
+
+  12% {
+    content: "Select product";
+  }
+
+  13% {
+    content: "Select product n";
+  }
+
+  14% {
+    content: "Select product na";
+  }
+
+  15% {
+    content: "Select product nam";
+  }
+
+  16% {
+    content: "Select product name";
+  }
+
+  17% {
+    content: "Select product name h";
+  }
+
+  18% {
+    content: "Select product name he";
+  }
+
+  19% {
+    content: "Select product name her";
+  }
+
+  20% {
+    content: "Select product name here.";
+  }
+
+  20% {
+    content: "Select product name here..";
+  }
+
+  20% {
+    content: "Select product name here...";
+  }
+
+  100% {
+    content: "Select product name here...";
+  }
+}
+
+.search_side .search_input {
+  width: 720px;
+  height: 40px;
+
+  border-color: transparent;
+  border-radius: 20px;
+
+  text-align: center;
+  letter-spacing: 3px;
+
+  color: silver;
+  font-weight: bold;
+}
+
+.search_side .search_input:focus {
+  outline: 0;
+}
+
+.search_side .search_button {
+  width: 50px;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 20px;
+  border: none;
+
+  position: absolute;
+  right: 0;
+  z-index: 2;
+
+  /* color: red; */
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.search_side .search_icon {
+  width: 25px;
+  height: 25px;
+}

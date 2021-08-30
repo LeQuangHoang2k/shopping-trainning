@@ -1,0 +1,57 @@
+{
+    "1": {
+        "user_id": 1,
+        "address": null,
+        "phone": null,
+        "tax": 10,
+        "total_price": 85500000.45,
+        "discount_id": null,
+        "record_code": {},
+        "orderList": [
+            {
+                "item": {
+                    "count": 5,
+                    "name": "iphone 12 hàng chính hãng",
+                    "optionName": "ram",
+                    "optionValue": "64gb",
+                    "option_id": 1,
+                    "picture": "https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png",
+                    "price": "19000000.100",
+                    "product_id": 1
+                }
+            }
+        ]
+    },
+
+    "2": {
+        "user_id": 1,
+        "address": null,
+        "phone": null,
+        "tax": 10,
+        "total_price": 85500000.45,
+        "discount_id": 5,
+        "record_code": {
+            "code": "rc4JWWzvrB",
+            "created_at": "2021-08-16T04:11:05.000000Z",
+            "expired_at": "2021-08-30 23:59:59",
+            "id": 5,
+            "is_used": 0,
+            "price": "1000000.000",
+            "product_id": 3
+        },
+        "orderList": [
+            {
+                "item": {
+                    "count": 5,
+                    "name": "iphone 12 hàng chính hãng",
+                    "optionName": "ram",
+                    "optionValue": "64gb",
+                    "option_id": 1,
+                    "picture": "https://cdn.tgdd.vn/Products/Images/42/213031/iphone-12-den-200x200.png",
+                    "price": "19000000.100",
+                    "product_id": 1
+                }
+            }
+        ]
+    }
+}

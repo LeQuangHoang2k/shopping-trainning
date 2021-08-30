@@ -1,0 +1,10 @@
+.layout_wrapper {
+  width: 1250px;
+  height: fit-content;
+  /* background-color: white; */
+
+  position: relative;
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

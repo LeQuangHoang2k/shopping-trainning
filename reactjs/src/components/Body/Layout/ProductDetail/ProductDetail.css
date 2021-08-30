@@ -1,0 +1,255 @@
+.productDetail_left {
+  width: 500px;
+  height: 700px;
+  background-color: white;
+  box-shadow: 2px 0 2px -2px silver;
+
+  position: relative;
+  z-index: 5px;
+
+  float: left;
+}
+
+.productDetail_left_main {
+  width: 500px;
+  height: 480px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.productDetail_left_image {
+  width: 444px;
+  height: 444px;
+
+  margin-top: 30px;
+  margin: auto;
+  object-fit: cover;
+}
+
+.productDetail_left_list {
+  width: 444px;
+  height: 80px;
+  /* box-shadow: 0 0 10px red; */
+
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.productDetail_sub_image {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.productDetail_sub_image:hover {
+  cursor: pointer;
+}
+
+/* ///////////////////////////////// */
+.productDetail_right {
+  width: 750px;
+  height: 700px;
+  background-color: white;
+
+  float: right;
+}
+
+.productDetail_right_title {
+  width: 615px;
+  height: 35px;
+
+  margin-top: 30px;
+  margin-left: 20px;
+
+  font-size: 24px;
+}
+
+.productDetail_right_price {
+  width: 615px;
+  height: 40px;
+  /* background-color: red; */
+
+  position: relative;
+  margin-top: 15px;
+  margin-left: 20px;
+
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* ///////////////////////////////////////////////////// */
+
+.productDetail_right_color {
+  width: 500px;
+  height: 70px;
+
+  margin-top: 15px;
+  margin-left: 20px;
+
+  /* font-size: 32px;
+    font-weight: bold; */
+}
+
+.option_color {
+  width: 150px;
+  height: 70px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 10px;
+
+  position: relative;
+  margin-top: 20px;
+  margin-right: 20px;
+  float: left;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.option_color:active {
+  background-color: rgb(1, 127, 255);
+}
+
+.option_picture {
+  width: 66px;
+  height: 66px;
+
+  margin-left: 3px;
+  margin-right: 5px;
+}
+
+.option_text {
+  font-weight: bold;
+}
+
+/* ///////////////////////////////////////////////////// */
+
+.productDetail_right_ram {
+  width: 500px; /* 85px */
+  height: 40px;
+  /* background-color: red; */
+
+  position: relative;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.option_ram {
+  width: 85px;
+  height: 40px;
+  background-color: rgb(242, 242, 242);
+  border: none;
+  border-radius: 5px;
+
+  position: relative;
+  margin-right: 15px;
+
+  font-weight: bold;
+}
+
+/* .option_ram:first-child {
+    background-color: rgb(1, 127, 255);
+
+    color: white;
+} */
+
+.option_ram.active {
+  background-color: rgb(1, 127, 255);
+
+  color: white;
+}
+
+/* ///////////////////////////////////////////////////// */
+.option_amount_title {
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.option_amount {
+  width: 100px;
+  height: 30px;
+
+  position: relative;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.option_count,
+.option_increase,
+.option_decrease {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border: 1px solid silver;
+
+  font-weight: bold;
+  color: gray;
+}
+
+.option_count:active,
+.option_increase:active,
+.option_decrease:active {
+  box-shadow: 0 0 2px 2px rgb(1, 127, 255);
+}
+
+/* ///////////////////////////////////////////////////// */
+
+.option_choose {
+  width: 240px;
+  height: 50px;
+  background-color: #ff3945;
+  border: none;
+  border-radius: 5px;
+
+  position: relative;
+  margin-top: 15px;
+  margin-left: 20px;
+
+  color: white;
+  font-weight: bold;
+}
+
+.productDetail_description {
+  width: 100%;
+  height: 270px;
+  /* background-color: gray; */
+
+  padding-top: 10px;
+  padding-left: 20px;
+}
+
+.productDetail_text {
+  white-space: nowrap;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  color: black;
+
+  -webkit-line-clamp: 11;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+/* .productDetail_wrapper {
+    width: 250px;
+    height: 330px;
+    background-color: white;
+    /* 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    padding: 12px 16px;
+    float: left; 
+} */

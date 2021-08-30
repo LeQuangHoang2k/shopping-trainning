@@ -1,0 +1,66 @@
+.cart_navbar_wrapper {
+  width: 100px;
+  height: 100px;
+  /* background-color: red; */
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.cart_navbar_image {
+  width: 32px;
+  height: 32px;
+}
+
+.cart_navbar_infor {
+  width: 32px;
+  height: 40px;
+
+  position: relative;
+  margin-left: 5px;
+}
+
+.cart_navbar_box {
+  width: 30px;
+  height: 20px;
+
+  margin-left: -2px;
+
+  text-align: center;
+  font-size: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart_navbar_amount {
+  width: 30px;
+  height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  /* border: 3px solid blue; */
+
+  padding-top: 1px;
+
+  color: #009dff;
+  font-size: 13px;
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+
+.cart_navbar_title {
+  width: 30px;
+  height: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

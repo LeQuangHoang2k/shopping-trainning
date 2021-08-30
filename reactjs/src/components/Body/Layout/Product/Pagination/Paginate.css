@@ -1,0 +1,10 @@
+.paginate_wrapper {
+  width: 1250px;
+  height: 40px;
+  background-color: white;
+  
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+}

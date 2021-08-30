@@ -1,0 +1,54 @@
+.account_sidebar .wrapper {
+  width: 250px;
+  /* height: 1200px; */
+  /* background-color: black; */
+
+  /* box-shadow: 0 0 5px 5px blue; */
+
+  font-family: "Helvetica";
+}
+
+.account_sidebar .sidebar_header {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.account_sidebar .sidebar_image {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+
+  margin: 0 12px 0 7px;
+}
+
+.account_sidebar .sidebar_item {
+  width: 250px;
+  height: 38px;
+  background-color: transparent;
+
+  display: flex;
+  align-items: center;
+
+  color: rgb(155, 155, 155);
+  font-size: 13px;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.account_sidebar .sidebar_item:hover {
+  background-color: rgb(236, 236, 236);
+
+  color: dimgray;
+  /* font-weight: bold; */
+}
+
+.account_sidebar .sidebar_icon {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+
+  margin: 0 22px 0 18px;
+}

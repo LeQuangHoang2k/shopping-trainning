@@ -1,0 +1,11 @@
+product:
+-slug
+
+user:
+-forget pwd
+
+db:
+
+setup
+-cors
+

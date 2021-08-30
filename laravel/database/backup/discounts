@@ -1,0 +1,15 @@
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(1,"dX6DjaXRJX",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(1,"dqRNC4TnU3",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(2,"dM4JvNbPug",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(2,"4EQ232tx3X",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(3,"rc4JWWzvrB",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(3,"cRYKcyFk5T",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(4,"S5KkqgVZbV",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(4,"ifYFVZdhdr",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(5,"ENjuLdidTG",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(5,"WhfRBBigvA",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(6,"xdDocxofkn",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+insert into discounts (product_id,code,price,is_used,expired_at,created_at) values(6,"wSLGQphku8",1000000,false,"2021-08-30 23:59:59","2021-08-16 04:11:05");
+
+2021-08-16 04:11:05
+2021-08-30 23:59:59
