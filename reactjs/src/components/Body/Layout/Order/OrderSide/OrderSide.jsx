@@ -3,13 +3,19 @@ import "./OrderSide.css";
 import axios from "axios";
 
 function OrderSide(props) {
-  useEffect(()=>{
-    getAllOrder()
-  },[])
+  useEffect(() => {
+    getAllOrder();
+  }, []);
 
-  const getAllOrder= async () =>{
-    // const res= axios.get("http://localhost:8000/orders")
-  }
+  const getAllOrder = async () => {
+    const config = {
+      header: {
+        Authorization: `Bearer`,
+      },
+    };
+
+    // const res = axios.get("http://localhost:8000/orders", config);
+  };
 
   return (
     <div className="order_side">
@@ -32,7 +38,9 @@ function OrderSide(props) {
                 style={{ padding: "0", margin: "0" }}
               >
                 <td className="col-2 side_content">
-                  <a className="side_id" href="/orders">#414100606</a>
+                  <a className="side_id" href="/orders">
+                    #414100606
+                  </a>
                 </td>
                 <td className="col-2 side_content">19/08/2021</td>
                 <td className="col-4 side_content">
