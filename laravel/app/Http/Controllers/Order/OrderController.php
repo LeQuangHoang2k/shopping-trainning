@@ -12,7 +12,7 @@ use App\Http\Resources\OrderResource;
 use App\Repositories\DiscountRepository;
 use App\Repositories\OrderDetailRepository;
 use App\Repositories\OrderRepository;
-
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class OrderController extends Controller
 {
@@ -34,7 +34,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        dd(345);
     }
 
     /**
@@ -135,3 +135,6 @@ class OrderController extends Controller
         //
     }
 }
+
+// dd(JWTAuth::parseToken()->authenticate($request["token"]));
+// dd(JWTAuth::parseToken()->authenticate());

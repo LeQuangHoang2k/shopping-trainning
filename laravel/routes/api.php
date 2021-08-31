@@ -37,7 +37,9 @@ Route::post('login-facebook', [ThirdPartyController::class, 'loginFacebook']);
 Route::post('login-google', [ThirdPartyController::class, 'loginGoogle']);
 
 Route::resource('products', ProductController::class);
-Route::resource('orders', OrderController::class);
+
+Route::resource('orders', OrderController::class)->middleware("auth:api");
+// Route::resource('orders', OrderController::class);
 Route::resource('discounts', DiscountController::class);
 
 Route::get('/test',  [AuthController::class, 'test']);
