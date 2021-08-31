@@ -10,11 +10,13 @@ function OrderSide(props) {
   // const { access_token, user, token_type } = cookies;
   const access_token = cookies.get("access_token");
   const token_type = cookies.get("token_type");
+  const user = cookies.get("user");
 
   useEffect(() => {
     getAllOrder();
     Log({ access_token });
     Log({ token_type });
+    Log({ user_id: user.id });
   }, []);
 
   const getAllOrder = async () => {
@@ -24,7 +26,16 @@ function OrderSide(props) {
       },
     };
 
-    const res = await axios.get("http://localhost:8000/api/orders", config);
+    const bodyParams = {
+      user_id: user.id,
+    };
+
+    const res = await axios.get(
+      "http://localhost:8000/api/orders",
+      config,
+      bodyParams
+    );
+
     Log({ res });
   };
 

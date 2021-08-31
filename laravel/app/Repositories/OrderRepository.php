@@ -6,15 +6,9 @@ use App\Models\Order\Order;
 
 class OrderRepository
 {
-    public $discountRepository;
-
-    public function __construct(DiscountRepository $discountRepository = null)
-    {
-        $this->discountRepository = $discountRepository;
-    }
-
     public function getAll()
     {
+        return [];
     }
 
     public function find($id)

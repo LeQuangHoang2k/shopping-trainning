@@ -13,7 +13,7 @@ function LoginModal(props) {
   const [password, setPassword] = useState("");
   const cookies = new Cookies();
 
-  var formData = {
+  var bodyParams = {
     email,
     password,
   };
@@ -38,7 +38,7 @@ function LoginModal(props) {
 
       const res = await axios.post(
         "http://localhost:8000/api/login",
-        formData
+        bodyParams
         // config
       );
       console.log("php: ", res);
@@ -63,7 +63,7 @@ function LoginModal(props) {
   };
 
   const checkRequest = () => {
-    console.log(formData);
+    console.log(bodyParams);
 
     if (!email || email.length < 5)
       return Alert({ warning: "Email not valid" });
