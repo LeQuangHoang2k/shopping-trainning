@@ -7,7 +7,9 @@ import { Log } from "../../../../../features/Log";
 function OrderSide(props) {
   const cookies = new Cookies();
 
-  const { access_token, user, token_type } = cookies;
+  // const { access_token, user, token_type } = cookies;
+  const access_token = cookies.get("access_token");
+  const token_type = cookies.get("token_type");
 
   useEffect(() => {
     getAllOrder();
@@ -17,12 +19,13 @@ function OrderSide(props) {
 
   const getAllOrder = async () => {
     const config = {
-      header: {
-        Authorization: `Bearer`,
+      headers: {
+        Authorization: `${token_type} ${access_token}`,
       },
     };
 
-    // const res = axios.get("http://localhost:8000/orders", config);
+    const res = await axios.get("http://localhost:8000/api/orders", config);
+    Log({ res });
   };
 
   return (

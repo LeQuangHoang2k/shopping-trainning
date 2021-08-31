@@ -34,7 +34,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        dd(345);
+        return [
+            "data" => "1234"
+        ];
     }
 
     /**

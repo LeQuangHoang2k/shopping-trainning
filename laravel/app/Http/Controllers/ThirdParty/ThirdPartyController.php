@@ -172,7 +172,7 @@ class ThirdPartyController extends Controller
 
     public function generateToken($user)
     {
-        if (!$token = JWTAuth::fromUser($user)) {
+        if (!$token = JWTAuth::fromUser($user, ['exp' => Carbon::now()->addDays(7)->timestamp])) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
