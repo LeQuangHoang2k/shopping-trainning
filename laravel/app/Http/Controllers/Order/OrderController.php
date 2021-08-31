@@ -62,6 +62,8 @@ class OrderController extends Controller
         $request->validated();
         $filters = request()->all();
 
+        // dd(JWTAuth::parseToken()->authenticate());
+
         $updateUsedCode = null;
 
         if ($haveRecord = $this->discountRepository->haveRecord($filters)) {
