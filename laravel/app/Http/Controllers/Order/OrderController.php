@@ -12,7 +12,9 @@ use App\Http\Resources\OrderResource;
 use App\Repositories\DiscountRepository;
 use App\Repositories\OrderDetailRepository;
 use App\Repositories\OrderRepository;
+use Tymon\JWTAuth\Contracts\Providers\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Token;
 
 class OrderController extends Controller
 {
@@ -37,7 +39,14 @@ class OrderController extends Controller
         return [
             "message" => "success",
             "order" => OrderResource::collection($this->orderRepository->getAll()),
-            "request" => $request->user_id
+            "request" => $request->user_id,
+            "header" => $sub_string = $request->header('Authorization'),
+            "sub_header" => $sub_header = explode(" ", $sub_string)[1],
+            "first_path" => $first_path = explode(".", $sub_header)[1],
+            "base64_parse" => $base64_parse = base64_decode($first_path),
+            "json_parse" => $json_parse = json_decode($base64_parse, true),
+            "sub" => $jti = $json_parse['sub'],
+            // "user" => $user = Auth::user()
         ];
     }
 

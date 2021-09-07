@@ -8,8 +8,10 @@ use App\Http\Requests\Auth\LogoutRequest;
 use App\Http\Requests\LoginFacebookRequest;
 use App\Http\Requests\LoginGoogleRequest;
 use App\Http\Resources\UserResource;
+use App\Models\User\User;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
@@ -25,7 +27,19 @@ class AuthController extends Controller
     public function login(LoginRequest $request)
     {
         $credentials = $request->validated();
-        if (!$token = JWTAuth::attempt($credentials)) {
+
+        $user = User::where([
+            'email' => $credentials['email'],
+        ])->get();
+
+        $dataUser = null;
+        foreach ($user as $item) {
+            if (strlen($item['password']) === 60) {
+                $dataUser = $item;
+            }
+        }
+        
+        if (!$token = JWTAuth::fromUser($dataUser, ['exp' => Carbon::now()->addDays(7)->timestamp])) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
