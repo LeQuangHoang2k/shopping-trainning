@@ -23,6 +23,7 @@ class OrderDetailResource extends JsonResource
             'product_option_id' => $this->product_option_id,
             'price_per_unit' => $this->price_per_unit,
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y'),
+            'products' => ProductResource::collection($this->products)[0]
         ];
     }
 }

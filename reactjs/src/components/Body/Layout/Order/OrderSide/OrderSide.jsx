@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import "./OrderSide.css";
 import axios from "axios";
@@ -51,7 +49,10 @@ function OrderSide(props) {
         <div className="side_header">My order</div>
         <table className="side_inner">
           <thead>
-            <tr className="row row col-12" style={{ padding: "0", margin: "0" }}>
+            <tr
+              className="row row col-12"
+              style={{ padding: "0", margin: "0" }}
+            >
               <th className="col-2 side_title">Mã đơn hàng</th>
               <th className="col-2 side_title">Ngày mua</th>
               <th className="col-4 side_title">Sản phẩm</th>
@@ -67,7 +68,10 @@ function OrderSide(props) {
                 className="row"
                 style={{ padding: "0", margin: "0" }}
               >
-                <tr className="row col-12" style={{ padding: "0", margin: "0" }}>
+                <tr
+                  className="row col-12"
+                  style={{ padding: "0", margin: "0" }}
+                >
                   <td className="col-2 side_content">
                     <a className="side_id" href="/orders">
                       {item.id}
@@ -75,8 +79,9 @@ function OrderSide(props) {
                   </td>
                   <td className="col-2 side_content">{item.created_at}</td>
                   <td className="col-4 side_content">
-                    Sữa Rửa Mặt Cetaphil Gentle Skin Cleaner (500ml) -
-                    8394107341305,9318637069637
+                    {item.orderDetails && item.orderDetails.products
+                      ? item.orderDetails.products.name
+                      : "123"}
                   </td>
                   <td className="col-2 side_content">{item.total_price} VND</td>
                   <td className="col-2 side_content">Bàn giao vận chuyển</td>
