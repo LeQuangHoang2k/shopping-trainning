@@ -17,7 +17,8 @@ class Order extends Model
         "phone",
         "discount_id",
         "tax",
-        "total_price"
+        "total_price",
+        "created_at"
     ];
 
     public function users()

@@ -144,7 +144,7 @@ class OrderController extends Controller
         //
     }
 
-    public function getId($request)
+    public function getIdFromHeader($request)
     {
         $sub_string = $request->header('Authorization');
         $sub_header = explode(" ", $sub_string)[1];

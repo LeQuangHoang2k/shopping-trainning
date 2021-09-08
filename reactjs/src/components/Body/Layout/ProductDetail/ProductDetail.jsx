@@ -181,7 +181,7 @@ function ProductDetail(props) {
         <div className="productDetail_left_main">
           <img src={picture} className="productDetail_left_image" alt="Image" />
         </div>
-        <div className="productDetail_left_list">
+        {/* <div className="productDetail_left_list">
           {pictures.map((item) => {
             return (
               <img
@@ -193,7 +193,7 @@ function ProductDetail(props) {
               />
             );
           })}
-        </div>
+        </div> */}
       </div>
       <div className="productDetail_right">
         <div className="productDetail_right_title">

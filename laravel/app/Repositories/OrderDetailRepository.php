@@ -8,7 +8,7 @@ class OrderDetailRepository
 {
     public function getAll()
     {
-        print_r("get all");
+        dd("get all");
     }
 
     public function find($id)
