@@ -43,6 +43,10 @@ function OrderSide(props) {
     setOrderList(res.data.order);
   };
 
+  const viewDetail = (id) => {
+    window.location.href = `orders/${id}`;
+  };
+
   return (
     <div className="order_side">
       <div className="wrapper">
@@ -64,6 +68,7 @@ function OrderSide(props) {
           {orderList.map((item) => {
             return (
               <tbody
+                onClick={() => viewDetail(item.id)}
                 key={item.id}
                 className="row"
                 style={{ padding: "0", margin: "0" }}
@@ -73,7 +78,11 @@ function OrderSide(props) {
                   style={{ padding: "0", margin: "0" }}
                 >
                   <td className="col-4 side_content">
-                    <a className="side_id" href="/orders">
+                    <a
+                      href={`orders/${item.id}`}
+                      className="side_id"
+                      // href="/orders"
+                    >
                       {item.id}
                     </a>
                   </td>
