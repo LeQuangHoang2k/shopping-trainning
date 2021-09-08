@@ -53,11 +53,11 @@ function OrderSide(props) {
               className="row row col-12"
               style={{ padding: "0", margin: "0" }}
             >
-              <th className="col-2 side_title">Mã đơn hàng</th>
-              <th className="col-2 side_title">Ngày mua</th>
-              <th className="col-4 side_title">Sản phẩm</th>
-              <th className="col-2 side_title">Tổng tiền</th>
-              <th className="col-2 side_title">Trạng thái đơn hàng</th>
+              <th className="col-4 side_title">Mã đơn hàng</th>
+              <th className="col-4 side_title">Ngày mua</th>
+              <th className="col-4 side_title">Tổng tiền</th>
+              {/* <th className="col-3 side_title">Sản phẩm</th> */}
+              {/* <th className="col-2 side_title">Trạng thái đơn hàng</th> */}
             </tr>
           </thead>
 
@@ -72,19 +72,19 @@ function OrderSide(props) {
                   className="row col-12"
                   style={{ padding: "0", margin: "0" }}
                 >
-                  <td className="col-2 side_content">
+                  <td className="col-4 side_content">
                     <a className="side_id" href="/orders">
                       {item.id}
                     </a>
                   </td>
-                  <td className="col-2 side_content">{item.created_at}</td>
-                  <td className="col-4 side_content">
+                  <td className="col-4 side_content">{item.created_at}</td>
+                  {/* <td className="col-3 side_content">
                     {item.orderDetails && item.orderDetails.products
                       ? item.orderDetails.products.name
                       : "123"}
-                  </td>
-                  <td className="col-2 side_content">{item.total_price} VND</td>
-                  <td className="col-2 side_content">Bàn giao vận chuyển</td>
+                  </td> */}
+                  <td className="col-4 side_content">{item.total_price} VND</td>
+                  {/* <td className="col-2 side_content">Bàn giao vận chuyển</td> */}
                 </tr>
               </tbody>
             );
