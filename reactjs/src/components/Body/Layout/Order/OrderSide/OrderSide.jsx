@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from "react";
 import "./OrderSide.css";
 import axios from "axios";
@@ -6,6 +8,8 @@ import { Log } from "../../../../../features/Log";
 
 function OrderSide(props) {
   const cookies = new Cookies();
+
+  const [orderList, setOrderList] = useState([]);
 
   // const { access_token, user, token_type } = cookies;
   const access_token = cookies.get("access_token");
@@ -37,6 +41,8 @@ function OrderSide(props) {
     );
 
     Log({ res });
+    console.log(res.data.order);
+    setOrderList(res.data.order);
   };
 
   return (
@@ -45,7 +51,7 @@ function OrderSide(props) {
         <div className="side_header">My order</div>
         <table className="side_inner">
           <thead>
-            <tr className="row" style={{ padding: "0", margin: "0" }}>
+            <tr className="row row col-12" style={{ padding: "0", margin: "0" }}>
               <th className="col-2 side_title">Mã đơn hàng</th>
               <th className="col-2 side_title">Ngày mua</th>
               <th className="col-4 side_title">Sản phẩm</th>
@@ -54,25 +60,25 @@ function OrderSide(props) {
             </tr>
           </thead>
 
-          {[1, 2, 3, 4, 5, 6].map((key) => {
+          {orderList.map((item) => {
             return (
               <tbody
-                key={key}
+                key={item.id}
                 className="row"
                 style={{ padding: "0", margin: "0" }}
               >
-                <tr className="row" style={{ padding: "0", margin: "0" }}>
+                <tr className="row col-12" style={{ padding: "0", margin: "0" }}>
                   <td className="col-2 side_content">
                     <a className="side_id" href="/orders">
-                      #414100606
+                      {item.id}
                     </a>
                   </td>
-                  <td className="col-2 side_content">19/08/2021</td>
+                  <td className="col-2 side_content">{item.created_at}</td>
                   <td className="col-4 side_content">
                     Sữa Rửa Mặt Cetaphil Gentle Skin Cleaner (500ml) -
                     8394107341305,9318637069637
                   </td>
-                  <td className="col-2 side_content">306.850 VND</td>
+                  <td className="col-2 side_content">{item.total_price} VND</td>
                   <td className="col-2 side_content">Bàn giao vận chuyển</td>
                 </tr>
               </tbody>
