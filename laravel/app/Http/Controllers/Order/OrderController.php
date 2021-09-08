@@ -36,17 +36,11 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
+        $user_id = $this->getIdFromHeader($request);
+
         return [
             "message" => "success",
-            "order" => OrderResource::collection($this->orderRepository->getAll()),
-            "request" => $request->user_id,
-            "header" => $sub_string = $request->header('Authorization'),
-            "sub_header" => $sub_header = explode(" ", $sub_string)[1],
-            "first_path" => $first_path = explode(".", $sub_header)[1],
-            "base64_parse" => $base64_parse = base64_decode($first_path),
-            "json_parse" => $json_parse = json_decode($base64_parse, true),
-            "sub" => $jti = $json_parse['sub'],
-            // "user" => $user = Auth::user()
+            "order" => OrderResource::collection($this->orderRepository->getAll($user_id)),
         ];
     }
 
@@ -148,6 +142,17 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function getId($request)
+    {
+        $sub_string = $request->header('Authorization');
+        $sub_header = explode(" ", $sub_string)[1];
+        $first_path = explode(".", $sub_header)[1];
+        $base64_parse = base64_decode($first_path);
+        $json_parse = json_decode($base64_parse, true);
+        $user_id = $json_parse['sub'];
+        return $user_id;
     }
 }
 
