@@ -1,5 +1,5 @@
 import React from "react";
-import AccountSidebar from "./AccountSidebar/AccountSidebar";
+import AccountSidebar from "./AccountSideBar/AccountSideBar";
 import "./Order.css";
 import OrderSide from "./OrderSide/OrderSide";
 
