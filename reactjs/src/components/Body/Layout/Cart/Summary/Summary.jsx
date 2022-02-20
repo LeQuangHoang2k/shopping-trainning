@@ -89,7 +89,7 @@ function Summary(props) {
         `http://localhost:8000/api/discounts?code=${value}`
       );
       const { data } = res.data;
-      console.log("code record: ", data[0]);
+      console.log("code record: ", res.data, data[0]);
       setRecordCode(data[0]);
       setDiscountPrice(parseFloat(data[0].price));
       console.log(data[0].price, parseFloat(data[0].price));

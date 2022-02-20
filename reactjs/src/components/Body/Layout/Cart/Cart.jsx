@@ -50,7 +50,10 @@ function Cart(props) {
     }
 
     const { order } = await onPurchaseHandle();
-    if (!order) return false;
+    if (order === "error") {
+      Alert({ warning: "ko hỉu" });
+      return false;
+    }
     await updateCart();
 
     Alert({ success: "Purchase success!" });
@@ -65,7 +68,8 @@ function Cart(props) {
       address: cookies.get("user").address,
       phone: cookies.get("user").phone,
       tax,
-      discount_id: Object.keys(recordCode).length > 0 ? recordCode.id : null,
+      discount_id:
+        recordCode && Object.keys(recordCode).length > 0 ? recordCode.id : null,
       total_price: totalPrice,
       orderList,
       record_code: recordCode,
@@ -89,11 +93,13 @@ function Cart(props) {
       Log({ res });
 
       console.log("access_token", cookies.get("access_token"));
-      console.log("abc", res.data.order);
+      console.log("abc", res.data, res.data.order);
       return { order: res.data.order };
     } catch (error) {
-      console.log(error.response.data);
-      return false;
+      if (error && error.response) {
+        console.log(error.response.data);
+      }
+      return { order: "error" };
     }
   };
 

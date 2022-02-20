@@ -1,5 +1,5 @@
 import React from "react";
-import "./AccountSidebar.css";
+import "./AccountSideBar.css";
 import {
   Address,
   BillingInformation,

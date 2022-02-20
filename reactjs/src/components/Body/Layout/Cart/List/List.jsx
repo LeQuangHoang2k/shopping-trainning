@@ -191,7 +191,7 @@ function List(props) {
         </button>
         &nbsp;
         <span className="text-muted" style={{ cursor: "pointer" }}>
-          Back to shop
+          Back to detail
         </span>
       </div>
     </div>

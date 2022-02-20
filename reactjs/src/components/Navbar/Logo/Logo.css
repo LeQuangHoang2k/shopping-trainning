@@ -1,0 +1,27 @@
+.logo_home {
+    width: 100px;
+    height: 100px;
+    /* border-radius: 50%; */
+
+    position: relative;
+
+    /* display: block; */
+    /* align-self: flex-end; */
+    /* margin-top: 4px;
+    margin-left: 20px; */
+
+    cursor: pointer;
+}
+
+.logo_frame {
+    width: 100px;
+    height: 100px;
+    /* background-color: green; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    left: 100px;
+}
