@@ -51,7 +51,7 @@ function Cart(props) {
 
     const { order } = await onPurchaseHandle();
     if (order === "error") {
-      Alert({ warning: "ko hỉu" });
+      Alert({ warning: "Product is missing image's options in database" });
       return false;
     }
     await updateCart();
